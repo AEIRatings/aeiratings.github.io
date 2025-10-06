@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>AEIRatings — Adjusted Elo Ratings</title>
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<main class="container">
+<header class="site-header">
+<h1>AEIRatings<span class="muted"> — Adjusted Elo Ratings</span></h1>
+<p class="tag">Public Elo rankings for college & pro sports. Data is maintained via CSV files in <code>/data/</code>.</p>
+</header>
+
+
+<section class="grid">
+<a class="card" href="/leagues/nfl.html"><h2>NFL</h2><p>National Football League</p></a>
+<a class="card" href="/leagues/college_football.html"><h2>College Football</h2><p>FBS &amp; major independents</p></a>
+<a class="card" href="/leagues/mens_college_basketball.html"><h2>Men's College Basketball</h2></a>
+<a class="card" href="/leagues/womens_college_basketball.html"><h2>Women's College Basketball</h2></a>
+<a class="card" href="/leagues/nba.html"><h2>NBA</h2><p>National Basketball Association</p></a>
+<a class="card" href="/leagues/nhl.html"><h2>NHL</h2><p>National Hockey League</p></a>
+</section>
+
+
+<section class="howto card">
+<h3>How to update rankings</h3>
+<ol>
+<li>Edit the appropriate CSV in <code>/data/</code> (e.g. <code>nba.csv</code>).</li>
+<li>CSV must include a header row with at least <code>Team,Elo</code>.</li>
+<li>Commit &amp; push to GitHub — GitHub Pages will serve the updated file.</li>
+</ol>
+<p class="muted">Tip: keep Elo values numeric (e.g. 1523). Optional columns (Wins, Losses) will appear if provided.</p>
+</section>
+
+
+<footer class="foot muted">© AEIRatings • Adjusted Elo Ratings — Hosted on GitHub Pages</footer>
+</main>
+<script src="/assets/script.js"></script>
+</body>
+</html>
