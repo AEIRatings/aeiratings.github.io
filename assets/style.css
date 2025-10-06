@@ -55,11 +55,17 @@ body{
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.08);
 }
-.card:hover{
+
+/* * MODIFICATION HERE:
+* The lift effect is now scoped to anchor tags (.card) directly inside the .grid 
+* on the index.html page. This prevents the .howto card from lifting.
+*/
+.grid a.card:hover{
     transform: translateY(-3px); /* Subtle lift on hover */
     box-shadow:0 15px 40px rgba(0,0,0,0.4);
     border-color: var(--accent);
 }
+
 .card h2{
     margin:0;
     color: var(--accent); /* Apply accent color to main heading */
@@ -68,6 +74,7 @@ body{
 .card p{margin:6px 0 0 0;color:var(--muted);font-size:15px;}
 
 /* How-to Section (also uses .card) */
+/* The .howto card will not lift on hover because it is a section, not an <a> tag inside .grid */
 .howto h3 {
     margin-top: 0;
     color: var(--text-primary);
