@@ -1,24 +1,185 @@
-```css
-:root{--bg:#0f1724;--card:#071428;--muted:#9fb0c8;--accent:#60a5fa;--glass:rgba(255,255,255,0.03);--card-pad:14px}
-*{box-sizing:border-box;font-family:Inter, system-ui, -apple-system, Roboto, 'Segoe UI', Arial}
-body{margin:0;background:linear-gradient(180deg,#071026 0%, #071428 100%);color:#e6f0fb;min-height:100vh}
-.container{max-width:980px;margin:28px auto;padding:0 18px}
-.site-header{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
-.site-header h1{margin:0;font-size:22px}
-.muted{color:var(--muted)}
-.tag{font-size:14px;margin-top:4px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
-.card{background:var(--card);padding:var(--card-pad);border-radius:10px;box-shadow:0 8px 28px rgba(2,6,23,0.6)}
-.card h2{margin:0}
-.card p{margin:6px 0 0 0;color:var(--muted)}
-.back{color:var(--muted);text-decoration:none;margin-bottom:6px;display:inline-block}
-.controls .row{display:flex;gap:8px;align-items:center;margin-bottom:8px}
-input,select{padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
-table{width:100%;border-collapse:collapse;margin-top:6px}
-th,td{padding:10px;text-align:left;border-bottom:1px dashed rgba(255,255,255,0.03)}
-th{font-size:13px;color:var(--muted)}
-.small{font-size:13px}
-.foot{margin-top:18px;font-size:13px}
-@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.grid{grid-template-columns:1fr} .controls .row{flex-direction:column;align-items:stretch}}
-```
+:root{
+  --bg:#0f1724;
+  --card-bg:#071428; /* Changed 'card' to 'card-bg' for clarity */
+  --muted:#9fb0c8;
+  --accent:#60a5fa;
+  --accent-light:#93c5fd; /* New: Lighter accent for subtle hover */
+  --glass:rgba(255,255,255,0.03);
+  --card-pad:18px; /* Increased padding */
+  --shadow: rgba(2,6,23,0.6); /* Renamed shadow variable */
+  --border: rgba(255,255,255,0.06); /* New: For subtle borders */
+}
+*{
+  box-sizing:border-box;
+  font-family:Inter, system-ui, -apple-system, Roboto, 'Segoe UI', Arial;
+}
+body{
+  margin:0;
+  /* Updated background for a deeper, more modern gradient */
+  background:linear-gradient(180deg,#071026 0%, #040915 100%);
+  color:#e6f0fb;
+  min-height:100vh;
+}
+.container{
+  max-width:1080px; /* Increased max-width */
+  margin:40px auto; /* Increased margin */
+  padding:0 24px; /* Increased padding */
+}
+
+/* --- Header Styling --- */
+.site-header{
+  display:flex;
+  flex-direction:column;
+  gap:8px; /* Increased gap */
+  margin-bottom:30px; /* Increased margin */
+}
+.site-header h1{
+  margin:0;
+  font-size:32px; /* Increased font size for title */
+  font-weight:700;
+  letter-spacing:-0.5px;
+}
+.muted{
+  color:var(--muted);
+}
+.tag{
+  font-size:16px; /* Increased font size */
+  margin-top:4px;
+}
+
+/* --- Grid and Card Styling --- */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px; /* Increased gap */
+  margin-bottom:30px;
+}
+.card{
+  background:var(--card-bg);
+  padding:var(--card-pad);
+  border-radius:12px; /* Slightly larger radius */
+  box-shadow:0 12px 30px var(--shadow); /* Slightly deeper shadow */
+  transition: all 0.25s ease;
+  border: 1px solid transparent; /* Prepare for border effect */
+  display: block; /* Ensure <a> tag acts as a block */
+  text-decoration: none; /* Remove underline from card links */
+  color: inherit; /* Inherit text color */
+}
+
+/* Enhanced Card Hover Effect */
+.card:hover{
+  transform: translateY(-4px); /* Subtle lift effect */
+  box-shadow: 0 16px 40px var(--shadow);
+  border-color: var(--border); /* Subtle light border on hover */
+}
+.card h2{
+  margin:0;
+  font-size:20px; /* Slightly larger heading */
+  font-weight:600;
+  color:var(--accent-light); /* Give headings a bit of color */
+}
+.card p{
+  margin:8px 0 0 0; /* Adjusted margin */
+  color:var(--muted);
+  font-size:15px;
+}
+
+/* --- How-to Section Styling --- */
+.howto{
+  border: 1px solid var(--border); /* Give the section a clear border */
+}
+.howto h3{
+  margin-top:0;
+  font-size:18px;
+  color:var(--accent);
+  border-bottom:1px dashed var(--glass);
+  padding-bottom:10px;
+  margin-bottom:10px;
+}
+.howto ol{
+  list-style:decimal-leading-zero; /* More distinct numbering */
+  padding-left:20px;
+  margin:0 0 15px 0;
+}
+.howto li{
+  margin-bottom:6px;
+  font-size:15px;
+}
+.howto code{
+  background:var(--glass);
+  padding:2px 4px;
+  border-radius:4px;
+  font-size:14px;
+  color:var(--accent-light);
+}
+
+/* --- Footer and Utility Styling --- */
+.back{
+  color:var(--muted);
+  text-decoration:none;
+  margin-bottom:6px;
+  display:inline-block;
+}
+.controls .row{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  margin-bottom:8px;
+}
+input,select{
+  padding:8px 10px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,0.04);
+  background:transparent;
+  color:inherit;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:6px;
+}
+th,td{
+  padding:10px;
+  text-align:left;
+  border-bottom:1px dashed rgba(255,255,255,0.03);
+}
+th{
+  font-size:13px;
+  color:var(--muted);
+}
+.small{
+  font-size:13px;
+}
+.foot{
+  margin-top:40px; /* Increased margin */
+  padding-top:20px;
+  border-top:1px solid var(--glass); /* Separator line */
+  font-size:14px; /* Slightly larger footer text */
+  text-align:center;
+}
+
+/* --- Media Queries --- */
+@media(max-width:1100px){ /* New break point for a better view on medium screens */
+  .container{
+    max-width:980px;
+  }
+}
+@media(max-width:900px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .container{
+    margin:30px auto;
+  }
+  .site-header h1{
+    font-size:28px;
+  }
+}
+@media(max-width:560px){
+  .grid{grid-template-columns:1fr}
+  .controls .row{flex-direction:column;align-items:stretch}
+  .container{
+    padding:0 18px;
+  }
+  .site-header h1{
+    font-size:26px;
+  }
+}
