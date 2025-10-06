@@ -2,12 +2,12 @@
 
 :root{
     /* New Color Palette */
-    --bg-dark: #0f172a;        /* Dark Navy/Charcoal for background */
-    --bg-light: #1e293b;       /* Slightly lighter shade for gradients */
+    --bg-dark: #c1c1c1;        /* Dark Navy/Charcoal for background */
+    --bg-light: #d6d6d6;       /* Slightly lighter shade for gradients */
     --card-bg: rgba(30, 41, 59, 0.7); /* Semi-transparent background for glass effect */
     --muted: #a1a1aa;          /* Muted light gray for secondary text */
     --text-primary: #f8fafc;   /* Near-white for main text */
-    --accent: #f97316;         /* Vibrant Orange/Gold for accents */
+    --accent: #131a29;         /* Vibrant Orange/Gold for accents */
     --card-pad: 20px;
 }
 
@@ -117,3 +117,4 @@ table{width:100%;border-collapse:collapse;margin-top:6px}
 th,td{padding:12px;text-align:left;border-bottom:1px dashed rgba(255,255,255,0.06)}
 th{font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;}
 .small{font-size:14px}
+
