@@ -1,0 +1,52 @@
+```html
+<div class="row">
+<label>Search / filter teams</label>
+<input id="filter" placeholder="Search team name or conference..." />
+</div>
+<div class="row small">
+<label>Sort by</label>
+<select id="sortBy">
+<option value="elo">Elo (desc)</option>
+<option value="team">Team (A → Z)</option>
+<option value="wins">Wins (desc)</option>
+</select>
+<label>Rows</label>
+<select id="rowsPerPage">
+<option value="0">All</option>
+<option value="10">10</option>
+<option value="25" selected>25</option>
+</select>
+</div>
+</section>
+
+
+<section class="card">
+<table id="teamsTable">
+<thead>
+<tr>
+<th>#</th>
+<th>Team</th>
+<th>Elo</th>
+<th>Wins</th>
+<th>Losses</th>
+<th class="muted">Notes</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</section>
+
+
+<section class="card muted small">
+<p>CSV file: <code>/data/nfl.csv</code>. Required header: <code>Team,Elo</code>. Optional: <code>Wins,Losses,Conference,Notes</code>.</p>
+</section>
+
+
+<footer class="foot muted">© AEIRatings</footer>
+</main>
+
+
+<script src="/assets/script.js"></script>
+</body>
+</html>
+```
