@@ -45,7 +45,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   const sortSelect = qs('#sortBy')
   const rowsPerPageSelect = qs('#rowsPerPage')
 
-  // New control for conference filtering
+  // League Type filter
+  const leagueTypeSelect = qs('#leagueTypeFilter')
+
+  // Existing control for conference filtering
   let conferenceSelect = qs('#conferenceFilter')
   if (!conferenceSelect) {
     // If not already in HTML, inject dynamically next to Sort by
@@ -56,8 +59,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       conferenceSelect = document.createElement('select')
       conferenceSelect.id = 'conferenceFilter'
       conferenceSelect.innerHTML = `<option value="all" selected>All Conferences</option>`
-      sortRow.insertBefore(conferenceSelect, rowsPerPageSelect)
-      sortRow.insertBefore(label, conferenceSelect)
+      // The original script injected this logic, but with the HTML modification above, this section
+      // for conferenceSelect is largely unnecessary, but we'll leave it as a safeguard.
+
+      // We'll skip the original dynamic injection logic since we modified the HTML
+      // for the cfb page.
     }
   }
 
@@ -83,24 +89,48 @@ document.addEventListener('DOMContentLoaded', async () => {
     Conference: r.Conference || r.conference || r.Notes || ''
   }))
 
+  // Define the FBS Conferences based on user request and CSV data consistency
+  const FBS_CONFERENCES = [
+    'American', 'ACC', 'Big 10', 'Big 12', 'CUSA', 'MAC', 'PAC 12', 'SEC', 'Sun Belt', 'Mountain West', 'FBS Independent'
+  ];
+
+  function isFBS(conference) {
+    return FBS_CONFERENCES.includes(conference)
+  }
+
   // Populate conference dropdown
   const uniqueConfs = [...new Set(rows.map(r => r.Conference).filter(Boolean))].sort()
   uniqueConfs.forEach(conf => {
     const opt = document.createElement('option')
     opt.value = conf
     opt.textContent = conf
-    conferenceSelect.appendChild(opt)
+    // Ensure the select element exists before appending
+    if(conferenceSelect) conferenceSelect.appendChild(opt)
   })
 
   function applyFiltersAndSort() {
     const q = filterInput ? filterInput.value.trim().toLowerCase() : ''
     const selectedConf = conferenceSelect ? conferenceSelect.value : 'all'
+    const selectedLeagueType = leagueTypeSelect ? leagueTypeSelect.value : 'fbs' // Default to FBS
 
     let out = rows.filter(r => {
-      // Text search
+      // 1. League Type Filter
+      let matchesLeagueType = true
+      if (selectedLeagueType === 'fbs') {
+        matchesLeagueType = isFBS(r.Conference)
+      } else if (selectedLeagueType === 'fcs') {
+        matchesLeagueType = !isFBS(r.Conference)
+      }
+      if (!matchesLeagueType) return false
+
+
+      // 2. Text search
       const matchesText = !q || (r.Team || '').toLowerCase().includes(q) || (r.Conference || '').toLowerCase().includes(q)
-      // Conference filter
+      if (!matchesText) return false
+      
+      // 3. Conference filter
       const matchesConf = selectedConf === 'all' || r.Conference === selectedConf
+
       return matchesText && matchesConf
     })
 
@@ -123,6 +153,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (sortSelect) sortSelect.addEventListener('change', refresh)
   if (rowsPerPageSelect) rowsPerPageSelect.addEventListener('change', refresh)
   if (conferenceSelect) conferenceSelect.addEventListener('change', refresh)
+  // Bind the new filter
+  if (leagueTypeSelect) leagueTypeSelect.addEventListener('change', refresh)
 
   // Initial render
   refresh()
