@@ -23,11 +23,16 @@
     <option value="wins">Wins (desc)</option>
   </select>
 
+  <label>League Type</label>
+  <select id="leagueTypeFilter">
+    <option value="fbs" selected>FBS</option>
+    <option value="fcs">FCS</option>
+    <option value="combined">Combined</option>
+  </select>
   <label>Conference</label>
   <select id="conferenceFilter">
     <option value="all" selected>All Conferences</option>
-    <!-- These will be populated dynamically -->
-  </select>
+    </select>
 
   <label>Rows</label>
   <select id="rowsPerPage">
@@ -61,6 +66,3 @@
   <script src="/assets/script.js" type="module"></script>
 </body>
 </html>
-
-
-
