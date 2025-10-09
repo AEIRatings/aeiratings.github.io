@@ -17,6 +17,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     return { headers, rows }
   }
 
+  // *NEW HELPER FUNCTION*
+  function normalizeTeamName(teamName) {
+    // Convert to lowercase, replace spaces with underscores, and remove non-alphanumeric/underscore characters
+    return teamName.toLowerCase().trim().replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, '')
+  }
+
+  function getLogoPath(teamName, league) {
+    if (!teamName || !league) return ''
+    const normalizedName = normalizeTeamName(teamName)
+    // Constructs the path: /logos/{league}/{normalized_team_name}.png
+    return `/logos/${league}/${normalizedName}.png`
+  }
+  // *END NEW HELPER FUNCTION*
+
   // Determine which league we’re on
   const main = document.querySelector('main[data-league]')
   if (!main) return // skip if not a league page (e.g. index.html)
@@ -29,11 +43,21 @@ document.addEventListener('DOMContentLoaded', async () => {
     tbody.innerHTML = ''
     data.forEach((r, i) => {
       const tr = document.createElement('tr')
+
+      // Get the logo path for the team
+      const logoPath = getLogoPath(r.Team, league)
+
+      // Create the Team cell content with the logo. onerror hides the image if the file is not found.
+      const teamCellContent = `
+        <img src="${logoPath}" alt="${r.Team} Logo" class="team-logo" onerror="this.style.display='none'">
+        <span class="team-name-text">${r.Team}</span>
+      `
+
       if (league === 'nfl') {
         // NFL: Render only 5 columns (matches nfl.html structure)
         tr.innerHTML = `
           <td>${i + 1}</td>
-          <td>${r.Team}</td>
+          <td class="team-cell">${teamCellContent}</td>
           <td>${r.Elo}</td>
           <td>${r.Wins}</td>
           <td>${r.Losses}</td>
@@ -42,7 +66,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // CFB (and others): Render 6 columns (matches cfb.html structure)
         tr.innerHTML = `
           <td>${i + 1}</td>
-          <td>${r.Team}</td>
+          <td class="team-cell">${teamCellContent}</td>
           <td>${r.Elo}</td>
           <td>${r.Wins}</td>
           <td>${r.Losses}</td>
@@ -73,8 +97,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       conferenceSelect = document.createElement('select')
       conferenceSelect.id = 'conferenceFilter'
       conferenceSelect.innerHTML = `<option value="all" selected>All Conferences</option>`
-      // The original script logic for conference select injection is here, but since
-      // we only care about CFB having it and we modified its HTML, we skip the injection logic
     }
   }
 
@@ -97,7 +119,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     Elo: (n(r.Elo || r.elo)).toString(),
     Wins: r.Wins || r.wins || '',
     Losses: r.Losses || r.losses || '',
-    // FIX: Added r.Division to the list of properties to check for conference/division data.
     Conference: r.Conference || r.conference || r.Division || r.Notes || ''
   }))
 
@@ -110,7 +131,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     return FBS_CONFERENCES.includes(conference)
   }
 
-  // Populate conference dropdown (only runs if conferenceSelect exists, which is good for NFL)
+  // Populate conference dropdown (only runs if conferenceSelect exists)
   if (conferenceSelect) {
       const uniqueConfs = [...new Set(rows.map(r => r.Conference).filter(Boolean))].sort()
       uniqueConfs.forEach(conf => {
@@ -144,7 +165,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       const matchesText = !q || (r.Team || '').toLowerCase().includes(q) || (r.Conference || '').toLowerCase().includes(q)
       if (!matchesText) return false
       
-      // 3. Conference filter (only applies if the element exists, which it doesn't on the NFL page)
+      // 3. Conference filter (only applies if the element exists)
       const matchesConf = !conferenceSelect || selectedConf === 'all' || r.Conference === selectedConf
 
       return matchesText && matchesConf
