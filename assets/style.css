@@ -118,5 +118,20 @@ th,td{padding:12px;text-align:left;border-bottom:1px dashed rgba(255,255,255,0.0
 th{font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;}
 .small{font-size:14px}
 
+/* * NEW STYLES FOR LOGOS * */
+.team-cell {
+    /* Ensure the cell content is aligned vertically */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between logo and text */
+}
 
-
+.team-logo {
+    /* Define the size of the logo */
+    width: 24px;
+    height: 24px;
+    object-fit: contain; /* Ensure the image scales correctly within the box */
+    /* Add a small border-radius for a cleaner look */
+    border-radius: 4px;
+}
+/* * END NEW STYLES FOR LOGOS * */
