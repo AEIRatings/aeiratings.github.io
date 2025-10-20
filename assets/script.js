@@ -31,52 +31,182 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
   // *END NEW HELPER FUNCTION*
 
+
+  // --- NEW HOMEPAGE LOGIC ---
+
+  const LEAGUES = {
+    'nfl': { name: 'NFL', file: 'nfl.csv', id: 'top-5-nfl' },
+    'cfb': { name: 'College Football', file: 'cfb.csv', id: 'top-5-cfb' },
+    // College Basketball pages use 'mcbb' and 'wcbb' as league IDs, but the logo path is 'cfb'.
+    'mcbb': { name: "NCAA Men's Basketball", file: 'mcbb.csv', id: 'top-5-mcbb' },
+    'wcbb': { name: "NCAA Women's Basketball", file: 'wcbb.csv', id: 'top-5-wcbb' },
+    'nba': { name: 'NBA', file: 'nba.csv', id: 'top-5-nba' },
+    'nhl': { name: 'NHL', file: 'nhl.csv', id: 'top-5-nhl' },
+  };
+
+  /**
+   * Sorts the data and returns the top N teams by Elo/rating.
+   * Uses a normalized Elo property for sorting regardless of the original CSV header.
+   * @param {Array<Object>} rows - The parsed rows of data.
+   * @returns {Array<Object>} The top 5 teams.
+   */
+  function getTop5Teams(rows) {
+    // Use the normalized fields: Elo (calculated from Elo or elo in CSV) and Team
+    const normalizedRows = rows.map(r => ({
+        Team: r.Team || r.team || '',
+        // Use the numeric value of Elo for sorting
+        Elo: n(r.Elo || r.elo),
+    })).filter(r => r.Team && r.Elo > 0); // Filter out bad data
+
+    // Sort by Elo in descending order
+    normalizedRows.sort((a, b) => b.Elo - a.Elo);
+
+    return normalizedRows.slice(0, 5);
+  }
+
+  /**
+   * Renders the top 5 teams into the dedicated div on the homepage.
+   * @param {string} leagueId - The league ID (e.g., 'nfl', 'mcbb').
+   * @param {Array<Object>} topTeams - The top 5 teams data.
+   */
+  function renderTop5(leagueId, topTeams) {
+    const container = qs(`#${LEAGUES[leagueId].id}`);
+    if (!container) return;
+
+    if (topTeams.length === 0) {
+        container.innerHTML = `<p class="top-5-placeholder">Ratings data not available.</p>`;
+        return;
+    }
+
+    // Determine the logo path for College sports
+    const logoLeague = (leagueId === 'mcbb' || leagueId === 'wcbb') ? 'cfb' : leagueId;
+
+    let html = `<h3>Top 5 Elo Ratings</h3><ol class="top-5-list">`;
+    topTeams.forEach((team, index) => {
+        const logoPath = getLogoPath(team.Team, logoLeague);
+        const rank = index + 1;
+        html += `
+            <li>
+                <span class="top-5-rank">${rank}.</span>
+                <span class="top-5-team">
+                    <img src="${logoPath}" alt="${team.Team} Logo" class="team-logo" onerror="this.style.display='none'">
+                    <span class="team-name-text">${team.Team}</span>
+                </span>
+                <span class="top-5-elo">${team.Elo.toFixed(1)}</span>
+            </li>
+        `;
+    });
+    html += `</ol>`;
+    container.innerHTML = html;
+  }
+
+  async function loadHomePageRatings() {
+    const leagueKeys = Object.keys(LEAGUES);
+    const promises = leagueKeys.map(async (key) => {
+        const league = LEAGUES[key];
+        const csvPath = `/data/${league.file}`;
+        try {
+            const resp = await fetch(csvPath, { cache: 'no-store' });
+            if (!resp.ok) throw new Error('Not found');
+            const text = await resp.text();
+            const parsed = parseCSV(text);
+            
+            // Normalize data to ensure 'Elo' exists for sorting
+            const normalizedRows = parsed.rows.map(r => ({
+              Team: r.Team || r.team || '',
+              Elo: r.Elo || r.elo || r.Points || r.points || '0', // Fallback to Points for NHL, but the getTop5 logic handles Elo/elo
+              Wins: r.Wins || r.wins || '',
+              Losses: r.Losses || r.losses || '',
+              Conference: r.Conference || r.conference || r.Division || r.Notes || ''
+            }));
+
+            const top5 = getTop5Teams(normalizedRows);
+            renderTop5(key, top5);
+        } catch (error) {
+            console.error(`Failed to load or parse ${league.file}:`, error);
+            // Render a placeholder on error
+            const container = qs(`#${league.id}`);
+            if(container) container.innerHTML = `<p class="top-5-placeholder">Failed to load rankings.</p>`;
+        }
+    });
+    await Promise.all(promises);
+  }
+  // --- END NEW HOMEPAGE LOGIC ---
+
+
   // Determine which league we’re on
   const main = document.querySelector('main[data-league]')
-  if (!main) return // skip if not a league page (e.g. index.html)
+  if (!main) {
+      // This is the index.html page
+      loadHomePageRatings();
+      return // Stop execution of league-specific logic
+  }
+
+  // If on a league page, proceed with league-specific logic
+
   const league = main.getAttribute('data-league')
   const csvPath = `/data/${league}.csv`
 
-  // *MODIFIED RENDERER*: Defined here to access the 'league' variable
+  // *MODIFIED RENDERER*: Handles different table layouts for different leagues
   function renderTable(data, headers) {
     const tbody = qs('#teamsTable tbody')
     tbody.innerHTML = ''
+    
+    const isCollegeBasketball = league === 'mcbb' || league === 'wcbb';
+    const logoLeague = isCollegeBasketball ? 'cfb' : league;
+
     data.forEach((r, i) => {
       const tr = document.createElement('tr')
 
       // Get the logo path for the team
-      const logoPath = getLogoPath(r.Team, league)
+      const logoPath = getLogoPath(r.Team, logoLeague)
 
       // Create the Team cell content with the logo. onerror hides the image if the file is not found.
       const teamCellContent = `
         <img src="${logoPath}" alt="${r.Team} Logo" class="team-logo" onerror="this.style.display='none'">
         <span class="team-name-text">${r.Team}</span>
       `
+      
+      let rowHtml = `<td>${i + 1}</td><td class="team-cell">${teamCellContent}</td>`;
 
-      if (league === 'nfl') {
-        // NFL: Render only 5 columns (matches nfl.html structure)
-        tr.innerHTML = `
-          <td>${i + 1}</td>
-          <td class="team-cell">${teamCellContent}</td>
+      if (league === 'nhl') {
+        // NHL: Rank, Team, Elo, Points
+        // The original nhl.html template uses Elo and Points headers.
+        rowHtml += `
+          <td>${r.Elo}</td>
+          <td>${r.Points}</td>
+        `;
+      } else if (league === 'nfl' || league === 'nba') {
+        // NFL/NBA: Rank, Team, Elo, Wins, Losses
+        rowHtml += `
           <td>${r.Elo}</td>
           <td>${r.Wins}</td>
           <td>${r.Losses}</td>
-        `
+        `;
       } else {
-        // CFB (and others): Render 6 columns (matches cfb.html structure)
-        tr.innerHTML = `
-          <td>${i + 1}</td>
-          <td class="team-cell">${teamCellContent}</td>
+        // CFB/College Basketball (mcbb, wcbb): Rank, Team, Elo, Wins, Losses, Conference
+        rowHtml += `
           <td>${r.Elo}</td>
           <td>${r.Wins}</td>
           <td>${r.Losses}</td>
           <td>${r.Conference}</td>
-        `
+        `;
       }
+      
+      tr.innerHTML = rowHtml;
       tbody.appendChild(tr)
     })
   }
   // *END MODIFIED RENDERER*
+
+  // Define the FBS Conferences based on user request and CSV data consistency
+  const FBS_CONFERENCES = [
+    'American', 'ACC', 'Big 10', 'Big 12', 'CUSA', 'MAC', 'PAC 12', 'SEC', 'Sun Belt', 'Mountain West', 'FBS Independent'
+  ];
+
+  function isFBS(conference) {
+    return FBS_CONFERENCES.includes(conference)
+  }
 
   // Controls
   const filterInput = qs('#filter')
@@ -113,27 +243,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     return
   }
 
-  // Normalize
+  // Normalize data for filtering and sorting on league pages
   const rows = parsed.rows.map(r => ({
     Team: r.Team || r.team || '',
     Elo: (n(r.Elo || r.elo)).toString(),
     Wins: r.Wins || r.wins || '',
     Losses: r.Losses || r.losses || '',
+    Points: r.Points || r.points || '', // Keep Points for NHL if present
     Conference: r.Conference || r.conference || r.Division || r.Notes || ''
   }))
 
-  // Define the FBS Conferences based on user request and CSV data consistency
-  const FBS_CONFERENCES = [
-    'American', 'ACC', 'Big 10', 'Big 12', 'CUSA', 'MAC', 'PAC 12', 'SEC', 'Sun Belt', 'Mountain West', 'FBS Independent'
-  ];
-
-  function isFBS(conference) {
-    return FBS_CONFERENCES.includes(conference)
-  }
-
   // Populate conference dropdown (only runs if conferenceSelect exists)
   if (conferenceSelect) {
-      const uniqueConfs = [...new Set(rows.map(r => r.Conference).filter(Boolean))].sort()
+      // Filter out empty or non-useful conference names for display
+      const uniqueConfs = [...new Set(rows.map(r => r.Conference).filter(c => c && !['', 'FBS Independent'].includes(c)))].sort()
       uniqueConfs.forEach(conf => {
         const opt = document.createElement('option')
         opt.value = conf
@@ -172,7 +295,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     })
 
     const sortBy = sortSelect ? sortSelect.value : 'elo'
-    if (sortBy === 'elo') out.sort((a, b) => n(b.Elo) - n(a.Elo))
+    // Ensure sorting correctly handles different rating columns for different leagues
+    const sortKey = (league === 'nhl' && sortBy === 'points') ? 'Points' : 'Elo';
+    
+    if (sortBy === 'elo' || sortBy === 'points') out.sort((a, b) => n(b[sortKey]) - n(a[sortKey]))
     else if (sortBy === 'team') out.sort((a, b) => (a.Team || '').localeCompare(b.Team || ''))
     else if (sortBy === 'wins') out.sort((a, b) => n(b.Wins) - n(a.Wins))
 
