@@ -168,7 +168,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   // If on a league page, proceed with league-specific logic
 
   const league = main.getAttribute('data-league')
-  const csvPath = `/data/${league}.csv`
 
   // *MODIFIED RENDERER*: Handles different table layouts for different leagues
   function renderTable(data, headers) {
@@ -222,67 +221,136 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
   // *END MODIFIED RENDERER*
 
-  function isFBS(conference) {
-    return FBS_CONFERENCES.includes(conference)
-  }
-
   // Controls
   const filterInput = qs('#filter')
   const sortSelect = qs('#sortBy')
   const rowsPerPageSelect = qs('#rowsPerPage')
+  const weekFilterSelect = qs('#weekFilter') // New: Get the week filter control
 
   // League Type filter
   const leagueTypeSelect = qs('#leagueTypeFilter')
 
   // Existing control for conference filtering
   let conferenceSelect = qs('#conferenceFilter')
+  // Check if conference filter needs dynamic injection (currently only for CFB that doesn't have it in HTML)
   if (!conferenceSelect) {
     // If not already in HTML, inject dynamically next to Sort by
     const sortRow = sortSelect?.closest('.row.small')
-    if (sortRow) {
+    // Added explicit check for 'cfb' since other leagues might not want this filter
+    if (sortRow && league === 'cfb') { 
       const label = document.createElement('label')
       label.textContent = 'Conference'
       conferenceSelect = document.createElement('select')
       conferenceSelect.id = 'conferenceFilter'
       conferenceSelect.innerHTML = `<option value="all" selected>All Conferences</option>`
+      sortRow.insertBefore(label, rowsPerPageSelect.closest('label').previousElementSibling)
+      sortRow.insertBefore(conferenceSelect, rowsPerPageSelect.closest('label').previousElementSibling)
+      // Add event listener immediately
+      conferenceSelect.addEventListener('change', refresh) 
     }
   }
 
   let parsed = { headers: [], rows: [] }
-  try {
-    const resp = await fetch(csvPath, { cache: 'no-store' })
-    if (!resp.ok) throw new Error('Not found')
-    const txt = await resp.text()
-    parsed = parseCSV(txt)
-  } catch (err) {
-    const tbody = qs('#teamsTable tbody')
-    tbody.innerHTML = `<tr><td colspan="6">Unable to load CSV: ${csvPath}</td></tr>`
-    console.error(err)
-    return
+  let allRows = [] // The main array that holds the full normalized data
+
+  // New utility function to fetch and parse a CSV file
+  async function fetchAndParseCSV(fileName) {
+    const filePath = `/data/${fileName}`;
+    try {
+      const resp = await fetch(filePath, { cache: 'no-store' });
+      if (!resp.ok) {
+        // Use an intentional status code for "Not found, but expected to check"
+        if (resp.status === 404) return { status: 404 };
+        throw new Error(`Failed to fetch ${filePath}: ${resp.status} ${resp.statusText}`);
+      }
+      const txt = await resp.text();
+      return { status: 200, data: parseCSV(txt) };
+    } catch (err) {
+      console.error(`Error loading CSV: ${filePath}`, err);
+      // Return a status indicating a general failure
+      return { status: 500, error: err };
+    }
   }
 
-  // Normalize data for filtering and sorting on league pages
-  // Note: This block converts the relevant rating column to a string 'Elo' for consistency.
-  const rows = parsed.rows.map(r => ({
-    Team: r.Team || r.team || '',
-    Elo: (r.Elo || r.elo || r.Points || r.points || '0').toString(), // The rating is stored as string 'Elo'
-    Wins: r.Wins || r.wins || '',
-    Losses: r.Losses || r.losses || '',
-    Points: r.Points || r.points || '', // Keep Points for NHL if present
-    Conference: r.Conference || r.conference || r.Division || r.Notes || ''
-  }))
+  // New function to handle loading the selected data file and updating the table
+  async function loadDataAndRefresh() {
+    let fileName = `${league}.csv`;
+    
+    // Check if the current league supports a week filter and one is selected
+    if (league === 'nfl' && weekFilterSelect && weekFilterSelect.value) {
+      fileName = weekFilterSelect.value;
+    }
+    
+    const result = await fetchAndParseCSV(fileName);
+    
+    if (result.status !== 200) {
+      const tbody = qs('#teamsTable tbody');
+      // Use the original CSV path for the error message, or the selected filename
+      const displayPath = fileName;
+      tbody.innerHTML = `<tr><td colspan="6">Unable to load rankings data from: /data/${displayPath}</td></tr>`;
+      allRows = []; // Clear old data
+      refresh(); // Re-render empty table
+      return;
+    }
 
-  // Populate conference dropdown (only runs if conferenceSelect exists)
-  if (conferenceSelect) {
-      // Filter out empty or non-useful conference names for display
-      const uniqueConfs = [...new Set(rows.map(r => r.Conference).filter(c => c && !['', 'FBS Independent'].includes(c)))].sort()
+    parsed = result.data;
+    
+    // Normalize data (common to all leagues)
+    allRows = parsed.rows.map(r => ({
+      Team: r.Team || r.team || '',
+      Elo: (r.Elo || r.elo || r.Points || r.points || '0').toString(),
+      Wins: r.Wins || r.wins || '',
+      Losses: r.Losses || r.losses || '',
+      Points: r.Points || r.points || '', 
+      // Use 'Division' for NFL/NBA/NHL, 'Conference' for CBB/CFB where applicable
+      Conference: r.Conference || r.conference || r.Division || r.Notes || ''
+    }));
+
+    // Re-run the conference population logic if present (currently only auto-populated for CFB)
+    if (league === 'cfb' && conferenceSelect) {
+      // Clear previous options except the default
+      conferenceSelect.innerHTML = `<option value="all" selected>All Conferences</option>`;
+      const uniqueConfs = [...new Set(allRows.map(r => r.Conference).filter(c => c && !['', 'FBS Independent'].includes(c)))].sort()
       uniqueConfs.forEach(conf => {
         const opt = document.createElement('option')
         opt.value = conf
         opt.textContent = conf
         conferenceSelect.appendChild(opt)
       })
+    }
+
+    refresh();
   }
+
+  /**
+   * Probes for NFL weekly files and populates the dropdown.
+   */
+  async function loadNFLWeekOptions() {
+    if (league !== 'nfl' || !weekFilterSelect) return;
+
+    let optionsHtml = '<option value="nfl.csv" selected>Current Week</option>';
+    let foundAWeek = false;
+    const maxWeek = 18; // Max regular season weeks
+
+    // Probe for files starting from week 1, up to maxWeek
+    for (let i = 1; i <= maxWeek; i++) {
+        const weekFileName = `nfl_week_${i}.csv`;
+        const weekLabel = `Week ${i}`;
+        
+        const result = await fetchAndParseCSV(weekFileName);
+
+        if (result.status === 200) {
+            optionsHtml += `<option value="${weekFileName}">${weekLabel}</option>`;
+            foundAWeek = true;
+        }
+    }
+    
+    // Only display dynamic options if files are found. The HTML already contains 'Current Week'.
+    if (foundAWeek) {
+        weekFilterSelect.innerHTML = optionsHtml;
+    }
+  }
+
 
   function applyFiltersAndSort() {
     const q = filterInput ? filterInput.value.trim().toLowerCase() : ''
@@ -290,7 +358,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const selectedConf = conferenceSelect ? conferenceSelect.value : 'all'
     const selectedLeagueType = leagueTypeSelect ? leagueTypeSelect.value : 'fbs' // Default to FBS
 
-    let out = rows.filter(r => {
+    let out = allRows.filter(r => { // <--- Uses allRows
       // 1. League Type Filter
       let matchesLeagueType = true
       if (league === 'cfb') { // Only apply this logic for CFB
@@ -330,15 +398,27 @@ document.addEventListener('DOMContentLoaded', async () => {
     const shown = applyFiltersAndSort()
     renderTable(shown, parsed.headers)
   }
+  
+  // Initial setup for the selected league
+  if (league === 'nfl') {
+    // NFL has the new week filter logic
+    loadNFLWeekOptions();
+    
+  } 
+  
+  // Start data load on initial page load for all leagues
+  loadDataAndRefresh();
+
 
   // Bind events
   if (filterInput) filterInput.addEventListener('input', refresh)
   if (sortSelect) sortSelect.addEventListener('change', refresh)
   if (rowsPerPageSelect) rowsPerPageSelect.addEventListener('change', refresh)
-  if (conferenceSelect) conferenceSelect.addEventListener('change', refresh)
-  // Bind the new filter
+  // For CFB: conferenceSelect listener is added dynamically if needed
   if (leagueTypeSelect) leagueTypeSelect.addEventListener('change', refresh)
-
-  // Initial render
-  refresh()
+  
+  // New week filter event listener (only relevant for NFL)
+  if (weekFilterSelect) {
+      weekFilterSelect.addEventListener('change', loadDataAndRefresh);
+  }
 })
