@@ -54,6 +54,8 @@ body{
     /* Frosted Glass Effect */
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex; /* Added for the internal elements to stack nicely */
+    flex-direction: column;
 }
 
 /* * MODIFICATION HERE:
@@ -135,3 +137,56 @@ th{font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5
     border-radius: 4px;
 }
 /* * END NEW STYLES FOR LOGOS * */
+
+
+/* --- NEW STYLES FOR TOP 5 LIST ON INDEX PAGE --- */
+.top-5-container {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.top-5-container h3 {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    color: var(--muted); /* Use muted color for sub-title */
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.top-5-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
+.top-5-list li {
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+}
+.top-5-list li:last-child {
+    border-bottom: none;
+}
+.top-5-rank {
+    font-weight: 700;
+    width: 20px;
+    flex-shrink: 0;
+}
+.top-5-team {
+    flex-grow: 1;
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.top-5-elo {
+    font-weight: 700;
+    color: var(--accent); /* Use accent color for the rating score */
+    flex-shrink: 0;
+}
+.top-5-placeholder {
+    color: var(--muted);
+    font-style: italic;
+    font-size: 14px;
+}
