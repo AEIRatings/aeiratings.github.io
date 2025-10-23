@@ -3,96 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NFL Game Predictor | AEIRatings</title>
+  <title>NFL Schedule Predictions | AEIRatings</title>
   <link rel="stylesheet" href="/assets/style.css" />
   <style>
-    /* Custom styles for the predictor page */
-    .predictor-card {
-      max-width: 500px;
+    /* Add basic styling for the new table view */
+    .schedule-card {
+      max-width: 900px;
       margin: 0 auto;
     }
-    .game-selection {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-bottom: 25px;
+    .schedule-card table {
+        table-layout: fixed;
     }
-    .team-input-group {
-      display: flex;
-      flex-direction: column;
-    }
-    .team-input-group label {
-      margin-bottom: 5px;
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-    .team-input-group select {
-      padding: 10px;
-      border-radius: 6px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background: rgba(0, 0, 0, 0.3);
-      color: var(--text-primary);
-      font-size: 16px;
-    }
-    #calculateBtn {
-      padding: 12px 20px;
-      background-color: var(--accent); /* Using accent color from style.css */
-      color: var(--bg-dark); /* Using dark background for contrast */
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background-color 0.2s;
-    }
-    #calculateBtn:hover {
-      background-color: #ff9900; /* Slightly darker hover for accent */
-    }
-    #result {
-      margin-top: 20px;
-      padding: 15px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 8px;
-      font-size: 18px;
-      font-weight: 600;
-      text-align: center;
-      min-height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .back-link {
-        color: var(--muted);
-        text-decoration: none;
-        margin-bottom: 20px;
-        display: inline-block;
-    }
+    .schedule-card th:nth-child(1), .schedule-card td:nth-child(1) { width: 15%; } /* Date */
+    .schedule-card th:nth-child(4), .schedule-card td:nth-child(4) { width: 15%; } /* Home Odds */
+    .schedule-card th:nth-child(5), .schedule-card td:nth-child(5) { width: 10%; } /* Result */
+    .date-cell { font-weight: 600; color: var(--accent); }
+    .odds-cell { font-weight: 700; }
   </style>
 </head>
 <body>
-  <main data-league="nfl-predictor">
+  <main data-league="nfl-schedule">
     <a href="/leagues/nfl.html" class="back-link">← Back to NFL Ratings</a>
-    <section class="card predictor-card">
-      <h2>NFL Game Predictor</h2>
-      <p>Use the Elo rating formula to calculate the home team's win probability based on current ratings.</p>
+    
+    <section class="card schedule-card">
+      <h2>NFL Game Odds Calculator</h2>
+      <p>Predicted win probabilities for games listed in <code>data/nfl_games.csv</code> using current Elo ratings from <code>data/nfl.csv</code>.</p>
+      <p class="small">Formula: Home Win % = 1 / (1 + 10^((AwayElo - HomeElo) / 400))</p>
 
-      <div class="game-selection">
-        <div class="team-input-group">
-          <label for="homeTeam">Home Team (R<span class="subscript">H</span>)</label>
-          <select id="homeTeam"></select>
-        </div>
-        
-        <div class="team-input-group">
-          <label for="awayTeam">Away Team (R<span class="subscript">A</span>)</label>
-          <select id="awayTeam"></select>
-        </div>
-      </div>
-
-      <button id="calculateBtn">Calculate Win Probability</button>
-
-      <div id="result">
-        Select teams and click calculate.
-      </div>
+      <table id="gamesTable">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Away Team</th>
+            <th>Home Team</th>
+            <th>Home Win %</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          </tbody>
+      </table>
+      <p id="loadingStatus" class="muted" style="margin-top: 15px;">Loading data...</p>
     </section>
 
     <footer class="foot muted">© AEIRatings</footer>
