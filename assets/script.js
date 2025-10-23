@@ -97,6 +97,7 @@ function parseCSV(csvText) {
     return rows;
 }
 
+// --- NEW FUNCTION: Custom Elo Win Probability Calculation ---
 /**
  * Custom Elo Win Probability Calculation as requested:
  * 1 / (1 + 10^((awayrating - homerating) / 400))
@@ -108,6 +109,8 @@ function calculateEloWinProbability(homeRating, awayRating) {
     const exponent = (awayRating - homeRating) / 400;
     return 1 / (1 + Math.pow(10, exponent));
 }
+// --- END NEW FUNCTION ---
+
 
 /**
  * Renders the full data table based on the loaded allRows data.
@@ -116,32 +119,15 @@ function calculateEloWinProbability(homeRating, awayRating) {
  */
 function renderTable(league) {
     const tableBody = qs('#ratings-table tbody');
-    const tableHeader = qs('#table-header');
     
-    if (!tableBody || !tableHeader) return;
+    if (!tableBody) return;
 
-    // Clear previous content
     tableBody.innerHTML = '';
 
-    // Determine data columns (e.g., Team, Elo, Wins, Losses)
     const dataHeaders = allRows.length > 0 ? Object.keys(allRows[0]) : [];
 
-    // --- FIX: RENDER TABLE HEADERS CORRECTLY INCLUDING 'Rank' ---
-    const displayHeaders = ['Rank', ...dataHeaders];
-    
-    tableHeader.innerHTML = displayHeaders.map(header => {
-        // Apply text alignment/styling to headers based on content
-        let className = 'text-left';
-        if (header === 'Rank' || header === 'Elo' || header === 'Wins' || header === 'Losses') {
-            className = 'text-right';
-        }
-        
-        return `<th class="py-2 px-4 border-b border-gray-700 ${className}">${header}</th>`;
-    }).join('');
-
     // Sort by Elo descending
-    // Ensure all rows are sorted by Elo and use index for rank
-    const sortedRows = [...allRows].sort((a, b) => n(b.Elo) - n(a.Elo)); 
+    const sortedRows = [...allRows].sort((a, b) => n(b.Elo) - n(a.Elo));
 
     // Render table rows
     sortedRows.forEach((row, index) => {
@@ -150,7 +136,8 @@ function renderTable(league) {
 
         // 1. Add Rank column (index + 1)
         const rankCell = document.createElement('td');
-        rankCell.className = 'py-2 px-4 border-b border-gray-700 text-right font-bold text-gray-400';
+        // Rank column is the first column, align right
+        rankCell.className = 'py-2 px-4 border-b border-gray-700 text-right font-bold text-gray-400'; 
         rankCell.textContent = index + 1;
         tr.appendChild(rankCell);
         
@@ -176,7 +163,8 @@ function renderTable(league) {
             } else {
                 // Handle other numeric content for right alignment
                 const numContent = n(content);
-                if (!isNaN(numContent) && numContent !== 0 && !isNaN(parseInt(content))) {
+                // Check if the content is numeric-looking or zero, but not an empty string
+                if (!isNaN(numContent) && content !== '') {
                     if (numContent === parseInt(content)) {
                         td.textContent = content; 
                     } else {
@@ -201,8 +189,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!main) return;
 
     const league = main.getAttribute('data-league');
-
-    // --- NFL PREDICTOR LOGIC BRANCH ---
+    
+    // --- NEW PREDICTOR LOGIC BLOCK (ISOLATED) ---
     if (league === 'nfl-predictor') {
         // Load the main NFL ratings (nfl.csv) for the predictor
         await loadDataAndRefresh('nfl.csv'); 
@@ -213,7 +201,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const resultDiv = qs('#result');
 
         // Extract and sort unique team names
-        const teams = allRows.map(r => r.Team).sort();
+        const teams = allRows.map(r => r.Team).sort().filter(t => t); // Filter out potential empty strings
 
         // Function to create and insert options into a select element
         const populateDropdown = (selectEl) => {
@@ -274,12 +262,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             `;
         });
         
-        // Stop processing the regular page logic
+        // IMPORTANT: Stop processing the regular page logic
         return;
     }
-    // --- END NFL PREDICTOR LOGIC BRANCH ---
-
-    // --- STANDARD LEAGUE TABLE LOGIC (Existing code) ---
+    // --- END NEW PREDICTOR LOGIC BLOCK ---
+    
+    // --- STANDARD LEAGUE TABLE LOGIC (Original code structure) ---
     if (league) {
         // For regular league pages, load the main data file
         await loadDataAndRefresh(`${league}.csv`);
@@ -311,6 +299,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 // Assuming an existing helper function to check file existence (optional but recommended)
 async function checkFileExists(url) {
     try {
+        // Use HEAD request to check for file existence without downloading full content
         const response = await fetch(url, { method: 'HEAD' });
         return response.ok;
     } catch (e) {
