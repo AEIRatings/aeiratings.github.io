@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NFL Game Predictor | AEIRatings</title>
+  <link rel="stylesheet" href="/assets/style.css" />
+  <style>
+    /* Custom styles for the predictor page */
+    .predictor-card {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .game-selection {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+    .team-input-group {
+      display: flex;
+      flex-direction: column;
+    }
+    .team-input-group label {
+      margin-bottom: 5px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .team-input-group select {
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(0, 0, 0, 0.3);
+      color: var(--text-primary);
+      font-size: 16px;
+    }
+    #calculateBtn {
+      padding: 12px 20px;
+      background-color: var(--accent); /* Using accent color from style.css */
+      color: var(--bg-dark); /* Using dark background for contrast */
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    #calculateBtn:hover {
+      background-color: #ff9900; /* Slightly darker hover for accent */
+    }
+    #result {
+      margin-top: 20px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 600;
+      text-align: center;
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .back-link {
+        color: var(--muted);
+        text-decoration: none;
+        margin-bottom: 20px;
+        display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <main data-league="nfl-predictor">
+    <a href="/leagues/nfl.html" class="back-link">← Back to NFL Ratings</a>
+    <section class="card predictor-card">
+      <h2>NFL Game Predictor</h2>
+      <p>Use the Elo rating formula to calculate the home team's win probability based on current ratings.</p>
+
+      <div class="game-selection">
+        <div class="team-input-group">
+          <label for="homeTeam">Home Team (R<span class="subscript">H</span>)</label>
+          <select id="homeTeam"></select>
+        </div>
+        
+        <div class="team-input-group">
+          <label for="awayTeam">Away Team (R<span class="subscript">A</span>)</label>
+          <select id="awayTeam"></select>
+        </div>
+      </div>
+
+      <button id="calculateBtn">Calculate Win Probability</button>
+
+      <div id="result">
+        Select teams and click calculate.
+      </div>
+    </section>
+
+    <footer class="foot muted">© AEIRatings</footer>
+  </main>
+
+  <script src="/assets/script.js" type="module"></script>
+</body>
+</html>
