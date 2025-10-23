@@ -6,44 +6,70 @@
   <title>NFL Schedule Predictions | AEIRatings</title>
   <link rel="stylesheet" href="/assets/style.css" />
   <style>
-    /* Add basic styling for the new table view */
+    /* Add specific styles for the schedule table */
     .schedule-card {
       max-width: 900px;
-      margin: 0 auto;
+      margin: 20px auto;
+      padding: 20px;
     }
     .schedule-card table {
-        table-layout: fixed;
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
     }
-    .schedule-card th:nth-child(1), .schedule-card td:nth-child(1) { width: 15%; } /* Date */
-    .schedule-card th:nth-child(4), .schedule-card td:nth-child(4) { width: 15%; } /* Home Odds */
-    .schedule-card th:nth-child(5), .schedule-card td:nth-child(5) { width: 10%; } /* Result */
-    .date-cell { font-weight: 600; color: var(--accent); }
-    .odds-cell { font-weight: 700; }
+    .schedule-card th, .schedule-card td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    .schedule-card th {
+        background-color: #f2f2f2;
+    }
+    .team-cell {
+        display: flex;
+        align-items: center;
+    }
+    .team-logo {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+    }
+    .odds-cell {
+      font-weight: bold;
+      text-align: center !important;
+      width: 120px; /* Fix the width for the odds column */
+    }
+    .small {
+        font-size: 0.8em;
+        color: #666;
+        margin-top: 5px;
+    }
   </style>
 </head>
 <body>
-  <main data-league="nfl-schedule">
+  <main data-page-type="nfl-schedule-predictor">
     <a href="/leagues/nfl.html" class="back-link">← Back to NFL Ratings</a>
-    
+
     <section class="card schedule-card">
       <h2>NFL Game Odds Calculator</h2>
       <p>Predicted win probabilities for games listed in <code>data/nfl_games.csv</code> using current Elo ratings from <code>data/nfl.csv</code>.</p>
-      <p class="small">Formula: Home Win % = 1 / (1 + 10^((AwayElo - HomeElo) / 400))</p>
+      <p class="small">Formula (Home Win %): $1 / (1 + 10^{\text{(AwayElo} - \text{HomeElo)} / 400})$</p>
 
-      <table id="gamesTable">
+      <div id="loadingStatus" class="muted" style="margin-top: 15px;">Loading data...</div>
+
+      <table id="gamesTable" style="display: none;">
         <thead>
           <tr>
-            <th>Date</th>
-            <th>Away Team</th>
-            <th>Home Team</th>
-            <th>Home Win %</th>
-            <th>Result</th>
+            <th style="width: 15%;">Date</th>
+            <th style="width: 35%;">Away Team</th>
+            <th style="width: 35%;">Home Team</th>
+            <th class="odds-cell">Home Win %</th>
+            <th style="width: 10%;">Result</th>
           </tr>
         </thead>
         <tbody>
           </tbody>
       </table>
-      <p id="loadingStatus" class="muted" style="margin-top: 15px;">Loading data...</p>
     </section>
 
     <footer class="foot muted">© AEIRatings</footer>
