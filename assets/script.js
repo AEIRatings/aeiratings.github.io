@@ -123,31 +123,39 @@ function renderTable(league) {
     // Clear previous content
     tableBody.innerHTML = '';
 
-    // Determine columns to display
-    const headers = allRows.length > 0 ? Object.keys(allRows[0]) : [];
+    // Determine data columns (e.g., Team, Elo, Wins, Losses)
+    const dataHeaders = allRows.length > 0 ? Object.keys(allRows[0]) : [];
 
-    // Render table headers dynamically
-    tableHeader.innerHTML = headers.map(header => 
-        `<th class="text-left py-2 px-4 border-b border-gray-700">${header}</th>`
-    ).join('');
+    // --- FIX: RENDER TABLE HEADERS CORRECTLY INCLUDING 'Rank' ---
+    const displayHeaders = ['Rank', ...dataHeaders];
+    
+    tableHeader.innerHTML = displayHeaders.map(header => {
+        // Apply text alignment/styling to headers based on content
+        let className = 'text-left';
+        if (header === 'Rank' || header === 'Elo' || header === 'Wins' || header === 'Losses') {
+            className = 'text-right';
+        }
+        
+        return `<th class="py-2 px-4 border-b border-gray-700 ${className}">${header}</th>`;
+    }).join('');
 
     // Sort by Elo descending
-    const sortedRows = [...allRows].sort((a, b) => n(b.Elo) - n(a.Elo));
+    // Ensure all rows are sorted by Elo and use index for rank
+    const sortedRows = [...allRows].sort((a, b) => n(b.Elo) - n(a.Elo)); 
 
     // Render table rows
-    sortedRows.forEach((row) => {
+    sortedRows.forEach((row, index) => {
         const tr = document.createElement('tr');
         tr.className = 'hover:bg-gray-800 transition-colors duration-100';
 
-        // Add Rank column based on position in sorted array
-        const rank = sortedRows.findIndex(r => r === row) + 1;
+        // 1. Add Rank column (index + 1)
         const rankCell = document.createElement('td');
-        rankCell.className = 'py-2 px-4 border-b border-gray-700 text-center font-bold text-gray-400';
-        rankCell.textContent = rank;
+        rankCell.className = 'py-2 px-4 border-b border-gray-700 text-right font-bold text-gray-400';
+        rankCell.textContent = index + 1;
         tr.appendChild(rankCell);
         
-        // Add other data cells
-        headers.forEach(header => {
+        // 2. Add other data cells using the original dataHeaders
+        dataHeaders.forEach(header => {
             const td = document.createElement('td');
             td.className = 'py-2 px-4 border-b border-gray-700 whitespace-nowrap';
             
@@ -160,19 +168,19 @@ function renderTable(league) {
                 } else {
                     td.textContent = row.Team;
                 }
+                td.className += ' text-left';
             } else if (header === 'Elo') {
                 // Format Elo ratings to one decimal place
                 td.textContent = n(content).toFixed(1);
                 td.className += ' font-mono text-right';
             } else {
-                 // Right-align other numeric columns (assuming they are numeric)
+                // Handle other numeric content for right alignment
                 const numContent = n(content);
                 if (!isNaN(numContent) && numContent !== 0 && !isNaN(parseInt(content))) {
-                    // Check if it looks like an integer (like Wins/Losses)
                     if (numContent === parseInt(content)) {
-                        td.textContent = content; // Display as integer
+                        td.textContent = content; 
                     } else {
-                        td.textContent = numContent.toFixed(1); // Display 1 decimal
+                        td.textContent = numContent.toFixed(1); 
                     }
                     td.className += ' text-right';
                 } else {
