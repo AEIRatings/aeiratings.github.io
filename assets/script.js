@@ -1,308 +1,424 @@
-/**
- * AEIRatings Master Script
- * Handles loading CSV data, rendering league tables, 
- * and includes logic for the new NFL Game Predictor.
- */
-
-// Global variables to hold data
-let allRows = [];
-const teamLogos = {
-    'nfl': {
-        'Arizona Cardinals': 'logos/nfl/arizona_cardinals.png',
-        'Atlanta Falcons': 'logos/nfl/atlanta_falcons.png',
-        'Baltimore Ravens': 'logos/nfl/baltimore_ravens.png',
-        'Buffalo Bills': 'logos/nfl/buffalo_bills.png',
-        'Carolina Panthers': 'logos/nfl/carolina_panthers.png',
-        'Chicago Bears': 'logos/nfl/chicago_bears.png',
-        'Cincinnati Bengals': 'logos/nfl/cincinnati_bengals.png',
-        'Cleveland Browns': 'logos/nfl/cleveland_browns.png',
-        'Dallas Cowboys': 'logos/nfl/dallas_cowboys.png',
-        'Denver Broncos': 'logos/nfl/denver_broncos.png',
-        'Detroit Lions': 'logos/nfl/detroit_lions.png',
-        'Green Bay Packers': 'logos/nfl/green_bay_packers.png',
-        'Houston Texans': 'logos/nfl/houston_texans.png',
-        'Indianapolis Colts': 'logos/nfl/indianapolis_colts.png',
-        'Jacksonville Jaguars': 'logos/nfl/jacksonville_jaguars.png',
-        'Kansas City Chiefs': 'logos/nfl/kansas_city_chiefs.png',
-        'Las Vegas Raiders': 'logos/nfl/las_vegas_raiders.png',
-        'Los Angeles Chargers': 'logos/nfl/los_angeles_chargers.png',
-        'Los Angeles Rams': 'logos/nfl/los_angeles_rams.png',
-        'Miami Dolphins': 'logos/nfl/miami_dolphins.png',
-        'Minnesota Vikings': 'logos/nfl/minnesota_vikings.png',
-        'New England Patriots': 'logos/nfl/new_england_patriots.png',
-        'New Orleans Saints': 'logos/nfl/new_orleans_saints.png',
-        'New York Giants': 'logos/nfl/new_york_giants.png',
-        'New York Jets': 'logos/nfl/new_york_jets.png',
-        'Philadelphia Eagles': 'logos/nfl/philadelphia_eagles.png',
-        'Pittsburgh Steelers': 'logos/nfl/pittsburgh_steelers.png',
-        'San Francisco 49ers': 'logos/nfl/san_francisco_49ers.png',
-        'Seattle Seahawks': 'logos/nfl/seattle_seahawks.png',
-        'Tampa Bay Buccaneers': 'logos/nfl/tampa_bay_buccaneers.png',
-        'Tennessee Titans': 'logos/nfl/tennessee_titans.png',
-        'Washington Commanders': 'logos/nfl/washington_commanders.png'
-    }
-    // Add other league logos here (cfb, nba, nhl, etc.)
-};
-
-// Helper function for querying the DOM
-const qs = (selector) => document.querySelector(selector);
-// Helper function to safely parse numbers
-const n = (val) => parseFloat(val) || 0;
-
-/**
- * Loads and parses CSV data from a specified file name.
- * @param {string} fileName The name of the CSV file in the data folder.
- */
-async function loadDataAndRefresh(fileName) {
-    try {
-        const response = await fetch(`/data/${fileName}`);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const csvText = await response.text();
-        allRows = parseCSV(csvText);
-    } catch (error) {
-        console.error("Error fetching or parsing CSV data:", error);
-        // Clear old data on error
-        allRows = []; 
-    }
-}
-
-/**
- * Basic CSV parsing function. Assumes header row and comma delimiter.
- * @param {string} csvText Raw CSV string content.
- * @returns {Array<Object>} Array of objects where keys are column headers.
- */
-function parseCSV(csvText) {
-    const lines = csvText.trim().split('\n');
-    if (lines.length === 0) return [];
-
-    const headers = lines[0].split(',').map(h => h.trim());
-    const rows = [];
-
-    for (let i = 1; i < lines.length; i++) {
-        const line = lines[i];
-        // Skip empty lines or comment lines
-        if (!line || line.startsWith('#')) continue;
-
-        const values = line.split(',').map(v => v.trim());
-        const row = {};
-        
-        // Ensure values match headers length to prevent index errors
-        for (let j = 0; j < headers.length; j++) {
-            row[headers[j]] = values[j];
-        }
-        rows.push(row);
-    }
-    return rows;
-}
-
-// --- NEW FUNCTION: Custom Elo Win Probability Calculation ---
-/**
- * Custom Elo Win Probability Calculation as requested:
- * 1 / (1 + 10^((awayrating - homerating) / 400))
- * @param {number} homeRating The Elo rating of the home team.
- * @param {number} awayRating The Elo rating of the away team.
- * @returns {number} The probability (0.0 to 1.0) that the home team wins.
- */
-function calculateEloWinProbability(homeRating, awayRating) {
-    const exponent = (awayRating - homeRating) / 400;
-    return 1 / (1 + Math.pow(10, exponent));
-}
-// --- END NEW FUNCTION ---
-
-
-/**
- * Renders the full data table based on the loaded allRows data.
- * This is the standard view for the /leagues/* pages.
- * @param {string} league The league identifier (e.g., 'nfl', 'nba').
- */
-function renderTable(league) {
-    const tableBody = qs('#ratings-table tbody');
-    
-    if (!tableBody) return;
-
-    tableBody.innerHTML = '';
-
-    const dataHeaders = allRows.length > 0 ? Object.keys(allRows[0]) : [];
-
-    // Sort by Elo descending
-    const sortedRows = [...allRows].sort((a, b) => n(b.Elo) - n(a.Elo));
-
-    // Render table rows
-    sortedRows.forEach((row, index) => {
-        const tr = document.createElement('tr');
-        tr.className = 'hover:bg-gray-800 transition-colors duration-100';
-
-        // 1. Add Rank column (index + 1)
-        const rankCell = document.createElement('td');
-        // Rank column is the first column, align right
-        rankCell.className = 'py-2 px-4 border-b border-gray-700 text-right font-bold text-gray-400'; 
-        rankCell.textContent = index + 1;
-        tr.appendChild(rankCell);
-        
-        // 2. Add other data cells using the original dataHeaders
-        dataHeaders.forEach(header => {
-            const td = document.createElement('td');
-            td.className = 'py-2 px-4 border-b border-gray-700 whitespace-nowrap';
-            
-            let content = row[header] || '';
-
-            if (header === 'Team') {
-                const logoPath = teamLogos[league]?.[row.Team];
-                if (logoPath) {
-                    td.innerHTML = `<img src="/${logoPath}" alt="${row.Team} logo" class="inline-block h-6 w-6 mr-2 object-contain" onerror="this.onerror=null; this.src='https://placehold.co/24x24/1f2937/a0aec0?text=?'"/><span>${row.Team}</span>`;
-                } else {
-                    td.textContent = row.Team;
-                }
-                td.className += ' text-left';
-            } else if (header === 'Elo') {
-                // Format Elo ratings to one decimal place
-                td.textContent = n(content).toFixed(1);
-                td.className += ' font-mono text-right';
-            } else {
-                // Handle other numeric content for right alignment
-                const numContent = n(content);
-                // Check if the content is numeric-looking or zero, but not an empty string
-                if (!isNaN(numContent) && content !== '') {
-                    if (numContent === parseInt(content)) {
-                        td.textContent = content; 
-                    } else {
-                        td.textContent = numContent.toFixed(1); 
-                    }
-                    td.className += ' text-right';
-                } else {
-                     td.textContent = content;
-                     td.className += ' text-left';
-                }
-            }
-            tr.appendChild(td);
-        });
-
-        tableBody.appendChild(tr);
-    });
-}
-
-
+// AEIRatings front-end script
 document.addEventListener('DOMContentLoaded', async () => {
-    const main = qs('main');
-    if (!main) return;
 
-    const league = main.getAttribute('data-league');
+  // Helpers
+  const qs = (sel) => document.querySelector(sel)
+  const n = (v) => Number(v) || 0
+
+  function parseCSV(text) {
+    const [headerLine, ...lines] = text.trim().split(/\r?\n/)
+    const headers = headerLine.split(',').map(h => h.trim())
+    const rows = lines.map(line => {
+      const cols = line.split(',')
+      const obj = {}
+      headers.forEach((h, i) => obj[h] = (cols[i] || '').trim())
+      return obj
+    })
+    return { headers, rows }
+  }
+
+  function normalizeTeamName(teamName) {
+    // Convert to lowercase, replace spaces with underscores, and remove non-alphanumeric/underscore characters
+    return teamName.toLowerCase().trim().replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, '')
+  }
+
+  function getLogoPath(teamName, league) {
+    if (!teamName || !league) return ''
+    const normalizedName = normalizeTeamName(teamName)
+    // Constructs the path: /logos/{league}/{normalized_team_name}.png
+    return `/logos/${league}/${normalizedName}.png`
+  }
+
+  // Define the FBS Conferences for filtering the CFB Top 5
+  const FBS_CONFERENCES = [
+    'American', 'ACC', 'Big 10', 'Big 12', 'CUSA', 'MAC', 'PAC 12', 'SEC', 'Sun Belt', 'Mountain West', 'FBS Independent'
+  ];
+
+  function isFBS(conference) {
+    return FBS_CONFERENCES.includes(conference)
+  }
+
+  // --- NEW HOMEPAGE LOGIC ---
+
+  const LEAGUES = {
+    'nfl': { name: 'NFL', file: 'nfl.csv', id: 'top-5-nfl' },
+    'cfb': { name: 'College Football', file: 'cfb.csv', id: 'top-5-cfb' },
+    'mcbb': { name: "NCAA Men's Basketball", file: 'mcbb.csv', id: 'top-5-mcbb' },
+    'wcbb': { name: "NCAA Women's Basketball", file: 'wcbb.csv', id: 'top-5-wcbb' },
+    'nba': { name: 'NBA', file: 'nba.csv', id: 'top-5-nba' },
+    'nhl': { name: 'NHL', file: 'nhl.csv', id: 'top-5-nhl' },
+  };
+
+  /**
+   * Filters (for CFB) and sorts the data to return the top N teams by Elo/rating.
+   * Assumes incoming 'rows' are already normalized to contain 'Team', 'Elo' (as string), and 'Conference' (for CFB).
+   * @param {Array<Object>} rows - The normalized rows of data.
+   * @param {string} leagueId - The league ID to apply specific filters (like CFB/FBS).
+   * @returns {Array<Object>} The top 5 teams with numeric Elo.
+   */
+  function getTop5Teams(rows, leagueId) {
     
-    // --- NEW PREDICTOR LOGIC BLOCK (ISOLATED) ---
-    if (league === 'nfl-predictor') {
-        // Load the main NFL ratings (nfl.csv) for the predictor
-        await loadDataAndRefresh('nfl.csv'); 
-        
-        const homeSelect = qs('#homeTeam');
-        const awaySelect = qs('#awayTeam');
-        const calculateBtn = qs('#calculateBtn');
-        const resultDiv = qs('#result');
+    let filteredRows = rows;
+    
+    // **APPLY FBS FILTER FOR COLLEGE FOOTBALL**
+    if (leagueId === 'cfb') {
+        filteredRows = filteredRows.filter(r => isFBS(r.Conference));
+    }
 
-        // Extract and sort unique team names
-        const teams = allRows.map(r => r.Team).sort().filter(t => t); // Filter out potential empty strings
+    // Convert Elo string to number for sorting and filter out bad data
+    // This step is now explicit and robust.
+    const finalRows = filteredRows.map(r => ({
+        Team: r.Team, 
+        Elo: n(r.Elo), // Correctly converts the 'Elo' property (which contains the string rating) to a number
+    })).filter(r => r.Team && r.Elo > 0);
 
-        // Function to create and insert options into a select element
-        const populateDropdown = (selectEl) => {
-            selectEl.innerHTML = '<option value="">-- Select Team --</option>';
-            teams.forEach(team => {
-                const option = document.createElement('option');
-                option.value = team;
-                option.textContent = team;
-                selectEl.appendChild(option);
-            });
-        };
+    // Sort by Elo in descending order
+    finalRows.sort((a, b) => b.Elo - a.Elo);
 
-        populateDropdown(homeSelect);
-        populateDropdown(awaySelect);
+    return finalRows.slice(0, 5);
+  }
 
-        // Add calculation event listener
-        calculateBtn.addEventListener('click', () => {
-            const homeTeamName = homeSelect.value;
-            const awayTeamName = awaySelect.value;
+  /**
+   * Renders the top 5 teams into the dedicated div on the homepage.
+   * @param {string} leagueId - The league ID (e.g., 'nfl', 'mcbb').
+   * @param {Array<Object>} topTeams - The top 5 teams data.
+   */
+  function renderTop5(leagueId, topTeams) {
+    const container = qs(`#${LEAGUES[leagueId].id}`);
+    if (!container) return;
 
-            if (!homeTeamName || !awayTeamName) {
-                resultDiv.innerHTML = "<p class='text-yellow-400'>Please select both a **Home** and **Away** team.</p>";
-                return;
-            }
-
-            if (homeTeamName === awayTeamName) {
-                resultDiv.innerHTML = "<p class='text-red-400'>A team cannot play itself! Select two different teams.</p>";
-                return;
-            }
-
-            // Look up ratings
-            const homeTeamData = allRows.find(r => r.Team === homeTeamName);
-            const awayTeamData = allRows.find(r => r.Team === awayTeamName);
-
-            const homeRating = n(homeTeamData ? homeTeamData.Elo : 0);
-            const awayRating = n(awayTeamData ? awayTeamData.Elo : 0);
-
-            if (homeRating === 0 || awayRating === 0) {
-                 resultDiv.innerHTML = `<p class='text-yellow-400'>Could not find valid ratings for one or both teams. Home Elo: ${homeRating.toFixed(1)}, Away Elo: ${awayRating.toFixed(1)}.</p>`;
-                 return;
-            }
-
-            // Perform calculation using the requested Elo formula
-            const winProb = calculateEloWinProbability(homeRating, awayRating);
-
-            // Display result
-            const winPercent = (winProb * 100).toFixed(1);
-            const homeElo = homeRating.toFixed(1);
-            const awayElo = awayRating.toFixed(1);
-
-            resultDiv.innerHTML = `
-                <div class="text-xl">
-                    **${homeTeamName}** has a <span class="text-green-400">${winPercent}%</span> chance to beat **${awayTeamName}**.
-                </div>
-                <div class="muted text-sm mt-2">
-                    (Home Elo: ${homeElo}, Away Elo: ${awayElo})
-                </div>
-            `;
-        });
-        
-        // IMPORTANT: Stop processing the regular page logic
+    // Check if the league is CFB and specifically report if no FBS teams are found
+    if (leagueId === 'cfb' && topTeams.length === 0) {
+        container.innerHTML = `<p class="top-5-placeholder">No FBS ratings found.</p>`;
         return;
     }
-    // --- END NEW PREDICTOR LOGIC BLOCK ---
     
-    // --- STANDARD LEAGUE TABLE LOGIC (Original code structure) ---
-    if (league) {
-        // For regular league pages, load the main data file
-        await loadDataAndRefresh(`${league}.csv`);
-        renderTable(league);
+    if (topTeams.length === 0) {
+        container.innerHTML = `<p class="top-5-placeholder">Ratings data not available.</p>`;
+        return;
     }
 
-    // Event listener for Week Selector (only for NFL pages)
-    const weekSelector = qs('#week-selector');
-    if (league === 'nfl' && weekSelector) {
-        weekSelector.addEventListener('change', async (event) => {
-            const selectedWeek = event.target.value;
-            const fileName = selectedWeek === 'current' ? 'nfl.csv' : `nfl_week_${selectedWeek}.csv`;
-            
-            // Check if the file exists before attempting to load
-            const fileExists = await checkFileExists(`/data/${fileName}`);
-            
-            if (fileExists) {
-                await loadDataAndRefresh(fileName);
-                renderTable(league);
-            } else {
-                console.warn(`File not found: ${fileName}. Falling back to nfl.csv`);
-                await loadDataAndRefresh('nfl.csv');
-                renderTable(league);
-            }
-        });
-    }
-});
+    // Determine the logo path for College sports
+    const logoLeague = (leagueId === 'mcbb' || leagueId === 'wcbb') ? 'cfb' : leagueId;
 
-// Assuming an existing helper function to check file existence (optional but recommended)
-async function checkFileExists(url) {
+    let html = `<h3>Top 5 Elo Ratings</h3><ol class="top-5-list">`;
+    topTeams.forEach((team, index) => {
+        const logoPath = getLogoPath(team.Team, logoLeague);
+        const rank = index + 1;
+        html += `
+            <li>
+                <span class="top-5-rank">${rank}.</span>
+                <span class="top-5-team">
+                    <img src="${logoPath}" alt="${team.Team} Logo" class="team-logo" onerror="this.style.display='none'">
+                    <span class="team-name-text">${team.Team}</span>
+                </span>
+                <span class="top-5-elo">${team.Elo.toFixed(1)}</span>
+            </li>
+        `;
+    });
+    html += `</ol>`;
+    container.innerHTML = html;
+  }
+
+  async function loadHomePageRatings() {
+    const leagueKeys = Object.keys(LEAGUES);
+    const promises = leagueKeys.map(async (key) => {
+        const league = LEAGUES[key];
+        const csvPath = `/data/${league.file}`;
+        try {
+            const resp = await fetch(csvPath, { cache: 'no-store' });
+            if (!resp.ok) throw new Error('Not found');
+            const text = await resp.text();
+            const parsed = parseCSV(text);
+            
+            // Normalize all necessary fields once for use in filtering and sorting
+            const normalizedRows = parsed.rows.map(r => ({
+              Team: r.Team || r.team || '',
+              // Consolidate the rating into a single 'Elo' property as a string
+              Elo: r.Elo || r.elo || r.Points || r.points || '0', 
+              Wins: r.Wins || r.wins || '',
+              Losses: r.Losses || r.losses || '',
+              // Important: Capture Conference/Division/Notes for FBS check
+              Conference: r.Conference || r.conference || r.Division || r.Notes || ''
+            }));
+
+            // Pass the normalized rows and league key for filtering/sorting
+            const top5 = getTop5Teams(normalizedRows, key);
+            renderTop5(key, top5);
+        } catch (error) {
+            console.error(`Failed to load or parse ${league.file}:`, error);
+            // Render a placeholder on error
+            const container = qs(`#${league.id}`);
+            if(container) container.innerHTML = `<p class="top-5-placeholder">Failed to load rankings.</p>`;
+        }
+    });
+    await Promise.all(promises);
+  }
+  // --- END NEW HOMEPAGE LOGIC ---
+
+
+  // Determine which league we’re on
+  const main = document.querySelector('main[data-league]')
+  if (!main) {
+      // This is the index.html page
+      loadHomePageRatings();
+      return // Stop execution of league-specific logic
+  }
+
+  // If on a league page, proceed with league-specific logic
+
+  const league = main.getAttribute('data-league')
+
+  // *MODIFIED RENDERER*: Handles different table layouts for different leagues
+  function renderTable(data, headers) {
+    const tbody = qs('#teamsTable tbody')
+    tbody.innerHTML = ''
+    
+    const isCollegeBasketball = league === 'mcbb' || league === 'wcbb';
+    const logoLeague = isCollegeBasketball ? 'cfb' : league;
+
+    data.forEach((r, i) => {
+      const tr = document.createElement('tr')
+
+      // Get the logo path for the team
+      const logoPath = getLogoPath(r.Team, logoLeague)
+
+      // Create the Team cell content with the logo. onerror hides the image if the file is not found.
+      const teamCellContent = `
+        <img src="${logoPath}" alt="${r.Team} Logo" class="team-logo" onerror="this.style.display='none'">
+        <span class="team-name-text">${r.Team}</span>
+      `
+      
+      let rowHtml = `<td>${i + 1}</td><td class="team-cell">${teamCellContent}</td>`;
+
+      if (league === 'nhl') {
+        // NHL: Rank, Team, Elo, Points
+        // The original nhl.html template uses Elo and Points headers.
+        rowHtml += `
+          <td>${r.Elo}</td>
+          <td>${r.Points}</td>
+        `;
+      } else if (league === 'nfl' || league === 'nba') {
+        // NFL/NBA: Rank, Team, Elo, Wins, Losses
+        rowHtml += `
+          <td>${r.Elo}</td>
+          <td>${r.Wins}</td>
+          <td>${r.Losses}</td>
+        `;
+      } else {
+        // CFB/College Basketball (mcbb, wcbb): Rank, Team, Elo, Wins, Losses, Conference
+        rowHtml += `
+          <td>${r.Elo}</td>
+          <td>${r.Wins}</td>
+          <td>${r.Losses}</td>
+          <td>${r.Conference}</td>
+        `;
+      }
+      
+      tr.innerHTML = rowHtml;
+      tbody.appendChild(tr)
+    })
+  }
+  // *END MODIFIED RENDERER*
+
+  // Controls
+  const filterInput = qs('#filter')
+  const sortSelect = qs('#sortBy')
+  const rowsPerPageSelect = qs('#rowsPerPage')
+  const weekFilterSelect = qs('#weekFilter') // New: Get the week filter control
+
+  // League Type filter
+  const leagueTypeSelect = qs('#leagueTypeFilter')
+
+  // Existing control for conference filtering
+  let conferenceSelect = qs('#conferenceFilter')
+  // Check if conference filter needs dynamic injection (currently only for CFB that doesn't have it in HTML)
+  if (!conferenceSelect) {
+    // If not already in HTML, inject dynamically next to Sort by
+    const sortRow = sortSelect?.closest('.row.small')
+    // Added explicit check for 'cfb' since other leagues might not want this filter
+    if (sortRow && league === 'cfb') { 
+      const label = document.createElement('label')
+      label.textContent = 'Conference'
+      conferenceSelect = document.createElement('select')
+      conferenceSelect.id = 'conferenceFilter'
+      conferenceSelect.innerHTML = `<option value="all" selected>All Conferences</option>`
+      sortRow.insertBefore(label, rowsPerPageSelect.closest('label').previousElementSibling)
+      sortRow.insertBefore(conferenceSelect, rowsPerPageSelect.closest('label').previousElementSibling)
+      // Add event listener immediately
+      conferenceSelect.addEventListener('change', refresh) 
+    }
+  }
+
+  let parsed = { headers: [], rows: [] }
+  let allRows = [] // The main array that holds the full normalized data
+
+  // New utility function to fetch and parse a CSV file
+  async function fetchAndParseCSV(fileName) {
+    const filePath = `/data/${fileName}`;
     try {
-        // Use HEAD request to check for file existence without downloading full content
-        const response = await fetch(url, { method: 'HEAD' });
-        return response.ok;
-    } catch (e) {
-        return false;
+      const resp = await fetch(filePath, { cache: 'no-store' });
+      if (!resp.ok) {
+        // Use an intentional status code for "Not found, but expected to check"
+        if (resp.status === 404) return { status: 404 };
+        throw new Error(`Failed to fetch ${filePath}: ${resp.status} ${resp.statusText}`);
+      }
+      const txt = await resp.text();
+      return { status: 200, data: parseCSV(txt) };
+    } catch (err) {
+      console.error(`Error loading CSV: ${filePath}`, err);
+      // Return a status indicating a general failure
+      return { status: 500, error: err };
     }
-}
+  }
+
+  // New function to handle loading the selected data file and updating the table
+  async function loadDataAndRefresh() {
+    let fileName = `${league}.csv`;
+    
+    // Check if the current league supports a week filter and one is selected
+    if (league === 'nfl' && weekFilterSelect && weekFilterSelect.value) {
+      fileName = weekFilterSelect.value;
+    }
+    
+    const result = await fetchAndParseCSV(fileName);
+    
+    if (result.status !== 200) {
+      const tbody = qs('#teamsTable tbody');
+      // Use the original CSV path for the error message, or the selected filename
+      const displayPath = fileName;
+      tbody.innerHTML = `<tr><td colspan="6">Unable to load rankings data from: /data/${displayPath}</td></tr>`;
+      allRows = []; // Clear old data
+      refresh(); // Re-render empty table
+      return;
+    }
+
+    parsed = result.data;
+    
+    // Normalize data (common to all leagues)
+    allRows = parsed.rows.map(r => ({
+      Team: r.Team || r.team || '',
+      Elo: (r.Elo || r.elo || r.Points || r.points || '0').toString(),
+      Wins: r.Wins || r.wins || '',
+      Losses: r.Losses || r.losses || '',
+      Points: r.Points || r.points || '', 
+      // Use 'Division' for NFL/NBA/NHL, 'Conference' for CBB/CFB where applicable
+      Conference: r.Conference || r.conference || r.Division || r.Notes || ''
+    }));
+
+    // Re-run the conference population logic if present (currently only auto-populated for CFB)
+    if (league === 'cfb' && conferenceSelect) {
+      // Clear previous options except the default
+      conferenceSelect.innerHTML = `<option value="all" selected>All Conferences</option>`;
+      const uniqueConfs = [...new Set(allRows.map(r => r.Conference).filter(c => c && !['', 'FBS Independent'].includes(c)))].sort()
+      uniqueConfs.forEach(conf => {
+        const opt = document.createElement('option')
+        opt.value = conf
+        opt.textContent = conf
+        conferenceSelect.appendChild(opt)
+      })
+    }
+
+    refresh();
+  }
+
+  /**
+   * Probes for NFL weekly files and populates the dropdown.
+   */
+  async function loadNFLWeekOptions() {
+    if (league !== 'nfl' || !weekFilterSelect) return;
+
+    let optionsHtml = '<option value="nfl.csv" selected>Current Week</option>';
+    let foundAWeek = false;
+    const maxWeek = 18; // Max regular season weeks
+
+    // Probe for files starting from week 1, up to maxWeek
+    for (let i = 1; i <= maxWeek; i++) {
+        const weekFileName = `nfl_week_${i}.csv`;
+        const weekLabel = `Week ${i}`;
+        
+        const result = await fetchAndParseCSV(weekFileName);
+
+        if (result.status === 200) {
+            optionsHtml += `<option value="${weekFileName}">${weekLabel}</option>`;
+            foundAWeek = true;
+        }
+    }
+    
+    // Only display dynamic options if files are found. The HTML already contains 'Current Week'.
+    if (foundAWeek) {
+        weekFilterSelect.innerHTML = optionsHtml;
+    }
+  }
+
+
+  function applyFiltersAndSort() {
+    const q = filterInput ? filterInput.value.trim().toLowerCase() : ''
+    // Check if conferenceSelect exists before reading its value
+    const selectedConf = conferenceSelect ? conferenceSelect.value : 'all'
+    const selectedLeagueType = leagueTypeSelect ? leagueTypeSelect.value : 'fbs' // Default to FBS
+
+    let out = allRows.filter(r => { // <--- Uses allRows
+      // 1. League Type Filter
+      let matchesLeagueType = true
+      if (league === 'cfb') { // Only apply this logic for CFB
+        if (selectedLeagueType === 'fbs') {
+          matchesLeagueType = isFBS(r.Conference)
+        } else if (selectedLeagueType === 'fcs') {
+          matchesLeagueType = !isFBS(r.Conference)
+        }
+      }
+      if (!matchesLeagueType) return false
+
+
+      // 2. Text search
+      const matchesText = !q || (r.Team || '').toLowerCase().includes(q) || (r.Conference || '').toLowerCase().includes(q)
+      if (!matchesText) return false
+      
+      // 3. Conference filter (only applies if the element exists)
+      const matchesConf = !conferenceSelect || selectedConf === 'all' || r.Conference === selectedConf
+
+      return matchesText && matchesConf
+    })
+
+    const sortBy = sortSelect ? sortSelect.value : 'elo'
+    // Ensure sorting correctly handles different rating columns for different leagues
+    const sortKey = (league === 'nhl' && sortBy === 'points') ? 'Points' : 'Elo';
+    
+    // Sort by converting the string value of the relevant key to a number
+    if (sortBy === 'elo' || sortBy === 'points') out.sort((a, b) => n(b[sortKey]) - n(a[sortKey]))
+    else if (sortBy === 'team') out.sort((a, b) => (a.Team || '').localeCompare(b.Team || ''))
+    else if (sortBy === 'wins') out.sort((a, b) => n(b.Wins) - n(a.Wins))
+
+    const rowsPerPage = Number(rowsPerPageSelect ? rowsPerPageSelect.value : 0)
+    return rowsPerPage > 0 ? out.slice(0, rowsPerPage) : out
+  }
+
+  function refresh() {
+    const shown = applyFiltersAndSort()
+    renderTable(shown, parsed.headers)
+  }
+  
+  // Initial setup for the selected league
+  if (league === 'nfl') {
+    // NFL has the new week filter logic
+    loadNFLWeekOptions();
+    
+  } 
+  
+  // Start data load on initial page load for all leagues
+  loadDataAndRefresh();
+
+
+  // Bind events
+  if (filterInput) filterInput.addEventListener('input', refresh)
+  if (sortSelect) sortSelect.addEventListener('change', refresh)
+  if (rowsPerPageSelect) rowsPerPageSelect.addEventListener('change', refresh)
+  // For CFB: conferenceSelect listener is added dynamically if needed
+  if (leagueTypeSelect) leagueTypeSelect.addEventListener('change', refresh)
+  
+  // New week filter event listener (only relevant for NFL)
+  if (weekFilterSelect) {
+      weekFilterSelect.addEventListener('change', loadDataAndRefresh);
+  }
+})
