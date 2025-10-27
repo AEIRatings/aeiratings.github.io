@@ -1,0 +1,56 @@
+name: Daily NFL Standings Update
+
+on:
+  schedule:
+    # Runs once a day at 10:00 AM UTC, which is 6:00 AM Eastern Daylight Time (EDT)
+    # The time will shift to 5:00 AM Eastern Standard Time (EST) when DST ends.
+    - cron: '0 10 * * *' 
+  
+  # Also allow manual running via the GitHub Actions tab
+  workflow_dispatch:
+
+jobs:
+  update-nfl-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        # Checks out your repository's code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        # Sets up the Python environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install Dependencies
+        # Installs the necessary Python libraries (like BeautifulSoup4 for scraping)
+        run: |
+          python -m pip install --upgrade pip
+          pip install beautifulsoup4
+
+      - name: Scrape Data and Update CSV
+        # Combines the curl download and Python execution in one step
+        run: |
+          # 1. Use curl to get the source HTML and save it locally as nfl2025.html
+          # -sL: silent, follow redirects
+          echo "Downloading HTML for the 2025 season..."
+          curl -sL "https://www.pro-football-reference.com/years/2025" -o "nfl2025.html"
+
+          # 2. Execute the Python script. The script handles reading the HTML,
+          #    merging the data with data/nfl.csv, and writing the final CSV.
+          echo "Running Python scraper and merging data..."
+          python NFL_Standings_Scraper.py
+        
+      - name: Commit and Push Changes
+        # Automatically commits and pushes the updated data/nfl.csv file to the repository
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "🤖 Daily NFL Standings update: Wins/Losses from Pro-Football-Reference"
+          # Only commit the necessary files
+          files: |
+            data/nfl.csv
+            nfl2025.html
+          commit_author: 'GitHub Actions Bot <action@github.com>'
+          skip_dirty_check: true
