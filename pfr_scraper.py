@@ -4,7 +4,7 @@ import re
 
 # --- CONFIGURATION ---
 # The URL for the main 2025 NFL Standings page on PFR
-NFL_STANDINGS_URL = "https://www.pro-football-reference.com/years/2025/index.htm"
+NFL_STANDINGS_URL = "https://www.pro-football-reference.com/years/2025/"
 DATA_DIR = 'data'
 NFL_CSV_FILE = 'nfl.csv'
 CSV_PATH = os.path.join(DATA_DIR, NFL_CSV_FILE)
