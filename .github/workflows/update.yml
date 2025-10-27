@@ -1,0 +1,41 @@
+name: Update League Standings
+
+# Run this workflow daily at 06:00 UTC
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  # Allows manual triggering of the workflow from the GitHub Actions tab
+  workflow_dispatch:
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # This line is crucial: it fetches the full history needed for the commit step
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x' 
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run data update script
+        run: python update_ratings.py
+
+      - name: Commit and Push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          # Specify the files to track and commit back to the repo
+          file_pattern: data/*.csv
+          commit_message: 'Automated: Update W-L standings from ESPN API'
+          # Use GitHub Token for authentication (automatic permission provided by GitHub Actions)
+          commit_author: Automated Updater <actions@github.com>
+          # Ensure this branch matches your GitHub Pages deployment branch (usually 'main' or 'master')
+          branch: master
