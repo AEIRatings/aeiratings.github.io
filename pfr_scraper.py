@@ -6,7 +6,7 @@ from io import StringIO
 
 # --- CONFIGURATION ---
 # The URL for the main 2025 NFL Standings page on PFR
-NFL_STANDINGS_URL = "https://www.pro-football-reference.com/years/2025/index.htm"
+NFL_STANDINGS_URL = "https://www.pro-football-reference.com/years/2025/"
 # Path to the nfl.csv file relative to where the script is executed
 CSV_PATH = 'data/nfl.csv'
 
