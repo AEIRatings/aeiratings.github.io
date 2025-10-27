@@ -54,12 +54,16 @@ def get_team_records_from_api(sport, league, year):
             team_name = team_entry['team']['displayName']
             stats = team_entry.get("stats", [])
             
-            # Extract Wins and Losses
-            wins = next(int(s["value"]) for s in stats if s["name"] == "wins")
-            losses = next(int(s["value"]) for s in stats if s["name"] == "losses")
+            # --- FIX: Use a robust stat lookup to prevent StopIteration errors. ---
+            stat_map = {s["name"]: int(s.get("value", 0)) for s in stats if s.get("name") in ["wins", "losses"]}
+            
+            # Safely extract Wins and Losses, defaulting to 0 if not found in the map
+            wins = stat_map.get("wins", 0)
+            losses = stat_map.get("losses", 0)
             
             # Use lowercase team name for robust matching to the CSV
             api_records[team_name.lower()] = {'Wins': wins, 'Losses': losses}
+            # --- END FIX ---
         except Exception as e:
             # Skip team if its W/L data is malformed or missing
             # print(f"  Warning: Skipping team in API parse. Error: {e}")
