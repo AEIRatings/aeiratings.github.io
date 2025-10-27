@@ -12,11 +12,18 @@ on:
 jobs:
   update-nfl-data:
     runs-on: ubuntu-latest
+    
+    # FIX 1: Explicitly grant write permission for the GITHUB_TOKEN to push changes
+    permissions:
+      contents: write 
 
     steps:
       - name: Checkout Repository
         # Checks out your repository's code
         uses: actions/checkout@v4
+        # Add token to allow subsequent push, though this is often implicit with the 'permissions' fix
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }} 
 
       - name: Set up Python
         # Sets up the Python environment
@@ -31,11 +38,10 @@ jobs:
           pip install beautifulsoup4
 
       - name: Scrape Data and Update CSV
-        # Combines the curl download and Python execution in one step
+        # Combines the curl download and Python execution
         run: |
-          # 1. Use curl to get the source HTML and save it locally as nfl2025.html
-          # -sL: silent, follow redirects
           echo "Downloading HTML for the 2025 season..."
+          # 1. Use curl to get the source HTML and save it locally as nfl2025.html
           curl -sL "https://www.pro-football-reference.com/years/2025" -o "nfl2025.html"
 
           # 2. Execute the Python script. The script handles reading the HTML,
@@ -48,8 +54,9 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "🤖 Daily NFL Standings update: Wins/Losses from Pro-Football-Reference"
-          # Only commit the necessary files
-          files: |
+          # FIX 2: Use the correct parameter 'file_pattern' (or 'file_patterns') 
+          # to specify the files to commit. Space or newline separated list.
+          file_pattern: |
             data/nfl.csv
             nfl2025.html
           commit_author: 'GitHub Actions Bot <action@github.com>'
