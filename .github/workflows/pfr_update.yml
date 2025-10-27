@@ -1,0 +1,42 @@
+name: Automated PFR Standings Update
+
+# Schedule to run every day at 06:00 UTC
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  # Allows you to manually trigger the job from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  scrape-and-update:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Fetch full history needed for the commit step
+          fetch-depth: 0 
+          
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        # Install pandas (for data manipulation) and lxml (required by pandas for HTML scraping)
+        run: pip install pandas lxml
+
+      - name: Run PFR data scraper script
+        # Execute the new scraper script saved in your repository root
+        run: python pfr_scraper.py
+
+      - name: Commit and Push changes
+        # Use git-auto-commit-action to handle the version control
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          # CRITICAL: Only commit the updated NFL data file
+          file_pattern: data/nfl.csv
+          commit_message: 'Automated: Update NFL W-L from PFR 2025'
+          # CRITICAL: Update 'master' to your default branch name if necessary (e.g., 'main')
+          branch: master
