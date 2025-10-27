@@ -7,11 +7,11 @@ from io import StringIO
 # --- CONFIGURATION ---
 # The URL for the main 2025 NFL Standings page on PFR
 NFL_STANDINGS_URL = "https://www.pro-football-reference.com/years/2025/"
-# Path to the nfl.csv file relative to where the script is executed
+# Path to the nfl.csv file. Since the script will likely run from the root 
+# of your 'aeiratings.github.io' repository, this path is correct.
 CSV_PATH = 'data/nfl.csv'
 
 # Map from PFR abbreviation (Tm) to the full team name used in nfl.csv
-# This map is crucial for matching the scraped data to your existing CSV.
 TEAM_MAP = {
     'NWE': 'New England Patriots', 'BUF': 'Buffalo Bills', 'MIA': 'Miami Dolphins', 'NYJ': 'New York Jets',
     'BAL': 'Baltimore Ravens', 'CIN': 'Cincinnati Bengals', 'CLE': 'Cleveland Browns', 'PIT': 'Pittsburgh Steelers',
@@ -30,19 +30,25 @@ def scrape_pfr_standings(url):
     """
     print(f"-> Attempting to scrape standings from {url}...")
     
+    # --- FIX: Using a robust User-Agent to bypass 403 Forbidden ---
+    headers = {
+        # A recent, full browser User-Agent string
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+        'Accept-Language': 'en-US,en;q=0.9',
+    }
+    
     try:
-        # Use requests to fetch raw page content
-        headers = {'User-Agent': 'Mozilla/5.0'}
+        # Use requests to fetch raw page content with the new headers
         response = requests.get(url, headers=headers, timeout=15)
-        response.raise_for_status() # Raise an exception for bad status codes
+        response.raise_for_status() # Raise exception for HTTP errors (like the original 403)
         html_content = response.text
     except Exception as e:
-        print(f"ERROR: Failed to fetch data. Ensure URL is correct: {e}")
+        print(f"ERROR: Failed to fetch data. Error detail: {e}")
         return None
 
     scraped_tables = {}
     
-    # Iterate through both conference tables (IDs are inside comments on PFR pages)
+    # The scraping logic remains the same (searching for commented-out tables)
     for conf_id in ['AFC', 'NFC']:
         # Regex to find the table embedded inside an HTML comment based on its ID
         match = re.search(r'', html_content, re.DOTALL)
@@ -55,13 +61,9 @@ def scrape_pfr_standings(url):
                 df = pd.read_html(StringIO(table_html))[0]
                 
                 # Data cleaning steps based on PFR table structure
-                # The first row is typically division headers, so we skip it (iloc[1:])
+                # Rename columns and filter out division header rows
                 df = df.iloc[1:].rename(columns={'Tm': 'PFR_Tm', 'W': 'Wins', 'L': 'Losses'})
-                
-                # Select essential columns
                 df = df[['PFR_Tm', 'Wins', 'Losses']]
-                
-                # Filter out the remaining header/divider rows that still contain 'FC' in the Tm column
                 df = df[~df['PFR_Tm'].astype(str).str.contains('FC')]
                 
                 scraped_tables[conf_id] = df
@@ -83,7 +85,6 @@ def update_nfl_csv(scraped_data):
         return
 
     try:
-        # 1. Read the local data into a DataFrame
         local_df = pd.read_csv(CSV_PATH)
     except Exception as e:
         print(f"CRITICAL ERROR: Failed to read local CSV: {e}")
@@ -91,36 +92,30 @@ def update_nfl_csv(scraped_data):
         
     print(f"-> Read local CSV with {len(local_df)} teams.")
 
-    # 2. Map PFR abbreviations to full team names
-    # Create a 'Team' column in the scraped data to match the local CSV
+    # Map PFR abbreviations to full team names
     scraped_data['Team'] = scraped_data['PFR_Tm'].str.upper().map(TEAM_MAP)
     
-    # Convert Wins/Losses to proper numeric types for reliable merging/updating
+    # Convert Wins/Losses to numeric types
     scraped_data['Wins'] = pd.to_numeric(scraped_data['Wins'], errors='coerce', downcast='integer')
     scraped_data['Losses'] = pd.to_numeric(scraped_data['Losses'], errors='coerce', downcast='integer')
     scraped_data = scraped_data.dropna(subset=['Team', 'Wins', 'Losses'])
 
-    # Select only the relevant columns for updating (Team, Wins, Losses)
     update_df = scraped_data[['Team', 'Wins', 'Losses']].copy()
 
-    # 3. Update the local DataFrame
-    # Set 'Team' as index for aligned update
+    # Update the local DataFrame
     local_df = local_df.set_index('Team')
     update_df = update_df.set_index('Team')
 
-    # Use the .update() method to only update matching columns/rows, preserving other data like 'Elo'
-    # Ensure the columns being updated in the local_df are of the correct type (numeric) if necessary, 
-    # then convert back to string as your original file has them as strings.
+    # Update only the Wins and Losses columns
     local_df.update(update_df[['Wins', 'Losses']])
 
-    # Convert updated columns back to integer then string for consistency with your file structure
+    # Convert updated columns back to the expected string format
     local_df['Wins'] = local_df['Wins'].astype(float).astype(int).astype(str)
     local_df['Losses'] = local_df['Losses'].astype(float).astype(int).astype(str)
     
-    # Reset index and save
     final_df = local_df.reset_index()
 
-    # 4. Write the updated data back to CSV
+    # Write the updated data back to CSV
     try:
         final_df.to_csv(CSV_PATH, index=False)
         print(f"✅ Successfully updated {CSV_PATH} with W-L records for {len(final_df)} teams.")
@@ -130,7 +125,6 @@ def update_nfl_csv(scraped_data):
 if __name__ == "__main__":
     print("--- Starting PFR Standings Scraper ---")
     
-    # Run the scraping process
     standings_data = scrape_pfr_standings(NFL_STANDINGS_URL)
     
     if standings_data is not None and not standings_data.empty:
