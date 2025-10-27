@@ -78,7 +78,7 @@ def scrape_nhl_standings(html_content):
 
     # Target IDs for the conference standings tables on hockey-reference.com
     # Note: Hockey-Reference often wraps tables in comments, so we search the full HTML
-    target_ids = ['confs_standings_EAS', 'confs_standings_WES']
+    target_ids = ['all_standings_EAS', 'all_standings_WES']
     
     print(f"Searching for tables with IDs in content: {', '.join(target_ids)}")
 
