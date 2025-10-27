@@ -1,151 +1,127 @@
 import requests
 import csv
 import os
-from datetime import datetime
 
-# --- CONFIGURATION ---
-# Base path is assumed to be the directory containing this script and the 'data' folder
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = os.path.join(BASE_DIR, 'data')
+# --- CONFIGURATION (UPDATE THESE WHEN SEASONS CHANGE) ---
+# Assuming NFL/CFB are in the 2025 season (Fall/Winter 2025)
+CURRENT_SEASON_NFL_CFB = 2025 
+# Assuming NBA/CBB are starting their 2025-2026 season (API often uses the ending year)
+CURRENT_SEASON_NBA_CBB = 2026 
 
-# Set the current season year. This is crucial for the API call.
-# For fall/winter sports (NFL, CFB, NBA, CBB), the season is generally the year it starts.
-# Example: 2024-2025 NBA season uses '2025' as the season year in the API.
-# You MUST update this when a new season begins.
-CURRENT_SEASON_YEAR = 2025 
-
-# Configuration for each league: {file_name: (sport_slug, league_slug)}
+# Map CSV files to their ESPN API slugs and season year
 LEAGUES_CONFIG = {
-    'nfl.csv': ('football', 'nfl'),
-    'nba.csv': ('basketball', 'nba'),
-    'cfb.csv': ('football', 'college-football'),
-    'mcbb.csv': ('basketball', 'mens-college-basketball'),
-    'wcbb.csv': ('basketball', 'womens-college-basketball'),
+    'nfl.csv': ('football', 'nfl', CURRENT_SEASON_NFL_CFB),
+    'nba.csv': ('basketball', 'nba', CURRENT_SEASON_NBA_CBB),
+    'cfb.csv': ('football', 'college-football', CURRENT_SEASON_NFL_CFB),
+    'mcbb.csv': ('basketball', 'mens-college-basketball', CURRENT_SEASON_NBA_CBB),
+    'wcbb.csv': ('basketball', 'womens-college-basketball', CURRENT_SEASON_NBA_CBB),
 }
+
+# --- FILE PATHING ---
+# GitHub Actions runs from the repository root, so relative paths are simple
+DATA_DIR = 'data'
+FIELDNAMES = ['Team', 'Elo', 'Division', 'Wins', 'Losses', 'Notes'] 
 
 # --- FUNCTIONS ---
 
 def get_team_records_from_api(sport, league, year):
     """Fetches win/loss data from the ESPN Standings API."""
+    # Use standard ESPN Standings API endpoint
     url = f"https://site.api.espn.com/apis/site/v2/sports/{sport}/{league}/standings?season={year}"
-    print(f"Fetching data for {league} from: {url}")
     
     try:
-        response = requests.get(url)
-        response.raise_for_status() # Raise exception for bad status codes
+        response = requests.get(url, timeout=15)
+        response.raise_for_status() 
         data = response.json()
     except requests.exceptions.RequestException as e:
-        print(f"  ERROR: Failed to fetch API data: {e}")
+        print(f"  ERROR: Failed to fetch API data for {league}. {e}")
         return {}
 
     api_records = {}
-    try:
-        # Navigate the JSON structure to get standings entries
-        # Standings structure is often nested, check 'children' for conferences/divisions
-        entries = []
-        standings_data = data.get('children')
-        if standings_data:
-            for group in standings_data:
-                entries.extend(group.get('standings', {}).get('entries', []))
-        else:
-            # Fallback for leagues that might not use 'children' (e.g., smaller leagues)
-            entries = data.get('standings', {}).get('entries', [])
-            
-        for team_entry in entries:
-            # ESPN's display name is generally the most reliable team name for matching
+    
+    # ESPN Standings structure is nested; iterate through conference/groupings
+    entries = []
+    standings_data = data.get('children')
+    if standings_data:
+        for group in standings_data:
+            entries.extend(group.get('standings', {}).get('entries', []))
+    else:
+        # Fallback for leagues without complex groupings
+        entries = data.get('standings', {}).get('entries', [])
+
+    for team_entry in entries:
+        try:
             team_name = team_entry['team']['displayName']
             stats = team_entry.get("stats", [])
             
-            # Extract Wins (W) and Losses (L) from the stats list
-            wins = next(int(s["value"]) for s in stats if s["name"] == "wins" and "value" in s)
-            losses = next(int(s["value"]) for s in stats if s["name"] == "losses" and "value" in s)
+            # Extract Wins and Losses
+            wins = next(int(s["value"]) for s in stats if s["name"] == "wins")
+            losses = next(int(s["value"]) for s in stats if s["name"] == "losses")
             
-            # Normalize team name to lowercase for robust matching against CSV
+            # Use lowercase team name for robust matching to the CSV
             api_records[team_name.lower()] = {'Wins': wins, 'Losses': losses}
+        except Exception as e:
+            # Skip team if its W/L data is malformed or missing
+            # print(f"  Warning: Skipping team in API parse. Error: {e}")
+            continue
             
-    except Exception as e:
-        print(f"  ERROR: Failed to parse API data for {league}. Check API structure. Error: {e}")
-        return {}
-        
     return api_records
 
 def update_csv_file(file_name, api_records):
     """Reads the local CSV, updates Wins/Losses, and overwrites the file."""
     csv_filepath = os.path.join(DATA_DIR, file_name)
-    print(f"  Processing file: {csv_filepath}")
     
     try:
-        # Read the entire file content
+        # 1. Read existing CSV data (to preserve Elo and Division)
         with open(csv_filepath, 'r', newline='') as file:
-            reader = csv.DictReader(file)
+            reader = csv.DictReader(file, fieldnames=FIELDNAMES)
+            header = next(reader) # Read header row
             current_teams = list(reader)
-            fieldnames = reader.fieldnames
             
-        if not fieldnames:
-             print("  ERROR: CSV file is empty or has no headers.")
-             return
-             
     except FileNotFoundError:
-        print(f"  ERROR: CSV file not found at {csv_filepath}")
+        print(f"  CRITICAL ERROR: CSV file not found at {csv_filepath}")
         return
     except Exception as e:
-        print(f"  ERROR: Could not read CSV file: {e}")
+        print(f"  CRITICAL ERROR: Could not read CSV file: {e}")
         return
 
-    # 2. Merge new data with old data
+    # 2. Merge new W/L data
     updated_teams = []
-    missing_count = 0
     for team_row in current_teams:
-        csv_team_name = team_row.get('Team', '').lower() # Assuming a 'Team' column exists
+        csv_team_name = team_row.get('Team', '').lower() 
         
         if csv_team_name in api_records:
-            # Update the Wins and Losses columns
             new_record = api_records[csv_team_name]
-            team_row['Wins'] = new_record['Wins']
-            team_row['Losses'] = new_record['Losses']
-        else:
-            missing_count += 1
-            # print(f"  WARNING: No API record found for team: {team_row.get('Team')}. Wins/Losses left unchanged.")
+            # Update the Wins and Losses columns
+            team_row['Wins'] = str(new_record['Wins'])
+            team_row['Losses'] = str(new_record['Losses'])
             
         updated_teams.append(team_row)
 
     # 3. Write updated data back to CSV
     try:
         with open(csv_filepath, 'w', newline='') as file:
-            writer = csv.DictWriter(file, fieldnames=fieldnames)
-            writer.writeheader()
+            writer = csv.DictWriter(file, fieldnames=FIELDNAMES)
+            # Write the original header back, then the data
+            writer.writerow(header)
             writer.writerows(updated_teams)
-        
-        print(f"  ✅ Successfully updated {len(updated_teams) - missing_count} team records in {file_name}.")
-        if missing_count > 0:
-            print(f"  ⚠️ Warning: {missing_count} teams were not matched and their W/L was not updated.")
-
+        print(f"  ✅ Successfully updated {file_name}.")
     except Exception as e:
-        print(f"  CRITICAL ERROR: Could not write to CSV file. Check permissions. Error: {e}")
+        print(f"  CRITICAL ERROR: Could not write to CSV file. Error: {e}")
 
 # --- MAIN EXECUTION ---
 if __name__ == "__main__":
     
     print("--- Starting AEI Ratings Update Script ---")
-    print(f"Using Season Year: {CURRENT_SEASON_YEAR}")
-    print(f"Local Data Directory: {DATA_DIR}\n")
-
-    # Check for required library
-    try:
-        import requests
-    except ImportError:
-        print("\nFATAL ERROR: The 'requests' library is not installed.")
-        print("Please run: pip install requests")
-        exit(1)
-
-    for file_name, (sport_slug, league_slug) in LEAGUES_CONFIG.items():
-        print(f"\n--- Processing {file_name.upper().replace('.CSV', '')} ---")
+    
+    for file_name, (sport_slug, league_slug, season_year) in LEAGUES_CONFIG.items():
+        print(f"\n--- Processing {league_slug.upper()} ({file_name}) ---")
         
-        # 1. Fetch data from ESPN API
-        records = get_team_records_from_api(sport_slug, league_slug, CURRENT_SEASON_YEAR)
+        # 1. Fetch data
+        records = get_team_records_from_api(sport_slug, league_slug, season_year)
         
         if records:
-            # 2. Update the local CSV file
+            # 2. Update CSV
             update_csv_file(file_name, records)
         else:
             print(f"  Skipping {file_name} due to API error or no records found.")
