@@ -1,16 +1,17 @@
 import pandas as pd
 import os
 import re
+import requests
+from io import StringIO
 
 # --- CONFIGURATION ---
 # The URL for the main 2025 NFL Standings page on PFR
-NFL_STANDINGS_URL = "https://www.pro-football-reference.com/years/2025/"
-DATA_DIR = 'data'
-NFL_CSV_FILE = 'nfl.csv'
-CSV_PATH = os.path.join(DATA_DIR, NFL_CSV_FILE)
+NFL_STANDINGS_URL = "https://www.pro-football-reference.com/years/2025/index.htm"
+# Path to the nfl.csv file relative to where the script is executed
+CSV_PATH = 'data/nfl.csv'
 
 # Map from PFR abbreviation (Tm) to the full team name used in nfl.csv
-# This ensures data integrity when merging.
+# This map is crucial for matching the scraped data to your existing CSV.
 TEAM_MAP = {
     'NWE': 'New England Patriots', 'BUF': 'Buffalo Bills', 'MIA': 'Miami Dolphins', 'NYJ': 'New York Jets',
     'BAL': 'Baltimore Ravens', 'CIN': 'Cincinnati Bengals', 'CLE': 'Cleveland Browns', 'PIT': 'Pittsburgh Steelers',
@@ -24,50 +25,51 @@ TEAM_MAP = {
 
 def scrape_pfr_standings(url):
     """
-    Fetches and parses the AFC/NFC standings from Pro-Football-Reference.
-    It looks for tables with IDs 'AFC' and 'NFC', which are often commented out in the HTML source.
+    Fetches raw HTML from PFR, extracts the commented-out tables by ID,
+    and returns a combined DataFrame of wins and losses.
     """
     print(f"-> Attempting to scrape standings from {url}...")
     
     try:
-        # Use pandas.read_html to attempt to scrape tables directly
-        # The tables are often contained within HTML comments, so we fetch the raw page
-        response = pd.io.common.urlopen(url)
-        html_content = response.read()
+        # Use requests to fetch raw page content
+        headers = {'User-Agent': 'Mozilla/5.0'}
+        response = requests.get(url, headers=headers, timeout=15)
+        response.raise_for_status() # Raise an exception for bad status codes
+        html_content = response.text
     except Exception as e:
-        print(f"ERROR: Failed to fetch data. Ensure URL is correct and network is available: {e}")
+        print(f"ERROR: Failed to fetch data. Ensure URL is correct: {e}")
         return None
 
     scraped_tables = {}
     
-    # Use regex to find the commented-out tables by ID ('AFC' and 'NFC')
+    # Iterate through both conference tables (IDs are inside comments on PFR pages)
     for conf_id in ['AFC', 'NFC']:
-        # This regex looks for the table wrapped inside an HTML comment
-        match = re.search(r'', html_content.decode('utf-8'), re.DOTALL)
+        # Regex to find the table embedded inside an HTML comment based on its ID
+        match = re.search(r'', html_content, re.DOTALL)
         
         if match:
-            # Clean the table HTML by removing comment tags
+            # Extract the raw table HTML string, removing the comment tags
             table_html = match.group(0).replace('', '')
             try:
-                # Read the clean table HTML into a DataFrame
-                df = pd.read_html(table_html)[0]
+                # Use StringIO to let pd.read_html parse the string fragment
+                df = pd.read_html(StringIO(table_html))[0]
                 
-                # Rename columns and remove the division header rows (index 0)
-                # The columns are Tm, W, L, T, W-L%...
+                # Data cleaning steps based on PFR table structure
+                # The first row is typically division headers, so we skip it (iloc[1:])
                 df = df.iloc[1:].rename(columns={'Tm': 'PFR_Tm', 'W': 'Wins', 'L': 'Losses'})
                 
-                # Select and clean relevant columns
+                # Select essential columns
                 df = df[['PFR_Tm', 'Wins', 'Losses']]
                 
-                # Filter out Division headers (they contain "FC" in the 'PFR_Tm' column)
-                df = df[~df['PFR_Tm'].str.contains('FC')]
+                # Filter out the remaining header/divider rows that still contain 'FC' in the Tm column
+                df = df[~df['PFR_Tm'].astype(str).str.contains('FC')]
                 
                 scraped_tables[conf_id] = df
             except Exception as e:
                 print(f"Warning: Failed to parse {conf_id} table data in memory: {e}")
                 
     if not scraped_tables:
-        print("ERROR: No AFC or NFC tables could be successfully parsed from Pro-Football-Reference.")
+        print("ERROR: No AFC or NFC tables could be successfully parsed from the page source.")
         return None
 
     # Combine the AFC and NFC tables
@@ -80,8 +82,8 @@ def update_nfl_csv(scraped_data):
         print(f"CRITICAL ERROR: Local CSV file not found at {CSV_PATH}")
         return
 
-    # 1. Read the local data into a DataFrame
     try:
+        # 1. Read the local data into a DataFrame
         local_df = pd.read_csv(CSV_PATH)
     except Exception as e:
         print(f"CRITICAL ERROR: Failed to read local CSV: {e}")
@@ -89,10 +91,11 @@ def update_nfl_csv(scraped_data):
         
     print(f"-> Read local CSV with {len(local_df)} teams.")
 
-    # 2. Map PFR abbreviations to full team names in the scraped data
+    # 2. Map PFR abbreviations to full team names
+    # Create a 'Team' column in the scraped data to match the local CSV
     scraped_data['Team'] = scraped_data['PFR_Tm'].str.upper().map(TEAM_MAP)
     
-    # Convert Wins/Losses to proper numeric types
+    # Convert Wins/Losses to proper numeric types for reliable merging/updating
     scraped_data['Wins'] = pd.to_numeric(scraped_data['Wins'], errors='coerce', downcast='integer')
     scraped_data['Losses'] = pd.to_numeric(scraped_data['Losses'], errors='coerce', downcast='integer')
     scraped_data = scraped_data.dropna(subset=['Team', 'Wins', 'Losses'])
@@ -101,23 +104,24 @@ def update_nfl_csv(scraped_data):
     update_df = scraped_data[['Team', 'Wins', 'Losses']].copy()
 
     # 3. Update the local DataFrame
-    # Set 'Team' as index for easy alignment and update
+    # Set 'Team' as index for aligned update
     local_df = local_df.set_index('Team')
     update_df = update_df.set_index('Team')
 
-    # Use the .update() method to only update matching rows/columns, preserving existing columns like 'Elo' and 'Division'
+    # Use the .update() method to only update matching columns/rows, preserving other data like 'Elo'
+    # Ensure the columns being updated in the local_df are of the correct type (numeric) if necessary, 
+    # then convert back to string as your original file has them as strings.
     local_df.update(update_df[['Wins', 'Losses']])
 
-    # Convert updated columns back to the expected string format
-    local_df['Wins'] = local_df['Wins'].astype(int).astype(str)
-    local_df['Losses'] = local_df['Losses'].astype(int).astype(str)
+    # Convert updated columns back to integer then string for consistency with your file structure
+    local_df['Wins'] = local_df['Wins'].astype(float).astype(int).astype(str)
+    local_df['Losses'] = local_df['Losses'].astype(float).astype(int).astype(str)
     
-    # Reset index to bring 'Team' back as a column and save
+    # Reset index and save
     final_df = local_df.reset_index()
 
     # 4. Write the updated data back to CSV
     try:
-        # Overwrite the file with the updated data, preserving the structure
         final_df.to_csv(CSV_PATH, index=False)
         print(f"✅ Successfully updated {CSV_PATH} with W-L records for {len(final_df)} teams.")
     except Exception as e:
@@ -126,13 +130,12 @@ def update_nfl_csv(scraped_data):
 if __name__ == "__main__":
     print("--- Starting PFR Standings Scraper ---")
     
-    # 1. Scrape data
+    # Run the scraping process
     standings_data = scrape_pfr_standings(NFL_STANDINGS_URL)
     
     if standings_data is not None and not standings_data.empty:
-        # 2. Update local CSV
         update_nfl_csv(standings_data)
     else:
-        print("Scraping failed or returned no data. No changes made.")
+        print("Scraping failed or returned no valid standing data. No changes made.")
         
     print("--- PFR Standings Scraper Finished ---")
