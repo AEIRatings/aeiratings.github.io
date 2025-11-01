@@ -2,9 +2,9 @@ import pandas as pd
 import numpy as np
 
 # Define the constants/files
-RATINGS_FILE = 'nfl.csv'
+RATINGS_FILE = '/data/nfl.csv'
 SCORES_FILE = 'nfl_scores_previous_day.csv'
-OUTPUT_FILE = 'nfl_updated_ratings.csv'
+OUTPUT_FILE = '/data/nfl.csv'
 
 def calculate_new_elo(AElo, HElo, ascore, hscore):
     """
@@ -120,4 +120,5 @@ def process_nfl_games():
     print(f"Updated ratings for {len(updated_teams)} teams that played in the recorded games.")
 
 # Execute the main function
+
 process_nfl_games()
