@@ -9,11 +9,26 @@ def read_existing_data(filename="data/nba.csv"):
     try:
         with open(filename, 'r', encoding='utf-8') as f:
             reader = csv.DictReader(f)
-            return list(reader)
+            
+            # --- START FIX: Strip whitespace from keys immediately after reading the header ---
+            # Re-read data using keys stripped of whitespace
+            data = list(reader)
+            if data:
+                # Use the stripped keys for all rows
+                fieldnames = [k.strip() for k in data[0].keys()] 
+                stripped_data = []
+                for row in data:
+                    # Create a new dictionary with the stripped keys
+                    stripped_row = {k.strip(): v for k, v in row.items()}
+                    stripped_data.append(stripped_row)
+                return stripped_data
+            
+            return [] # Return empty if no data
+            # --- END FIX ---
+            
     except FileNotFoundError:
         print(f"Warning: The existing file '{filename}' was not found. Returning empty data.")
         return []
-
 def normalize_team_name(team_name):
     """Standardize team name for lookup."""
     return team_name.strip()
