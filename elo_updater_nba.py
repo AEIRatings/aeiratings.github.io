@@ -2,9 +2,9 @@ import pandas as pd
 import numpy as np
 
 # Define the constants/files
-RATINGS_FILE = 'data/nba.csv'
+RATINGS_FILE = 'data/nba.csv' # Corrected path from previous step
 SCORES_FILE = 'nba_scores_previous_day.csv'
-OUTPUT_FILE = 'data/nba.csv'
+OUTPUT_FILE = 'data/nba.csv' # Corrected path from previous step
 
 def calculate_new_elo(AElo, HElo, ascore, hscore):
     """
@@ -49,10 +49,10 @@ def process_games():
     try:
         # Load initial Elo ratings
         ratings_df = pd.read_csv(RATINGS_FILE)
-        # Convert the rating column to numeric, coercing non-numeric values
-        ratings_df['Rating'] = pd.to_numeric(ratings_df['Rating'], errors='coerce')
-        # Create a dictionary for quick lookup: {Team: Rating}
-        current_ratings = ratings_df.set_index('Team')['Rating'].to_dict()
+        # FIX 1: Change 'Rating' to 'Elo' to match the column name in the CSV
+        ratings_df['Elo'] = pd.to_numeric(ratings_df['Elo'], errors='coerce')
+        # FIX 2: Change 'Rating' to 'Elo' when creating the lookup dictionary
+        current_ratings = ratings_df.set_index('Team')['Elo'].to_dict()
 
         # Load game scores
         scores_df = pd.read_csv(SCORES_FILE)
@@ -61,7 +61,8 @@ def process_games():
         print(f"Error: Required file not found. Please ensure both '{RATINGS_FILE}' and '{SCORES_FILE}' are available.")
         return
     except KeyError as e:
-        print(f"Error: The input files are missing required columns. Check if '{RATINGS_FILE}' has 'Team' and 'Rating', and '{SCORES_FILE}' has 'AwayTeam', 'HomeTeam', 'AwayScore', and 'HomeScore'.")
+        # Updated error message to reflect the expected column names
+        print(f"Error: The input files are missing required columns. Check if '{RATINGS_FILE}' has 'Team' and 'Elo', and '{SCORES_FILE}' has 'AwayTeam', 'HomeTeam', 'AwayScore', and 'HomeScore'.")
         return
     except Exception as e:
         print(f"An unexpected error occurred during file loading: {e}")
@@ -106,8 +107,8 @@ def process_games():
     # Update the original ratings DataFrame with the new ratings
     ratings_df = ratings_df.set_index('Team')
     
-    # Overwrite the 'Rating' column using the updated dictionary
-    ratings_df['Rating'] = ratings_df.index.map(current_ratings)
+    # FIX 3: Change 'Rating' to 'Elo' to overwrite the correct column in the DataFrame
+    ratings_df['Elo'] = ratings_df.index.map(current_ratings)
     
     # Reset index and add a flag for updated teams
     ratings_df = ratings_df.reset_index()
