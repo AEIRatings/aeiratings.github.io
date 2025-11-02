@@ -1,0 +1,91 @@
+name: Daily NHL Scores and ELO Update
+
+on:
+  schedule:
+    # Runs once a day at 10:00 AM UTC, which is 6:00 AM Eastern Daylight Time (EDT)
+    - cron: '0 10 * * *' 
+  
+  # Also allow manual running via the GitHub Actions tab
+  workflow_dispatch:
+
+jobs:
+  get_scores:
+    runs-on: ubuntu-latest
+    # Read permission is sufficient to run the initial script
+    permissions:
+      contents: read 
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        # Sets up the Python environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install Dependencies
+        # Installs requests (for fetching scores) and beautifulsoup4
+        run: |
+          python -m pip install --upgrade pip
+          pip install beautifulsoup4 requests 
+
+      - name: Run getNHLscores Script
+        run: |
+          echo "Running getNHLscores.py to retrieve latest game results..."
+          python getNHLscores.py
+          
+      - name: Upload Scores Artifact
+        # Upload the scores file so the next job can access it
+        uses: actions/upload-artifact@v4
+        with:
+          name: nhl-scores-data
+          path: nhl_scores_previous_day.csv
+
+  update_elo:
+    runs-on: ubuntu-latest
+    # This ensures elo_updater_nhl runs only after get_scores finishes successfully
+    needs: [get_scores] 
+    
+    # Needs write permission to commit and push the updated files
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }} 
+      
+      - name: Download Scores Artifact
+        # Download the scores file into the workspace for the Python script
+        uses: actions/download-artifact@v4
+        with:
+          name: nhl-scores-data
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install Dependencies
+        # Installs pandas, required by elo_updater_nhl.py
+        run: |
+          python -m pip install --upgrade pip
+          pip install beautifulsoup4 pandas 
+        
+      - name: Run ELO Updater Script
+        run: |
+          echo "Running elo_updater_nhl.py to calculate new ELO ratings..."
+          python elo_updater_nhl.py
+        
+      - name: Commit and Push Changes
+        # Automatically commits and pushes the updated data files
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "🤖 Daily nhl ELO Update: New scores and ratings"
+          # FIX: Only commit data/nhl.csv, resolving the 'pathspec did not match' error
+          file_pattern: data/nhl.csv
+          commit_author: 'GitHub Actions Bot <action@github.com>'
+          skip_dirty_check: true
