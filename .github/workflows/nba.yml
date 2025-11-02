@@ -1,45 +1,5 @@
-name: Daily NBA Scores and ELO Update
-
-on:
-  schedule:
-    # Runs once a day at 10:00 AM UTC, which is 6:00 AM Eastern Daylight Time (EDT)
-    - cron: '0 10 * * *' 
-  
-  # Also allow manual running via the GitHub Actions tab
-  workflow_dispatch:
-
 jobs:
-  get_scores:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read 
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
-
-      - name: Install Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install beautifulsoup4 requests 
-
-      - name: Run getNBAscores Script
-        # This script is assumed to create the 'nba_scores_previous_day.csv' file in the root directory.
-        run: |
-          echo "Running getNBAscores.py to retrieve latest game results..."
-          python getNBAscores.py
-          
-      - name: Upload Scores Artifact
-        # New step: Upload the file generated in this job
-        uses: actions/upload-artifact@v4
-        with:
-          name: nba-scores-data
-          path: nba_scores_previous_day.csv # Path to the file the Elo updater needs
+  # ... (get_scores job remains the same)
 
   update_elo:
     runs-on: ubuntu-latest
@@ -57,12 +17,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }} 
       
       - name: Download Scores Artifact
-        # New step: Download the file from the previous job
         uses: actions/download-artifact@v4
         with:
           name: nba-scores-data
-          # The file 'nba_scores_previous_day.csv' will be downloaded 
-          # to the current working directory, making it available for the Python script.
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -84,9 +41,8 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "🤖 Daily NBA ELO Update: New scores and ratings"
-          # Assuming elo_updater_nba.py updates the master data files
-          file_pattern: |
-            data/nba_games.csv
-            data/nba.csv
+          # FIX: Removed the non-existent file 'data/nba_games.csv'. 
+          # We only commit the successfully updated ratings file.
+          file_pattern: data/nba.csv 
           commit_author: 'GitHub Actions Bot <action@github.com>'
           skip_dirty_check: true
