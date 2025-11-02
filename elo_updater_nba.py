@@ -25,7 +25,10 @@ def calculate_new_elo(AElo, HElo, ascore, hscore):
     # 1. Expected Score for Away Team (ex)
     # ex = 1 / (1+ 10 ** ((AElo - HElo)/400))
     # Using np.power is robust for potential large exponents
-    ex = 1 / (1+ 10 ** ((AElo - HElo)/400))
+    if (ascore>hscore):
+        ex = 1 / (1+ 10 ** ((HElo - AElo)/400))
+    else:
+        ex = 1 / (1+ 10 ** ((AElo - HElo)/400))
 
     # 2. Actual Score Modifier (act)
     # act = abs((ascore - hscore) + 1) ** 0.42 * (sign(ascore - hscore))
