@@ -2,9 +2,9 @@ import requests
 import csv
 from datetime import datetime, timedelta
 
-def fetch_and_save_nfl_scores():
+def fetch_and_save_scores():
     """
-    Fetches NFL scoreboard data for the previous day from the ESPN API 
+    Fetches scoreboard data for the previous day from the ESPN API 
     and saves the results to a CSV file named 'nfl_scores_previous_day.csv'.
     """
     
@@ -21,7 +21,7 @@ def fetch_and_save_nfl_scores():
     # 3. Define the static CSV filename as requested
     CSV_FILENAME = "nfl_scores_previous_day.csv"
     
-    print(f"Fetching NFL scores for: {file_date_str} from {API_URL}")
+    print(f"Fetching NBA scores for: {file_date_str} from {API_URL}")
 
     try:
         # 4. Make the API request
@@ -109,4 +109,4 @@ def fetch_and_save_nfl_scores():
 
 
 if __name__ == '__main__':
-    fetch_and_save_nfl_scores()
+    fetch_and_save_scores()
