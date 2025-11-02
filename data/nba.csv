@@ -1,4 +1,4 @@
-,Elo,Division,Wins,Losses,Notes
+Team,Elo,Division,Wins,Losses,Notes
 Boston Celtics,1046.9,E Atlantic,0,0,
 New York Knicks,970.4,E Atlantic,0,0,
 Toronto Raptors,989.9,E Atlantic,0,0,
@@ -28,4 +28,5 @@ Houston Rockets,1026.2,W Southwest,0,0,
 Memphis Grizzlies,972.6,W Southwest,0,0,
 Dallas Mavericks,998.3,W Southwest,0,0,
 San Antonio Spurs,1022.9,W Southwest,0,0,
+
 New Orleans Pelicans,927.0,W Southwest,0,0,
