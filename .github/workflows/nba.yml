@@ -3,7 +3,6 @@ name: Daily NBA Scores and ELO Update
 on:
   schedule:
     # Runs once a day at 10:00 AM UTC, which is 6:00 AM Eastern Daylight Time (EDT)
-    # This is equivalent to your requested 6:00 AM ET.
     - cron: '0 10 * * *' 
   
   # Also allow manual running via the GitHub Actions tab
@@ -12,7 +11,6 @@ on:
 jobs:
   get_scores:
     runs-on: ubuntu-latest
-    # Read permission is sufficient to run the initial script
     permissions:
       contents: read 
 
@@ -21,21 +19,27 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Python
-        # Sets up the Python environment, referencing common usage from the provided file
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
       - name: Install Dependencies
-        # Installs necessary libraries (beautifulsoup4 and requests, for web scraping the scores)
         run: |
           python -m pip install --upgrade pip
           pip install beautifulsoup4 requests 
 
       - name: Run getNBAscores Script
+        # This script is assumed to create the 'nba_scores_previous_day.csv' file in the root directory.
         run: |
           echo "Running getNBAscores.py to retrieve latest game results..."
           python getNBAscores.py
+          
+      - name: Upload Scores Artifact
+        # New step: Upload the file generated in this job
+        uses: actions/upload-artifact@v4
+        with:
+          name: nba-scores-data
+          path: nba_scores_previous_day.csv # Path to the file the Elo updater needs
 
   update_elo:
     runs-on: ubuntu-latest
@@ -51,6 +55,14 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }} 
+      
+      - name: Download Scores Artifact
+        # New step: Download the file from the previous job
+        uses: actions/download-artifact@v4
+        with:
+          name: nba-scores-data
+          # The file 'nba_scores_previous_day.csv' will be downloaded 
+          # to the current working directory, making it available for the Python script.
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -58,7 +70,6 @@ jobs:
           python-version: '3.x'
 
       - name: Install Dependencies
-        # The 'pandas' library, imported by elo_updater_nba.py (assuming parallel logic), must be installed.
         run: |
           python -m pip install --upgrade pip
           pip install beautifulsoup4 pandas
@@ -73,7 +84,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "🤖 Daily NBA ELO Update: New scores and ratings"
-          # The file pattern is updated for NBA data files
+          # Assuming elo_updater_nba.py updates the master data files
           file_pattern: |
             data/nba_games.csv
             data/nba.csv
