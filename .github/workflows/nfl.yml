@@ -27,10 +27,10 @@ jobs:
           python-version: '3.x'
 
       - name: Install Dependencies
-        # FIX: The 'requests' library, used by getNFLscores.py, must be installed.
+        # FIX (from previous issue): Added 'requests' which is used by getNFLscores.py
         run: |
           python -m pip install --upgrade pip
-          pip install beautifulsoup4 requests # 'requests' added here
+          pip install beautifulsoup4 requests 
 
       - name: Run getNFLscores Script
         run: |
@@ -58,10 +58,11 @@ jobs:
           python-version: '3.x'
 
       - name: Install Dependencies
+        # FIX: The 'pandas' library, imported by elo_updater_nfl.py, must be installed.
         run: |
           python -m pip install --upgrade pip
-          pip install beautifulsoup4
-
+          pip install beautifulsoup4 pandas # 'pandas' added here
+        
       - name: Run ELO Updater Script
         run: |
           echo "Running elo_updater_nfl.py to calculate new ELO ratings..."
