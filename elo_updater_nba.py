@@ -2,9 +2,9 @@ import pandas as pd
 import numpy as np
 
 # Define the constants/files
-RATINGS_FILE = '/data/nba.csv'
+RATINGS_FILE = 'data/nba.csv'
 SCORES_FILE = 'nba_scores_previous_day.csv'
-OUTPUT_FILE = '/data/nba.csv'
+OUTPUT_FILE = 'data/nba.csv'
 
 def calculate_new_elo(AElo, HElo, ascore, hscore):
     """
