@@ -2,9 +2,10 @@ import pandas as pd
 import numpy as np
 
 # Define the constants/files
-RATINGS_FILE = '/data/nfl.csv'
+# Path corrected in the previous step
+RATINGS_FILE = 'data/nfl.csv' 
 SCORES_FILE = 'nfl_scores_previous_day.csv'
-OUTPUT_FILE = '/data/nfl.csv'
+OUTPUT_FILE = 'data/nfl.csv'
 
 def calculate_new_elo(AElo, HElo, ascore, hscore):
     """
@@ -24,7 +25,10 @@ def calculate_new_elo(AElo, HElo, ascore, hscore):
     # 1. Expected Score for Away Team (ex)
     # ex = 1 / (1+ 10 ** ((AElo - HElo)/400))
     # Using np.power is robust for potential large exponents
-    ex = 1 / (1+ 10 ** ((AElo - HElo)/400))
+    if (ascore>hscore):
+        ex = 1 / (1+ 10 ** ((HElo - AElo)/400))
+    else:
+        ex = 1 / (1+ 10 ** ((AElo - HElo)/400))
 
     # 2. Actual Score Modifier (act)
     # act = abs((ascore - hscore) + 1) ** 0.42 * (sign(ascore - hscore))
@@ -41,7 +45,7 @@ def calculate_new_elo(AElo, HElo, ascore, hscore):
 
     return AElo_new, HElo_new
 
-def process_nfl_games():
+def process_games():
     """
     Reads existing Elo ratings and game results, calculates new ratings,
     and outputs a CSV with the updated ratings.
@@ -49,10 +53,10 @@ def process_nfl_games():
     try:
         # Load initial Elo ratings
         ratings_df = pd.read_csv(RATINGS_FILE)
-        # Convert the rating column to numeric, coercing non-numeric values
-        ratings_df['Rating'] = pd.to_numeric(ratings_df['Rating'], errors='coerce')
-        # Create a dictionary for quick lookup: {Team: Rating}
-        current_ratings = ratings_df.set_index('Team')['Rating'].to_dict()
+        # FIX applied in previous step: Change 'Rating' to 'Elo' to match the column name in the CSV
+        ratings_df['Elo'] = pd.to_numeric(ratings_df['Elo'], errors='coerce')
+        # FIX applied in previous step: Change 'Rating' to 'Elo' when creating the lookup dictionary
+        current_ratings = ratings_df.set_index('Team')['Elo'].to_dict()
 
         # Load game scores
         scores_df = pd.read_csv(SCORES_FILE)
@@ -61,7 +65,8 @@ def process_nfl_games():
         print(f"Error: Required file not found. Please ensure both '{RATINGS_FILE}' and '{SCORES_FILE}' are available.")
         return
     except KeyError as e:
-        print(f"Error: The input files are missing required columns. Check if '{RATINGS_FILE}' has 'Team' and 'Rating', and '{SCORES_FILE}' has 'AwayTeam', 'HomeTeam', 'AwayScore', and 'HomeScore'.")
+        # Updated error message to reflect the now-expected column names for both files
+        print(f"Error: The input files are missing required columns. Check if '{RATINGS_FILE}' has 'Team' and 'Elo', and '{SCORES_FILE}' has 'away team', 'home team', 'away score', and 'home score'.")
         return
     except Exception as e:
         print(f"An unexpected error occurred during file loading: {e}")
@@ -72,14 +77,17 @@ def process_nfl_games():
 
     # Iterate through each game and calculate new ratings
     for index, row in scores_df.iterrows():
-        away_team = row['AwayTeam']
-        home_team = row['HomeTeam']
+        # FIX: Changed 'AwayTeam' to 'away team' to match the header in nba_scores_previous_day.csv
+        away_team = row['away team'] 
+        # FIX: Changed 'HomeTeam' to 'home team' to match the header in nba_scores_previous_day.csv
+        home_team = row['home team']
         
         # Ensure scores are integers
         try:
-            # We use .item() to safely get scalar value from the cell
-            away_score = int(row['AwayScore'])
-            home_score = int(row['HomeScore'])
+            # FIX: Changed 'AwayScore' to 'away score' to match the header in nba_scores_previous_day.csv
+            away_score = int(row['away score'])
+            # FIX: Changed 'HomeScore' to 'home score' to match the header in nba_scores_previous_day.csv
+            home_score = int(row['home score'])
         except ValueError:
             print(f"Skipping game {index}: Scores for {away_team} vs {home_team} are not valid numbers.")
             continue
@@ -106,8 +114,8 @@ def process_nfl_games():
     # Update the original ratings DataFrame with the new ratings
     ratings_df = ratings_df.set_index('Team')
     
-    # Overwrite the 'Rating' column using the updated dictionary
-    ratings_df['Rating'] = ratings_df.index.map(current_ratings)
+    # FIX applied in previous step: Change 'Rating' to 'Elo' to overwrite the correct column
+    ratings_df['Elo'] = ratings_df.index.map(current_ratings)
     
     # Reset index and add a flag for updated teams
     ratings_df = ratings_df.reset_index()
@@ -121,4 +129,4 @@ def process_nfl_games():
 
 # Execute the main function
 
-process_nfl_games()
+process_games()
