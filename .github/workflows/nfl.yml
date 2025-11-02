@@ -1,9 +1,8 @@
-name: Daily NFL Scores and ELO Update
+name: Daily nfl Scores and ELO Update
 
 on:
   schedule:
     # Runs once a day at 10:00 AM UTC, which is 6:00 AM Eastern Daylight Time (EDT)
-    # This is equivalent to your requested 6:00 AM ET.
     - cron: '0 10 * * *' 
   
   # Also allow manual running via the GitHub Actions tab
@@ -21,21 +20,28 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Python
-        # Sets up the Python environment, referencing common usage from the provided file
+        # Sets up the Python environment
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
       - name: Install Dependencies
-        # FIX (from previous issue): Added 'requests' which is used by getNFLscores.py
+        # Installs requests (for fetching scores) and beautifulsoup4
         run: |
           python -m pip install --upgrade pip
           pip install beautifulsoup4 requests 
 
-      - name: Run getNFLscores Script
+      - name: Run getnflscores Script
         run: |
-          echo "Running getNFLscores.py to retrieve latest game results..."
+          echo "Running getnflscores.py to retrieve latest game results..."
           python getNFLscores.py
+          
+      - name: Upload Scores Artifact
+        # Upload the scores file so the next job can access it
+        uses: actions/upload-artifact@v4
+        with:
+          name: nfl-scores-data
+          path: nfl_scores_previous_day.csv
 
   update_elo:
     runs-on: ubuntu-latest
@@ -51,6 +57,12 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }} 
+      
+      - name: Download Scores Artifact
+        # Download the scores file into the workspace for the Python script
+        uses: actions/download-artifact@v4
+        with:
+          name: nfl-scores-data
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -58,10 +70,10 @@ jobs:
           python-version: '3.x'
 
       - name: Install Dependencies
-        # FIX: The 'pandas' library, imported by elo_updater_nfl.py, must be installed.
+        # Installs pandas, required by elo_updater_nfl.py
         run: |
           python -m pip install --upgrade pip
-          pip install beautifulsoup4 pandas # 'pandas' added here
+          pip install beautifulsoup4 pandas 
         
       - name: Run ELO Updater Script
         run: |
@@ -72,10 +84,8 @@ jobs:
         # Automatically commits and pushes the updated data files
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "🤖 Daily NFL ELO Update: New scores and ratings"
-          # Assuming the scripts update the primary data files in the 'data' directory
-          file_pattern: |
-            data/nfl_games.csv
-            data/nfl.csv
+          commit_message: "🤖 Daily nfl ELO Update: New scores and ratings"
+          # FIX: Only commit data/nfl.csv, resolving the 'pathspec did not match' error
+          file_pattern: data/nfl.csv
           commit_author: 'GitHub Actions Bot <action@github.com>'
           skip_dirty_check: true
