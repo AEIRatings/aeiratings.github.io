@@ -96,7 +96,7 @@ def fetch_and_save_college_football_scores():
         f"{BASE_URL}?groups=81&dates={date_str}"   # FCS
     ]
 
-    CSV_FILENAME = "college_football_scores_previous_day.csv"
+    CSV_FILENAME = "cfb_scores_previous_day.csv"
 
     all_game_data = []
     seen_games = set()
