@@ -53,13 +53,13 @@ def write_to_csv(data, filename="data/nhl.csv"):
         return
 
     # Use the expected fieldnames from the existing CSV structure
-    fieldnames = ['Team', 'Elo', 'Points', 'Division', 'Notes'] 
+    fieldnames = ['Team', 'Elo', 'Points', 'Division', 'Notes', 'RatingUpdated']
 
     try:
         with open(filename, 'w', newline='', encoding='utf-8') as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             # Re-insert the initial metadata comment line from the original data source
-            csvfile.write("Team,Elo,Points,Division,Notes\n") # This is a placeholder, normally extracted from existing file
+            csvfile.write("Team,Elo,Points,Division,Notes,RatingUpdated\n")
             writer.writerows(data)
         
         print(f"\nSuccessfully updated CSV file: {filename}")
