@@ -42,12 +42,13 @@ def normalize_name(raw_name):
     # Normalize Unicode form
     name = unicodedata.normalize('NFC', raw_name)
 
-    # Fix known encoding glitches (mojibake)
+    # Fix known encoding glitches
+    # ESPN sometimes returns mojibake (mis-decoded UTF-8)
+    # e.g., 'San JosÃ© State Spartans' instead of 'San José State Spartans'
     name = (name.replace('JosÃ©', 'José')
                 .replace('San Jose', 'San José')
-                .replace('Ã±', 'ñ')
-                .replace('Ã©', 'é')
-                .replace('Ã', 'Á'))
+                .replace('Nittany Lions', 'Penn State')  # example of cleanup if desired
+            )
 
     # Remove ranking prefix like "No. 3 "
     name = name.replace("No. ", "").strip()
@@ -83,11 +84,9 @@ def fetch_and_save_college_football_scores():
     """
     valid_team_names = load_team_names("cfb.csv")
 
-    # --- IDENTICAL date logic from your working getNFLscores.py ---
     yesterday = datetime.now() - timedelta(days=1)
-    date_str = yesterday.strftime('%Y%m%d')       # API date format
-    file_date_str = yesterday.strftime('%Y-%m-%d') # Human-readable
-    # -------------------------------------------------------------
+    date_str = yesterday.strftime('%Y%m%d')
+    file_date_str = yesterday.strftime('%Y-%m-%d')
 
     BASE_URL = "http://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard"
     API_URLS = [
@@ -100,11 +99,11 @@ def fetch_and_save_college_football_scores():
     all_game_data = []
     seen_games = set()
 
-    print(f"Fetching College Football scores for: {file_date_str}")
+    print(f"Fetching College Football scores for {file_date_str}...")
 
     for api_url in API_URLS:
-        print(f" -> Fetching from {api_url}")
         try:
+            print(f" -> Fetching from {api_url}")
             response = requests.get(api_url, timeout=10)
             response.raise_for_status()
             data = response.json()
@@ -113,10 +112,6 @@ def fetch_and_save_college_football_scores():
             continue
 
         events = data.get('events', [])
-        if not events:
-            print(f"No events found for {file_date_str} at {api_url}")
-            continue
-
         for event in events:
             competitions = event.get('competitions', [])
             if not competitions:
@@ -157,14 +152,13 @@ def fetch_and_save_college_football_scores():
                         home_score
                     ])
 
-    # Write to CSV file
+    # Save to CSV
     try:
         with open(CSV_FILENAME, 'w', newline='', encoding='utf-8') as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow(['away team', 'home team', 'away score', 'home score'])
             writer.writerows(all_game_data)
-
-        print(f"✅ Successfully saved {len(all_game_data)} unique game scores to {CSV_FILENAME}")
+        print(f"✅ Saved {len(all_game_data)} unique game scores to {CSV_FILENAME}")
     except Exception as e:
         print(f"Error writing to CSV file: {e}")
 
