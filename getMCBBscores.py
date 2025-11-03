@@ -83,7 +83,7 @@ def fetch_and_save_college_football_scores():
     Fetches college football (FBS + FCS) scoreboard data for the previous day
     and saves them into a single deduplicated CSV file.
     """
-    valid_team_names = load_team_names("data/cfb.csv")
+    valid_team_names = load_team_names("data/mcbb.csv")
 
     # 1. Determine the date for the data (yesterday)
     yesterday = datetime.now() - timedelta(days=1)
