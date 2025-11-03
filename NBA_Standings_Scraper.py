@@ -64,7 +64,7 @@ def write_to_csv(data, filename="data/nba.csv"):
         return
 
     # Use the expected fieldnames to maintain the correct CSV structure
-    fieldnames = ['Team', 'Elo', 'Wins', 'Losses', 'Division', 'Notes'] 
+    fieldnames = ['Team', 'Elo', 'Wins', 'Losses', 'Division', 'Notes', 'RatingUpdated']
 
     try:
         with open(filename, 'w', newline='', encoding='utf-8') as csvfile:
