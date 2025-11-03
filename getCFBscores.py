@@ -4,7 +4,7 @@ import unicodedata
 from datetime import datetime, timedelta
 
 
-def load_team_names(filename="cfb.csv"):
+def load_team_names(filename="data/cfb.csv"):
     """
     Loads valid college football team names (without nicknames) from a CSV file.
     Returns a set of team names for matching.
