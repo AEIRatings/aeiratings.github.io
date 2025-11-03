@@ -191,24 +191,28 @@ document.addEventListener('DOMContentLoaded', async () => {
       
       let rowHtml = `<td>${i + 1}</td><td class="team-cell">${teamCellContent}</td>`;
 
+      // Convert the string rating values to a number and format to one decimal place
+      const formattedElo = n(r.Elo).toFixed(1);
+      const formattedPoints = n(r.Points).toFixed(1);
+
       if (league === 'nhl') {
         // NHL: Rank, Team, Elo, Points
         // The original nhl.html template uses Elo and Points headers.
         rowHtml += `
-          <td>${r.Elo}</td>
-          <td>${r.Points}</td>
+          <td>${formattedElo}</td>
+          <td>${formattedPoints}</td>
         `;
       } else if (league === 'nfl' || league === 'nba') {
         // NFL/NBA: Rank, Team, Elo, Wins, Losses
         rowHtml += `
-          <td>${r.Elo}</td>
+          <td>${formattedElo}</td>
           <td>${r.Wins}</td>
           <td>${r.Losses}</td>
         `;
       } else {
         // CFB/College Basketball (mcbb, wcbb): Rank, Team, Elo, Wins, Losses, Conference
         rowHtml += `
-          <td>${r.Elo}</td>
+          <td>${formattedElo}</td>
           <td>${r.Wins}</td>
           <td>${r.Losses}</td>
           <td>${r.Conference}</td>
