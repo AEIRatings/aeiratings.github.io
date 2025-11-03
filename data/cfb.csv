@@ -1,266 +1,266 @@
-Team,Elo,Conference,Notes
-Boston College,924.1,ACC,
-California,999.7,ACC,
-Clemson,1023.7,ACC,
-Duke,1060.6,ACC,
-Florida State,1016.3,ACC,
-Georgia Tech,1116.7,ACC,
-Louisville,1093.9,ACC,
-Miami,1096.5,ACC,
-NC State,994.0,ACC,
-Pittsburgh,1092.1,ACC,
-SMU,1061.0,ACC,
-Stanford,960.4,ACC,
-Syracuse,939.9,ACC,
-North Carolina,987.5,ACC,
-Virginia,1094.9,ACC,
-Virginia Tech,991.1,ACC,
-Wake Forest,1038.0,ACC,
-Army,1006.8,American,
-Charlotte,889.9,American,
-East Carolina,1039.7,American,
-Florida Atlantic,978.5,American,
-Memphis,1102.3,American,
-Navy,1091.7,American,
-North Texas,1100.1,American,
-Rice,961.4,American,
-South Florida,1096.0,American,
-Temple,1038.1,American,
-Tulane,1030.6,American,
-Tulsa,950.9,American,
-UAB,964.2,American,
-UTSA,1034.9,American,
-Illinois,1036.1,Big 10,
-Indiana,1174.3,Big 10,
-Iowa,1087.6,Big 10,
-Maryland,1039.7,Big 10,
-Michigan,1086.3,Big 10,
-Michigan State,967.1,Big 10,
-Minnesota,1027.2,Big 10,
-Nebraska,1065.5,Big 10,
-Northwestern,1037.8,Big 10,
-Ohio State,1151.2,Big 10,
-Oregon,1131.7,Big 10,
-Penn State,1030.3,Big 10,
-Purdue,947.1,Big 10,
-Rutgers,991.8,Big 10,
-UCLA,998.2,Big 10,
-USC,1083.2,Big 10,
-Washington,1079.4,Big 10,
-Wisconsin,937.7,Big 10,
-Arizona,1042.6,Big 12,
-Arizona State,1041.7,Big 12,
-Baylor,1004.9,Big 12,
-BYU,1125.5,Big 12,
-Cincinnati,1113.6,Big 12,
-Colorado,1001.1,Big 12,
-Houston,1083.0,Big 12,
-Iowa State,1037.8,Big 12,
-Kansas,1012.5,Big 12,
-Kansas State,1064.5,Big 12,
-Oklahoma State,894.0,Big 12,
-TCU,1055.6,Big 12,
-Texas Tech,1143.6,Big 12,
-UCF,1036.1,Big 12,
-Utah,1118.6,Big 12,
-West Virginia,940.7,Big 12,
-Cal Poly,949.8,Big Sky,
-Eastern Washington,978.6,Big Sky,
-Idaho,988.6,Big Sky,
-Idaho State,931.8,Big Sky,
-Montana,1098.2,Big Sky,
-Montana State,1094.0,Big Sky,
-Northern Arizona,987.0,Big Sky,
-Northern Colorado,964.2,Big Sky,
-Portland State,840.6,Big Sky,
-Sacramento State,1011.6,Big Sky,
-UC Davis,1065.4,Big Sky,
-Weber State,946.4,Big Sky,
-Bryant,914.8,CAA,
-Campbell,912.0,CAA,
-Elon,969.8,CAA,
-Hampton,891.3,CAA,
-Maine,1016.1,CAA,
-Monmouth,1083.9,CAA,
-North Carolina A&T,919.1,CAA,
-New Hampshire,1000.7,CAA,
-Rhode Island,1046.7,CAA,
-Stony Brook,1008.7,CAA,
-Towson,963.3,CAA,
-UAlbany,888.4,CAA,
-Villanova,1068.7,CAA,
-William & Mary,971.8,CAA,
-Delaware,1002.7,CUSA,
-Florida International,972.3,CUSA,
-Jacksonville State,1023.4,CUSA,
-Kennesaw State,1077.0,CUSA,
-Liberty,984.9,CUSA,
-Louisiana Tech,1039.6,CUSA,
-Missouri State,1008.1,CUSA,
-Middle Tennessee,925.4,CUSA,
-New Mexico State,969.8,CUSA,
-Sam Houston,858.2,CUSA,
-UTEP,941.5,CUSA,
-Western Kentucky,1028.0,CUSA,
-Notre Dame,1115.4,FBS Independent,
-UConn,1038.0,FBS Independent,
-Merrimack,939.7,FCS Independent,
-Sacred Heart,1003.2,FCS Independent,
-Brown,975.2,Ivy League,
-Columbia,931.6,Ivy League,
-Cornell,971.2,Ivy League,
-Dartmouth,1045.6,Ivy League,
-Harvard,1122.7,Ivy League,
-Pennsylvania,1033.2,Ivy League,
-Princeton,1009.0,Ivy League,
-Yale,1066.4,Ivy League,
-Akron,960.3,MAC,
-Ball State,948.1,MAC,
-Bowling Green,957.8,MAC,
-Buffalo,971.3,MAC,
-Central Michigan,1023.3,MAC,
-Eastern Michigan,940.1,MAC,
-Kent State,947.5,MAC,
-Miami (OH),1050.4,MAC,
-Northern Illinois,946.2,MAC,
-Ohio,1038.1,MAC,
-Toledo,1035.0,MAC,
-Massachusetts,860.4,MAC,
-Western Michigan,1020.8,MAC,
-Delaware State,1014.1,MEAC,
-Howard,958.3,MEAC,
-Morgan State,924.7,MEAC,
-North Carolina Central,1003.7,MEAC,
-Norfolk State,860.4,MEAC,
-South Carolina State,974.4,MEAC,
-Air Force,977.8,Mountain West,
-Boise State,1087.7,Mountain West,
-Colorado State,950.2,Mountain West,
-Fresno State,997.2,Mountain West,
-Hawai'i,1057.0,Mountain West,
-Nevada,918.2,Mountain West,
-New Mexico,1022.8,Mountain West,
-San Diego State,1098.3,Mountain West,
-San Jose State,969.6,Mountain West,
-UNLV,1033.2,Mountain West,
-Utah State,988.1,Mountain West,
-Wyoming,1010.0,Mountain West,
-Illinois State,1020.9,MVC,
-Indiana State,906.4,MVC,
-Murray State,848.6,MVC,
-North Dakota,1089.0,MVC,
-North Dakota State,1165.1,MVC,
-Northern Iowa,923.2,MVC,
-South Dakota,991.3,MVC,
-South Dakota State,1083.3,MVC,
-Southern Illinois,1022.0,MVC,
-Youngstown State,1038.4,MVC,
-Central Connecticut,1008.6,NEC,
-Duquesne,998.5,NEC,
-Long Island University,962.9,NEC,
-Mercyhurst,928.3,NEC,
-New Haven,914.4,NEC,
-Robert Morris,907.3,NEC,
-Saint Francis,858.1,NEC,
-Stonehill,949.4,NEC,
-Wagner,939.8,NEC,
-Charleston Southern,934.4,OVC,
-Eastern Illinois,945.4,OVC,
-Gardner-Webb,975.6,OVC,
-Lindenwood,924.0,OVC,
-Southeast Missouri State,964.5,OVC,
-Tennessee State,924.5,OVC,
-Tennessee Tech,1123.7,OVC,
-UT Martin,956.2,OVC,
-Western Illinois,913.1,OVC,
-Oregon State,950.3,PAC 12,
-Washington State,1034.7,PAC 12,
-Bucknell,947.3,Patriot,
-Colgate,971.5,Patriot,
-Fordham,885.6,Patriot,
-Georgetown,996.6,Patriot,
-Holy Cross,944.4,Patriot,
-Lafayette,1006.6,Patriot,
-Lehigh,1120.3,Patriot,
-Richmond,978.3,Patriot,
-Butler,999.3,Pioneer,
-Davidson,843.8,Pioneer,
-Dayton,1044.6,Pioneer,
-Drake,1031.5,Pioneer,
-Marist,958.3,Pioneer,
-Morehead State,918.6,Pioneer,
-Presbyterian,1042.6,Pioneer,
-San Diego,979.5,Pioneer,
-St. Thomas-Minnesota,1037.4,Pioneer,
-Stetson,888.0,Pioneer,
-Valparaiso,865.5,Pioneer,
-Alabama,1139.4,SEC,
-Arkansas,987.4,SEC,
-Auburn,1029.1,SEC,
-Florida,1012.6,SEC,
-Georgia,1100.7,SEC,
-Kentucky,954.6,SEC,
-LSU,1052.8,SEC,
-Mississippi State,1013.7,SEC,
-Missouri,1091.6,SEC,
-Oklahoma,1075.0,SEC,
-Ole Miss,1102.2,SEC,
-South Carolina,998.9,SEC,
-Tennessee,1092.2,SEC,
-Texas,1082.3,SEC,
-Texas A&M,1127.4,SEC,
-Vanderbilt,1124.7,SEC,
-Chattanooga,999.3,Southern,
-East Tennessee State,999.0,Southern,
-Furman,982.3,Southern,
-Mercer,1082.7,Southern,
-Samford,869.9,Southern,
-The Citadel,949.5,Southern,
-VMI,864.1,Southern,
-Western Carolina,1036.2,Southern,
-Wofford,977.2,Southern,
-East Texas A&M,953.8,Southland,
-Houston Christian,887.9,Southland,
-Incarnate Word,934.1,Southland,
-Lamar,1045.8,Southland,
-McNeese,902.0,Southland,
-Nicholls,930.9,Southland,
-Northwestern State,866.2,Southland,
-SE Louisiana,1077.6,Southland,
-Stephen F. Austin,1048.2,Southland,
-UT Rio Grande Valley,1027.4,Southland,
-App State,980.6,Sun Belt,
-Arkansas State,987.5,Sun Belt,
-Coastal Carolina,1036.8,Sun Belt,
-Georgia Southern,961.5,Sun Belt,
-Georgia State,878.5,Sun Belt,
-James Madison,1109.7,Sun Belt,
-Louisiana,956.7,Sun Belt,
-Marshall,1009.8,Sun Belt,
-Old Dominion,1017.4,Sun Belt,
-South Alabama,951.6,Sun Belt,
-Southern Miss,1070.9,Sun Belt,
-Texas State,983.2,Sun Belt,
-Troy,1058.9,Sun Belt,
-UL Monroe,920.3,Sun Belt,
-Alabama A&M,938.8,SWAC,
-Alabama State,1056.1,SWAC,
-Alcorn State,929.2,SWAC,
-Arkansas-Pine Bluff,893.5,SWAC,
-Bethune-Cookman,984.2,SWAC,
-Florida A&M,938.5,SWAC,
-Grambling,968.0,SWAC,
-Jackson State,1033.8,SWAC,
-Mississippi Valley State,877.3,SWAC,
-Prairie View A&M,1010.2,SWAC,
-Southern,870.9,SWAC,
-Texas Southern,989.3,SWAC,
-Abilene Christian,997.0,UAC,
-Austin Peay,1042.1,UAC,
-Central Arkansas,981.3,UAC,
-Eastern Kentucky,951.5,UAC,
-North Alabama,923.6,UAC,
-Southern Utah,994.3,UAC,
-Tarleton State,1157.9,UAC,
-Utah Tech,909.1,UAC,
-West Georgia,995.5,UAC,
+Team,Elo,Conference,Notes,RatingUpdated
+Boston College,924.1,ACC,,False
+California,999.7,ACC,,False
+Clemson,1023.7,ACC,,False
+Duke,1060.6,ACC,,False
+Florida State,1016.3,ACC,,False
+Georgia Tech,1116.7,ACC,,False
+Louisville,1093.9,ACC,,False
+Miami,1096.5,ACC,,False
+NC State,994.0,ACC,,False
+Pittsburgh,1092.1,ACC,,False
+SMU,1061.0,ACC,,False
+Stanford,960.4,ACC,,False
+Syracuse,939.9,ACC,,False
+North Carolina,987.5,ACC,,False
+Virginia,1094.9,ACC,,False
+Virginia Tech,991.1,ACC,,False
+Wake Forest,1038.0,ACC,,False
+Army,1006.8,American,,False
+Charlotte,889.9,American,,False
+East Carolina,1039.7,American,,False
+Florida Atlantic,978.5,American,,False
+Memphis,1102.3,American,,False
+Navy,1091.7,American,,False
+North Texas,1100.1,American,,False
+Rice,961.4,American,,False
+South Florida,1096.0,American,,False
+Temple,1038.1,American,,False
+Tulane,1030.6,American,,False
+Tulsa,950.9,American,,False
+UAB,964.2,American,,False
+UTSA,1034.9,American,,False
+Illinois,1036.1,Big 10,,False
+Indiana,1174.3,Big 10,,False
+Iowa,1087.6,Big 10,,False
+Maryland,1039.7,Big 10,,False
+Michigan,1086.3,Big 10,,False
+Michigan State,967.1,Big 10,,False
+Minnesota,1027.2,Big 10,,False
+Nebraska,1065.5,Big 10,,False
+Northwestern,1037.8,Big 10,,False
+Ohio State,1151.2,Big 10,,False
+Oregon,1131.7,Big 10,,False
+Penn State,1030.3,Big 10,,False
+Purdue,947.1,Big 10,,False
+Rutgers,991.8,Big 10,,False
+UCLA,998.2,Big 10,,False
+USC,1083.2,Big 10,,False
+Washington,1079.4,Big 10,,False
+Wisconsin,937.7,Big 10,,False
+Arizona,1042.6,Big 12,,False
+Arizona State,1041.7,Big 12,,False
+Baylor,1004.9,Big 12,,False
+BYU,1125.5,Big 12,,False
+Cincinnati,1113.6,Big 12,,False
+Colorado,1001.1,Big 12,,False
+Houston,1083.0,Big 12,,False
+Iowa State,1037.8,Big 12,,False
+Kansas,1012.5,Big 12,,False
+Kansas State,1064.5,Big 12,,False
+Oklahoma State,894.0,Big 12,,False
+TCU,1055.6,Big 12,,False
+Texas Tech,1143.6,Big 12,,False
+UCF,1036.1,Big 12,,False
+Utah,1118.6,Big 12,,False
+West Virginia,940.7,Big 12,,False
+Cal Poly,949.8,Big Sky,,False
+Eastern Washington,978.6,Big Sky,,False
+Idaho,988.6,Big Sky,,False
+Idaho State,931.8,Big Sky,,False
+Montana,1098.2,Big Sky,,False
+Montana State,1094.0,Big Sky,,False
+Northern Arizona,987.0,Big Sky,,False
+Northern Colorado,964.2,Big Sky,,False
+Portland State,840.6,Big Sky,,False
+Sacramento State,1011.6,Big Sky,,False
+UC Davis,1065.4,Big Sky,,False
+Weber State,946.4,Big Sky,,False
+Bryant,914.8,CAA,,False
+Campbell,912.0,CAA,,False
+Elon,969.8,CAA,,False
+Hampton,891.3,CAA,,False
+Maine,1016.1,CAA,,False
+Monmouth,1083.9,CAA,,False
+North Carolina A&T,919.1,CAA,,False
+New Hampshire,1000.7,CAA,,False
+Rhode Island,1046.7,CAA,,False
+Stony Brook,1008.7,CAA,,False
+Towson,963.3,CAA,,False
+UAlbany,888.4,CAA,,False
+Villanova,1068.7,CAA,,False
+William & Mary,971.8,CAA,,False
+Delaware,1002.7,CUSA,,False
+Florida International,972.3,CUSA,,False
+Jacksonville State,1023.4,CUSA,,False
+Kennesaw State,1077.0,CUSA,,False
+Liberty,984.9,CUSA,,False
+Louisiana Tech,1039.6,CUSA,,False
+Missouri State,1008.1,CUSA,,False
+Middle Tennessee,925.4,CUSA,,False
+New Mexico State,969.8,CUSA,,False
+Sam Houston,858.2,CUSA,,False
+UTEP,941.5,CUSA,,False
+Western Kentucky,1028.0,CUSA,,False
+Notre Dame,1115.4,FBS Independent,,False
+UConn,1038.0,FBS Independent,,False
+Merrimack,939.7,FCS Independent,,False
+Sacred Heart,1003.2,FCS Independent,,False
+Brown,975.2,Ivy League,,False
+Columbia,931.6,Ivy League,,False
+Cornell,971.2,Ivy League,,False
+Dartmouth,1045.6,Ivy League,,False
+Harvard,1122.7,Ivy League,,False
+Pennsylvania,1033.2,Ivy League,,False
+Princeton,1009.0,Ivy League,,False
+Yale,1066.4,Ivy League,,False
+Akron,960.3,MAC,,False
+Ball State,948.1,MAC,,False
+Bowling Green,957.8,MAC,,False
+Buffalo,971.3,MAC,,False
+Central Michigan,1023.3,MAC,,False
+Eastern Michigan,940.1,MAC,,False
+Kent State,947.5,MAC,,False
+Miami (OH),1050.4,MAC,,False
+Northern Illinois,946.2,MAC,,False
+Ohio,1038.1,MAC,,False
+Toledo,1035.0,MAC,,False
+Massachusetts,860.4,MAC,,False
+Western Michigan,1020.8,MAC,,False
+Delaware State,1014.1,MEAC,,False
+Howard,958.3,MEAC,,False
+Morgan State,924.7,MEAC,,False
+North Carolina Central,1003.7,MEAC,,False
+Norfolk State,860.4,MEAC,,False
+South Carolina State,974.4,MEAC,,False
+Air Force,977.8,Mountain West,,False
+Boise State,1087.7,Mountain West,,False
+Colorado State,950.2,Mountain West,,False
+Fresno State,997.2,Mountain West,,False
+Hawai'i,1057.0,Mountain West,,False
+Nevada,918.2,Mountain West,,False
+New Mexico,1022.8,Mountain West,,False
+San Diego State,1098.3,Mountain West,,False
+San Jose State,969.6,Mountain West,,False
+UNLV,1033.2,Mountain West,,False
+Utah State,988.1,Mountain West,,False
+Wyoming,1010.0,Mountain West,,False
+Illinois State,1020.9,MVC,,False
+Indiana State,906.4,MVC,,False
+Murray State,848.6,MVC,,False
+North Dakota,1089.0,MVC,,False
+North Dakota State,1165.1,MVC,,False
+Northern Iowa,923.2,MVC,,False
+South Dakota,991.3,MVC,,False
+South Dakota State,1083.3,MVC,,False
+Southern Illinois,1022.0,MVC,,False
+Youngstown State,1038.4,MVC,,False
+Central Connecticut,1008.6,NEC,,False
+Duquesne,998.5,NEC,,False
+Long Island University,962.9,NEC,,False
+Mercyhurst,928.3,NEC,,False
+New Haven,914.4,NEC,,False
+Robert Morris,907.3,NEC,,False
+Saint Francis,858.1,NEC,,False
+Stonehill,949.4,NEC,,False
+Wagner,939.8,NEC,,False
+Charleston Southern,934.4,OVC,,False
+Eastern Illinois,945.4,OVC,,False
+Gardner-Webb,975.6,OVC,,False
+Lindenwood,924.0,OVC,,False
+Southeast Missouri State,964.5,OVC,,False
+Tennessee State,924.5,OVC,,False
+Tennessee Tech,1123.7,OVC,,False
+UT Martin,956.2,OVC,,False
+Western Illinois,913.1,OVC,,False
+Oregon State,950.3,PAC 12,,False
+Washington State,1034.7,PAC 12,,False
+Bucknell,947.3,Patriot,,False
+Colgate,971.5,Patriot,,False
+Fordham,885.6,Patriot,,False
+Georgetown,996.6,Patriot,,False
+Holy Cross,944.4,Patriot,,False
+Lafayette,1006.6,Patriot,,False
+Lehigh,1120.3,Patriot,,False
+Richmond,978.3,Patriot,,False
+Butler,999.3,Pioneer,,False
+Davidson,843.8,Pioneer,,False
+Dayton,1044.6,Pioneer,,False
+Drake,1031.5,Pioneer,,False
+Marist,958.3,Pioneer,,False
+Morehead State,918.6,Pioneer,,False
+Presbyterian,1042.6,Pioneer,,False
+San Diego,979.5,Pioneer,,False
+St. Thomas-Minnesota,1037.4,Pioneer,,False
+Stetson,888.0,Pioneer,,False
+Valparaiso,865.5,Pioneer,,False
+Alabama,1139.4,SEC,,False
+Arkansas,987.4,SEC,,False
+Auburn,1029.1,SEC,,False
+Florida,1012.6,SEC,,False
+Georgia,1100.7,SEC,,False
+Kentucky,954.6,SEC,,False
+LSU,1052.8,SEC,,False
+Mississippi State,1013.7,SEC,,False
+Missouri,1091.6,SEC,,False
+Oklahoma,1075.0,SEC,,False
+Ole Miss,1102.2,SEC,,False
+South Carolina,998.9,SEC,,False
+Tennessee,1092.2,SEC,,False
+Texas,1082.3,SEC,,False
+Texas A&M,1127.4,SEC,,False
+Vanderbilt,1124.7,SEC,,False
+Chattanooga,999.3,Southern,,False
+East Tennessee State,999.0,Southern,,False
+Furman,982.3,Southern,,False
+Mercer,1082.7,Southern,,False
+Samford,869.9,Southern,,False
+The Citadel,949.5,Southern,,False
+VMI,864.1,Southern,,False
+Western Carolina,1036.2,Southern,,False
+Wofford,977.2,Southern,,False
+East Texas A&M,953.8,Southland,,False
+Houston Christian,887.9,Southland,,False
+Incarnate Word,934.1,Southland,,False
+Lamar,1045.8,Southland,,False
+McNeese,902.0,Southland,,False
+Nicholls,930.9,Southland,,False
+Northwestern State,866.2,Southland,,False
+SE Louisiana,1077.6,Southland,,False
+Stephen F. Austin,1048.2,Southland,,False
+UT Rio Grande Valley,1027.4,Southland,,False
+App State,980.6,Sun Belt,,False
+Arkansas State,987.5,Sun Belt,,False
+Coastal Carolina,1036.8,Sun Belt,,False
+Georgia Southern,961.5,Sun Belt,,False
+Georgia State,878.5,Sun Belt,,False
+James Madison,1109.7,Sun Belt,,False
+Louisiana,956.7,Sun Belt,,False
+Marshall,1009.8,Sun Belt,,False
+Old Dominion,1017.4,Sun Belt,,False
+South Alabama,951.6,Sun Belt,,False
+Southern Miss,1070.9,Sun Belt,,False
+Texas State,983.2,Sun Belt,,False
+Troy,1058.9,Sun Belt,,False
+UL Monroe,920.3,Sun Belt,,False
+Alabama A&M,938.8,SWAC,,False
+Alabama State,1056.1,SWAC,,False
+Alcorn State,929.2,SWAC,,False
+Arkansas-Pine Bluff,893.5,SWAC,,False
+Bethune-Cookman,984.2,SWAC,,False
+Florida A&M,938.5,SWAC,,False
+Grambling,968.0,SWAC,,False
+Jackson State,1033.8,SWAC,,False
+Mississippi Valley State,877.3,SWAC,,False
+Prairie View A&M,1010.2,SWAC,,False
+Southern,870.9,SWAC,,False
+Texas Southern,989.3,SWAC,,False
+Abilene Christian,997.0,UAC,,False
+Austin Peay,1042.1,UAC,,False
+Central Arkansas,981.3,UAC,,False
+Eastern Kentucky,951.5,UAC,,False
+North Alabama,923.6,UAC,,False
+Southern Utah,994.3,UAC,,False
+Tarleton State,1157.9,UAC,,False
+Utah Tech,909.1,UAC,,False
+West Georgia,995.5,UAC,,False
