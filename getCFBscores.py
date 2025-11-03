@@ -3,7 +3,6 @@ import csv
 import unicodedata
 from datetime import datetime, timedelta
 
-
 def load_team_names(filename="data/cfb.csv"):
     """
     Loads valid college football team names (without nicknames) from a CSV file.
@@ -18,8 +17,10 @@ def load_team_names(filename="data/cfb.csv"):
                     team = row[0].strip()
                     if team:
                         team_names.add(team)
+    except FileNotFoundError:
+        print(f"❌ Could not find {filename}. Make sure the file exists in the data/ folder.")
     except Exception as e:
-        print(f"Error loading team names: {e}")
+        print(f"Error loading team names from {filename}: {e}")
     return team_names
 
 
