@@ -58,12 +58,11 @@ def normalize_name(raw_name):
 
 def clean_team_name(full_name, valid_team_names):
     """
-    Cleans and filters ESPN team names to only those present in mcbb.csv.
-    Handles:
-      - Nicknames (e.g., 'Oregon State Beavers' -> 'Oregon State')
-      - Disambiguation ('Miami' vs 'Miami (OH)') with manual exception
-      - Subcampuses ('University of Cincinnati Clermont College' -> None)
-      - False institutions ('Southern New Mexico' -> None)
+    Automatically filters ESPN team names using mcbb.csv.
+    - Matches valid team name prefixes.
+    - Prefers the longest valid match.
+    - Rejects false positives like 'Oklahoma Christian' or 'Cincinnati Clermont College'
+      by verifying the suffix is not another valid team name or a proper noun not in the list.
     """
     if not full_name:
         return None
@@ -71,64 +70,38 @@ def clean_team_name(full_name, valid_team_names):
     normalized = normalize_name(full_name)
     lower_no_accents = strip_accents(normalized.lower())
 
-    # Preprocess valid names for easier comparison
-    valid_processed = {
-        strip_accents(name.lower()): name
-        for name in valid_team_names
-    }
+    # Create lowercase, accent-free valid names
+    valid_processed = [strip_accents(team.lower()) for team in valid_team_names]
 
-    # ----------------------
-    # Manual exception: Miami vs Miami (OH)
-    # If ESPN string contains explicit OH / (OH) / Ohio, prefer "Miami (OH)" if present
-    # Otherwise prefer "Miami" if present.
-    # ----------------------
-    if re.match(r'^miami\b', lower_no_accents):
-        # Detect parenthetical or token forms indicating Miami (OH)
-        if re.search(r'\(oh(?:io)?\)', lower_no_accents) or re.search(r'\bmiami\s+(?:oh|ohio)\b', lower_no_accents):
-            if 'miami (oh)' in valid_processed:
-                return valid_processed['miami (oh)']
-        else:
-            if 'miami' in valid_processed:
-                return valid_processed['miami']
-    # ----------------------
+    matches = []
+    for team_key in valid_processed:
+        # Match if the ESPN name starts with a valid team name
+        if re.match(rf'^{re.escape(team_key)}(\b|$)', lower_no_accents):
+            matches.append(team_key)
 
-    # 1️⃣ Exact match first
-    if lower_no_accents in valid_processed:
-        return valid_processed[lower_no_accents]
+    if not matches:
+        return None
 
-    # 2️⃣ If the team name includes parentheses in the valid list, require exact parenthetical match
-    #    Example: 'Miami (OH) RedHawks' should only match 'Miami (OH)', not 'Miami'
-    for team_key, team_original in valid_processed.items():
-        if "(" in team_key and ")" in team_key:
-            pattern = rf'^{re.escape(team_key)}(\b|$)'
-            if re.match(pattern, lower_no_accents):
-                return team_original  # require exact parenthetical match
+    # Pick the longest valid prefix (handles Miami vs. Miami (OH))
+    best_match_key = max(matches, key=len)
 
-    # 3️⃣ Otherwise, perform normal start-of-name match (nickname-safe)
-    best_match = None
-    for team_key, team_original in valid_processed.items():
-        # Skip parenthetical teams in this phase — handled above
-        if "(" in team_key and ")" in team_key:
-            continue
+    # Check if there's extra text after the matched name
+    remainder = lower_no_accents[len(best_match_key):].strip()
 
-        pattern = rf'^{re.escape(team_key)}(\b|$)'
-        if re.match(pattern, lower_no_accents):
-            remainder = lower_no_accents[len(team_key):].strip()
+    if remainder:
+        # If the next word doesn't correspond to a valid team and looks like a new institution,
+        # reject it as a likely false positive (e.g., "Oklahoma Christian", "Cincinnati Clermont College")
+        next_word = remainder.split()[0]
+        # If next word forms no valid known team prefix, treat it as invalid continuation
+        if not any(re.match(rf'^{re.escape(next_word)}(\b|$)', v) for v in valid_processed):
+            return None
 
-            # Reject if next word indicates a different institution (subcampus/branch)
-            if remainder:
-                next_word = remainder.split()[0]
-                if next_word in [
-                    "state", "college", "university", "tech", "institute",
-                    "community", "polytechnic", "school", "new", "city",
-                    "clermont", "extension", "campus", "branch"
-                ]:
-                    continue
+    # Map back to original capitalization
+    for team in valid_team_names:
+        if strip_accents(team.lower()) == best_match_key:
+            return team
 
-            if not best_match or len(team_key) > len(strip_accents(best_match.lower())):
-                best_match = team_original
-
-    return best_match
+    return None
 
 
 def fetch_and_save_college_basketball_scores():
