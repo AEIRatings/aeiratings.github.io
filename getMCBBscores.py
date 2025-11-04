@@ -61,7 +61,7 @@ def clean_team_name(full_name, valid_team_names):
     Cleans and filters ESPN team names to only those present in mcbb.csv.
     Handles:
       - Nicknames (e.g., 'Oregon State Beavers' -> 'Oregon State')
-      - Disambiguation ('Miami' vs 'Miami (OH)')
+      - Disambiguation ('Miami' vs 'Miami (OH)') with manual exception
       - Subcampuses ('University of Cincinnati Clermont College' -> None)
       - False institutions ('Southern New Mexico' -> None)
     """
@@ -77,11 +77,26 @@ def clean_team_name(full_name, valid_team_names):
         for name in valid_team_names
     }
 
+    # ----------------------
+    # Manual exception: Miami vs Miami (OH)
+    # If ESPN string contains explicit OH / (OH) / Ohio, prefer "Miami (OH)" if present
+    # Otherwise prefer "Miami" if present.
+    # ----------------------
+    if re.match(r'^miami\b', lower_no_accents):
+        # Detect parenthetical or token forms indicating Miami (OH)
+        if re.search(r'\(oh(?:io)?\)', lower_no_accents) or re.search(r'\bmiami\s+(?:oh|ohio)\b', lower_no_accents):
+            if 'miami (oh)' in valid_processed:
+                return valid_processed['miami (oh)']
+        else:
+            if 'miami' in valid_processed:
+                return valid_processed['miami']
+    # ----------------------
+
     # 1️⃣ Exact match first
     if lower_no_accents in valid_processed:
         return valid_processed[lower_no_accents]
 
-    # 2️⃣ If the team name includes parentheses, require exact parenthetical match
+    # 2️⃣ If the team name includes parentheses in the valid list, require exact parenthetical match
     #    Example: 'Miami (OH) RedHawks' should only match 'Miami (OH)', not 'Miami'
     for team_key, team_original in valid_processed.items():
         if "(" in team_key and ")" in team_key:
@@ -100,7 +115,7 @@ def clean_team_name(full_name, valid_team_names):
         if re.match(pattern, lower_no_accents):
             remainder = lower_no_accents[len(team_key):].strip()
 
-            # Reject if next word indicates a different institution
+            # Reject if next word indicates a different institution (subcampus/branch)
             if remainder:
                 next_word = remainder.split()[0]
                 if next_word in [
