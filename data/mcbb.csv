@@ -1,366 +1,366 @@
-Team,Elo,Conference,RatingUpdated
-Davidson,1000.0,A10,False
-Dayton,1031.0567406892674,A10,True
-Duquesne,1022.9607068272339,A10,True
-Fordham,1000.0,A10,False
-George Mason,1024.8790866148704,A10,True
-George Washington,1022.9607068272339,A10,True
-La Salle,1000.0,A10,False
-Loyola Chicago,1008.9195170319074,A10,True
-Rhode Island,1027.8163196209844,A10,True
-Richmond,1000.0,A10,False
-Saint Louis,1025.327799668808,A10,True
-St. Bonaventure,1013.1061804379779,A10,True
-Saint Joseph's,1015.9663827282524,A10,True
-VCU,1027.021852193353,A10,True
-Boston College,991.6998299925382,ACC,True
-California,1038.1437333381346,ACC,True
-Clemson,1034.1814982244346,ACC,True
-Duke,1000.0,ACC,False
-Florida State,1000.0,ACC,False
-Georgia Tech,1000.0,ACC,False
-Louisville,1036.6900664437492,ACC,True
-Miami,1037.623997586044,ACC,True
-NC State,1039.6960714383836,ACC,True
-North Carolina,991.3606692508838,ACC,True
-Notre Dame,1023.9464337482444,ACC,True
-Pittsburgh,1020.1967977239789,ACC,True
-SMU,1022.9607068272339,ACC,True
-Stanford,1000.0,ACC,False
-Syracuse,1030.3776004098277,ACC,True
-Virginia,1028.9524016955838,ACC,True
-Virginia Tech,1027.8163196209844,ACC,True
-Wake Forest,1019.5778478439089,ACC,True
-Binghamton,969.6223995901723,America East,True
-Bryant,979.2093977573912,America East,True
-Maine,977.0392931727661,America East,True
-New Hampshire,965.8185017755654,America East,True
-NJIT,1000.0,America East,False
-UAlbany,973.8062579062245,America East,True
-UMass Lowell,1000.0,America East,False
-UMBC,1000.0,America East,False
-Vermont,962.5245141765718,America East,True
-Charlotte,1020.7906022426088,American,True
-East Carolina,1000.0,American,False
-Florida Atlantic,1000.0,American,False
-Memphis,1000.0,American,False
-North Texas,1028.9524016955838,American,True
-Rice,1000.0,American,False
-South Florida,1034.9694956642566,American,True
-Temple,1000.0,American,False
-Tulane,1018.930621152247,American,True
-Tulsa,1032.0385935506363,American,True
-UAB,1034.4727669020185,American,True
-UTSA,1000.0,American,False
-Wichita State,1000.0,American,False
-Austin Peay,1000.0,ASUN,False
-Bellarmine,962.2808913203304,ASUN,True
-Central Arkansas,968.9432593107326,ASUN,True
-Eastern Kentucky,1000.0,ASUN,False
-Florida Gulf Coast,1000.0,ASUN,False
-Jacksonville,982.5728001379349,ASUN,True
-Lipscomb,967.6432053811933,ASUN,True
-North Alabama,1000.0,ASUN,False
-North Florida,1000.0,ASUN,False
-Queens University,985.8507875971854,ASUN,True
-Stetson,972.1836803790158,ASUN,True
-West Georgia,971.4193743323655,ASUN,True
-Illinois,1036.423039123657,Big 10,True
-Indiana,1000.0,Big 10,False
-Iowa,1030.3776004098277,Big 10,True
-Maryland,1023.9464337482444,Big 10,True
-Michigan,1032.0385935506363,Big 10,True
-Michigan State,1017.5351199459692,Big 10,True
-Minnesota,1026.1937420937757,Big 10,True
-Nebraska,1028.5806256676346,Big 10,True
-Northwestern,1024.418909588655,Big 10,True
-Ohio State,1020.7906022426088,Big 10,True
-Oregon,1000.0,Big 10,False
-Penn State,1015.0955839512609,Big 10,True
-Purdue,977.5548148062508,Big 10,True
-Rutgers,1000.0,Big 10,False
-UCLA,1013.1061804379779,Big 10,True
-USC,1027.4230591279022,Big 10,True
-Washington,1011.997080507753,Big 10,True
-Wisconsin,1028.202048320068,Big 10,True
-Arizona,1013.1061804379779,Big 12,True
-Arizona State,1000.0,Big 12,False
-Baylor,1020.1967977239789,Big 12,True
-BYU,1011.9336676123729,Big 12,True
-Cincinnati,997.7660509039572,Big 12,True
-Colorado,1002.3964468785857,Big 12,True
-Houston,1027.286006710631,Big 12,True
-Iowa State,1000.0,Big 12,False
-Kansas,1032.0385935506363,Big 12,True
-Kansas State,1000.0,Big 12,False
-Oklahoma State,1000.0,Big 12,False
-TCU,986.8938195620221,Big 12,True
-Texas Tech,1000.0,Big 12,False
-UCF,1010.5754697645617,Big 12,True
-Utah,1023.8224429737504,Big 12,True
-West Virginia,1000.0,Big 12,False
-Butler,1000.0,Big East,False
-Creighton,1000.0,Big East,False
-DePaul,1027.4230591279022,Big East,True
-Georgetown,1021.3618634023899,Big East,True
-Marquette,1026.1937420937757,Big East,True
-Providence,1016.776084111174,Big East,True
-Seton Hall,1026.1937420937757,Big East,True
-St. John's,1028.9524016955838,Big East,True
-UConn,1024.8790866148704,Big East,True
-Villanova,988.0663323876271,Big East,True
-Xavier,1010.5754697645617,Big East,True
-Eastern Washington,986.8938195620221,Big Sky,True
-Idaho,1006.799411021556,Big Sky,True
-Idaho State,1000.0,Big Sky,False
-Montana,991.0730186530579,Big Sky,True
-Montana State,1000.0,Big Sky,False
-Northern Arizona,986.8938195620221,Big Sky,True
-Northern Colorado,1035.4829361639402,Big Sky,True
-Portland State,1000.0,Big Sky,False
-Sacramento State,1000.0,Big Sky,False
-Weber State,1000.0,Big Sky,False
-Charleston Southern,972.1836803790158,Big South,True
-Gardner-Webb,973.8062579062245,Big South,True
-High Point,1025.7657948509247,Big South,True
-Longwood,1000.0,Big South,False
-Presbyterian,975.5810904113453,Big South,True
-Radford,1011.9336676123729,Big South,True
-South Carolina Upstate,1000.0,Big South,False
-UNC Asheville,1000.0,Big South,False
-Winthrop,1014.1492124028146,Big South,True
-Cal Poly,972.5769408720978,Big West,True
-Cal State Bakersfield,973.8062579062245,Big West,True
-Cal State Fullerton,1000.0,Big West,False
-Cal State Northridge,1000.0,Big West,False
-Hawai'i,1008.9195170319074,Big West,True
-Long Beach State,1000.0,Big West,False
-UC Davis,1000.0,Big West,False
-UC Irvine,1000.0,Big West,False
-UC Riverside,1000.0,Big West,False
-UC San Diego,1000.0,Big West,False
-UC Santa Barbara,1000.0,Big West,False
-Campbell,971.7979516799321,CAA,True
-Charleston,1000.0,CAA,False
-Drexel,1000.0,CAA,False
-Elon,1000.0,CAA,False
-Hampton,989.4245302354383,CAA,True
-Hofstra,989.4245302354383,CAA,True
-Monmouth,1000.0,CAA,False
-North Carolina A&T,1000.0,CAA,False
-Northeastern,991.0804829680926,CAA,True
-Stony Brook,1000.0,CAA,False
-Towson,1018.930621152247,CAA,True
-UNC Wilmington,1000.0,CAA,False
-William & Mary,1000.0,CAA,False
-Delaware,984.9044160487391,CUSA,True
-Florida International,1000.0,CUSA,False
-Jacksonville State,1000.0,CUSA,False
-Kennesaw State,1000.0,CUSA,False
-Liberty,1031.388743946743,CUSA,True
-Louisiana Tech,1000.0,CUSA,False
-Missouri State,1000.0,CUSA,False
-Middle Tennessee,1000.0,CUSA,False
-New Mexico State,1000.0,CUSA,False
-Sam Houston,1000.0,CUSA,False
-UTEP,1000.0,CUSA,False
-Western Kentucky,1018.2512943255426,CUSA,True
-Cleveland State,991.0804829680926,Horizon,True
-Detroit Mercy,977.0392931727661,Horizon,True
-Green Bay,967.9614064493637,Horizon,True
-IU Indianapolis,979.2093977573912,Horizon,True
-Milwaukee,1010.5754697645617,Horizon,True
-Northern Kentucky,1036.1532806308442,Horizon,True
-Oakland,967.9614064493637,Horizon,True
-Purdue Fort Wayne,1000.0,Horizon,False
-Robert Morris,1000.0,Horizon,False
-Wright State,1000.0,Horizon,False
-Youngstown State,979.8032022760211,Horizon,True
-Brown,1000.0,Ivy League,False
-Columbia,1000.0,Ivy League,False
-Cornell,1000.0,Ivy League,False
-Dartmouth,1000.0,Ivy League,False
-Harvard,1000.0,Ivy League,False
-Pennsylvania,1000.0,Ivy League,False
-Princeton,1000.0,Ivy League,False
-Yale,1000.0,Ivy League,False
-Canisius,968.9432593107326,MAAC,True
-Fairfield,984.9044160487391,MAAC,True
-Iona,1000.0,MAAC,False
-Manhattan,1000.0,MAAC,False
-Marist,989.4245302354383,MAAC,True
-Merrimack,982.4648800540308,MAAC,True
-Mount St. Mary's,1000.0,MAAC,False
-Niagara,977.0392931727661,MAAC,True
-Quinnipiac,971.047598304416,MAAC,True
-Rider,971.047598304416,MAAC,True
-Sacred Heart,1000.0,MAAC,False
-Siena,1020.7906022426088,MAAC,True
-Saint Peter's,973.8062579062245,MAAC,True
-Akron,1019.5778478439089,MAC,True
-Ball State,1017.5351199459692,MAC,True
-Bowling Green,1029.3176992972776,MAC,True
-Buffalo,1009.0679344554117,MAC,True
-Central Michigan,1020.7906022426088,MAC,True
-Eastern Michigan,1023.9464337482444,MAC,True
-Kent State,984.9044160487391,MAC,True
-Miami (OH),1000.0,MAC,False
-Northern Illinois,1022.9607068272339,MAC,True
-Ohio,991.1912689040316,MAC,True
-Toledo,989.4245302354383,MAC,True
-Massachusetts,984.9044160487391,MAC,True
-Western Michigan,1011.9336676123729,MAC,True
-Coppin State,976.0535662517556,MEAC,True
-Delaware State,1000.0,MEAC,False
-Howard,975.5810904113453,MEAC,True
-Maryland Eastern Shore,992.361782647809,MEAC,True
-Morgan State,978.6381365976101,MEAC,True
-North Carolina Central,1000.0,MEAC,False
-Norfolk State,1023.9464337482444,MEAC,True
-South Carolina State,1000.0,MEAC,False
-Air Force,979.2093977573912,Mountain West,True
-Boise State,991.0804829680926,Mountain West,True
-Colorado State,1000.0,Mountain West,False
-Fresno State,1000.0,Mountain West,False
-Grand Canyon,1022.4451851937492,Mountain West,True
-Nevada,1000.0,Mountain West,False
-New Mexico,971.047598304416,Mountain West,True
-San Diego State,1000.0,Mountain West,False
-San Jose State,986.7530267908113,Mountain West,True
-UNLV,1000.0,Mountain West,False
-Utah State,1000.0,Mountain West,False
-Wyoming,1000.0,Mountain West,False
-Belmont,1020.7906022426088,MVC,True
-Bradley,986.8938195620221,MVC,True
-Drake,1013.1061804379779,MVC,True
-Evansville,1000.0,MVC,False
-Illinois State,1000.0,MVC,False
-Indiana State,979.2093977573912,MVC,True
-Murray State,1015.0955839512609,MVC,True
-Northern Iowa,1000.0,MVC,False
-Southern Illinois,1000.0,MVC,False
-UIC,1022.9607068272339,MVC,True
-Valparaiso,1000.0,MVC,False
-Central Connecticut,1037.4754858234282,NEC,True
-Chicago State,972.5769408720978,NEC,True
-Fairleigh Dickinson,969.6223995901723,NEC,True
-Le Moyne,1000.0,NEC,False
-Long Island University,976.0535662517556,NEC,True
-Mercyhurst,975.5810904113451,NEC,True
-New Haven,975.1209133851296,NEC,True
-Saint Francis,964.5106724678777,NEC,True
-Stonehill,1000.0,NEC,False
-Wagner,972.9781478066471,NEC,True
-Eastern Illinois,1000.0,OVC,False
-Lindenwood,1000.0,OVC,False
-Little Rock,1000.0,OVC,False
-Morehead State,1000.0,OVC,False
-Southeast Missouri State,974.6722003311919,OVC,True
-SIU Edwardsville,1000.0,OVC,False
-Southern Indiana,1000.0,OVC,False
-Tennessee State,1000.0,OVC,False
-Tennessee Tech,981.7487056744574,OVC,True
-UT Martin,1000.0,OVC,False
-Western Illinois,988.0663323876271,OVC,True
-American,980.4221521560911,Patriot,True
-Army,1000.0,Patriot,False
-Boston University,1008.9195170319074,Patriot,True
-Bucknell,1015.0955839512609,Patriot,True
-Colgate,982.4648800540308,Patriot,True
-Holy Cross,983.223915888826,Patriot,True
-Lafayette,984.0336172717476,Patriot,True
-Lehigh,978.0872296168798,Patriot,True
-Loyola Maryland,981.069378847753,Patriot,True
-Navy,1024.4189095886547,Patriot,True
-Alabama,1027.021852193353,SEC,True
-Arkansas,994.2678541384828,SEC,True
-Auburn,1011.9336676123729,SEC,True
-Florida,994.9851700018984,SEC,True
-Georgia,1021.4108922836161,SEC,True
-Kentucky,968.6112560532569,SEC,True
-LSU,1000.0,SEC,False
-Mississippi State,1000.0,SEC,False
-Missouri,1024.4189095886547,SEC,True
-Oklahoma,1003.450733981486,SEC,True
-Ole Miss,1027.4230591279022,SEC,True
-South Carolina,951.3599423118918,SEC,True
-Tennessee,1020.1967977239789,SEC,True
-Texas,1000.0,SEC,False
-Texas A&M,1001.8954684149112,SEC,True
-Vanderbilt,1032.3567946188068,SEC,True
-Chattanooga,1000.0,Southern,False
-East Tennessee State,1000.0,Southern,False
-Furman,974.2342051490753,Southern,True
-Mercer,979.8032022760211,Southern,True
-Samford,981.069378847753,Southern,True
-The Citadel,1000.0,Southern,False
-UNC Greensboro,1000.0,Southern,False
-VMI,1000.0,Southern,False
-Western Carolina,966.0806684651985,Southern,True
-Wofford,975.1209133851296,Southern,True
-East Texas A&M,1000.0,Southland,False
-Houston Christian,1000.0,Southland,False
-Incarnate Word,971.047598304416,Southland,True
-Lamar,1031.0567406892674,Southland,True
-McNeese,1000.0,Southland,False
-New Orleans,1013.1061804379779,Southland,True
-Nicholls,1000.0,Southland,False
-Northwestern State,967.0477908958214,Southland,True
-SE Louisiana,972.5769408720978,Southland,True
-Stephen F. Austin,1000.0,Southland,False
-Texas A&M-Corpus Christi,1000.0,Southland,False
-UT Rio Grande Valley,979.8032022760211,Southland,True
-Denver,982.4648800540308,Summit,True
-Kansas City,1000.0,Summit,False
-North Dakota,972.9781478066471,Summit,True
-North Dakota State,993.3333333333334,Summit,True
-Omaha,984.9044160487391,Summit,True
-Oral Roberts,1000.0,Summit,False
-South Dakota,989.4245302354383,Summit,True
-South Dakota State,1017.5351199459692,Summit,True
-St. Thomas-Minnesota,974.2342051490753,Summit,True
-App State,979.2093977573912,Sun Belt,True
-Arkansas State,1000.0,Sun Belt,False
-Coastal Carolina,988.0663323876271,Sun Belt,True
-Georgia Southern,1000.0,Sun Belt,False
-Georgia State,1000.0,Sun Belt,False
-James Madison,980.4221521560911,Sun Belt,True
-Louisiana,982.4648800540308,Sun Belt,True
-Marshall,1015.0955839512609,Sun Belt,True
-Old Dominion,979.8032022760211,Sun Belt,True
-South Alabama,1010.5754697645617,Sun Belt,True
-Southern Miss,1000.0,Sun Belt,False
-Texas State,970.6823007027224,Sun Belt,True
-Troy,1015.0955839512609,Sun Belt,True
-UL Monroe,977.0392931727661,Sun Belt,True
-Alabama A&M,1000.0,SWAC,False
-Alabama State,1000.0,SWAC,False
-Alcorn State,1000.0,SWAC,False
-Arkansas-Pine Bluff,1000.0,SWAC,False
-Bethune-Cookman,988.0663323876271,SWAC,True
-Florida A&M,1000.0,SWAC,False
-Grambling,1000.0,SWAC,False
-Jackson State,963.576960876343,SWAC,True
-Mississippi Valley State,965.5272330979816,SWAC,True
-Prairie View A&M,1000.0,SWAC,False
-Southern,957.3567808970097,SWAC,True
-Texas Southern,964.3947433935274,SWAC,True
-Abilene Christian,1000.0,WAC,False
-California Baptist,1000.0,WAC,False
-Southern Utah,1000.0,WAC,False
-Tarleton State,977.0392931727661,WAC,True
-UT Arlington,1000.0,WAC,False
-Utah Tech,1000.0,WAC,False
-Utah Valley,1000.0,WAC,False
-Gonzaga,1035.6052566064727,WCC,True
-Loyola Marymount,1000.0,WCC,False
-Oregon State,1006.6666666666666,WCC,True
-Pacific,1000.0,WCC,False
-Pepperdine,1000.0,WCC,False
-Portland,1000.0,WCC,False
-San Diego,1000.0,WCC,False
-San Francisco,1000.0,WCC,False
-Santa Clara,1000.0,WCC,False
-Seattle U,1017.5351199459692,WCC,True
-Saint Mary's,1025.7657948509247,WCC,True
-Washington State,1000.0,WCC,False
+Team,Elo,Conference
+Davidson Wildcats,1000.0,A10
+Dayton Flyers,1000.0,A10
+Duquesne Dukes,1000.0,A10
+Fordham Rams,1000.0,A10
+George Mason Patriots,1000.0,A10
+George Washington Revolutionaries,1000.0,A10
+La Salle Explorers,1000.0,A10
+Loyola Chicago Ramblers,1000.0,A10
+Rhode Island Rams,1000.0,A10
+Richmond Spiders,1000.0,A10
+Saint Louis Billikens,1000.0,A10
+St. Bonaventure Bonnies,1000.0,A10
+Saint Joseph's Hawks,1000.0,A10
+VCU Rams,1000.0,A10
+Boston College Eagles,1000.0,ACC
+California Golden Bears,1000.0,ACC
+Clemson Tigers,1000.0,ACC
+Duke Blue Devils,1000.0,ACC
+Florida State Seminoles,1000.0,ACC
+Georgia Tech Yellow Jackets,1000.0,ACC
+Louisville Cardinals,1000.0,ACC
+Miami Hurricanes,1000.0,ACC
+NC State Wolfpack,1000.0,ACC
+North Carolina Tar Heels,1000.0,ACC
+Notre Dame Fighting Irish,1000.0,ACC
+Pittsburgh Panthers,1000.0,ACC
+SMU Mustangs,1000.0,ACC
+Stanford Cardinal,1000.0,ACC
+Syracuse Orange,1000.0,ACC
+Virginia Cavaliers,1000.0,ACC
+Virginia Tech Hokies,1000.0,ACC
+Wake Forest Demon Deacons,1000.0,ACC
+Binghamton Bearcats,1000.0,America East
+Bryant Bulldogs,1000.0,America East
+Maine Black Bears,1000.0,America East
+New Hampshire Wildcats,1000.0,America East
+NJIT Highlanders,1000.0,America East
+UAlbany Great Danes,1000.0,America East
+UMass Lowell River Hawks,1000.0,America East
+UMBC Retrievers,1000.0,America East
+Vermont Catamounts,1000.0,America East
+Charlotte 49ers,1000.0,American
+East Carolina Pirates,1000.0,American
+Florida Atlantic Owls,1000.0,American
+Memphis Tigers,1000.0,American
+North Texas Mean Green,1000.0,American
+Rice Owls,1000.0,American
+South Florida Bulls,1000.0,American
+Temple Owls,1000.0,American
+Tulane Green Wave,1000.0,American
+Tulsa Golden Hurricane,1000.0,American
+UAB Blazers,1000.0,American
+UTSA Roadrunners,1000.0,American
+Wichita State Shockers,1000.0,American
+Austin Peay Governors,1000.0,ASUN
+Bellarmine Knights,1000.0,ASUN
+Central Arkansas Bears,1000.0,ASUN
+Eastern Kentucky Colonels,1000.0,ASUN
+Florida Gulf Coast Eagles,1000.0,ASUN
+Jacksonville Dolphins,1000.0,ASUN
+Lipscomb Bisons,1000.0,ASUN
+North Alabama Lions,1000.0,ASUN
+North Florida Ospreys,1000.0,ASUN
+Queens University Royals,1000.0,ASUN
+Stetson Hatters,1000.0,ASUN
+West Georgia Wolves,1000.0,ASUN
+Illinois Fighting Illini,1000.0,Big 10
+Indiana Hoosiers,1000.0,Big 10
+Iowa Hawkeyes,1000.0,Big 10
+Maryland Terrapins,1000.0,Big 10
+Michigan Wolverines,1000.0,Big 10
+Michigan State Spartans,1000.0,Big 10
+Minnesota Golden Gophers,1000.0,Big 10
+Nebraska Cornhuskers,1000.0,Big 10
+Northwestern Wildcats,1000.0,Big 10
+Ohio State Buckeyes,1000.0,Big 10
+Oregon Ducks,1000.0,Big 10
+Penn State Nittany Lions,1000.0,Big 10
+Purdue Boilermakers,1000.0,Big 10
+Rutgers Scarlet Knights,1000.0,Big 10
+UCLA Bruins,1000.0,Big 10
+USC Trojans,1000.0,Big 10
+Washington Huskies,1000.0,Big 10
+Wisconsin Badgers,1000.0,Big 10
+Arizona Wildcats,1000.0,Big 12
+Arizona State Sun Devils,1000.0,Big 12
+Baylor Bears,1000.0,Big 12
+BYU Cougars,1000.0,Big 12
+Cincinnati Bearcats,1000.0,Big 12
+Colorado Buffaloes,1000.0,Big 12
+Houston Cougars,1000.0,Big 12
+Iowa State Cyclones,1000.0,Big 12
+Kansas Jayhawks,1000.0,Big 12
+Kansas State Wildcats,1000.0,Big 12
+Oklahoma State Cowboys,1000.0,Big 12
+TCU Horned Frogs,1000.0,Big 12
+Texas Tech Red Raiders,1000.0,Big 12
+UCF Knights,1000.0,Big 12
+Utah Utes,1000.0,Big 12
+West Virginia Mountaineers,1000.0,Big 12
+Butler Bulldogs,1000.0,Big East
+Creighton Bluejays,1000.0,Big East
+DePaul Blue Demons,1000.0,Big East
+Georgetown Hoyas,1000.0,Big East
+Marquette Golden Eagles,1000.0,Big East
+Providence Friars,1000.0,Big East
+Seton Hall Pirates,1000.0,Big East
+St. John's Red Storm,1000.0,Big East
+UConn Huskies,1000.0,Big East
+Villanova Wildcats,1000.0,Big East
+Xavier Musketeers,1000.0,Big East
+Eastern Washington Eagles,1000.0,Big Sky
+Idaho Vandals,1000.0,Big Sky
+Idaho State Bengals,1000.0,Big Sky
+Montana Grizzlies,1000.0,Big Sky
+Montana State Bobcats,1000.0,Big Sky
+Northern Arizona Lumberjacks,1000.0,Big Sky
+Northern Colorado Bears,1000.0,Big Sky
+Portland State Vikings,1000.0,Big Sky
+Sacramento State Hornets,1000.0,Big Sky
+Weber State Wildcats,1000.0,Big Sky
+Charleston Southern Buccaneers,1000.0,Big South
+Gardner-Webb Runnin' Bulldogs,1000.0,Big South
+High Point Panthers,1000.0,Big South
+Longwood Lancers,1000.0,Big South
+Presbyterian Blue Hose,1000.0,Big South
+Radford Highlanders,1000.0,Big South
+South Carolina Upstate Spartans,1000.0,Big South
+UNC Asheville Bulldogs,1000.0,Big South
+Winthrop Eagles,1000.0,Big South
+Cal Poly Mustangs,1000.0,Big West
+Cal State Bakersfield Roadrunners,1000.0,Big West
+Cal State Fullerton Titans,1000.0,Big West
+Cal State Northridge Matadors,1000.0,Big West
+Hawai'i Rainbow Warriors,1000.0,Big West
+Long Beach State Beach,1000.0,Big West
+UC Davis Aggies,1000.0,Big West
+UC Irvine Anteaters,1000.0,Big West
+UC Riverside Highlanders,1000.0,Big West
+UC San Diego Tritons,1000.0,Big West
+UC Santa Barbara Gauchos,1000.0,Big West
+Campbell Fighting Camels,1000.0,CAA
+Charleston Cougars,1000.0,CAA
+Drexel Dragons,1000.0,CAA
+Elon Phoenix,1000.0,CAA
+Hampton Pirates,1000.0,CAA
+Hofstra Pride,1000.0,CAA
+Monmouth Hawks,1000.0,CAA
+North Carolina A&T Aggies,1000.0,CAA
+Northeastern Huskies,1000.0,CAA
+Stony Brook Seawolves,1000.0,CAA
+Towson Tigers,1000.0,CAA
+UNC Wilmington Seahawks,1000.0,CAA
+William & Mary Tribe,1000.0,CAA
+Delaware Blue Hens,1000.0,CUSA
+Florida International Panthers,1000.0,CUSA
+Jacksonville State Gamecocks,1000.0,CUSA
+Kennesaw State Owls,1000.0,CUSA
+Liberty Flames,1000.0,CUSA
+Louisiana Tech Bulldogs,1000.0,CUSA
+Missouri State Bears,1000.0,CUSA
+Middle Tennessee Blue Raiders,1000.0,CUSA
+New Mexico State Aggies,1000.0,CUSA
+Sam Houston Bearkats,1000.0,CUSA
+UTEP Miners,1000.0,CUSA
+Western Kentucky Hilltoppers,1000.0,CUSA
+Cleveland State Vikings,1000.0,Horizon
+Detroit Mercy Titans,1000.0,Horizon
+Green Bay Phoenix,1000.0,Horizon
+IU Indianapolis Jaguars,1000.0,Horizon
+Milwaukee Panthers,1000.0,Horizon
+Northern Kentucky Norse,1000.0,Horizon
+Oakland Golden Grizzlies,1000.0,Horizon
+Purdue Fort Wayne Mastodons,1000.0,Horizon
+Robert Morris Colonials,1000.0,Horizon
+Wright State Raiders,1000.0,Horizon
+Youngstown State Penguins,1000.0,Horizon
+Brown Bears,1000.0,Ivy League
+Columbia Lions,1000.0,Ivy League
+Cornell Big Red,1000.0,Ivy League
+Dartmouth Big Green,1000.0,Ivy League
+Harvard Crimson,1000.0,Ivy League
+Pennsylvania Quakers,1000.0,Ivy League
+Princeton Tigers,1000.0,Ivy League
+Yale Bulldogs,1000.0,Ivy League
+Canisius Golden Griffins,1000.0,MAAC
+Fairfield Stags,1000.0,MAAC
+Iona Gaels,1000.0,MAAC
+Manhattan Jaspers,1000.0,MAAC
+Marist Red Foxes,1000.0,MAAC
+Merrimack Warriors,1000.0,MAAC
+Mount St. Mary's Mountaineers,1000.0,MAAC
+Niagara Purple Eagles,1000.0,MAAC
+Quinnipiac Bobcats,1000.0,MAAC
+Rider Broncs,1000.0,MAAC
+Sacred Heart Pioneers,1000.0,MAAC
+Siena Saints,1000.0,MAAC
+Saint Peter's Peacocks,1000.0,MAAC
+Akron Zips,1000.0,MAC
+Ball State Cardinals,1000.0,MAC
+Bowling Green Falcons,1000.0,MAC
+Buffalo Bulls,1000.0,MAC
+Central Michigan Chippewas,1000.0,MAC
+Eastern Michigan Eagles,1000.0,MAC
+Kent State Golden Flashes,1000.0,MAC
+Miami (OH) RedHawks,1000.0,MAC
+Northern Illinois Huskies,1000.0,MAC
+Ohio Bobcats,1000.0,MAC
+Toledo Rockets,1000.0,MAC
+Massachusetts Minutemen,1000.0,MAC
+Western Michigan Broncos,1000.0,MAC
+Coppin State Eagles,1000.0,MEAC
+Delaware State Hornets,1000.0,MEAC
+Howard Bison,1000.0,MEAC
+Maryland Eastern Shore Hawks,1000.0,MEAC
+Morgan State Bears,1000.0,MEAC
+North Carolina Central Eagles,1000.0,MEAC
+Norfolk State Spartans,1000.0,MEAC
+South Carolina State Bulldogs,1000.0,MEAC
+Air Force Falcons,1000.0,Mountain West
+Boise State Broncos,1000.0,Mountain West
+Colorado State Rams,1000.0,Mountain West
+Fresno State Bulldogs,1000.0,Mountain West
+Grand Canyon Lopes,1000.0,Mountain West
+Nevada Wolf Pack,1000.0,Mountain West
+New Mexico Lobos,1000.0,Mountain West
+San Diego State Aztecs,1000.0,Mountain West
+San Jose State Spartans,1000.0,Mountain West
+UNLV Rebels,1000.0,Mountain West
+Utah State Aggies,1000.0,Mountain West
+Wyoming Cowboys,1000.0,Mountain West
+Belmont Bruins,1000.0,MVC
+Bradley Braves,1000.0,MVC
+Drake Bulldogs,1000.0,MVC
+Evansville Purple Aces,1000.0,MVC
+Illinois State Redbirds,1000.0,MVC
+Indiana State Sycamores,1000.0,MVC
+Murray State Racers,1000.0,MVC
+Northern Iowa Panthers,1000.0,MVC
+Southern Illinois Salukis,1000.0,MVC
+UIC Flames,1000.0,MVC
+Valparaiso Beacons,1000.0,MVC
+Central Connecticut Blue Devils,1000.0,NEC
+Chicago State Cougars,1000.0,NEC
+Fairleigh Dickinson Knights,1000.0,NEC
+Le Moyne Dolphins,1000.0,NEC
+Long Island University Sharks,1000.0,NEC
+Mercyhurst Lakers,1000.0,NEC
+New Haven Chargers,1000.0,NEC
+Saint Francis Red Flash,1000.0,NEC
+Stonehill Skyhawks,1000.0,NEC
+Wagner Seahawks,1000.0,NEC
+Eastern Illinois Panthers,1000.0,OVC
+Lindenwood Lions,1000.0,OVC
+Little Rock Trojans,1000.0,OVC
+Morehead State Eagles,1000.0,OVC
+Southeast Missouri State Redhawks,1000.0,OVC
+SIU Edwardsville Cougars,1000.0,OVC
+Southern Indiana Screaming Eagles,1000.0,OVC
+Tennessee State Tigers,1000.0,OVC
+Tennessee Tech Golden Eagles,1000.0,OVC
+UT Martin Skyhawks,1000.0,OVC
+Western Illinois Leathernecks,1000.0,OVC
+American University Eagles,1000.0,Patriot
+Army Black Knights,1000.0,Patriot
+Boston University Terriers,1000.0,Patriot
+Bucknell Bison,1000.0,Patriot
+Colgate Raiders,1000.0,Patriot
+Holy Cross Crusaders,1000.0,Patriot
+Lafayette Leopards,1000.0,Patriot
+Lehigh Mountain Hawks,1000.0,Patriot
+Loyola Maryland Greyhounds,1000.0,Patriot
+Navy Midshipmen,1000.0,Patriot
+Alabama Crimson Tide,1000.0,SEC
+Arkansas Razorbacks,1000.0,SEC
+Auburn Tigers,1000.0,SEC
+Florida Gators,1000.0,SEC
+Georgia Bulldogs,1000.0,SEC
+Kentucky Wildcats,1000.0,SEC
+LSU Tigers,1000.0,SEC
+Mississippi State Bulldogs,1000.0,SEC
+Missouri Tigers,1000.0,SEC
+Oklahoma Sooners,1000.0,SEC
+Ole Miss Rebels,1000.0,SEC
+South Carolina Gamecocks,1000.0,SEC
+Tennessee Volunteers,1000.0,SEC
+Texas Longhorns,1000.0,SEC
+Texas A&M Aggies,1000.0,SEC
+Vanderbilt Commodores,1000.0,SEC
+Chattanooga Mocs,1000.0,Southern
+East Tennessee State Buccaneers,1000.0,Southern
+Furman Paladins,1000.0,Southern
+Mercer Bears,1000.0,Southern
+Samford Bulldogs,1000.0,Southern
+The Citadel Bulldogs,1000.0,Southern
+UNC Greensboro Spartans,1000.0,Southern
+VMI Keydets,1000.0,Southern
+Western Carolina Catamounts,1000.0,Southern
+Wofford Terriers,1000.0,Southern
+East Texas A&M Lions,1000.0,Southland
+Houston Christian Huskies,1000.0,Southland
+Incarnate Word Cardinals,1000.0,Southland
+Lamar Cardinals,1000.0,Southland
+McNeese Cowboys,1000.0,Southland
+New Orleans Privateers,1000.0,Southland
+Nicholls Colonels,1000.0,Southland
+Northwestern State Demons,1000.0,Southland
+SE Louisiana Lions,1000.0,Southland
+Stephen F. Austin Lumberjacks,1000.0,Southland
+Texas A&M-Corpus Christi Islanders,1000.0,Southland
+UT Rio Grande Valley Vaqueros,1000.0,Southland
+Denver Pioneers,1000.0,Summit
+Kansas City Roos,1000.0,Summit
+North Dakota Fighting Hawks,1000.0,Summit
+North Dakota State Bison,1000.0,Summit
+Omaha Mavericks,1000.0,Summit
+Oral Roberts Golden Eagles,1000.0,Summit
+South Dakota Coyotes,1000.0,Summit
+South Dakota State Jackrabbits,1000.0,Summit
+St. Thomas-Minnesota Tommies,1000.0,Summit
+App State Mountaineers,1000.0,Sun Belt
+Arkansas State Red Wolves,1000.0,Sun Belt
+Coastal Carolina Chanticleers,1000.0,Sun Belt
+Georgia Southern Eagles,1000.0,Sun Belt
+Georgia State Panthers,1000.0,Sun Belt
+James Madison Dukes,1000.0,Sun Belt
+Louisiana Ragin' Cajuns,1000.0,Sun Belt
+Marshall Thundering Herd,1000.0,Sun Belt
+Old Dominion Monarchs,1000.0,Sun Belt
+South Alabama Jaguars,1000.0,Sun Belt
+Southern Miss Golden Eagles,1000.0,Sun Belt
+Texas State Bobcats,1000.0,Sun Belt
+Troy Trojans,1000.0,Sun Belt
+UL Monroe Warhawks,1000.0,Sun Belt
+Alabama A&M Bulldogs,1000.0,SWAC
+Alabama State Hornets,1000.0,SWAC
+Alcorn State Braves,1000.0,SWAC
+Arkansas-Pine Bluff Golden Lions,1000.0,SWAC
+Bethune-Cookman Wildcats,1000.0,SWAC
+Florida A&M Rattlers,1000.0,SWAC
+Grambling Tigers,1000.0,SWAC
+Jackson State Tigers,1000.0,SWAC
+Mississippi Valley State Delta Devils,1000.0,SWAC
+Prairie View A&M Panthers,1000.0,SWAC
+Southern Jaguars,1000.0,SWAC
+Texas Southern Tigers,1000.0,SWAC
+Abilene Christian Wildcats,1000.0,WAC
+California Baptist Lancers,1000.0,WAC
+Southern Utah Thunderbirds,1000.0,WAC
+Tarleton State Texans,1000.0,WAC
+UT Arlington Mavericks,1000.0,WAC
+Utah Tech Trailblazers,1000.0,WAC
+Utah Valley Wolverines,1000.0,WAC
+Gonzaga Bulldogs,1000.0,WCC
+Loyola Marymount Lions,1000.0,WCC
+Oregon State Beavers,1000.0,WCC
+Pacific Tigers,1000.0,WCC
+Pepperdine Waves,1000.0,WCC
+Portland Pilots,1000.0,WCC
+San Diego Toreros,1000.0,WCC
+San Francisco Dons,1000.0,WCC
+Santa Clara Broncos,1000.0,WCC
+Seattle U Redhawks,1000.0,WCC
+Saint Mary's Gaels,1000.0,WCC
+Washington State Cougars,1000.0,WCC
