@@ -52,12 +52,10 @@ def normalize_name(raw_name):
 
 def clean_team_name(full_name, valid_team_names):
     """
-    Automatically filters ESPN team names using mcbb.csv.
-    - Matches valid team name prefixes.
-    - Prefers the longest valid match.
-    - Allows lowercase nickname suffixes.
-    - Rejects false positives like 'Oklahoma Christian' or 'Cincinnati Clermont College'
-      by rejecting capitalized suffix words that indicate a new institution.
+    Filters ESPN team names using mcbb.csv.
+    - Matches valid team name prefixes (case/accents ignored).
+    - Allows multi-word institutions like 'Vermont State Johnson'.
+    - Rejects clearly unrelated names not in mcbb.csv.
     """
     if not full_name:
         return None
@@ -65,31 +63,21 @@ def clean_team_name(full_name, valid_team_names):
     normalized = normalize_name(full_name)
     lower_no_accents = strip_accents(normalized.lower())
 
-    valid_processed = [strip_accents(team.lower()) for team in valid_team_names]
+    # Preprocess valid team names
+    valid_processed = {strip_accents(team.lower()): team for team in valid_team_names}
 
-    matches = []
-    for team_key in valid_processed:
-        if re.match(rf'^{re.escape(team_key)}(\b|$)', lower_no_accents):
-            matches.append(team_key)
+    # Try exact match first
+    if lower_no_accents in valid_processed:
+        return valid_processed[lower_no_accents]
 
-    if not matches:
-        return None
-
-    best_match_key = max(matches, key=len)
-    remainder = full_name[len(best_match_key):].strip()
-
-    # ✅ Reject if the first word of the remainder starts uppercase (new institution)
-    if remainder:
-        next_word = remainder.split()[0]
-        if next_word and next_word[0].isupper():
-            return None
-
-    # Map back to original capitalization
-    for team in valid_team_names:
-        if strip_accents(team.lower()) == best_match_key:
-            return team
+    # Try prefix match allowing trailing lowercase or space-separated words
+    for key, original_team in valid_processed.items():
+        pattern = rf'^{re.escape(key)}(\b|$|[\s\-])'
+        if re.match(pattern, lower_no_accents):
+            return original_team
 
     return None
+
 
 
 def fetch_and_save_college_basketball_scores():
