@@ -85,7 +85,7 @@ def fetch_and_save_college_basketball_scores():
     date_str = yesterday.strftime('%Y%m%d')
     file_date_str = yesterday.strftime('%Y-%m-%d')
 
-    BASE_URL = "http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard"
+    BASE_URL = "http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/scoreboard"
     API_URLS = [
         f"{BASE_URL}?groups=50&dates={date_str}",
     ]
