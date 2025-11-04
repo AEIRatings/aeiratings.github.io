@@ -7,8 +7,8 @@ from datetime import datetime, timedelta
 
 def load_team_names(filename="data/mcbb.csv"):
     """
-    Loads valid college basketball team names (without nicknames) from a CSV file.
-    Returns a set of team names for matching.
+    Loads valid college basketball team names from a CSV file.
+    Returns a set of team names for exact matching.
     """
     team_names = set()
     try:
@@ -52,10 +52,8 @@ def normalize_name(raw_name):
 
 def clean_team_name(full_name, valid_team_names):
     """
-    Filters ESPN team names using mcbb.csv.
-    - Matches valid team name prefixes (case/accents ignored).
-    - Allows multi-word institutions like 'Vermont State Johnson'.
-    - Rejects clearly unrelated names not in mcbb.csv.
+    Filters ESPN team names using mcbb.csv by checking for an exact match
+    (case and accents ignored). Only exact matches in mcbb.csv are kept.
     """
     if not full_name:
         return None
@@ -63,21 +61,17 @@ def clean_team_name(full_name, valid_team_names):
     normalized = normalize_name(full_name)
     lower_no_accents = strip_accents(normalized.lower())
 
-    # Preprocess valid team names
+    # Preprocess valid team names for O(1) look-up.
+    # Key is the normalized, lower-cased team name from mcbb.csv.
+    # Value is the original team name from mcbb.csv to be returned.
     valid_processed = {strip_accents(team.lower()): team for team in valid_team_names}
 
-    # Try exact match first
+    # Only check for exact match.
     if lower_no_accents in valid_processed:
+        # Return the original, canonical team name from mcbb.csv
         return valid_processed[lower_no_accents]
 
-    # Try prefix match allowing trailing lowercase or space-separated words
-    for key, original_team in valid_processed.items():
-        pattern = rf'^{re.escape(key)}(\b|$|[\s\-])'
-        if re.match(pattern, lower_no_accents):
-            return original_team
-
     return None
-
 
 
 def fetch_and_save_college_basketball_scores():
