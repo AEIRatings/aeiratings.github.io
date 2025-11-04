@@ -1,11 +1,12 @@
 import requests
 import csv
 import unicodedata
+import re
 from datetime import datetime, timedelta
 
 def load_team_names(filename="data/mcbb.csv"):
     """
-    Loads valid college football team names (without nicknames) from a CSV file.
+    Loads valid college basketball team names (without nicknames) from a CSV file.
     Returns a set of team names for matching.
     """
     team_names = set()
@@ -44,12 +45,9 @@ def normalize_name(raw_name):
     name = unicodedata.normalize('NFC', raw_name)
 
     # Fix known encoding glitches
-    # ESPN sometimes returns mojibake (mis-decoded UTF-8)
-    # e.g., 'San JosÃ© State Spartans' instead of 'San José State Spartans'
     name = (name.replace('JosÃ©', 'José')
                 .replace('San Jose', 'San José')
-                .replace('Nittany Lions', 'Penn State')  # example of cleanup if desired
-            )
+                .replace('Nittany Lions', 'Penn State'))  # example of cleanup if desired
 
     # Remove ranking prefix like "No. 3 "
     name = name.replace("No. ", "").strip()
@@ -59,51 +57,61 @@ def normalize_name(raw_name):
 
 def clean_team_name(full_name, valid_team_names):
     """
-    Strips nicknames (e.g., 'Georgia Bulldogs' -> 'Georgia') using substring match
-    against known team names list, ONLY IF the valid team name appears at the start
-    of the team name to prevent false positives from names containing the team name
-    (e.g., 'York University Nebraska' -> 'Nebraska'). Handles accent-insensitive comparison.
-
-    If no match is found, it returns None, which filters out unlisted teams.
+    Cleans and filters ESPN team names to only those present in mcbb.csv.
+    Handles nickname suffixes (e.g., 'Oregon State Beavers' -> 'Oregon State')
+    but avoids false positives like 'Southern New Mexico' (should return None).
     """
     if not full_name:
-        return full_name
+        return None
 
     normalized = normalize_name(full_name)
     lower_no_accents = strip_accents(normalized.lower())
 
+    # Common school-type words that indicate a different institution
+    school_indicators = [
+        "state", "college", "university", "tech", "institute",
+        "community", "polytechnic", "school", "new", "city"
+    ]
+
     best_match = None
     for team in valid_team_names:
         team_no_accents = strip_accents(team.lower())
-        
-        # CRITICAL CHANGE: Only allow a match if the valid team name starts the string.
-        if lower_no_accents.startswith(team_no_accents):
-            # Keep the longest match found at the beginning (for cases like "St. John's Red Storm" 
-            # vs a shorter, less specific name if they both match the start).
+
+        if lower_no_accents == team_no_accents:
+            return team  # exact match
+
+        # Match if team name appears at start followed by nickname-like word
+        pattern = rf'^{re.escape(team_no_accents)}\b'
+        match = re.match(pattern, lower_no_accents)
+        if match:
+            remainder = lower_no_accents[match.end():].strip()
+            if remainder:
+                next_word = remainder.split()[0]
+                # Reject if next word is a "school-type" indicator
+                if next_word in school_indicators:
+                    continue
+            # Accept as valid match otherwise
             if not best_match or len(team) > len(best_match):
                 best_match = team
 
-    # FIX APPLIED HERE: Return None if no match is found (best_match is None), 
-    # instead of the potentially invalid 'normalized' full_name.
     return best_match
 
 
-def fetch_and_save_college_football_scores():
+def fetch_and_save_college_basketball_scores():
     """
-    Fetches college football (FBS + FCS) scoreboard data for the previous day
+    Fetches men's college basketball scoreboard data for the previous day
     and saves them into a single deduplicated CSV file.
     """
     valid_team_names = load_team_names("data/mcbb.csv")
 
     # 1. Determine the date for the data (yesterday)
     yesterday = datetime.now() - timedelta(days=1)
-    # The API uses the YYYYMMDD format for the 'dates' parameter.
-    date_str = yesterday.strftime('%Y%m%d') 
-    file_date_str = yesterday.strftime('%Y-%m-%d') # For print message clarity
+    date_str = yesterday.strftime('%Y%m%d')
+    file_date_str = yesterday.strftime('%Y-%m-%d')
 
     BASE_URL = "http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard"
     API_URLS = [
-        f"{BASE_URL}?groups=50&dates={date_str}",  # FBS
+        f"{BASE_URL}?groups=50&dates={date_str}",
     ]
 
     CSV_FILENAME = "mcbb_scores_previous_day.csv"
@@ -111,7 +119,7 @@ def fetch_and_save_college_football_scores():
     all_game_data = []
     seen_games = set()
 
-    print(f"Fetching College Football scores for {file_date_str}...")
+    print(f"Fetching College Basketball scores for {file_date_str}...")
 
     for api_url in API_URLS:
         try:
@@ -153,7 +161,7 @@ def fetch_and_save_college_football_scores():
                     home_team_name = cleaned_name
                     home_score = int(score) if score else 0
 
-            # This line ensures only games with two valid/found team names are saved.
+            # Only keep games with two valid/found team names
             if away_team_name and home_team_name:
                 game_id = tuple(sorted([away_team_name, home_team_name]))
                 if game_id not in seen_games:
@@ -177,4 +185,4 @@ def fetch_and_save_college_football_scores():
 
 
 if __name__ == '__main__':
-    fetch_and_save_college_football_scores()
+    fetch_and_save_college_basketball_scores()
