@@ -63,6 +63,8 @@ def clean_team_name(full_name, valid_team_names):
     against known team names list, ONLY IF the valid team name appears at the start
     of the team name to prevent false positives from names containing the team name
     (e.g., 'York University Nebraska' -> 'Nebraska'). Handles accent-insensitive comparison.
+
+    If no match is found, it returns None, which filters out unlisted teams.
     """
     if not full_name:
         return full_name
@@ -81,8 +83,9 @@ def clean_team_name(full_name, valid_team_names):
             if not best_match or len(team) > len(best_match):
                 best_match = team
 
-    # Return the longest starting match if found, otherwise return the cleaned full name.
-    return best_match if best_match else normalized
+    # FIX APPLIED HERE: Return None if no match is found (best_match is None), 
+    # instead of the potentially invalid 'normalized' full_name.
+    return best_match
 
 
 def fetch_and_save_college_football_scores():
@@ -150,6 +153,7 @@ def fetch_and_save_college_football_scores():
                     home_team_name = cleaned_name
                     home_score = int(score) if score else 0
 
+            # This line ensures only games with two valid/found team names are saved.
             if away_team_name and home_team_name:
                 game_id = tuple(sorted([away_team_name, home_team_name]))
                 if game_id not in seen_games:
