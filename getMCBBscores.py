@@ -42,17 +42,11 @@ def normalize_name(raw_name):
     if not raw_name:
         return raw_name
 
-    # Normalize Unicode form
     name = unicodedata.normalize('NFC', raw_name)
-
-    # Fix known encoding glitches
     name = (name.replace('JosÃ©', 'José')
                 .replace('San Jose', 'San José')
-                .replace('Nittany Lions', 'Penn State'))  # example of cleanup if desired
-
-    # Remove ranking prefix like "No. 3 "
+                .replace('Nittany Lions', 'Penn State'))
     name = name.replace("No. ", "").strip()
-
     return name
 
 
@@ -61,8 +55,9 @@ def clean_team_name(full_name, valid_team_names):
     Automatically filters ESPN team names using mcbb.csv.
     - Matches valid team name prefixes.
     - Prefers the longest valid match.
+    - Allows lowercase nickname suffixes.
     - Rejects false positives like 'Oklahoma Christian' or 'Cincinnati Clermont College'
-      by verifying the suffix is not another valid team name or a proper noun not in the list.
+      by rejecting capitalized suffix words that indicate a new institution.
     """
     if not full_name:
         return None
@@ -70,30 +65,23 @@ def clean_team_name(full_name, valid_team_names):
     normalized = normalize_name(full_name)
     lower_no_accents = strip_accents(normalized.lower())
 
-    # Create lowercase, accent-free valid names
     valid_processed = [strip_accents(team.lower()) for team in valid_team_names]
 
     matches = []
     for team_key in valid_processed:
-        # Match if the ESPN name starts with a valid team name
         if re.match(rf'^{re.escape(team_key)}(\b|$)', lower_no_accents):
             matches.append(team_key)
 
     if not matches:
         return None
 
-    # Pick the longest valid prefix (handles Miami vs. Miami (OH))
     best_match_key = max(matches, key=len)
+    remainder = full_name[len(best_match_key):].strip()
 
-    # Check if there's extra text after the matched name
-    remainder = lower_no_accents[len(best_match_key):].strip()
-
+    # ✅ Reject if the first word of the remainder starts uppercase (new institution)
     if remainder:
-        # If the next word doesn't correspond to a valid team and looks like a new institution,
-        # reject it as a likely false positive (e.g., "Oklahoma Christian", "Cincinnati Clermont College")
         next_word = remainder.split()[0]
-        # If next word forms no valid known team prefix, treat it as invalid continuation
-        if not any(re.match(rf'^{re.escape(next_word)}(\b|$)', v) for v in valid_processed):
+        if next_word and next_word[0].isupper():
             return None
 
     # Map back to original capitalization
@@ -111,7 +99,6 @@ def fetch_and_save_college_basketball_scores():
     """
     valid_team_names = load_team_names("data/mcbb.csv")
 
-    # Determine the date for the data (yesterday)
     yesterday = datetime.now() - timedelta(days=1)
     date_str = yesterday.strftime('%Y%m%d')
     file_date_str = yesterday.strftime('%Y-%m-%d')
@@ -168,7 +155,6 @@ def fetch_and_save_college_basketball_scores():
                     home_team_name = cleaned_name
                     home_score = int(score) if score else 0
 
-            # Only keep games with two valid/found team names
             if away_team_name and home_team_name:
                 game_id = tuple(sorted([away_team_name, home_team_name]))
                 if game_id not in seen_games:
@@ -180,7 +166,6 @@ def fetch_and_save_college_basketball_scores():
                         home_score
                     ])
 
-    # Save to CSV
     try:
         with open(CSV_FILENAME, 'w', newline='', encoding='utf-8') as csvfile:
             writer = csv.writer(csvfile)
