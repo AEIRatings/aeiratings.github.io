@@ -4,6 +4,7 @@ import unicodedata
 import re
 from datetime import datetime, timedelta
 
+
 def load_team_names(filename="data/wcbb.csv"):
     """
     Loads valid college basketball team names (without nicknames) from a CSV file.
@@ -58,8 +59,11 @@ def normalize_name(raw_name):
 def clean_team_name(full_name, valid_team_names):
     """
     Cleans and filters ESPN team names to only those present in mcbb.csv.
-    Handles nickname suffixes (e.g., 'Oregon State Beavers' -> 'Oregon State')
-    but avoids false positives like 'Southern New Mexico' (should return None).
+    Handles:
+      - Nicknames (e.g., 'Oregon State Beavers' -> 'Oregon State')
+      - Disambiguation ('Miami' vs 'Miami (OH)') with manual exception
+      - Subcampuses ('University of Cincinnati Clermont College' -> None)
+      - False institutions ('Southern New Mexico' -> None)
     """
     if not full_name:
         return None
@@ -67,32 +71,62 @@ def clean_team_name(full_name, valid_team_names):
     normalized = normalize_name(full_name)
     lower_no_accents = strip_accents(normalized.lower())
 
-    # Common school-type words that indicate a different institution
-    school_indicators = [
-        "state", "college", "university", "tech", "institute",
-        "community", "polytechnic", "school", "new", "city"
-    ]
+    # Preprocess valid names for easier comparison
+    valid_processed = {
+        strip_accents(name.lower()): name
+        for name in valid_team_names
+    }
 
+    # ----------------------
+    # Manual exception: Miami vs Miami (OH)
+    # If ESPN string contains explicit OH / (OH) / Ohio, prefer "Miami (OH)" if present
+    # Otherwise prefer "Miami" if present.
+    # ----------------------
+    if re.match(r'^miami\b', lower_no_accents):
+        # Detect parenthetical or token forms indicating Miami (OH)
+        if re.search(r'\(oh(?:io)?\)', lower_no_accents) or re.search(r'\bmiami\s+(?:oh|ohio)\b', lower_no_accents):
+            if 'miami (oh)' in valid_processed:
+                return valid_processed['miami (oh)']
+        else:
+            if 'miami' in valid_processed:
+                return valid_processed['miami']
+    # ----------------------
+
+    # 1️⃣ Exact match first
+    if lower_no_accents in valid_processed:
+        return valid_processed[lower_no_accents]
+
+    # 2️⃣ If the team name includes parentheses in the valid list, require exact parenthetical match
+    #    Example: 'Miami (OH) RedHawks' should only match 'Miami (OH)', not 'Miami'
+    for team_key, team_original in valid_processed.items():
+        if "(" in team_key and ")" in team_key:
+            pattern = rf'^{re.escape(team_key)}(\b|$)'
+            if re.match(pattern, lower_no_accents):
+                return team_original  # require exact parenthetical match
+
+    # 3️⃣ Otherwise, perform normal start-of-name match (nickname-safe)
     best_match = None
-    for team in valid_team_names:
-        team_no_accents = strip_accents(team.lower())
+    for team_key, team_original in valid_processed.items():
+        # Skip parenthetical teams in this phase — handled above
+        if "(" in team_key and ")" in team_key:
+            continue
 
-        if lower_no_accents == team_no_accents:
-            return team  # exact match
+        pattern = rf'^{re.escape(team_key)}(\b|$)'
+        if re.match(pattern, lower_no_accents):
+            remainder = lower_no_accents[len(team_key):].strip()
 
-        # Match if team name appears at start followed by nickname-like word
-        pattern = rf'^{re.escape(team_no_accents)}\b'
-        match = re.match(pattern, lower_no_accents)
-        if match:
-            remainder = lower_no_accents[match.end():].strip()
+            # Reject if next word indicates a different institution (subcampus/branch)
             if remainder:
                 next_word = remainder.split()[0]
-                # Reject if next word is a "school-type" indicator
-                if next_word in school_indicators:
+                if next_word in [
+                    "state", "college", "university", "tech", "institute",
+                    "community", "polytechnic", "school", "new", "city",
+                    "clermont", "extension", "campus", "branch"
+                ]:
                     continue
-            # Accept as valid match otherwise
-            if not best_match or len(team) > len(best_match):
-                best_match = team
+
+            if not best_match or len(team_key) > len(strip_accents(best_match.lower())):
+                best_match = team_original
 
     return best_match
 
@@ -104,7 +138,7 @@ def fetch_and_save_college_basketball_scores():
     """
     valid_team_names = load_team_names("data/wcbb.csv")
 
-    # 1. Determine the date for the data (yesterday)
+    # Determine the date for the data (yesterday)
     yesterday = datetime.now() - timedelta(days=1)
     date_str = yesterday.strftime('%Y%m%d')
     file_date_str = yesterday.strftime('%Y-%m-%d')
