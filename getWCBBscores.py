@@ -5,7 +5,7 @@ import re
 from datetime import datetime, timedelta
 
 
-def load_team_names(filename="data/mcbb.csv"):
+def load_team_names(filename="data/wcbb.csv"):
     """
     Loads valid college basketball team names from a CSV file.
     Returns a set of team names for exact matching.
@@ -52,8 +52,8 @@ def normalize_name(raw_name):
 
 def clean_team_name(full_name, valid_team_names):
     """
-    Filters ESPN team names using mcbb.csv by checking for an exact match
-    (case and accents ignored). Only exact matches in mcbb.csv are kept.
+    Filters ESPN team names using wcbb.csv by checking for an exact match
+    (case and accents ignored). Only exact matches in wcbb.csv are kept.
     """
     if not full_name:
         return None
@@ -62,13 +62,13 @@ def clean_team_name(full_name, valid_team_names):
     lower_no_accents = strip_accents(normalized.lower())
 
     # Preprocess valid team names for O(1) look-up.
-    # Key is the normalized, lower-cased team name from mcbb.csv.
-    # Value is the original team name from mcbb.csv to be returned.
+    # Key is the normalized, lower-cased team name from wcbb.csv.
+    # Value is the original team name from wcbb.csv to be returned.
     valid_processed = {strip_accents(team.lower()): team for team in valid_team_names}
 
     # Only check for exact match.
     if lower_no_accents in valid_processed:
-        # Return the original, canonical team name from mcbb.csv
+        # Return the original, canonical team name from wcbb.csv
         return valid_processed[lower_no_accents]
 
     return None
@@ -79,7 +79,7 @@ def fetch_and_save_college_basketball_scores():
     Fetches men's college basketball scoreboard data for the previous day
     and saves them into a single deduplicated CSV file.
     """
-    valid_team_names = load_team_names("data/mcbb.csv")
+    valid_team_names = load_team_names("data/wcbb.csv")
 
     yesterday = datetime.now() - timedelta(days=1)
     date_str = yesterday.strftime('%Y%m%d')
@@ -90,7 +90,7 @@ def fetch_and_save_college_basketball_scores():
         f"{BASE_URL}?groups=50&dates={date_str}",
     ]
 
-    CSV_FILENAME = "mcbb_scores_previous_day.csv"
+    CSV_FILENAME = "wcbb_scores_previous_day.csv"
 
     all_game_data = []
     seen_games = set()
