@@ -3,7 +3,7 @@ name: Daily NHL Standings Update
 on:
   schedule:
     # Runs once a day at 10:00 AM UTC, which is 6:00 AM Eastern Time (ET)
-    - cron: '0 10 * * *' 
+    - cron: '30 9 * * *' 
   
   # Also allow manual running via the GitHub Actions tab
   workflow_dispatch:
