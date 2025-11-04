@@ -5,10 +5,10 @@ import re
 from datetime import datetime, timedelta
 
 
-def load_team_names(filename="data/wcbb.csv"):
+def load_team_names(filename="data/mcbb.csv"):
     """
-    Loads valid college basketball team names (without nicknames) from a CSV file.
-    Returns a set of team names for matching.
+    Loads valid college basketball team names from a CSV file.
+    Returns a set of team names for exact matching.
     """
     team_names = set()
     try:
@@ -42,28 +42,18 @@ def normalize_name(raw_name):
     if not raw_name:
         return raw_name
 
-    # Normalize Unicode form
     name = unicodedata.normalize('NFC', raw_name)
-
-    # Fix known encoding glitches
     name = (name.replace('JosÃ©', 'José')
                 .replace('San Jose', 'San José')
-                .replace('Nittany Lions', 'Penn State'))  # example of cleanup if desired
-
-    # Remove ranking prefix like "No. 3 "
+                .replace('Nittany Lions', 'Penn State'))
     name = name.replace("No. ", "").strip()
-
     return name
 
 
 def clean_team_name(full_name, valid_team_names):
     """
-    Cleans and filters ESPN team names to only those present in mcbb.csv.
-    Handles:
-      - Nicknames (e.g., 'Oregon State Beavers' -> 'Oregon State')
-      - Disambiguation ('Miami' vs 'Miami (OH)') with manual exception
-      - Subcampuses ('University of Cincinnati Clermont College' -> None)
-      - False institutions ('Southern New Mexico' -> None)
+    Filters ESPN team names using mcbb.csv by checking for an exact match
+    (case and accents ignored). Only exact matches in mcbb.csv are kept.
     """
     if not full_name:
         return None
@@ -71,64 +61,17 @@ def clean_team_name(full_name, valid_team_names):
     normalized = normalize_name(full_name)
     lower_no_accents = strip_accents(normalized.lower())
 
-    # Preprocess valid names for easier comparison
-    valid_processed = {
-        strip_accents(name.lower()): name
-        for name in valid_team_names
-    }
+    # Preprocess valid team names for O(1) look-up.
+    # Key is the normalized, lower-cased team name from mcbb.csv.
+    # Value is the original team name from mcbb.csv to be returned.
+    valid_processed = {strip_accents(team.lower()): team for team in valid_team_names}
 
-    # ----------------------
-    # Manual exception: Miami vs Miami (OH)
-    # If ESPN string contains explicit OH / (OH) / Ohio, prefer "Miami (OH)" if present
-    # Otherwise prefer "Miami" if present.
-    # ----------------------
-    if re.match(r'^miami\b', lower_no_accents):
-        # Detect parenthetical or token forms indicating Miami (OH)
-        if re.search(r'\(oh(?:io)?\)', lower_no_accents) or re.search(r'\bmiami\s+(?:oh|ohio)\b', lower_no_accents):
-            if 'miami (oh)' in valid_processed:
-                return valid_processed['miami (oh)']
-        else:
-            if 'miami' in valid_processed:
-                return valid_processed['miami']
-    # ----------------------
-
-    # 1️⃣ Exact match first
+    # Only check for exact match.
     if lower_no_accents in valid_processed:
+        # Return the original, canonical team name from mcbb.csv
         return valid_processed[lower_no_accents]
 
-    # 2️⃣ If the team name includes parentheses in the valid list, require exact parenthetical match
-    #    Example: 'Miami (OH) RedHawks' should only match 'Miami (OH)', not 'Miami'
-    for team_key, team_original in valid_processed.items():
-        if "(" in team_key and ")" in team_key:
-            pattern = rf'^{re.escape(team_key)}(\b|$)'
-            if re.match(pattern, lower_no_accents):
-                return team_original  # require exact parenthetical match
-
-    # 3️⃣ Otherwise, perform normal start-of-name match (nickname-safe)
-    best_match = None
-    for team_key, team_original in valid_processed.items():
-        # Skip parenthetical teams in this phase — handled above
-        if "(" in team_key and ")" in team_key:
-            continue
-
-        pattern = rf'^{re.escape(team_key)}(\b|$)'
-        if re.match(pattern, lower_no_accents):
-            remainder = lower_no_accents[len(team_key):].strip()
-
-            # Reject if next word indicates a different institution (subcampus/branch)
-            if remainder:
-                next_word = remainder.split()[0]
-                if next_word in [
-                    "state", "college", "university", "tech", "institute",
-                    "community", "polytechnic", "school", "new", "city",
-                    "clermont", "extension", "campus", "branch"
-                ]:
-                    continue
-
-            if not best_match or len(team_key) > len(strip_accents(best_match.lower())):
-                best_match = team_original
-
-    return best_match
+    return None
 
 
 def fetch_and_save_college_basketball_scores():
@@ -136,19 +79,18 @@ def fetch_and_save_college_basketball_scores():
     Fetches men's college basketball scoreboard data for the previous day
     and saves them into a single deduplicated CSV file.
     """
-    valid_team_names = load_team_names("data/wcbb.csv")
+    valid_team_names = load_team_names("data/mcbb.csv")
 
-    # Determine the date for the data (yesterday)
     yesterday = datetime.now() - timedelta(days=1)
     date_str = yesterday.strftime('%Y%m%d')
     file_date_str = yesterday.strftime('%Y-%m-%d')
 
-    BASE_URL = "http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/scoreboard"
+    BASE_URL = "http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard"
     API_URLS = [
         f"{BASE_URL}?groups=50&dates={date_str}",
     ]
 
-    CSV_FILENAME = "wcbb_scores_previous_day.csv"
+    CSV_FILENAME = "mcbb_scores_previous_day.csv"
 
     all_game_data = []
     seen_games = set()
@@ -195,7 +137,6 @@ def fetch_and_save_college_basketball_scores():
                     home_team_name = cleaned_name
                     home_score = int(score) if score else 0
 
-            # Only keep games with two valid/found team names
             if away_team_name and home_team_name:
                 game_id = tuple(sorted([away_team_name, home_team_name]))
                 if game_id not in seen_games:
@@ -207,7 +148,6 @@ def fetch_and_save_college_basketball_scores():
                         home_score
                     ])
 
-    # Save to CSV
     try:
         with open(CSV_FILENAME, 'w', newline='', encoding='utf-8') as csvfile:
             writer = csv.writer(csvfile)
