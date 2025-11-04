@@ -81,19 +81,26 @@ def clean_team_name(full_name, valid_team_names):
     if lower_no_accents in valid_processed:
         return valid_processed[lower_no_accents]
 
-    # 2️⃣ Try start-of-name match (nickname-safe)
+    # 2️⃣ If the team name includes parentheses, require exact parenthetical match
+    #    Example: 'Miami (OH) RedHawks' should only match 'Miami (OH)', not 'Miami'
+    for team_key, team_original in valid_processed.items():
+        if "(" in team_key and ")" in team_key:
+            pattern = rf'^{re.escape(team_key)}(\b|$)'
+            if re.match(pattern, lower_no_accents):
+                return team_original  # require exact parenthetical match
+
+    # 3️⃣ Otherwise, perform normal start-of-name match (nickname-safe)
     best_match = None
     for team_key, team_original in valid_processed.items():
+        # Skip parenthetical teams in this phase — handled above
+        if "(" in team_key and ")" in team_key:
+            continue
+
         pattern = rf'^{re.escape(team_key)}(\b|$)'
         if re.match(pattern, lower_no_accents):
             remainder = lower_no_accents[len(team_key):].strip()
 
-            # (a) Handle parenthetical disambiguation
-            if '(' in lower_no_accents and ')' in lower_no_accents:
-                if not team_key in lower_no_accents:
-                    continue
-
-            # (b) Reject if next word indicates another institution
+            # Reject if next word indicates a different institution
             if remainder:
                 next_word = remainder.split()[0]
                 if next_word in [
@@ -103,17 +110,8 @@ def clean_team_name(full_name, valid_team_names):
                 ]:
                     continue
 
-            # (c) Keep the longest valid prefix match
             if not best_match or len(team_key) > len(strip_accents(best_match.lower())):
                 best_match = team_original
-
-    # 3️⃣ If disambiguation needed: enforce parentheses match
-    if best_match:
-        # Avoid “Miami (OH)” being matched by “Miami”
-        if '(' in lower_no_accents and ')' in lower_no_accents:
-            if best_match.lower() != lower_no_accents:
-                if best_match.lower() not in lower_no_accents:
-                    return None
 
     return best_match
 
