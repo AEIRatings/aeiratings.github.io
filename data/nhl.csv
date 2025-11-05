@@ -2,7 +2,7 @@ Team,Elo,Points,Division,Notes,RatingUpdated
 Florida Panthers,988.5936232911084,13,E Atlantic,,True
 Boston Bruins,1002.1329647603169,14,E Atlantic,,True
 Montreal Canadiens,1006.7181833763605,18,E Atlantic,,True
-Toronto Maple Leafs,995.3661478188848,13,E Atlantic,,False
+Toronto Maple Leafs,995.3661478188848,15,E Atlantic,,False
 Detroit Red Wings,1010.2885649494432,18,E Atlantic,,True
 Ottawa Senators,988.4119547766352,14,E Atlantic,,False
 Tampa Bay Lightning,1019.7174740927934,14,E Atlantic,,True
@@ -18,15 +18,15 @@ New York Islanders,990.4831197436876,13,E Metropolitan,,True
 Colorado Avalanche,1031.2811275156723,19,W Central,,True
 Dallas Stars,996.903682135528,15,W Central,,True
 Winnipeg Jets,1017.609132450679,18,W Central,,True
-Nashville Predators,967.6504079674838,12,W Central,,True
+Nashville Predators,967.6504079674838,13,W Central,,True
 Minnesota Wild,975.0703257273358,11,W Central,,True
-St. Louis Blues,968.3029584162836,8,W Central,,False
+St. Louis Blues,968.3029584162836,10,W Central,,False
 Utah Mammoth,1011.8742730964573,16,W Central,,True
 Chicago Blackhawks,992.4228622001508,13,W Central,,False
-Seattle Kraken,999.2418041929332,14,W Pacific,,False
+Seattle Kraken,999.2418041929332,16,W Pacific,,False
 Vegas Golden Knights,1011.4458779728266,15,W Pacific,,True
 Edmonton Oilers,997.7211259127382,15,W Pacific,,True
-Vancouver Canucks,986.1154191935852,12,W Pacific,,False
+Vancouver Canucks,986.1154191935852,14,W Pacific,,False
 Anaheim Ducks,1038.721949877623,15,W Pacific,,True
 San Jose Sharks,991.177056193912,11,W Pacific,,False
 Los Angeles Kings,1007.1453619249971,14,W Pacific,,True
