@@ -15,7 +15,7 @@ Denver Broncos,1072.3982734855863,AFC West,7,2,,False
 Kansas City Chiefs,1055.2761516248572,AFC West,5,4,,False
 Las Vegas Raiders,940.2712922844976,AFC West,2,6,,False
 Los Angeles Chargers,1025.2125223411306,AFC West,6,3,,False
-Dallas Cowboys,970.9403877486787,NFC East,3,5,,True
+Dallas Cowboys,970.9403877486787,NFC East,3,5,,False
 New York Giants,953.3016322758544,NFC East,2,7,,False
 Philadelphia Eagles,1035.2,NFC East,6,2,,False
 Washington Commanders,954.4890385362434,NFC East,3,6,,False
@@ -27,7 +27,7 @@ Atlanta Falcons,969.9389274115956,NFC South,3,5,,False
 Carolina Panthers,993.5510482257104,NFC South,5,4,,False
 New Orleans Saints,911.7108269160656,NFC South,1,8,,False
 Tampa Bay Buccaneers,1034.8,NFC South,6,2,,False
-Arizona Cardinals,1005.4596122513212,NFC West,3,5,,True
+Arizona Cardinals,1005.4596122513212,NFC West,3,5,,False
 Los Angeles Rams,1067.5891730839344,NFC West,6,2,,False
 San Francisco 49ers,1017.6983677241456,NFC West,6,3,,False
 Seattle Seahawks,1074.2109614637566,NFC West,6,2,,False
