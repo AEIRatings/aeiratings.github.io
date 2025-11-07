@@ -24,12 +24,12 @@ Memphis,1102.3,American,,False
 Navy,1074.7937128522026,American,,False
 North Texas,1117.0062871477974,American,,False
 Rice,961.4,American,,False
-South Florida,1096.0,American,,False
+South Florida,1116.4660652159296,American,,True
 Temple,1010.130562910084,American,,False
 Tulane,1030.6,American,,False
 Tulsa,950.9,American,,False
 UAB,949.1618109529652,American,,False
-UTSA,1034.9,American,,False
+UTSA,1014.4339347840704,American,,True
 Illinois,1054.0728268551177,Big 10,,False
 Indiana,1193.8888502601849,Big 10,,False
 Iowa,1087.6,Big 10,,False
@@ -115,16 +115,16 @@ Pennsylvania,1033.2,Ivy League,,False
 Princeton,995.5722100618916,Ivy League,,False
 Yale,1076.861546460393,Ivy League,,False
 Akron,979.9148463484644,MAC,,False
-Ball State,959.1387629239332,MAC,,True
+Ball State,959.1387629239332,MAC,,False
 Bowling Green,935.018068373115,MAC,,False
 Buffalo,994.0819316268849,MAC,,False
 Central Michigan,1013.3976845677738,MAC,,False
 Eastern Michigan,940.1,MAC,,False
-Kent State,936.4612370760668,MAC,,True
+Kent State,936.4612370760668,MAC,,False
 Miami (OH),1036.8977223993704,MAC,,False
-Northern Illinois,924.9198640657158,MAC,,True
+Northern Illinois,924.9198640657158,MAC,,False
 Ohio,1051.6022776006296,MAC,,False
-Toledo,1056.2801359342843,MAC,,True
+Toledo,1056.2801359342843,MAC,,False
 Massachusetts,840.7851536515357,MAC,,False
 Western Michigan,1030.702315432226,MAC,,False
 Delaware State,1014.1,MEAC,,False
@@ -229,10 +229,10 @@ Northwestern State,838.53209590902,Southland,,False
 SE Louisiana,1098.5408152321024,Southland,,False
 Stephen F. Austin,1068.8473940269778,Southland,,False
 UT Rio Grande Valley,1006.7526059730222,Southland,,False
-App State,980.6,Sun Belt,,False
+App State,966.644272170519,Sun Belt,,True
 Arkansas State,1016.1287128905216,Sun Belt,,False
 Coastal Carolina,1036.8,Sun Belt,,False
-Georgia Southern,961.5,Sun Belt,,False
+Georgia Southern,975.455727829481,Sun Belt,,True
 Georgia State,878.5,Sun Belt,,False
 James Madison,1109.7,Sun Belt,,False
 Louisiana,972.4376029568996,Sun Belt,,False
