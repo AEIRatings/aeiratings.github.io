@@ -1,169 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NFL Schedule with Elo Ratings</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f4f4f4;
-        }
-        #schedule-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #0d47a1;
-            border-bottom: 2px solid #0d47a1;
-            padding-bottom: 10px;
-        }
-        .game-day {
-            margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .game-day h2 {
-            margin-top: 0;
-            color: #424242;
-            font-size: 1.1em;
-            background-color: #eee;
-            padding: 5px;
-            border-radius: 4px;
-        }
-        .game {
-            margin-bottom: 8px;
-            padding-left: 15px;
-            font-size: 0.95em;
-        }
-        .elo {
-            font-weight: bold;
-            color: #d32f2f;
-            margin-left: 5px;
-        }
-        .loading {
-            font-style: italic;
-            color: #757575;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NFL Schedule with Elo Ratings | AEIRatings</title>
+  <link rel="stylesheet" href="/assets/style.css" />
 </head>
 <body>
+  <main data-league="nfl">
 
-    <div id="schedule-container">
+    <section class="card">
         <h1>NFL Schedule with Current Elo Ratings</h1>
         <div id="schedule" class="loading">
             Loading NFL game schedule and Elo ratings...
         </div>
-    </div>
+    </section>
 
-    <script>
-        /**
-         * Parses a CSV string into an array of JavaScript objects.
-         * Assumes the first row contains headers.
-         * @param {string} csvString The raw content of a CSV file.
-         * @returns {Array<Object>} An array of objects representing the CSV data.
-         */
-        function parseCSV(csvString) {
-            const lines = csvString.trim().split('\n');
-            if (lines.length === 0) return [];
+    <footer class="foot muted">© AEIRatings</footer>
+  </main>
 
-            const headers = lines[0].split(',');
-            const data = [];
+  <script>
+    /**
+     * Parses a CSV string into an array of JavaScript objects.
+     * Assumes the first row contains headers.
+     * @param {string} csvString The raw content of a CSV file.
+     * @returns {Array<Object>} An array of objects representing the CSV data.
+     */
+    function parseCSV(csvString) {
+        const lines = csvString.trim().split('\n');
+        if (lines.length === 0) return [];
 
-            for (let i = 1; i < lines.length; i++) {
-                const values = lines[i].split(',');
-                if (values.length === headers.length) {
-                    const row = {};
-                    for (let j = 0; j < headers.length; j++) {
-                        row[headers[j].trim()] = values[j].trim();
-                    }
-                    data.push(row);
+        const headers = lines[0].split(',');
+        const data = [];
+
+        for (let i = 1; i < lines.length; i++) {
+            const values = lines[i].split(',');
+            if (values.length === headers.length) {
+                const row = {};
+                for (let j = 0; j < headers.length; j++) {
+                    row[headers[j].trim()] = values[j].trim();
                 }
+                data.push(row);
             }
-            return data;
         }
+        return data;
+    }
 
-        /**
-         * Main function to fetch data and generate the schedule.
-         */
-        async function generateSchedule() {
-            const scheduleElement = document.getElementById('schedule');
-            
-            try {
-                // 1. Fetch NFL Elo Ratings (nfl.csv)
-                const eloResponse = await fetch('../data/nfl.csv');
-                if (!eloResponse.ok) {
-                    throw new Error(`Failed to load nfl.csv: ${eloResponse.statusText}`);
+    /**
+     * Main function to fetch data and generate the schedule.
+     */
+    async function generateSchedule() {
+        const scheduleElement = document.getElementById('schedule');
+        
+        try {
+            // 1. Fetch NFL Elo Ratings (nfl.csv)
+            const eloResponse = await fetch('../data/nfl.csv');
+            if (!eloResponse.ok) {
+                throw new Error(`Failed to load nfl.csv: ${eloResponse.statusText}`);
+            }
+            const nflCsvText = await eloResponse.text();
+            const nflRatings = parseCSV(nflCsvText);
+
+            // Create a map of Team to Elo for quick lookup
+            const eloMap = {};
+            nflRatings.forEach(teamData => {
+                // Round Elo to two decimal places for cleaner display
+                const elo = parseFloat(teamData.Elo).toFixed(2);
+                eloMap[teamData.Team] = elo;
+            });
+
+            // 2. Fetch Game Schedule (nfl_games.csv)
+            const gamesResponse = await fetch('../data/nfl_games.csv');
+            if (!gamesResponse.ok) {
+                throw new Error(`Failed to load nfl_games.csv: ${eloResponse.statusText}`);
+            }
+            const gamesCsvText = await gamesResponse.text();
+            const games = parseCSV(gamesCsvText);
+
+            // 3. Group games by date
+            const gamesByDate = games.reduce((acc, game) => {
+                const date = game.date;
+                if (!acc[date]) {
+                    acc[date] = [];
                 }
-                const nflCsvText = await eloResponse.text();
-                const nflRatings = parseCSV(nflCsvText);
+                acc[date].push(game);
+                return acc;
+            }, {});
 
-                // Create a map of Team to Elo for quick lookup
-                const eloMap = {};
-                nflRatings.forEach(teamData => {
-                    // Round Elo to two decimal places for cleaner display
-                    const elo = parseFloat(teamData.Elo).toFixed(2);
-                    eloMap[teamData.Team] = elo;
-                });
-
-                // 2. Fetch Game Schedule (nfl_games.csv)
-                const gamesResponse = await fetch('../data/nfl_games.csv');
-                if (!gamesResponse.ok) {
-                    throw new Error(`Failed to load nfl_games.csv: ${gamesResponse.statusText}`);
-                }
-                const gamesCsvText = await gamesResponse.text();
-                const games = parseCSV(gamesCsvText);
-
-                // 3. Group games by date
-                const gamesByDate = games.reduce((acc, game) => {
-                    const date = game.date;
-                    if (!acc[date]) {
-                        acc[date] = [];
-                    }
-                    acc[date].push(game);
-                    return acc;
-                }, {});
-
-                // 4. Generate HTML
-                let html = '';
-                for (const date in gamesByDate) {
-                    html += `<div class="game-day">`;
-                    html += `<h2>Games on ${date}</h2>`;
+            // 4. Generate HTML
+            let html = '';
+            for (const date in gamesByDate) {
+                html += `<div class="game-day">`;
+                html += `<h2>Games on ${date}</h2>`;
+                
+                gamesByDate[date].forEach(game => {
+                    const homeTeam = game['home team'];
+                    const roadTeam = game['road team'];
                     
-                    gamesByDate[date].forEach(game => {
-                        const homeTeam = game['home team'];
-                        const roadTeam = game['road team'];
-                        
-                        // Look up Elo ratings, defaulting to 'N/A' if not found
-                        const homeElo = eloMap[homeTeam] || 'N/A';
-                        const roadElo = eloMap[roadTeam] || 'N/A';
-                        
-                        html += `<div class="game">`;
-                        html += `${roadTeam} <span class="elo">(${roadElo})</span> @ ${homeTeam} <span class="elo">(${homeElo})</span>`;
-                        html += `</div>`;
-                    });
+                    // Look up Elo ratings, defaulting to 'N/A' if not found
+                    const homeElo = eloMap[homeTeam] || 'N/A';
+                    const roadElo = eloMap[roadTeam] || 'N/A';
                     
+                    html += `<div class="game">`;
+                    html += `${roadTeam} <span class="elo">(${roadElo})</span> @ ${homeTeam} <span class="elo">(${homeElo})</span>`;
                     html += `</div>`;
-                }
-
-                // 5. Insert generated HTML into the page
-                scheduleElement.classList.remove('loading');
-                scheduleElement.innerHTML = html;
-
-            } catch (error) {
-                console.error("Error loading data:", error);
-                scheduleElement.innerHTML = `<p style="color: red;">Error: Could not load data files (nfl.csv or nfl_games.csv). Please ensure the files are available in the correct location.</p>`;
-                scheduleElement.classList.remove('loading');
+                });
+                
+                html += `</div>`;
             }
-        }
 
-        // Run the function to generate the schedule on page load
-        generateSchedule();
-    </script>
+            // 5. Insert generated HTML into the page
+            scheduleElement.classList.remove('loading');
+            scheduleElement.innerHTML = html;
+
+        } catch (error) {
+            console.error("Error loading data:", error);
+            scheduleElement.innerHTML = `<p style="color: red;">Error: Could not load data files (nfl.csv or nfl_games.csv). Please ensure the files are available in the correct location.</p>`;
+            scheduleElement.classList.remove('loading');
+        }
+    }
+
+    // Run the function to generate the schedule on page load
+    generateSchedule();
+  </script>
 
 </body>
 </html>
