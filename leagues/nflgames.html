@@ -7,19 +7,24 @@
   <link rel="stylesheet" href="/assets/style.css" />
 </head>
 <body>
-  <main data-league="nfl">
+  <div class="container">
+    <a href="/leagues/nfl.html" class="back">← Back to NFL Ratings</a>
+    <main data-league="nfl">
 
-    <section class="card">
-        <h1>NFL Schedule with Current Elo Ratings</h1>
-        <div id="schedule" class="loading">
-            Loading NFL game schedule and Elo ratings...
-        </div>
-    </section>
+      <section class="card">
+          <h1>NFL Schedule with Current Elo Ratings</h1>
+          <div id="schedule" class="loading">
+              Loading NFL game schedule and Elo ratings...
+          </div>
+      </section>
 
-    <footer class="foot muted">© AEIRatings</footer>
-  </main>
+      <footer class="foot muted">© AEIRatings</footer>
+    </main>
+  </div>
 
   <script>
+    // --- Helper functions for CSV parsing and logo paths (copied and modified from script.js) ---
+    
     /**
      * Parses a CSV string into an array of JavaScript objects.
      * Assumes the first row contains headers.
@@ -30,7 +35,7 @@
         const lines = csvString.trim().split('\n');
         if (lines.length === 0) return [];
 
-        const headers = lines[0].split(',');
+        const headers = lines[0].split(',').map(h => h.trim());
         const data = [];
 
         for (let i = 1; i < lines.length; i++) {
@@ -38,7 +43,7 @@
             if (values.length === headers.length) {
                 const row = {};
                 for (let j = 0; j < headers.length; j++) {
-                    row[headers[j].trim()] = values[j].trim();
+                    row[headers[j]] = (values[j] || '').trim();
                 }
                 data.push(row);
             }
@@ -46,11 +51,26 @@
         return data;
     }
 
+    function normalizeTeamName(teamName) {
+      // Convert to lowercase, replace spaces with underscores, and remove non-alphanumeric/underscore characters
+      return teamName.toLowerCase().trim().replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, '')
+    }
+
+    function getLogoPath(teamName, league) {
+      if (!teamName || !league) return ''
+      const normalizedName = normalizeTeamName(teamName)
+      // Constructs the path: /logos/{league}/{normalized_team_name}.png
+      return `/logos/${league}/${normalizedName}.png`
+    }
+    // --- End Helper functions ---
+
+
     /**
      * Main function to fetch data and generate the schedule.
      */
     async function generateSchedule() {
         const scheduleElement = document.getElementById('schedule');
+        const leagueId = document.querySelector('main').getAttribute('data-league');
         
         try {
             // 1. Fetch NFL Elo Ratings (nfl.csv)
@@ -72,7 +92,7 @@
             // 2. Fetch Game Schedule (nfl_games.csv)
             const gamesResponse = await fetch('../data/nfl_games.csv');
             if (!gamesResponse.ok) {
-                throw new Error(`Failed to load nfl_games.csv: ${eloResponse.statusText}`);
+                throw new Error(`Failed to load nfl_games.csv: ${gamesResponse.statusText}`); 
             }
             const gamesCsvText = await gamesResponse.text();
             const games = parseCSV(gamesCsvText);
@@ -90,8 +110,10 @@
             // 4. Generate HTML
             let html = '';
             for (const date in gamesByDate) {
+                // Use .game-day for outer container
                 html += `<div class="game-day">`;
-                html += `<h2>Games on ${date}</h2>`;
+                // Use h3 for date header to keep h1/h2 hierarchy clean
+                html += `<h3>${date}</h3>`;
                 
                 gamesByDate[date].forEach(game => {
                     const homeTeam = game['home team'];
@@ -100,10 +122,26 @@
                     // Look up Elo ratings, defaulting to 'N/A' if not found
                     const homeElo = eloMap[homeTeam] || 'N/A';
                     const roadElo = eloMap[roadTeam] || 'N/A';
+
+                    const roadLogoPath = getLogoPath(roadTeam, leagueId);
+                    const homeLogoPath = getLogoPath(homeTeam, leagueId);
                     
-                    html += `<div class="game">`;
-                    html += `${roadTeam} <span class="elo">(${roadElo})</span> @ ${homeTeam} <span class="elo">(${homeElo})</span>`;
-                    html += `</div>`;
+                    // Use new structure with .game, .team-cell, and .elo for consistent styling
+                    html += `
+                        <div class="game">
+                            <span class="team-cell">
+                                <img src="${roadLogoPath}" alt="${roadTeam} Logo" class="team-logo" onerror="this.style.display='none'">
+                                <span class="team-name-text">${roadTeam}</span>
+                                <span class="elo">(${roadElo})</span>
+                            </span>
+                            <span class="at-separator">@</span>
+                            <span class="team-cell home-team">
+                                <img src="${homeLogoPath}" alt="${homeTeam} Logo" class="team-logo" onerror="this.style.display='none'">
+                                <span class="team-name-text">${homeTeam}</span>
+                                <span class="elo">(${homeElo})</span>
+                            </span>
+                        </div>
+                    `;
                 });
                 
                 html += `</div>`;
