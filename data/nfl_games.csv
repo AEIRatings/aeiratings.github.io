@@ -1,32 +1,4 @@
 date,home team,road team
-10/23/2025,Minnesota Vikings,Los Angeles Chargers
-10/26/2025,Buffalo Bills,Carolina Panthers
-10/26/2025,Chicago Bears,Baltimore Ravens
-10/26/2025,Cleveland Browns,New England Patriots
-10/26/2025,Miami Dolphins,Atlanta Falcons
-10/26/2025,New York Giants,Philadelphia Eagles
-10/26/2025,New York Jets,Cincinnati Bengals
-10/26/2025,San Francisco 49ers,Houston Texans
-10/26/2025,Tampa Bay Buccaneers,New Orleans Saints
-10/26/2025,Dallas Cowboys,Denver Broncos
-10/26/2025,Tennessee Titans,Indianapolis Colts
-10/26/2025,Green Bay Packers,Pittsburgh Steelers
-10/27/2025,Washington Commanders,Kansas City Chiefs
-10/30/2025,Baltimore Ravens,Miami Dolphins
-11/2/2025,Atlanta Falcons,New England Patriots
-11/2/2025,Carolina Panthers,Green Bay Packers
-11/2/2025,Chicago Bears,Cincinnati Bengals
-11/2/2025,Indianapolis Colts,Pittsburgh Steelers
-11/2/2025,Denver Broncos,Houston Texans
-11/2/2025,Minnesota Vikings,Detroit Lions
-11/2/2025,Los Angeles Chargers,Tennessee Titans
-11/2/2025,San Francisco 49ers,New York Giants
-11/2/2025,Jacksonville Jaguars,Las Vegas Raiders
-11/2/2025,New Orleans Saints,Los Angeles Rams
-11/2/2025,Kansas City Chiefs,Buffalo Bills
-11/2/2025,Seattle Seahawks,Washington Commanders
-11/3/2025,Arizona Cardinals,Dallas Cowboys
-11/6/2025,Las Vegas Raiders,Denver Broncos
 11/9/2025,Atlanta Falcons,Indianapolis Colts
 11/9/2025,Buffalo Bills,Miami Dolphins
 11/9/2025,Cleveland Browns,New York Jets
@@ -162,4 +134,5 @@ date,home team,road team
 1/4/2026,Baltimore Ravens,Pittsburgh Steelers
 1/4/2026,Los Angeles Chargers,Denver Broncos
 1/4/2026,Seattle Seahawks,San Francisco 49ers
+
 1/4/2026,Washington Commanders,Philadelphia Eagles
