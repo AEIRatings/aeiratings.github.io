@@ -1,13 +1,13 @@
 Team,Elo,Division,Wins,Losses,Notes,RatingUpdated
 Buffalo Bills,1020.30455046489,AFC East,6,2,,False
-Miami Dolphins,993.3192979102528,AFC East,2,7,,False
+Miami Dolphins,993.3192979102528,AFC East,3,7,,False
 New England Patriots,1069.203567773406,AFC East,7,2,,False
-New York Jets,950.9166314225592,AFC East,1,7,,False
-Baltimore Ravens,988.4476770157796,AFC North,3,5,,False
+New York Jets,950.9166314225592,AFC East,2,7,,False
+Baltimore Ravens,988.4476770157796,AFC North,4,5,,False
 Cincinnati Bengals,933.6173315422424,AFC North,3,6,,False
-Cleveland Browns,939.0833685774408,AFC North,2,6,,False
+Cleveland Browns,939.0833685774408,AFC North,2,7,,False
 Pittsburgh Steelers,1004.0652321779482,AFC North,5,3,,False
-Houston Texans,1033.3392922923415,AFC South,3,5,,False
+Houston Texans,1033.3392922923415,AFC South,4,5,,False
 Indianapolis Colts,1063.165848390278,AFC South,7,2,,False
 Jacksonville Jaguars,988.7911419375744,AFC South,5,3,,False
 Tennessee Titans,894.0874776588694,AFC South,1,8,,False
@@ -16,18 +16,18 @@ Kansas City Chiefs,1055.2761516248572,AFC West,5,4,,False
 Las Vegas Raiders,937.9928913588516,AFC West,2,7,,False
 Los Angeles Chargers,1045.282374684299,AFC West,6,3,,False
 Dallas Cowboys,970.9403877486787,NFC East,3,5,,False
-New York Giants,947.3456963113192,NFC East,2,7,,False
+New York Giants,947.3456963113192,NFC East,2,8,,False
 Philadelphia Eagles,1045.368881286326,NFC East,6,2,,True
-Washington Commanders,938.4069117349762,NFC East,3,6,,False
+Washington Commanders,938.4069117349762,NFC East,3,7,,False
 Chicago Bears,1004.1386044222928,NFC North,5,3,,False
 Detroit Lions,1054.7189291989655,NFC North,5,3,,False
 Green Bay Packers,1020.2800704879635,NFC North,5,2,,True
-Minnesota Vikings,968.815520586522,NFC North,4,4,,False
-Atlanta Falcons,963.337994500201,NFC South,3,5,,False
-Carolina Panthers,966.817450055128,NFC South,5,4,,False
-New Orleans Saints,938.444425086648,NFC South,1,8,,False
+Minnesota Vikings,968.815520586522,NFC North,4,5,,False
+Atlanta Falcons,963.337994500201,NFC South,3,6,,False
+Carolina Panthers,966.817450055128,NFC South,5,5,,False
+New Orleans Saints,938.444425086648,NFC South,2,8,,False
 Tampa Bay Buccaneers,1024.8575048149985,NFC South,6,2,,False
-Arizona Cardinals,989.0408335355052,NFC West,3,5,,False
+Arizona Cardinals,989.0408335355052,NFC West,3,6,,False
 Los Angeles Rams,1082.9319053116317,NFC West,6,2,,False
-San Francisco 49ers,1002.3556354964484,NFC West,6,3,,False
+San Francisco 49ers,1002.3556354964484,NFC West,6,4,,False
 Seattle Seahawks,1090.6297401795723,NFC West,6,2,,False
