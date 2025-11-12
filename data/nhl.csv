@@ -1,5 +1,5 @@
 Team,Elo,Points,Division,Notes,RatingUpdated
-Florida Panthers,1007.7322945907082,15,E Atlantic,,False
+Florida Panthers,1007.7322945907082,17,E Atlantic,,False
 Boston Bruins,1015.1696830229671,20,E Atlantic,,True
 Montreal Canadiens,1000.382889706506,22,E Atlantic,,True
 Toronto Maple Leafs,984.6713281875252,17,E Atlantic,,True
@@ -10,11 +10,11 @@ Buffalo Sabres,964.3495105188658,14,E Atlantic,,False
 Carolina Hurricanes,1011.2105495740467,22,E Metropolitan,,True
 Washington Capitals,1014.0484678816479,15,E Metropolitan,,True
 Pittsburgh Penguins,1002.6375315222392,21,E Metropolitan,,False
-New York Rangers,996.9021409677218,16,E Metropolitan,,False
-Columbus Blue Jackets,1002.3001909388652,14,E Metropolitan,,True
-New Jersey Devils,998.563319836449,22,E Metropolitan,,False
+New York Rangers,996.9021409677218,18,E Metropolitan,,False
+Columbus Blue Jackets,1002.3001909388652,15,E Metropolitan,,True
+New Jersey Devils,998.563319836449,23,E Metropolitan,,False
 Philadelphia Flyers,991.415656322884,18,E Metropolitan,,False
-New York Islanders,1006.8128640498052,16,E Metropolitan,,False
+New York Islanders,1006.8128640498052,18,E Metropolitan,,False
 Colorado Avalanche,1057.5944467642728,25,W Central,,True
 Dallas Stars,1006.0136203944191,21,W Central,,True
 Winnipeg Jets,1016.7137764753079,18,W Central,,True
@@ -25,7 +25,7 @@ Utah Mammoth,989.0688900368092,18,W Central,,False
 Chicago Blackhawks,1022.58310492059,19,W Central,,False
 Seattle Kraken,983.7293162283684,18,W Pacific,,True
 Vegas Golden Knights,989.2623197728014,18,W Pacific,,False
-Edmonton Oilers,988.2643869562912,16,W Pacific,,False
+Edmonton Oilers,988.2643869562912,18,W Pacific,,False
 Vancouver Canucks,969.8300416097364,17,W Pacific,,True
 Anaheim Ducks,1042.2499873179343,23,W Pacific,,True
 San Jose Sharks,1020.4839409869534,17,W Pacific,,True
