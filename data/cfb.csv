@@ -1,11 +1,11 @@
 Team,Elo,Conference,Notes,RatingUpdated
 Boston College,899.372231924884,ACC,,False
 California,1010.8520019329508,ACC,,False
-Clemson,1044.0239180229655,ACC,,False
+Clemson,1057.7543801437594,ACC,,True
 Duke,1053.153381046926,ACC,,False
 Florida State,1025.64833089566,ACC,,False
 Georgia Tech,1086.0214455950154,ACC,,False
-Louisville,1083.531309233184,ACC,,False
+Louisville,1069.80084711239,ACC,,True
 Miami,1094.007060080467,ACC,,False
 NC State,1024.6785544049849,ACC,,False
 Pittsburgh,1103.1153384478328,ACC,,False
@@ -36,11 +36,11 @@ Iowa,1082.3444598322849,Big 10,,False
 Maryland,993.5913685168792,Big 10,,False
 Michigan,1090.7191249593438,Big 10,,False
 Michigan State,963.2318966502256,Big 10,,False
-Minnesota,1031.0681033497744,Big 10,,False
+Minnesota,1014.1051793941268,Big 10,,True
 Nebraska,1065.7733775697657,Big 10,,False
 Northwestern,1021.1267755094386,Big 10,,False
 Ohio State,1176.918633697559,Big 10,,False
-Oregon,1136.9555401677153,Big 10,,False
+Oregon,1153.9184641233628,Big 10,,True
 Penn State,1013.3558579298644,Big 10,,False
 Purdue,931.5583918295922,Big 10,,False
 Rutgers,1000.3469543678184,Big 10,,False
@@ -130,9 +130,9 @@ Western Michigan,1044.9931562291088,MAC,,False
 Delaware State,1018.0382675745516,MEAC,,False
 Howard,918.704066563552,MEAC,,False
 Morgan State,912.6161304605854,MEAC,,False
-North Carolina Central,1024.0259615713142,MEAC,,False
+North Carolina Central,1004.1923559680569,MEAC,,True
 Norfolk State,858.2010065838234,MEAC,,False
-South Carolina State,1004.0145672461736,MEAC,,False
+South Carolina State,1023.8481728494309,MEAC,,True
 Air Force,992.3900129208996,Mountain West,,False
 Boise State,1050.8983514039753,Mountain West,,False
 Colorado State,929.521151478655,Mountain West,,False
@@ -237,11 +237,11 @@ Georgia State,868.9229795581365,Sun Belt,,False
 James Madison,1120.4049533979344,Sun Belt,,False
 Louisiana,983.9050293878614,Sun Belt,,False
 Marshall,999.0950466020656,Sun Belt,,False
-Old Dominion,1061.0113318777835,Sun Belt,,True
+Old Dominion,1061.0113318777835,Sun Belt,,False
 South Alabama,935.8623970431004,Sun Belt,,False
 Southern Miss,1079.9236845922546,Sun Belt,,False
 Texas State,971.7325735690382,Sun Belt,,False
-Troy,1003.2652720878963,Sun Belt,,True
+Troy,1003.2652720878964,Sun Belt,,False
 UL Monroe,903.6946831437988,Sun Belt,,False
 Alabama A&M,909.9471711981648,SWAC,,False
 Alabama State,1076.01253081811,SWAC,,False
