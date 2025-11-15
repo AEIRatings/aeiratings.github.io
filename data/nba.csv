@@ -1,29 +1,29 @@
 Team,Elo,Wins,Losses,Division,Notes,RatingUpdated
 Boston Celtics,1026.211953886283,6,7,E Atlantic,,False
 New York Knicks,1043.897681997033,7,4,E Atlantic,,True
-Toronto Raptors,1063.0565053657956,6,5,E Atlantic,,False
+Toronto Raptors,1063.0565053657956,7,5,E Atlantic,,False
 Brooklyn Nets,885.2126382948579,1,10,E Atlantic,,True
 Philadelphia 76ers,1023.1064886488191,7,4,E Atlantic,,True
-Cleveland Cavaliers,1038.8941013097783,8,4,E Central,,False
-Indiana Pacers,878.0979544912093,1,10,E Central,,False
+Cleveland Cavaliers,1038.8941013097783,8,5,E Central,,False
+Indiana Pacers,878.0979544912093,1,11,E Central,,False
 Milwaukee Bucks,998.88649557471,7,5,E Central,,True
 Detroit Pistons,1091.3146372736394,10,2,E Central,,True
 Chicago Bulls,983.9145559066848,6,5,E Central,,False
 Orlando Magic,1034.3316538033187,6,6,E Southeast,,True
 Miami Heat,1000.4511392762147,7,5,E Southeast,,True
-Atlanta Hawks,1055.4120452189695,7,5,E Southeast,,False
+Atlanta Hawks,1055.4120452189695,8,5,E Southeast,,False
 Charlotte Hornets,927.9468527228206,4,7,E Southeast,,True
 Washington Wizards,855.1550812704796,1,11,E Southeast,,False
 Oklahoma City Thunder,1133.8399596427523,12,1,W Northwest,,False
 Denver Nuggets,1098.0765526266805,9,2,W Northwest,,False
 Minnesota Timberwolves,1044.5684536543904,7,4,W Northwest,,True
 Portland Trail Blazers,992.2796292468868,6,5,W Northwest,,True
-Utah Jazz,935.4447981656208,4,7,W Northwest,,False
+Utah Jazz,935.4447981656208,4,8,W Northwest,,False
 Los Angeles Lakers,1013.266400374718,8,4,W Pacific,,True
 Los Angeles Clippers,1009.3,3,8,W Pacific,,False
 Golden State Warriors,1023.4685933640249,7,6,W Pacific,,True
 Sacramento Kings,908.6984300492394,3,9,W Pacific,,True
-Phoenix Suns,1035.0693384760534,7,5,W Pacific,,False
+Phoenix Suns,1035.0693384760534,8,5,W Pacific,,False
 Houston Rockets,1092.7942335509752,7,3,W Southwest,,True
 Memphis Grizzlies,916.0319805186048,4,9,W Southwest,,False
 Dallas Mavericks,928.9068400084676,3,9,W Southwest,,False
