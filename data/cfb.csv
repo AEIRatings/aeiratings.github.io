@@ -117,11 +117,11 @@ Yale,1092.3730189902817,Ivy League,,False
 Akron,966.0708126723551,MAC,,False
 Ball State,935.4060232668304,MAC,,False
 Bowling Green,915.9945797212168,MAC,,False
-Buffalo,958.9311761227285,MAC,,True
-Central Michigan,1044.1222947632812,MAC,,True
+Buffalo,958.9311761227284,MAC,,False
+Central Michigan,1044.1222947632812,MAC,,False
 Eastern Michigan,975.2808819375664,MAC,,False
-Kent State,945.7241951826466,MAC,,True
-Miami (OH),1033.3407276268408,MAC,,True
+Kent State,945.7241951826466,MAC,,False
+Miami (OH),1033.3407276268408,MAC,,False
 Northern Illinois,934.7211974032936,MAC,,False
 Ohio,1051.144040538151,MAC,,False
 Toledo,1076.4196979564272,MAC,,False
@@ -224,18 +224,18 @@ Houston Christian,843.7142354267335,Southland,,False
 Incarnate Word,972.478347962366,Southland,,False
 Lamar,1023.1650550455764,Southland,,False
 McNeese,937.9973355039996,Southland,,False
-Nicholls,946.9379594925672,Southland,,False
-Northwestern State,814.2622883517553,Southland,,False
-SE Louisiana,1090.0817124967311,Southland,,False
-Stephen F. Austin,1098.2843055946296,Southland,,False
+Nicholls,937.8084779210109,Southland,,True
+Northwestern State,798.6810017154559,Southland,,True
+SE Louisiana,1099.2111940682876,Southland,,True
+Stephen F. Austin,1113.865592230929,Southland,,True
 UT Rio Grande Valley,1029.7350368250443,Southland,,False
 App State,946.4524910887868,Sun Belt,,False
-Arkansas State,1007.105028298267,Sun Belt,,False
+Arkansas State,990.0856666648995,Sun Belt,,True
 Coastal Carolina,1027.6486741576623,Sun Belt,,False
 Georgia Southern,994.1840741136818,Sun Belt,,False
 Georgia State,858.7702649572149,Sun Belt,,False
 James Madison,1140.5967344796666,Sun Belt,,False
-Louisiana,983.9050293878614,Sun Belt,,False
+Louisiana,1000.924391021229,Sun Belt,,True
 Marshall,1009.2477612029872,Sun Belt,,False
 Old Dominion,1061.0113318777835,Sun Belt,,False
 South Alabama,950.7359161585218,Sun Belt,,False
