@@ -1,5 +1,5 @@
 Team,Elo,Division,Wins,Losses,Notes,RatingUpdated
-Buffalo Bills,1028.493367191207,AFC East,6,2,,True
+Buffalo Bills,1028.493367191207,AFC East,6,2,,False
 Miami Dolphins,997.4734395287754,AFC East,4,7,,False
 New England Patriots,1079.593116542413,AFC East,7,2,,False
 New York Jets,940.5270826535522,AFC East,2,8,,False
@@ -7,7 +7,7 @@ Baltimore Ravens,998.8315711691564,AFC North,5,5,,False
 Cincinnati Bengals,916.9856476869456,AFC North,3,7,,False
 Cleveland Browns,928.699474424064,AFC North,2,8,,False
 Pittsburgh Steelers,1020.696916033245,AFC North,5,3,,False
-Houston Texans,1049.054618445955,AFC South,5,5,,True
+Houston Texans,1049.054618445955,AFC South,5,5,,False
 Indianapolis Colts,1063.165848390278,AFC South,7,2,,False
 Jacksonville Jaguars,1024.088124615687,AFC South,5,3,,False
 Tennessee Titans,890.1604579724831,AFC South,1,9,,False
