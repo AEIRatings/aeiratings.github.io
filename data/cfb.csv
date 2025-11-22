@@ -3,11 +3,11 @@ Boston College,897.5703114691759,ACC,,False
 California,1010.8520019329508,ACC,,False
 Clemson,1057.7543801437594,ACC,,False
 Duke,1026.7367407228066,ACC,,False
-Florida State,1042.7092636055618,ACC,,False
+Florida State,1020.4902511245848,ACC,,True
 Georgia Tech,1087.8233660507235,ACC,,False
 Louisville,1069.80084711239,ACC,,False
 Miami,1114.6307898269856,ACC,,False
-NC State,1004.0548246584664,ACC,,False
+NC State,1026.2738371394435,ACC,,True
 Pittsburgh,1085.0795117142802,ACC,,False
 SMU,1094.75855184185,ACC,,False
 Stanford,941.8696879216358,ACC,,False
@@ -137,12 +137,12 @@ Air Force,982.2649764134974,Mountain West,,False
 Boise State,1038.1247450726198,Mountain West,,False
 Colorado State,926.766629798778,Mountain West,,False
 Fresno State,1052.011360930297,Mountain West,,False
-Hawai'i,1073.6907932742872,Mountain West,,False
+Hawai'i,1041.2924439346461,Mountain West,,True
 Nevada,939.7563816274236,Mountain West,,False
 New Mexico,1042.497627761558,Mountain West,,False
 San Diego State,1085.1795964614655,Mountain West,,False
 San Jose State,926.187544115981,Mountain West,,False
-UNLV,1042.0144125296024,Mountain West,,False
+UNLV,1074.4127618692435,Mountain West,,True
 Utah State,1004.9903694553924,Mountain West,,False
 Wyoming,978.7532734856412,Mountain West,,False
 Illinois State,1068.509139249491,MVC,,False
@@ -224,18 +224,18 @@ Houston Christian,843.7142354267335,Southland,,False
 Incarnate Word,972.478347962366,Southland,,False
 Lamar,1023.1650550455764,Southland,,False
 McNeese,937.9973355039996,Southland,,False
-Nicholls,937.8084779210109,Southland,,True
-Northwestern State,798.6810017154559,Southland,,True
-SE Louisiana,1099.2111940682876,Southland,,True
-Stephen F. Austin,1113.865592230929,Southland,,True
+Nicholls,937.8084779210108,Southland,,False
+Northwestern State,798.6810017154559,Southland,,False
+SE Louisiana,1099.2111940682876,Southland,,False
+Stephen F. Austin,1113.865592230929,Southland,,False
 UT Rio Grande Valley,1029.7350368250443,Southland,,False
 App State,946.4524910887868,Sun Belt,,False
-Arkansas State,990.0856666648995,Sun Belt,,True
+Arkansas State,990.0856666648996,Sun Belt,,False
 Coastal Carolina,1027.6486741576623,Sun Belt,,False
 Georgia Southern,994.1840741136818,Sun Belt,,False
 Georgia State,858.7702649572149,Sun Belt,,False
 James Madison,1140.5967344796666,Sun Belt,,False
-Louisiana,1000.924391021229,Sun Belt,,True
+Louisiana,1000.924391021229,Sun Belt,,False
 Marshall,1009.2477612029872,Sun Belt,,False
 Old Dominion,1061.0113318777835,Sun Belt,,False
 South Alabama,950.7359161585218,Sun Belt,,False
