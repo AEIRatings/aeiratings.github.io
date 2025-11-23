@@ -1,121 +1,121 @@
 Team,Elo,Conference,Notes,RatingUpdated
 Boston College,897.5703114691759,ACC,,False
-California,1010.8520019329508,ACC,,False
-Clemson,1057.7543801437594,ACC,,False
-Duke,1026.7367407228066,ACC,,False
-Florida State,1020.4902511245848,ACC,,True
-Georgia Tech,1087.8233660507235,ACC,,False
-Louisville,1069.80084711239,ACC,,False
-Miami,1114.6307898269856,ACC,,False
-NC State,1026.2738371394435,ACC,,True
-Pittsburgh,1085.0795117142802,ACC,,False
-SMU,1094.75855184185,ACC,,False
-Stanford,941.8696879216358,ACC,,False
-Syracuse,924.2155668520072,ACC,,False
-North Carolina,979.2756369518602,ACC,,False
+California,978.6596166692871,ACC,,True
+Clemson,1077.4432271184864,ACC,,True
+Duke,1037.0696414832464,ACC,,True
+Florida State,1020.4902511245848,ACC,,False
+Georgia Tech,1065.7781053084702,ACC,,True
+Louisville,1046.5506238018709,ACC,,True
+Miami,1125.6983250606288,ACC,,True
+NC State,1026.2738371394437,ACC,,False
+Pittsburgh,1107.1247724565335,ACC,,True
+SMU,1118.0087751523693,ACC,,True
+Stanford,974.0620731852995,ACC,,True
+Syracuse,904.0315836250735,ACC,,True
+North Carolina,968.9427361914204,ACC,,True
 Virginia,1062.4687654801944,ACC,,False
-Virginia Tech,963.3746767213904,ACC,,False
-Wake Forest,1045.335370164398,ACC,,False
-Army,1013.03799240543,American,,False
-Charlotte,862.4463677312585,American,,False
-East Carolina,1091.4206730035717,American,,False
-Florida Atlantic,984.9862648081096,American,,False
+Virginia Tech,952.3071414877472,ACC,,True
+Wake Forest,1066.4783972295174,ACC,,True
+Army,998.8509099131367,American,,True
+Charlotte,849.0851700446145,American,,True
+East Carolina,1052.9528605985886,American,,True
+Florida Atlantic,980.0028107078406,American,,True
 Memphis,1069.854799200062,American,,False
 Navy,1066.5823117071698,American,,False
-North Texas,1131.055907610373,American,,False
-Rice,972.8001448502488,American,,False
-South Florida,1101.312916201584,American,,False
-Temple,1011.6298230707084,American,,False
-Tulane,1064.7464805096486,American,,False
-Tulsa,957.1440283734344,American,,False
-UAB,923.7120456401408,American,,False
-UTSA,1027.912933973056,American,,False
-Illinois,1069.2280826191554,Big 10,,False
+North Texas,1146.5963141934787,American,,True
+Rice,957.259738267143,American,,True
+South Florida,1115.7732317653254,American,,True
+Temple,993.0677240876739,American,,True
+Tulane,1083.308579492683,American,,True
+Tulsa,971.3311108657277,American,,True
+UAB,909.2517300763993,American,,True
+UTSA,1066.380746378039,American,,True
+Illinois,1034.2851756384302,Big 10,,True
 Indiana,1207.67127925556,Big 10,,False
-Iowa,1074.6685855962771,Big 10,,False
-Maryland,978.4361127528416,Big 10,,False
-Michigan,1095.1427653471883,Big 10,,False
-Michigan State,946.759374620988,Big 10,,False
-Minnesota,1014.1051793941268,Big 10,,False
-Nebraska,1065.7733775697657,Big 10,,False
-Northwestern,1016.7031351215942,Big 10,,False
-Ohio State,1193.3491575343205,Big 10,,False
-Oregon,1153.9184641233628,Big 10,,False
-Penn State,1029.828379959102,Big 10,,False
+Iowa,1076.992793607132,Big 10,,True
+Maryland,963.1067550691557,Big 10,,True
+Michigan,1110.4721230308742,Big 10,,True
+Michigan State,944.4351666101331,Big 10,,True
+Minnesota,1006.2010837988041,Big 10,,True
+Nebraska,1033.4095777678083,Big 10,,True
+Northwestern,1024.607230716917,Big 10,,True
+Ohio State,1208.2966228772148,Big 10,,True
+Oregon,1168.5053713117381,Big 10,,True
+Penn State,1062.1921797610594,Big 10,,True
 Purdue,913.1033953483982,Big 10,,False
-Rutgers,1000.3469543678184,Big 10,,False
-UCLA,972.0674789681368,Big 10,,False
-USC,1116.9777183519054,Big 10,,False
-Washington,1079.42666991092,Big 10,,False
-Wisconsin,944.6938891585392,Big 10,,False
-Arizona,1090.5280756716763,Big 12,,False
-Arizona State,1055.9250914554414,Big 12,,False
-Baylor,1020.4979132283833,Big 12,,False
-BYU,1126.9400729905838,Big 12,,False
-Cincinnati,1069.139579996894,Big 12,,False
-Colorado,961.8253575110036,Big 12,,False
-Houston,1057.8702113861443,Big 12,,False
-Iowa State,1041.636768012096,Big 12,,False
-Kansas,1019.2123434360892,Big 12,,False
-Kansas State,1055.049728412009,Big 12,,False
-Oklahoma State,874.6114960976088,Big 12,,False
-TCU,1019.522134621661,Big 12,,False
+Rutgers,985.399489024924,Big 10,,True
+UCLA,953.4652090059476,Big 10,,True
+USC,1102.39081116353,Big 10,,True
+Washington,1098.0289398731093,Big 10,,True
+Wisconsin,979.6367961392643,Big 10,,True
+Arizona,1107.615755585185,Big 12,,True
+Arizona State,1072.504471853679,Big 12,,True
+Baylor,1003.4102333148745,Big 12,,True
+BYU,1139.5208961835044,Big 12,,True
+Cincinnati,1056.5587568039734,Big 12,,True
+Colorado,945.245977112766,Big 12,,True
+Houston,1040.9604115177387,Big 12,,True
+Iowa State,1062.1463975730137,Big 12,,True
+Kansas,998.7027138751714,Big 12,,True
+Kansas State,1051.4450062103347,Big 12,,True
+Oklahoma State,871.5148965502774,Big 12,,True
+TCU,1036.4319344900666,Big 12,,True
 Texas Tech,1194.9828079426109,Big 12,,False
-UCF,980.7784427413447,Big 12,,False
-Utah,1160.5069696128444,Big 12,,False
+UCF,983.8750422886761,Big 12,,True
+Utah,1164.1116918145187,Big 12,,True
 West Virginia,986.7730068836092,Big 12,,False
-Cal Poly,905.7422432958078,Big Sky,,False
-Eastern Washington,972.956323648835,Big Sky,,False
-Idaho,971.0744551781312,Big Sky,,False
-Idaho State,984.8076521360616,Big Sky,,False
-Montana,1130.4286258685042,Big Sky,,False
-Montana State,1150.421659340209,Big Sky,,False
-Northern Arizona,1019.5107495297148,Big Sky,,False
-Northern Colorado,901.0308862498936,Big Sky,,False
-Portland State,833.4717227137874,Big Sky,,False
-Sacramento State,1049.1546213954666,Big Sky,,False
-UC Davis,1044.1390865933963,Big Sky,,False
-Weber State,893.4619740501922,Big Sky,,False
-Bryant,892.4483569892093,CAA,,False
-Campbell,895.850310510519,CAA,,False
-Elon,967.2652093512398,CAA,,False
-Hampton,855.3842622024097,CAA,,False
-Maine,1018.8834127507478,CAA,,False
-Monmouth,1079.519374953505,CAA,,False
-North Carolina A&T,856.3536196735919,CAA,,False
-New Hampshire,1053.1120202511213,CAA,,False
-Rhode Island,1084.567770208845,CAA,,False
-Stony Brook,1010.017081136296,CAA,,False
-Towson,990.0198590360257,CAA,,False
-UAlbany,848.3488483828472,CAA,,False
-Villanova,1086.7848675050982,CAA,,False
-William & Mary,1016.745007048544,CAA,,False
-Delaware,960.1426011877974,CUSA,,False
-Florida International,1008.892978767286,CUSA,,False
-Jacksonville State,1051.2903708209103,CUSA,,False
-Kennesaw State,1058.6542992558554,CUSA,,False
-Liberty,983.9834307986972,CUSA,,False
-Louisiana Tech,1006.0691503520712,CUSA,,False
-Missouri State,1035.6775870683946,CUSA,,False
-Middle Tennessee,893.8863508605555,CUSA,,False
-New Mexico State,932.0919227402158,CUSA,,False
-Sam Houston,895.7000008193827,CUSA,,False
-UTEP,923.9218485817094,CUSA,,False
-Western Kentucky,1055.2531369877424,CUSA,,False
-Notre Dame,1165.9469661937226,FBS Independent,,False
-UConn,1074.9571208489272,FBS Independent,,False
-Merrimack,908.779489209695,FCS Independent,,False
-Sacred Heart,1063.4431797080902,FCS Independent,,False
-Brown,971.169030952109,Ivy League,,False
-Columbia,905.2165380372084,Ivy League,,False
-Cornell,1003.5403673052516,Ivy League,,False
-Dartmouth,1048.1117628918282,Ivy League,,False
-Harvard,1147.278840681454,Ivy League,,False
-Pennsylvania,1001.0933916246942,Ivy League,,False
-Princeton,986.1170495171732,Ivy League,,False
-Yale,1092.3730189902817,Ivy League,,False
+Cal Poly,928.7382496690699,Big Sky,,True
+Eastern Washington,949.960317275573,Big Sky,,True
+Idaho,950.0723396756729,Big Sky,,True
+Idaho State,1005.8097676385199,Big Sky,,True
+Montana,1122.515321699522,Big Sky,,True
+Montana State,1158.3349635091913,Big Sky,,True
+Northern Arizona,982.4208725776082,Big Sky,,True
+Northern Colorado,912.6919632222655,Big Sky,,True
+Portland State,821.8106457414154,Big Sky,,True
+Sacramento State,1036.7771963910961,Big Sky,,True
+UC Davis,1056.5165115977668,Big Sky,,True
+Weber State,930.5518510022988,Big Sky,,True
+Bryant,885.5334456866925,CAA,,True
+Campbell,891.2269290734184,CAA,,True
+Elon,987.4975746697802,CAA,,True
+Hampton,841.9879047076727,CAA,,True
+Maine,1010.3318956899892,CAA,,True
+Monmouth,1043.7211813286963,CAA,,True
+North Carolina A&T,836.1212543550515,CAA,,True
+New Hampshire,1061.6635373118797,CAA,,True
+Rhode Island,1097.964127703582,CAA,,True
+Stony Brook,1016.9319924388128,CAA,,True
+Towson,994.6432404731262,CAA,,True
+UAlbany,884.1470420076558,CAA,,True
+Villanova,1107.0657630661856,CAA,,True
+William & Mary,995.9935171436708,CAA,,True
+Delaware,938.9995741226779,CUSA,,True
+Florida International,1027.352041680865,CUSA,,True
+Jacksonville State,1032.8313079073312,CUSA,,True
+Kennesaw State,1068.8561911736747,CUSA,,True
+Liberty,974.5472505894012,CUSA,,True
+Louisiana Tech,1015.5053305613673,CUSA,,True
+Missouri State,1025.4756951505753,CUSA,,True
+Middle Tennessee,914.0711209772468,CUSA,,True
+New Mexico State,941.8159298512129,CUSA,,True
+Sam Houston,875.5152307026914,CUSA,,True
+UTEP,914.1978414707122,CUSA,,True
+Western Kentucky,1043.0423061222882,CUSA,,True
+Notre Dame,1186.1309494206562,FBS Independent,,True
+UConn,1079.9405749491962,FBS Independent,,True
+Merrimack,905.3574040275377,FCS Independent,,True
+Sacred Heart,1043.1622841470028,FCS Independent,,True
+Brown,992.924915121651,Ivy League,,True
+Columbia,938.6529050453262,Ivy League,,True
+Cornell,970.1040002971338,Ivy League,,True
+Dartmouth,1026.3558787222862,Ivy League,,True
+Harvard,1118.219669533927,Ivy League,,True
+Pennsylvania,1015.3941975459461,Ivy League,,True
+Princeton,971.8162435959213,Ivy League,,True
+Yale,1121.432190137809,Ivy League,,True
 Akron,966.0708126723551,MAC,,False
-Ball State,935.4060232668304,MAC,,False
+Ball State,919.4864922961699,MAC,,True
 Bowling Green,915.9945797212168,MAC,,False
 Buffalo,958.9311761227284,MAC,,False
 Central Michigan,1044.1222947632812,MAC,,False
@@ -124,143 +124,143 @@ Kent State,945.7241951826466,MAC,,False
 Miami (OH),1033.3407276268408,MAC,,False
 Northern Illinois,934.7211974032936,MAC,,False
 Ohio,1051.144040538151,MAC,,False
-Toledo,1076.4196979564272,MAC,,False
+Toledo,1092.3392289270878,MAC,,True
 Massachusetts,804.1523179168089,MAC,,False
 Western Michigan,1057.9920548918533,MAC,,False
-Delaware State,1029.2408589072345,MEAC,,False
-Howard,907.5014752308692,MEAC,,False
-Morgan State,923.0559308125972,MEAC,,False
-North Carolina Central,1004.1923559680567,MEAC,,False
-Norfolk State,847.7612062318117,MEAC,,False
-South Carolina State,1023.8481728494309,MEAC,,False
-Air Force,982.2649764134974,Mountain West,,False
-Boise State,1038.1247450726198,Mountain West,,False
-Colorado State,926.766629798778,Mountain West,,False
-Fresno State,1052.011360930297,Mountain West,,False
-Hawai'i,1041.2924439346461,Mountain West,,True
-Nevada,939.7563816274236,Mountain West,,False
-New Mexico,1042.497627761558,Mountain West,,False
-San Diego State,1085.1795964614655,Mountain West,,False
-San Jose State,926.187544115981,Mountain West,,False
-UNLV,1074.4127618692435,Mountain West,,True
-Utah State,1004.9903694553924,Mountain West,,False
-Wyoming,978.7532734856412,Mountain West,,False
-Illinois State,1068.509139249491,MVC,,False
-Indiana State,911.2104584059988,MVC,,False
-Murray State,812.5945731259317,MVC,,False
-North Dakota,1072.1083893085236,MVC,,False
-North Dakota State,1191.30198611376,MVC,,False
-Northern Iowa,912.0014573848924,MVC,,False
+Delaware State,1008.3031639194959,MEAC,,True
+Howard,927.7880955958333,MEAC,,True
+Morgan State,907.8512702461248,MEAC,,True
+North Carolina Central,1019.3970165345291,MEAC,,True
+Norfolk State,827.4745858668476,MEAC,,True
+South Carolina State,1044.7858678371695,MEAC,,True
+Air Force,966.9725174567513,Mountain West,,True
+Boise State,1054.995919386377,Mountain West,,True
+Colorado State,909.8954554850209,Mountain West,,True
+Fresno State,1026.7312272412128,Mountain West,,True
+Hawai'i,1041.292443934646,Mountain West,,False
+Nevada,959.9126400109133,Mountain West,,True
+New Mexico,1057.790086718304,Mountain West,,True
+San Diego State,1098.2120834884245,Mountain West,,True
+San Jose State,913.1550570890222,Mountain West,,True
+UNLV,1074.4127618692437,Mountain West,,False
+Utah State,1030.2705031444766,Mountain West,,True
+Wyoming,958.5970151021515,Mountain West,,True
+Illinois State,1031.3793267560438,MVC,,True
+Indiana State,880.3326804363284,MVC,,True
+Murray State,843.4723510956021,MVC,,True
+North Dakota,1053.9280500348182,MVC,,True
+North Dakota State,1213.0701743757984,MVC,,True
+Northern Iowa,908.4522349468679,MVC,,True
 South Dakota,1038.1861275108388,MVC,,False
-South Dakota State,1011.0472306637188,MVC,,False
-Southern Illinois,1008.8137632335504,MVC,,False
-Youngstown State,1062.4268750032943,MVC,,False
-Central Connecticut,1013.896424004954,NEC,,False
-Duquesne,988.8378409431224,NEC,,False
-Long Island University,993.5752617995456,NEC,,False
-Mercyhurst,948.0567561928762,NEC,,False
+South Dakota State,1029.227569937424,MVC,,True
+Southern Illinois,1045.9435757269976,MVC,,True
+Youngstown State,1065.9760974413189,MVC,,True
+Central Connecticut,1022.2089575888283,NEC,,True
+Duquesne,994.1901042834553,NEC,,True
+Long Island University,1003.546967770694,NEC,,True
+Mercyhurst,939.7442226090019,NEC,,True
 New Haven,923.1294461594786,NEC,,False
-Robert Morris,898.2562151862513,NEC,,False
-Saint Francis,841.4989859562924,NEC,,False
-Stonehill,905.065323585878,NEC,,False
-Wagner,963.71319233108,NEC,,False
-Charleston Southern,948.8625903458066,OVC,,False
-Eastern Illinois,899.8403507929977,OVC,,False
-Gardner-Webb,989.5561708678156,OVC,,False
-Lindenwood,959.7802035761164,OVC,,False
-Southeast Missouri State,950.8621004115068,OVC,,False
-Tennessee State,871.1308959522405,OVC,,False
-Tennessee Tech,1091.5066355637566,OVC,,False
-UT Martin,990.0453164981786,OVC,,False
-Western Illinois,914.9406111829596,OVC,,False
+Robert Morris,892.9039518459184,NEC,,True
+Saint Francis,830.3616440743713,NEC,,True
+Stonehill,916.2026654677991,NEC,,True
+Wagner,953.7414863599316,NEC,,True
+Charleston Southern,945.0620620294886,OVC,,True
+Eastern Illinois,880.5064981887176,OVC,,True
+Gardner-Webb,968.3509613586772,OVC,,True
+Lindenwood,979.6096209236431,OVC,,True
+Southeast Missouri State,931.0326830639801,OVC,,True
+Tennessee State,874.9314242685584,OVC,,True
+Tennessee Tech,1094.168302077451,OVC,,True
+UT Martin,987.3836499844842,OVC,,True
+Western Illinois,936.145820692098,OVC,,True
 Oregon State,920.1571643769634,PAC 12,,False
-Washington State,1048.1953708175502,PAC 12,,False
-Bucknell,934.4551310795327,Patriot,,False
-Colgate,949.9741578098756,Patriot,,False
-Fordham,854.3078521368321,Patriot,,False
-Georgetown,974.7245716185066,Patriot,,False
-Holy Cross,947.2690544732532,Patriot,,False
-Lafayette,1043.8306045454128,Patriot,,False
-Lehigh,1166.1212045208338,Patriot,,False
-Richmond,984.9787042392188,Patriot,,False
-Butler,966.979680156951,Pioneer,,False
-Davidson,827.1795115362635,Pioneer,,False
-Dayton,1001.0261734693736,Pioneer,,False
-Drake,1042.4019676644937,Pioneer,,False
-Marist,972.3786545623668,Pioneer,,False
-Morehead State,928.1129067322432,Pioneer,,False
-Presbyterian,1077.103871925857,Pioneer,,False
-San Diego,1039.2837203094837,Pioneer,,False
-St. Thomas-Minnesota,1047.7290744751217,Pioneer,,False
-Stetson,864.5096449439924,Pioneer,,False
-Valparaiso,842.3947942238534,Pioneer,,False
-Alabama,1132.6941287050925,SEC,,False
-Arkansas,983.5909812980298,SEC,,False
-Auburn,998.7859491401052,SEC,,False
-Florida,966.1593557983042,SEC,,False
-Georgia,1141.9789493787655,SEC,,False
-Kentucky,1056.181359404788,SEC,,False
-LSU,1038.8000810633716,SEC,,False
+Washington State,1044.2179369352011,PAC 12,,True
+Bucknell,915.3213539975133,Patriot,,True
+Colgate,969.1079348918951,Patriot,,True
+Fordham,857.7299373189895,Patriot,,True
+Georgetown,940.2249895185925,Patriot,,True
+Holy Cross,981.7686365731673,Patriot,,True
+Lafayette,1035.2512064583407,Patriot,,True
+Lehigh,1174.700602607906,Patriot,,True
+Richmond,1005.730194144092,Patriot,,True
+Butler,973.9555406143606,Pioneer,,True
+Davidson,812.6363547188176,Pioneer,,True
+Dayton,1015.5693302868194,Pioneer,,True
+Drake,1049.2348607579333,Pioneer,,True
+Marist,968.3701773860979,Pioneer,,True
+Morehead State,921.2800136388036,Pioneer,,True
+Presbyterian,1081.1123491021258,Pioneer,,True
+San Diego,1055.2160876458474,Pioneer,,True
+St. Thomas-Minnesota,1025.9608862130833,Pioneer,,True
+Stetson,848.5772776076286,Pioneer,,True
+Valparaiso,835.4189337664437,Pioneer,,True
+Alabama,1152.0279813093725,SEC,,True
+Arkansas,971.3749234724087,SEC,,True
+Auburn,1050.1503094455766,SEC,,True
+Florida,952.9041850404365,SEC,,True
+Georgia,1155.3401470654094,SEC,,True
+Kentucky,1037.2006687569906,SEC,,True
+LSU,1051.0109119288259,SEC,,True
 Mississippi State,990.0841338272774,SEC,,False
-Missouri,1089.7471415450736,SEC,,False
-Oklahoma,1110.4856688602497,SEC,,False
+Missouri,1076.30037568841,SEC,,True
+Oklahoma,1123.9324347169133,SEC,,True
 Ole Miss,1142.2506308713914,SEC,,False
-South Carolina,991.7231838364556,SEC,,False
-Tennessee,1091.12353170724,SEC,,False
-Texas,1075.9693418559405,SEC,,False
-Texas A&M,1140.7725718322204,SEC,,False
-Vanderbilt,1117.3364963297186,SEC,,False
-Chattanooga,983.4343611985406,Southern,,False
-East Tennessee State,1041.138424616699,Southern,,False
-Furman,962.528135842388,Southern,,False
-Mercer,1125.9141268360274,Southern,,False
-Samford,836.0539675819815,Southern,,False
-The Citadel,935.0044656593274,Southern,,False
-VMI,820.0263076552267,Southern,,False
-Western Carolina,1014.4571844121892,Southern,,False
-Wofford,1011.3502044187636,Southern,,False
-East Texas A&M,917.2437233005968,Southland,,False
-Houston Christian,843.7142354267335,Southland,,False
-Incarnate Word,972.478347962366,Southland,,False
-Lamar,1023.1650550455764,Southland,,False
-McNeese,937.9973355039996,Southland,,False
+South Carolina,1030.6665077987427,SEC,,True
+Tennessee,1104.3787024651078,SEC,,True
+Texas,1088.1853996815616,SEC,,True
+Texas A&M,1157.2572693991228,SEC,,True
+Vanderbilt,1136.317186977516,SEC,,True
+Chattanooga,964.1923086126535,Southern,,True
+East Tennessee State,1042.1381747252808,Southern,,True
+Furman,942.8392888676609,Southern,,True
+Mercer,1074.549766530556,Southern,,True
+Samford,819.5692700150792,Southern,,True
+The Citadel,934.0047155507456,Southern,,True
+VMI,802.7408289218583,Southern,,True
+Western Carolina,1031.7426631455576,Southern,,True
+Wofford,1030.5922570046507,Southern,,True
+East Texas A&M,903.6988788288553,Southland,,True
+Houston Christian,829.6685117270359,Southland,,True
+Incarnate Word,986.5240716620635,Southland,,True
+Lamar,1005.7038379450644,Southland,,True
+McNeese,955.4585526045116,Southland,,True
 Nicholls,937.8084779210108,Southland,,False
 Northwestern State,798.6810017154559,Southland,,False
 SE Louisiana,1099.2111940682876,Southland,,False
 Stephen F. Austin,1113.865592230929,Southland,,False
-UT Rio Grande Valley,1029.7350368250443,Southland,,False
-App State,946.4524910887868,Sun Belt,,False
+UT Rio Grande Valley,1043.2798812967858,Southland,,True
+App State,958.4235496231445,Sun Belt,,True
 Arkansas State,990.0856666648996,Sun Belt,,False
-Coastal Carolina,1027.6486741576623,Sun Belt,,False
-Georgia Southern,994.1840741136818,Sun Belt,,False
-Georgia State,858.7702649572149,Sun Belt,,False
-James Madison,1140.5967344796666,Sun Belt,,False
+Coastal Carolina,988.7053501953752,Sun Belt,,True
+Georgia Southern,972.8168397272959,Sun Belt,,True
+Georgia State,849.2386204730377,Sun Belt,,True
+James Madison,1144.5741683620156,Sun Belt,,True
 Louisiana,1000.924391021229,Sun Belt,,False
-Marshall,1009.2477612029872,Sun Belt,,False
-Old Dominion,1061.0113318777835,Sun Belt,,False
-South Alabama,950.7359161585218,Sun Belt,,False
-Southern Miss,1039.094341587916,Sun Belt,,False
-Texas State,1012.5619165733768,Sun Belt,,False
-Troy,1003.2652720878964,Sun Belt,,False
-UL Monroe,888.8211640283773,Sun Belt,,False
-Alabama A&M,901.4840881986858,SWAC,,False
-Alabama State,1091.179994102062,SWAC,,False
-Alcorn State,995.1980742691776,SWAC,,False
-Arkansas-Pine Bluff,880.9700476080462,SWAC,,False
-Bethune-Cookman,961.3419843901248,SWAC,,False
-Florida A&M,939.8820871528956,SWAC,,False
+Marshall,997.2767026686296,Sun Belt,,True
+Old Dominion,1082.3785662641694,Sun Belt,,True
+South Alabama,973.1556274036919,Sun Belt,,True
+Southern Miss,1016.6746303427459,Sun Belt,,True
+Texas State,1024.9753088821121,Sun Belt,,True
+Troy,1012.7969165720735,Sun Belt,,True
+UL Monroe,876.407771719642,Sun Belt,,True
+Alabama A&M,885.8654982011518,SWAC,,True
+Alabama State,1105.735508153339,SWAC,,True
+Alcorn State,988.635227287048,SWAC,,True
+Arkansas-Pine Bluff,866.4145335567692,SWAC,,True
+Bethune-Cookman,968.5449966705829,SWAC,,True
+Florida A&M,932.6790748724375,SWAC,,True
 Grambling,970.767229073375,SWAC,,False
-Jackson State,1079.4983671239563,SWAC,,False
-Mississippi Valley State,837.2212398563105,SWAC,,False
-Prairie View A&M,1048.809591132774,SWAC,,False
+Jackson State,1086.061214106086,SWAC,,True
+Mississippi Valley State,817.4650346126788,SWAC,,True
+Prairie View A&M,1068.5657963764056,SWAC,,True
 Southern,831.7725371018777,SWAC,,False
-Texas Southern,951.6747599907144,SWAC,,False
-Abilene Christian,1040.989236247531,UAC,,False
-Austin Peay,1028.4047286699945,UAC,,False
-Central Arkansas,940.2722320539935,UAC,,False
-Eastern Kentucky,958.7538568498352,UAC,,False
-North Alabama,891.516590526231,UAC,,False
-Southern Utah,1042.065799476362,UAC,,False
-Tarleton State,1158.529948304505,UAC,,False
-Utah Tech,881.4781273078652,UAC,,False
+Texas Southern,967.2933499882483,SWAC,,True
+Abilene Christian,1055.8799248313496,UAC,,True
+Austin Peay,1033.4237217907785,UAC,,True
+Central Arkansas,925.3815434701748,UAC,,True
+Eastern Kentucky,975.9234720567653,UAC,,True
+North Alabama,888.8764964059066,UAC,,True
+Southern Utah,1044.7058935966863,UAC,,True
+Tarleton State,1153.510955183721,UAC,,True
+Utah Tech,864.3085121009351,UAC,,True
 West Georgia,1020.1495325368508,UAC,,False
