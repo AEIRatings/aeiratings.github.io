@@ -59,7 +59,7 @@ body{
 }
 
 /* * MODIFICATION HERE:
-* The lift effect is now scoped to anchor tags (.card) directly inside the .grid 
+* The lift effect is now scoped to anchor tags (.card) directly inside the .grid
 * on the index.html page. This prevents the .howto card from lifting.
 */
 .grid a.card:hover{
@@ -190,3 +190,20 @@ th{font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5
     font-style: italic;
     font-size: 14px;
 }
+
+/* --- NEW STYLES FOR NFL GAMES PAGE COLUMN LAYOUT --- */
+@media (min-width: 769px) { /* Only apply columns on screens larger than mobile */
+    /* Apply column layout to the schedule container */
+    #schedule {
+        column-count: 2; /* Two columns */
+        column-gap: 30px; /* Space between columns */
+    }
+}
+
+/* Prevent a single game day from breaking across columns */
+.game-day {
+    break-inside: avoid;
+    /* Add some vertical space between game days for clarity in column layout */
+    padding-bottom: 20px;
+}
+/* --- END NEW STYLES FOR NFL GAMES PAGE COLUMN LAYOUT --- */
