@@ -45,7 +45,6 @@ def normalize_name(raw_name):
     name = unicodedata.normalize('NFC', raw_name)
     name = (name.replace('JosÃ©', 'José')
                 .replace('San Jose', 'San José')
-                .replace('Nittany Lions', 'Penn State'))
     name = name.replace("No. ", "").strip()
     return name
 
