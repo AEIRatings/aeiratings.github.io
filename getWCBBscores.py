@@ -81,7 +81,7 @@ def fetch_and_save_college_basketball_scores():
     """
     valid_team_names = load_team_names("data/wcbb.csv")
 
-    yesterday = datetime.now() - timedelta(days=18)
+    yesterday = datetime.now() - timedelta(days=17)
     date_str = yesterday.strftime('%Y%m%d')
     file_date_str = yesterday.strftime('%Y-%m-%d')
 
