@@ -191,19 +191,41 @@ th{font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5
     font-size: 14px;
 }
 
-/* --- NEW STYLES FOR NFL GAMES PAGE COLUMN LAYOUT --- */
-@media (min-width: 769px) { /* Only apply columns on screens larger than mobile */
-    /* Apply column layout to the schedule container */
-    #schedule {
-        column-count: 2; /* Two columns */
-        column-gap: 30px; /* Space between columns */
-    }
+/* --- NEW STYLES FOR NFL GAMES PAGE TWO-COLUMN GAME LAYOUT --- */
+
+/* 1. Define the overall layout for a single game row */
+.game {
+    display: flex;
+    justify-content: space-between; /* Pushes road team to the far left and home team to the far right */
+    align-items: center; /* Vertically center the team logos and text */
+    padding: 8px 0;
 }
 
-/* Prevent a single game day from breaking across columns */
+/* 2. Style for the game day headers for better separation */
 .game-day {
-    break-inside: avoid;
-    /* Add some vertical space between game days for clarity in column layout */
-    padding-bottom: 20px;
+    padding-bottom: 12px;
 }
-/* --- END NEW STYLES FOR NFL GAMES PAGE COLUMN LAYOUT --- */
+
+/* 3. Configure the home team side to display contents in reverse order (ELO, Name, Logo) */
+.team-cell.home-team {
+    /* This reverses the order of elements within the home team span, 
+       so the logo is on the right and the ELO is closer to the separator. 
+       Visual order: (ELO) [Name] [Logo]
+    */
+    flex-direction: row-reverse;
+}
+
+/* 4. Increase flexibility of team cells to push the @ separator into the middle */
+.team-cell {
+    flex-grow: 1; /* Allow each team cell to take up available space */
+    /* Add a max-width to prevent extremely long team names from dominating wide screens */
+    max-width: 45%; 
+}
+
+/* 5. Center the @ separator and ensure it doesn't shrink */
+.at-separator {
+    margin: 0 10px; /* Add horizontal margin for breathing room */
+    flex-shrink: 0; /* Prevent the @ from shrinking if space is tight */
+}
+
+/* --- END NEW STYLES FOR NFL GAMES PAGE TWO-COLUMN GAME LAYOUT --- */
