@@ -2,8 +2,8 @@ Team,Elo,Points,Division,Notes,RatingUpdated
 Florida Panthers,980.7729732220556,30,E Atlantic,,False
 Boston Bruins,1014.1249878555623,34,E Atlantic,,True
 Montreal Canadiens,977.9192073576556,33,E Atlantic,,True
-Toronto Maple Leafs,1012.6385011056824,30,E Atlantic,,False
-Detroit Red Wings,1005.5427492132034,33,E Atlantic,,False
+Toronto Maple Leafs,1012.6385011056824,32,E Atlantic,,False
+Detroit Red Wings,1005.5427492132034,35,E Atlantic,,False
 Ottawa Senators,980.7282482430231,30,E Atlantic,,True
 Tampa Bay Lightning,1018.9872089319931,34,E Atlantic,,True
 Buffalo Sabres,991.2584495448006,26,E Atlantic,,True
@@ -19,7 +19,7 @@ Colorado Avalanche,1071.0593002618589,48,W Central,,True
 Dallas Stars,1047.3107593549307,45,W Central,,True
 Winnipeg Jets,985.2764874768244,29,W Central,,True
 Nashville Predators,980.2744366796347,24,W Central,,True
-Minnesota Wild,1010.7283763400952,35,W Central,,False
+Minnesota Wild,1010.7283763400952,37,W Central,,False
 St. Louis Blues,984.9562007481466,29,W Central,,True
 Utah Mammoth,990.5253834268188,31,W Central,,False
 Chicago Blackhawks,963.1900008592742,30,W Central,,False
@@ -29,5 +29,5 @@ Edmonton Oilers,1008.1969459653451,31,W Pacific,,True
 Vancouver Canucks,974.768877501379,25,W Pacific,,False
 Anaheim Ducks,1004.2849353086194,37,W Pacific,,True
 San Jose Sharks,993.3960689511772,31,W Pacific,,True
-Los Angeles Kings,1010.400942855555,33,W Pacific,,False
-Calgary Flames,1017.5976041859398,26,W Pacific,,False
+Los Angeles Kings,1010.400942855555,35,W Pacific,,False
+Calgary Flames,1017.5976041859398,28,W Pacific,,False
