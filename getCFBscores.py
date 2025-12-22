@@ -40,27 +40,19 @@ def normalize_name(raw_name):
     if not raw_name:
         return raw_name
 
-    # Normalize Unicode form
     name = unicodedata.normalize('NFC', raw_name)
-
-    # Fix known encoding glitches
-    # ESPN sometimes returns mojibake (mis-decoded UTF-8)
-    # e.g., 'San JosÃ© State Spartans' instead of 'San José State Spartans'
     name = (name.replace('JosÃ©', 'José')
                 .replace('San Jose', 'San José')
-                .replace('Nittany Lions', 'Penn State')  # example of cleanup if desired
+                .replace('Nittany Lions', 'Penn State')
             )
-
-    # Remove ranking prefix like "No. 3 "
     name = name.replace("No. ", "").strip()
-
     return name
 
 
 def clean_team_name(full_name, valid_team_names):
     """
     Strips nicknames (e.g., 'Georgia Bulldogs' -> 'Georgia') using substring match
-    against known team names list. Handles accent-insensitive comparison.
+    against known team names list.
     """
     if not full_name:
         return full_name
@@ -87,9 +79,8 @@ def fetch_and_save_college_football_scores():
 
     # 1. Determine the date for the data (yesterday)
     yesterday = datetime.now() - timedelta(days=1)
-    # The API uses the YYYYMMDD format for the 'dates' parameter.
     date_str = yesterday.strftime('%Y%m%d') 
-    file_date_str = yesterday.strftime('%Y-%m-%d') # For print message clarity
+    file_date_str = yesterday.strftime('%Y-%m-%d')
 
     BASE_URL = "http://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard"
     API_URLS = [
@@ -116,6 +107,15 @@ def fetch_and_save_college_football_scores():
 
         events = data.get('events', [])
         for event in events:
+            # FIX: Double-check the actual event date string from the API
+            # The API event date format is usually ISO: "2024-12-21T17:00Z"
+            event_date_full = event.get('date', '')
+            if event_date_full:
+                event_date_only = event_date_full.split('T')[0]
+                if event_date_only != file_date_str:
+                    # Skip games that don't actually match "yesterday"
+                    continue
+
             competitions = event.get('competitions', [])
             if not competitions:
                 continue
@@ -131,10 +131,8 @@ def fetch_and_save_college_football_scores():
 
             for competitor in competitors:
                 team_info = competitor.get('team', {})
-                team_display_name = team_info.get('displayName')
-                team_display_name = normalize_name(team_display_name)
+                team_display_name = normalize_name(team_info.get('displayName'))
                 score = competitor.get('score')
-
                 cleaned_name = clean_team_name(team_display_name, valid_team_names)
 
                 if competitor.get('homeAway') == 'away':
@@ -148,12 +146,7 @@ def fetch_and_save_college_football_scores():
                 game_id = tuple(sorted([away_team_name, home_team_name]))
                 if game_id not in seen_games:
                     seen_games.add(game_id)
-                    all_game_data.append([
-                        away_team_name,
-                        home_team_name,
-                        away_score,
-                        home_score
-                    ])
+                    all_game_data.append([away_team_name, home_team_name, away_score, home_score])
 
     # Save to CSV
     try:
