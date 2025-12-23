@@ -135,9 +135,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const normalizedRows = parsed.rows.map(r => ({
               Team: r.Team || r.team || '',
               // Consolidate the rating into a single 'Elo' property as a string
-              Elo: r.Elo || r.elo || r.Points || r.points || '0', 
-              Wins: r.Wins || r.wins || '',
-              Losses: r.Losses || r.losses || '',
+              Elo: r.Elo || r.elo || '0', 
               // Important: Capture Conference/Division/Notes for FBS check
               Conference: r.Conference || r.conference || r.Division || r.Notes || ''
             }));
@@ -206,15 +204,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         // NFL/NBA: Rank, Team, Elo, Wins, Losses
         rowHtml += `
           <td>${formattedElo}</td>
-          <td>${r.Wins}</td>
-          <td>${r.Losses}</td>
+
         `;
       } else {
         // CFB/College Basketball (mcbb, wcbb): Rank, Team, Elo, Wins, Losses, Conference
         rowHtml += `
           <td>${formattedElo}</td>
-          <td>${r.Wins}</td>
-          <td>${r.Losses}</td>
+
           <td>${r.Conference}</td>
         `;
       }
@@ -303,9 +299,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     allRows = parsed.rows.map(r => ({
       Team: r.Team || r.team || '',
       Elo: (r.Elo || r.elo || r.Points || r.points || '0').toString(),
-      Wins: r.Wins || r.wins || '',
-      Losses: r.Losses || r.losses || '',
-      Points: r.Points || r.points || '', 
       // Use 'Division' for NFL/NBA/NHL, 'Conference' for CBB/CFB where applicable
       Conference: r.Conference || r.conference || r.Division || r.Notes || ''
     }));
@@ -426,3 +419,4 @@ document.addEventListener('DOMContentLoaded', async () => {
       weekFilterSelect.addEventListener('change', loadDataAndRefresh);
   }
 })
+
