@@ -1,4 +1,4 @@
-Team,Division,Notes,RatingUpdated
+Team,Elo,Division,Notes,RatingUpdated
 Boston Celtics,1086.7020768518364,E Atlantic,,True
 New York Knicks,1116.0725397091517,E Atlantic,,False
 Toronto Raptors,965.9368009885088,E Atlantic,,False
@@ -29,4 +29,5 @@ Memphis Grizzlies,945.8161827275947,W Southwest,,True
 Dallas Mavericks,968.4471541490271,W Southwest,,True
 San Antonio Spurs,1109.8571671587863,W Southwest,,False
 New Orleans Pelicans,948.569857234626,W Southwest,,True
+
 
