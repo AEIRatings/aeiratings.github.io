@@ -191,6 +191,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       // Convert the string rating values to a number and format to one decimal place
       const formattedElo = n(r.Elo).toFixed(1);
+      const formattedPoints = n(r.Points).toFixed(1);
 
       if (league === 'nhl') {
         // NHL: Rank, Team, Elo, Points
@@ -297,7 +298,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Normalize data (common to all leagues)
     allRows = parsed.rows.map(r => ({
       Team: r.Team || r.team || '',
-      Elo: (r.Elo || r.elo || '0').toString(),
+      Elo: (r.Elo || r.elo || r.Points || r.points || '0').toString(),
       // Use 'Division' for NFL/NBA/NHL, 'Conference' for CBB/CFB where applicable
       Conference: r.Conference || r.conference || r.Division || r.Notes || ''
     }));
@@ -418,4 +419,3 @@ document.addEventListener('DOMContentLoaded', async () => {
       weekFilterSelect.addEventListener('change', loadDataAndRefresh);
   }
 })
-
