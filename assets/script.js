@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const normalizedRows = parsed.rows.map(r => ({
               Team: r.Team || r.team || '',
               // Consolidate the rating into a single 'Elo' property as a string
-              Elo: r.Elo || r.elo || '0', 
+              Elo: r.Elo || r.elo ||, 
               // Important: Capture Conference/Division/Notes for FBS check
               Conference: r.Conference || r.conference || r.Division || r.Notes || ''
             }));
@@ -197,7 +197,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         // The original nhl.html template uses Elo and Points headers.
         rowHtml += `
           <td>${formattedElo}</td>
-          <td>${formattedPoints}</td>
         `;
       } else if (league === 'nfl' || league === 'nba') {
         // NFL/NBA: Rank, Team, Elo, Wins, Losses
@@ -418,5 +417,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       weekFilterSelect.addEventListener('change', loadDataAndRefresh);
   }
 })
+
 
 
