@@ -1,266 +1,266 @@
-Team,Elo,Conference,Notes
-Indiana,1234.370763,Big 10,
-Texas Tech,1230.566487,Big 12,
-Ohio State,1210.307015,Big 10,
-Montana State,1201.615875,Big Sky,
-Oregon,1199.616659,Big 10,
-Notre Dame,1198.827023,FBS Independent,
-North Dakota State,1194.174916,MVC,
-Georgia,1185.930191,SEC,
-Ole Miss,1176.074287,SEC,
-Utah,1171.44155,Big 12,
-Miami,1161.711286,ACC,
-James Madison,1156.284303,Sun Belt,
-Vanderbilt,1154.99549,SEC,
-Lehigh,1153.426279,Patriot,
-Alabama,1152.345861,SEC,
-Tarleton State,1152.226116,UAC,
-North Texas,1134.035551,American,
-BYU,1133.382389,Big 12,
-Villanova,1132.427736,CAA,
-Washington,1131.491047,Big 10,
-Arizona,1123.825515,Big 12,
-Texas A&M,1120.381426,SEC,
-Montana,1120.263105,Big Sky,
-Old Dominion,1119.61617,Sun Belt,
-Yale,1114.721145,Ivy League,
-USC,1114.482424,Big 10,
-Illinois State,1114.19804,MVC,
-Texas,1113.047052,SEC,
-Oklahoma,1113.04591,SEC,
-Western Michigan,1112.206383,MAC,
-Toledo,1108.628342,MAC,
-South Florida,1108.585752,American,
-Stephen F. Austin,1108.22345,Southland,
-Alabama State,1105.735508,SWAC,
-Tulane,1101.277974,American,
-SMU,1099.500294,ACC,
-Michigan,1097.394606,Big 10,
-Iowa,1096.186013,Big 10,
-Clemson,1091.940832,ACC,
-Missouri,1087.935025,SEC,
-Navy,1086.950564,American,
-Tennessee,1085.7004,SEC,
-Pittsburgh,1083.126003,ACC,
-Duke,1082.797407,ACC,
-Harvard,1082.038392,Ivy League,
-Presbyterian,1081.112349,Pioneer,
-South Dakota,1080.659691,MVC,
-UConn,1079.940575,FBS Independent,
-San Diego State,1079.704155,Mountain West,
-New Mexico,1076.298015,Mountain West,
-Rhode Island,1075.554451,CAA,
-East Carolina,1075.103024,American,
-Louisville,1074.998624,ACC,
-South Carolina State,1073.096965,MEAC,
-North Dakota,1072.482241,MVC,
-Jackson State,1071.928747,SWAC,
-NC State,1070.892872,ACC,
-Penn State,1068.638224,Big 10,
-Iowa State,1067.79884,Big 12,
-SE Louisiana,1067.381367,Southland,
-UC Davis,1066.354102,Big Sky,
-TCU,1064.683258,Big 12,
-UNLV,1063.308858,Mountain West,
-Abilene Christian,1062.703956,UAC,
-Youngstown State,1062.621697,MVC,
-Tennessee Tech,1061.181506,OVC,
-Kansas State,1060.540098,Big 12,
-Washington State,1059.218063,PAC 12,
-Ohio,1057.981464,MAC,
-Georgia Tech,1057.825421,ACC,
-Virginia,1057.125227,ACC,
-Hawai'i,1056.35482,Mountain West,
-Arizona State,1056.294712,Big 12,
-San Diego,1055.216088,Pioneer,
-Prairie View A&M,1054.387166,SWAC,
-Kennesaw State,1053.89716,CUSA,
-Houston,1051.791906,Big 12,
-South Dakota State,1049.29229,MVC,
-UTSA,1047.898055,American,
-LSU,1046.469497,SEC,
-Southern Illinois,1045.943576,MVC,
-Illinois,1045.816555,Big 10,
-Florida International,1045.708465,CUSA,
-Southern Utah,1044.705894,UAC,
-Monmouth,1043.721181,CAA,
-Jacksonville State,1043.448513,CUSA,
-UT Rio Grande Valley,1043.279881,Southland,
-Fresno State,1043.175847,Mountain West,
-Sacred Heart,1043.162284,FCS Independent,
-Texas State,1042.948953,Sun Belt,
-Auburn,1042.623009,SEC,
-East Tennessee State,1042.138175,Southern,
-Boise State,1041.431818,Mountain West,
-Wake Forest,1039.977099,ACC,
-Louisiana Tech,1037.94684,CUSA,
-Mercer,1037.334363,Southern,
-Sacramento State,1036.777196,Big Sky,
-Lafayette,1035.251206,Patriot,
-Miami (OH),1034.795248,MAC,
-Austin Peay,1033.423722,UAC,
-Western Carolina,1031.742663,Southern,
-Western Kentucky,1031.49948,CUSA,
-Wofford,1030.592257,Southern,
-Cincinnati,1028.307433,Big 12,
-Central Michigan,1027.833181,MAC,
-Dartmouth,1026.355879,Ivy League,
-St. Thomas-Minnesota,1025.960886,Pioneer,
-Utah State,1025.255343,Mountain West,
-New Hampshire,1025.158261,CAA,
-Drake,1022.675968,Pioneer,
-Memphis,1022.513956,American,
-West Georgia,1020.149533,UAC,
-North Carolina Central,1019.397017,MEAC,
-Minnesota,1018.807894,Big 10,
-Army,1017.333602,American,
-Stony Brook,1016.931992,CAA,
-South Carolina,1016.168903,SEC,
-Dayton,1015.56933,Pioneer,
-Pennsylvania,1015.394198,Ivy League,
-Nebraska,1014.216359,Big 10,
-Central Connecticut,1013.781549,NEC,
-Troy,1013.687267,Sun Belt,
-Northwestern,1013.075851,Big 10,
-Arkansas State,1010.367649,Sun Belt,
-Maine,1010.331896,CAA,
-Kentucky,1008.752668,SEC,
-Delaware State,1008.303164,MEAC,
-Idaho State,1005.809768,Big Sky,
-Richmond,1005.730194,Patriot,
-Long Island University,1003.546968,NEC,
-California,997.1680981,ACC,
-Southern Miss,996.8534946,Sun Belt,
-William & Mary,995.9935171,CAA,
-Towson,994.6432405,CAA,
-Duquesne,994.1901043,NEC,
-Brown,992.9249151,Ivy League,
-Baylor,992.5787391,Big 12,
-Kansas,991.3728561,Big 12,
-Georgia Southern,991.0095752,Sun Belt,
-Lamar,989.9992574,Southland,
-Florida State,989.5885146,ACC,
-Alcorn State,988.6352273,SWAC,
-Missouri State,987.6002139,CUSA,
-Elon,987.4975747,CAA,
-UT Martin,987.38365,OVC,
-Incarnate Word,986.5240717,Southland,
-Air Force,984.4843344,Mountain West,
-Louisiana,984.2656517,Sun Belt,
-Florida,983.8059216,SEC,
-Northern Arizona,982.4208726,Big Sky,
-Holy Cross,981.7686366,Patriot,
-Delaware,981.4155566,CUSA,
-Lindenwood,979.6096209,OVC,
-Marshall,979.0839672,Sun Belt,
-Rutgers,978.9534444,Big 10,
-Temple,978.520804,American,
-Mississippi State,978.4320771,SEC,
-Eastern Kentucky,975.9234721,UAC,
-Butler,973.9555406,Pioneer,
-Princeton,971.8162436,Ivy League,
-UCF,971.7623348,Big 12,
-Cornell,970.1040003,Ivy League,
-West Virginia,969.4405428,Big 12,
-Colgate,969.1079349,Patriot,
-Coastal Carolina,969.0750384,Sun Belt,
-Bethune-Cookman,968.5449967,SWAC,
-Marist,968.3701774,Pioneer,
-Gardner-Webb,968.3509614,OVC,
-Texas Southern,967.29335,SWAC,
-Liberty,967.0866858,CUSA,
-Wisconsin,967.0299862,Big 10,
-Akron,966.0708127,MAC,
-Michigan State,964.7605546,Big 10,
-Eastern Michigan,964.7326714,MAC,
-Chattanooga,964.1923086,Southern,
-Stanford,961.3659996,ACC,
-Arkansas,959.7402743,SEC,
-Florida Atlantic,957.852647,American,
-Kent State,956.1976198,MAC,
-McNeese,955.4585526,Southland,
-South Alabama,955.1819829,Sun Belt,
-Wagner,953.7414864,NEC,
-App State,953.575539,Sun Belt,
-Grambling,953.5352486,SWAC,
-Buffalo,952.0937529,MAC,
-North Carolina,951.2962917,ACC,
-Idaho,950.0723397,Big Sky,
-Eastern Washington,949.9603173,Big Sky,
-Tulsa,948.7668613,American,
-Charleston Southern,945.062062,OVC,
-Nevada,944.3870101,Mountain West,
-Wyoming,943.5346385,Mountain West,
-Furman,942.8392889,Southern,
-Maryland,942.781367,Big 10,
-UCLA,941.3735966,Big 10,
-Georgetown,940.2249895,Patriot,
-Mercyhurst,939.7442226,NEC,
-Columbia,938.652905,Ivy League,
-Virginia Tech,938.4242132,ACC,
-Nicholls,937.8084779,Southland,
-Rice,937.0013334,American,
-Colorado,936.1508857,Big 12,
-Western Illinois,936.1458207,OVC,
-Middle Tennessee,934.2726559,CUSA,
-Bowling Green,934.271704,MAC,
-The Citadel,934.0047156,Southern,
-UAB,931.8159796,American,
-Southeast Missouri State,931.0326831,OVC,
-Weber State,930.551851,Big Sky,
-Cal Poly,928.7382497,Big Sky,
-Howard,927.7880956,MEAC,
-Central Arkansas,925.3815435,UAC,
-Boston College,924.5644542,ACC,
-Northern Illinois,924.2477728,MAC,
-New Haven,923.1294462,NEC,
-New Mexico State,921.6143949,CUSA,
-Morehead State,921.2800136,Pioneer,
-Stonehill,916.2026655,NEC,
-Bucknell,915.321354,Patriot,
-Florida A&M,913.9100335,SWAC,
-Northern Colorado,912.6919632,Big Sky,
-Northern Iowa,908.4522349,MVC,
-Morgan State,907.8512702,MEAC,
-Merrimack,905.357404,FCS Independent,
-Ball State,905.1974368,MAC,
-Oregon State,905.1570384,PAC 12,
-East Texas A&M,903.6988788,Southland,
-Purdue,897.471037,Big 10,
-San Jose State,896.7104372,Mountain West,
-Robert Morris,892.9039518,NEC,
-Colorado State,892.3836385,Mountain West,
-Campbell,891.2269291,CAA,
-UTEP,891.1689327,CUSA,
-North Alabama,888.8764964,UAC,
-Alabama A&M,885.8654982,SWAC,
-Bryant,885.5334457,CAA,
-UAlbany,884.147042,CAA,
-Eastern Illinois,880.5064982,OVC,
-Indiana State,880.3326804,MVC,
-Syracuse,877.0374409,ACC,
-Tennessee State,874.9314243,OVC,
-UL Monroe,873.6794373,Sun Belt,
-Arkansas-Pine Bluff,866.4145336,SWAC,
-Oklahoma State,865.862454,Big 12,
-Utah Tech,864.3085121,UAC,
-Fordham,857.7299373,Patriot,
-Sam Houston,857.1588076,CUSA,
-Southern,849.0045176,SWAC,
-Stetson,848.5772776,Pioneer,
-Murray State,843.4723511,MVC,
-Hampton,841.9879047,CAA,
-Georgia State,839.4469012,Sun Belt,
-Mississippi Valley State,836.234076,SWAC,
-North Carolina A&T,836.1212544,CAA,
-Charlotte,836.0518593,American,
-Valparaiso,835.4189338,Pioneer,
-Saint Francis,830.3616441,NEC,
-Houston Christian,829.6685117,Southland,
-Norfolk State,827.4745859,MEAC,
-Portland State,821.8106457,Big Sky,
-Samford,819.56927,Southern,
-Davidson,812.6363547,Pioneer,
-VMI,802.7408289,Southern,
-Northwestern State,798.6810017,Southland,
-Massachusetts,785.8751937,MAC,
+Team,Elo,Conference,Notes,RatingUpdated
+Indiana,1234.370763,Big 10,,False
+Texas Tech,1230.566487,Big 12,,False
+Ohio State,1210.307015,Big 10,,False
+Montana State,1201.615875,Big Sky,,False
+Oregon,1199.616659,Big 10,,False
+Notre Dame,1198.827023,FBS Independent,,False
+North Dakota State,1194.174916,MVC,,False
+Georgia,1185.930191,SEC,,False
+Ole Miss,1176.074287,SEC,,False
+Utah,1171.44155,Big 12,,False
+Miami,1161.711286,ACC,,False
+James Madison,1156.284303,Sun Belt,,False
+Vanderbilt,1154.99549,SEC,,False
+Lehigh,1153.426279,Patriot,,False
+Alabama,1152.345861,SEC,,False
+Tarleton State,1152.226116,UAC,,False
+North Texas,1134.035551,American,,False
+BYU,1133.382389,Big 12,,False
+Villanova,1132.427736,CAA,,False
+Washington,1131.491047,Big 10,,False
+Arizona,1123.825515,Big 12,,False
+Texas A&M,1120.381426,SEC,,False
+Montana,1120.263105,Big Sky,,False
+Old Dominion,1119.61617,Sun Belt,,False
+Yale,1114.721145,Ivy League,,False
+USC,1114.482424,Big 10,,False
+Illinois State,1114.19804,MVC,,False
+Texas,1113.047052,SEC,,False
+Oklahoma,1113.04591,SEC,,False
+Western Michigan,1112.206383,MAC,,False
+Toledo,1108.628342,MAC,,False
+South Florida,1108.585752,American,,False
+Stephen F. Austin,1108.22345,Southland,,False
+Alabama State,1105.735508,SWAC,,False
+Tulane,1101.277974,American,,False
+SMU,1099.500294,ACC,,False
+Michigan,1097.394606,Big 10,,False
+Iowa,1096.186013,Big 10,,False
+Clemson,1091.940832,ACC,,False
+Missouri,1087.935025,SEC,,False
+Navy,1086.950564,American,,False
+Tennessee,1085.7004,SEC,,False
+Pittsburgh,1083.126003,ACC,,False
+Duke,1082.797407,ACC,,False
+Harvard,1082.038392,Ivy League,,False
+Presbyterian,1081.112349,Pioneer,,False
+South Dakota,1080.659691,MVC,,False
+UConn,1079.940575,FBS Independent,,False
+San Diego State,1079.704155,Mountain West,,False
+New Mexico,1076.298015,Mountain West,,False
+Rhode Island,1075.554451,CAA,,False
+East Carolina,1075.103024,American,,False
+Louisville,1074.998624,ACC,,False
+South Carolina State,1073.096965,MEAC,,False
+North Dakota,1072.482241,MVC,,False
+Jackson State,1071.928747,SWAC,,False
+NC State,1070.892872,ACC,,False
+Penn State,1068.638224,Big 10,,False
+Iowa State,1067.79884,Big 12,,False
+SE Louisiana,1067.381367,Southland,,False
+UC Davis,1066.354102,Big Sky,,False
+TCU,1064.683258,Big 12,,False
+UNLV,1063.308858,Mountain West,,False
+Abilene Christian,1062.703956,UAC,,False
+Youngstown State,1062.621697,MVC,,False
+Tennessee Tech,1061.181506,OVC,,False
+Kansas State,1060.540098,Big 12,,False
+Washington State,1074.1048271190589,PAC 12,,True
+Ohio,1057.981464,MAC,,False
+Georgia Tech,1057.825421,ACC,,False
+Virginia,1057.125227,ACC,,False
+Hawai'i,1056.35482,Mountain West,,False
+Arizona State,1056.294712,Big 12,,False
+San Diego,1055.216088,Pioneer,,False
+Prairie View A&M,1054.387166,SWAC,,False
+Kennesaw State,1053.89716,CUSA,,False
+Houston,1051.791906,Big 12,,False
+South Dakota State,1049.29229,MVC,,False
+UTSA,1047.898055,American,,False
+LSU,1046.469497,SEC,,False
+Southern Illinois,1045.943576,MVC,,False
+Illinois,1045.816555,Big 10,,False
+Florida International,1045.708465,CUSA,,False
+Southern Utah,1044.705894,UAC,,False
+Monmouth,1043.721181,CAA,,False
+Jacksonville State,1043.448513,CUSA,,False
+UT Rio Grande Valley,1043.279881,Southland,,False
+Fresno State,1043.175847,Mountain West,,False
+Sacred Heart,1043.162284,FCS Independent,,False
+Texas State,1042.948953,Sun Belt,,False
+Auburn,1042.623009,SEC,,False
+East Tennessee State,1042.138175,Southern,,False
+Boise State,1041.431818,Mountain West,,False
+Wake Forest,1039.977099,ACC,,False
+Louisiana Tech,1037.94684,CUSA,,False
+Mercer,1037.334363,Southern,,False
+Sacramento State,1036.777196,Big Sky,,False
+Lafayette,1035.251206,Patriot,,False
+Miami (OH),1034.795248,MAC,,False
+Austin Peay,1033.423722,UAC,,False
+Western Carolina,1031.742663,Southern,,False
+Western Kentucky,1031.49948,CUSA,,False
+Wofford,1030.592257,Southern,,False
+Cincinnati,1028.307433,Big 12,,False
+Central Michigan,1027.833181,MAC,,False
+Dartmouth,1026.355879,Ivy League,,False
+St. Thomas-Minnesota,1025.960886,Pioneer,,False
+Utah State,1010.3685788809412,Mountain West,,True
+New Hampshire,1025.158261,CAA,,False
+Drake,1022.675968,Pioneer,,False
+Memphis,1022.513956,American,,False
+West Georgia,1020.149533,UAC,,False
+North Carolina Central,1019.397017,MEAC,,False
+Minnesota,1018.807894,Big 10,,False
+Army,1017.333602,American,,False
+Stony Brook,1016.931992,CAA,,False
+South Carolina,1016.168903,SEC,,False
+Dayton,1015.56933,Pioneer,,False
+Pennsylvania,1015.394198,Ivy League,,False
+Nebraska,1014.216359,Big 10,,False
+Central Connecticut,1013.781549,NEC,,False
+Troy,1013.687267,Sun Belt,,False
+Northwestern,1013.075851,Big 10,,False
+Arkansas State,1010.367649,Sun Belt,,False
+Maine,1010.331896,CAA,,False
+Kentucky,1008.752668,SEC,,False
+Delaware State,1008.303164,MEAC,,False
+Idaho State,1005.809768,Big Sky,,False
+Richmond,1005.730194,Patriot,,False
+Long Island University,1003.546968,NEC,,False
+California,997.1680981,ACC,,False
+Southern Miss,996.8534946,Sun Belt,,False
+William & Mary,995.9935171,CAA,,False
+Towson,994.6432405,CAA,,False
+Duquesne,994.1901043,NEC,,False
+Brown,992.9249151,Ivy League,,False
+Baylor,992.5787391,Big 12,,False
+Kansas,991.3728561,Big 12,,False
+Georgia Southern,991.0095752,Sun Belt,,False
+Lamar,989.9992574,Southland,,False
+Florida State,989.5885146,ACC,,False
+Alcorn State,988.6352273,SWAC,,False
+Missouri State,987.6002139,CUSA,,False
+Elon,987.4975747,CAA,,False
+UT Martin,987.38365,OVC,,False
+Incarnate Word,986.5240717,Southland,,False
+Air Force,984.4843344,Mountain West,,False
+Louisiana,984.2656517,Sun Belt,,False
+Florida,983.8059216,SEC,,False
+Northern Arizona,982.4208726,Big Sky,,False
+Holy Cross,981.7686366,Patriot,,False
+Delaware,981.4155566,CUSA,,False
+Lindenwood,979.6096209,OVC,,False
+Marshall,979.0839672,Sun Belt,,False
+Rutgers,978.9534444,Big 10,,False
+Temple,978.520804,American,,False
+Mississippi State,978.4320771,SEC,,False
+Eastern Kentucky,975.9234721,UAC,,False
+Butler,973.9555406,Pioneer,,False
+Princeton,971.8162436,Ivy League,,False
+UCF,971.7623348,Big 12,,False
+Cornell,970.1040003,Ivy League,,False
+West Virginia,969.4405428,Big 12,,False
+Colgate,969.1079349,Patriot,,False
+Coastal Carolina,969.0750384,Sun Belt,,False
+Bethune-Cookman,968.5449967,SWAC,,False
+Marist,968.3701774,Pioneer,,False
+Gardner-Webb,968.3509614,OVC,,False
+Texas Southern,967.29335,SWAC,,False
+Liberty,967.0866858,CUSA,,False
+Wisconsin,967.0299862,Big 10,,False
+Akron,966.0708127,MAC,,False
+Michigan State,964.7605546,Big 10,,False
+Eastern Michigan,964.7326714,MAC,,False
+Chattanooga,964.1923086,Southern,,False
+Stanford,961.3659996,ACC,,False
+Arkansas,959.7402743,SEC,,False
+Florida Atlantic,957.852647,American,,False
+Kent State,956.1976198,MAC,,False
+McNeese,955.4585526,Southland,,False
+South Alabama,955.1819829,Sun Belt,,False
+Wagner,953.7414864,NEC,,False
+App State,953.575539,Sun Belt,,False
+Grambling,953.5352486,SWAC,,False
+Buffalo,952.0937529,MAC,,False
+North Carolina,951.2962917,ACC,,False
+Idaho,950.0723397,Big Sky,,False
+Eastern Washington,949.9603173,Big Sky,,False
+Tulsa,948.7668613,American,,False
+Charleston Southern,945.062062,OVC,,False
+Nevada,944.3870101,Mountain West,,False
+Wyoming,943.5346385,Mountain West,,False
+Furman,942.8392889,Southern,,False
+Maryland,942.781367,Big 10,,False
+UCLA,941.3735966,Big 10,,False
+Georgetown,940.2249895,Patriot,,False
+Mercyhurst,939.7442226,NEC,,False
+Columbia,938.652905,Ivy League,,False
+Virginia Tech,938.4242132,ACC,,False
+Nicholls,937.8084779,Southland,,False
+Rice,937.0013334,American,,False
+Colorado,936.1508857,Big 12,,False
+Western Illinois,936.1458207,OVC,,False
+Middle Tennessee,934.2726559,CUSA,,False
+Bowling Green,934.271704,MAC,,False
+The Citadel,934.0047156,Southern,,False
+UAB,931.8159796,American,,False
+Southeast Missouri State,931.0326831,OVC,,False
+Weber State,930.551851,Big Sky,,False
+Cal Poly,928.7382497,Big Sky,,False
+Howard,927.7880956,MEAC,,False
+Central Arkansas,925.3815435,UAC,,False
+Boston College,924.5644542,ACC,,False
+Northern Illinois,924.2477728,MAC,,False
+New Haven,923.1294462,NEC,,False
+New Mexico State,921.6143949,CUSA,,False
+Morehead State,921.2800136,Pioneer,,False
+Stonehill,916.2026655,NEC,,False
+Bucknell,915.321354,Patriot,,False
+Florida A&M,913.9100335,SWAC,,False
+Northern Colorado,912.6919632,Big Sky,,False
+Northern Iowa,908.4522349,MVC,,False
+Morgan State,907.8512702,MEAC,,False
+Merrimack,905.357404,FCS Independent,,False
+Ball State,905.1974368,MAC,,False
+Oregon State,905.1570384,PAC 12,,False
+East Texas A&M,903.6988788,Southland,,False
+Purdue,897.471037,Big 10,,False
+San Jose State,896.7104372,Mountain West,,False
+Robert Morris,892.9039518,NEC,,False
+Colorado State,892.3836385,Mountain West,,False
+Campbell,891.2269291,CAA,,False
+UTEP,891.1689327,CUSA,,False
+North Alabama,888.8764964,UAC,,False
+Alabama A&M,885.8654982,SWAC,,False
+Bryant,885.5334457,CAA,,False
+UAlbany,884.147042,CAA,,False
+Eastern Illinois,880.5064982,OVC,,False
+Indiana State,880.3326804,MVC,,False
+Syracuse,877.0374409,ACC,,False
+Tennessee State,874.9314243,OVC,,False
+UL Monroe,873.6794373,Sun Belt,,False
+Arkansas-Pine Bluff,866.4145336,SWAC,,False
+Oklahoma State,865.862454,Big 12,,False
+Utah Tech,864.3085121,UAC,,False
+Fordham,857.7299373,Patriot,,False
+Sam Houston,857.1588076,CUSA,,False
+Southern,849.0045176,SWAC,,False
+Stetson,848.5772776,Pioneer,,False
+Murray State,843.4723511,MVC,,False
+Hampton,841.9879047,CAA,,False
+Georgia State,839.4469012,Sun Belt,,False
+Mississippi Valley State,836.234076,SWAC,,False
+North Carolina A&T,836.1212544,CAA,,False
+Charlotte,836.0518593,American,,False
+Valparaiso,835.4189338,Pioneer,,False
+Saint Francis,830.3616441,NEC,,False
+Houston Christian,829.6685117,Southland,,False
+Norfolk State,827.4745859,MEAC,,False
+Portland State,821.8106457,Big Sky,,False
+Samford,819.56927,Southern,,False
+Davidson,812.6363547,Pioneer,,False
+VMI,802.7408289,Southern,,False
+Northwestern State,798.6810017,Southland,,False
+Massachusetts,785.8751937,MAC,,False
