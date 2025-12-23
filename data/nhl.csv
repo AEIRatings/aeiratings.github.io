@@ -1,4 +1,4 @@
-Team,Elo,Points,Division,Notes,RatingUpdated
+Team,Elo,Division,Notes,RatingUpdated
 Florida Panthers,999.2417455041948,E Atlantic,,False
 Boston Bruins,987.545458681648,E Atlantic,,False
 Montreal Canadiens,1000.6391061782012,E Atlantic,,False
@@ -31,4 +31,5 @@ Anaheim Ducks,968.2376227097637,W Pacific,,True
 San Jose Sharks,995.344746271996,W Pacific,,False
 Los Angeles Kings,991.6596570433993,W Pacific,,True
 Calgary Flames,1015.2538059488404,W Pacific,,False
+
 
