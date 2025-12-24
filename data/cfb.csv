@@ -29,7 +29,7 @@ Illinois State,1114.19804,MVC,,False
 Texas,1113.047052,SEC,,False
 Oklahoma,1113.04591,SEC,,False
 Western Michigan,1112.206383,MAC,,False
-Toledo,1108.628342,MAC,,False
+Toledo,1091.8062686582155,MAC,,True
 South Florida,1108.585752,American,,False
 Stephen F. Austin,1108.22345,Southland,,False
 Alabama State,1105.735508,SWAC,,False
@@ -51,7 +51,7 @@ San Diego State,1079.704155,Mountain West,,False
 New Mexico,1076.298015,Mountain West,,False
 Rhode Island,1075.554451,CAA,,False
 East Carolina,1075.103024,American,,False
-Louisville,1074.998624,ACC,,False
+Louisville,1091.8206973417846,ACC,,True
 South Carolina State,1073.096965,MEAC,,False
 North Dakota,1072.482241,MVC,,False
 Jackson State,1071.928747,SWAC,,False
@@ -66,7 +66,7 @@ Abilene Christian,1062.703956,UAC,,False
 Youngstown State,1062.621697,MVC,,False
 Tennessee Tech,1061.181506,OVC,,False
 Kansas State,1060.540098,Big 12,,False
-Washington State,1074.1048271190589,PAC 12,,True
+Washington State,1074.1048271190589,PAC 12,,False
 Ohio,1057.981464,MAC,,False
 Georgia Tech,1057.825421,ACC,,False
 Virginia,1057.125227,ACC,,False
@@ -100,13 +100,13 @@ Lafayette,1035.251206,Patriot,,False
 Miami (OH),1034.795248,MAC,,False
 Austin Peay,1033.423722,UAC,,False
 Western Carolina,1031.742663,Southern,,False
-Western Kentucky,1031.49948,CUSA,,False
+Western Kentucky,1045.2698555995878,CUSA,,True
 Wofford,1030.592257,Southern,,False
 Cincinnati,1028.307433,Big 12,,False
 Central Michigan,1027.833181,MAC,,False
 Dartmouth,1026.355879,Ivy League,,False
 St. Thomas-Minnesota,1025.960886,Pioneer,,False
-Utah State,1010.3685788809412,Mountain West,,True
+Utah State,1010.3685788809412,Mountain West,,False
 New Hampshire,1025.158261,CAA,,False
 Drake,1022.675968,Pioneer,,False
 Memphis,1022.513956,American,,False
@@ -130,7 +130,7 @@ Idaho State,1005.809768,Big Sky,,False
 Richmond,1005.730194,Patriot,,False
 Long Island University,1003.546968,NEC,,False
 California,997.1680981,ACC,,False
-Southern Miss,996.8534946,Sun Belt,,False
+Southern Miss,983.0831190004121,Sun Belt,,True
 William & Mary,995.9935171,CAA,,False
 Towson,994.6432405,CAA,,False
 Duquesne,994.1901043,NEC,,False
