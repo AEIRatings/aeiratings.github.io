@@ -61,16 +61,16 @@ Iowa State,1067.79884,Big 12,,False
 SE Louisiana,1067.381367,Southland,,False
 UC Davis,1066.354102,Big Sky,,False
 TCU,1064.683258,Big 12,,False
-UNLV,1047.22319667747,Mountain West,,True
+UNLV,1047.22319667747,Mountain West,,False
 Abilene Christian,1062.703956,UAC,,False
 Youngstown State,1062.621697,MVC,,False
 Tennessee Tech,1061.181506,OVC,,False
 Kansas State,1060.540098,Big 12,,False
 Washington State,1074.1048271190589,PAC 12,,False
-Ohio,1074.06712532253,MAC,,True
+Ohio,1074.06712532253,MAC,,False
 Georgia Tech,1057.825421,ACC,,False
 Virginia,1057.125227,ACC,,False
-Hawai'i,1056.35482,Mountain West,,False
+Hawai'i,1061.5870981405906,Mountain West,,True
 Arizona State,1056.294712,Big 12,,False
 San Diego,1055.216088,Pioneer,,False
 Prairie View A&M,1054.387166,SWAC,,False
@@ -129,7 +129,7 @@ Delaware State,1008.303164,MEAC,,False
 Idaho State,1005.809768,Big Sky,,False
 Richmond,1005.730194,Patriot,,False
 Long Island University,1003.546968,NEC,,False
-California,997.1680981,ACC,,False
+California,991.9358199594093,ACC,,True
 Southern Miss,983.083119000412,Sun Belt,,False
 William & Mary,995.9935171,CAA,,False
 Towson,994.6432405,CAA,,False
