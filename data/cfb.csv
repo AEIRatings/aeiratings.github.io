@@ -48,7 +48,7 @@ Presbyterian,1081.112349,Pioneer,,False
 South Dakota,1080.659691,MVC,,False
 UConn,1079.940575,FBS Independent,,False
 San Diego State,1079.704155,Mountain West,,False
-New Mexico,1076.298015,Mountain West,,False
+New Mexico,1061.6566196575243,Mountain West,,True
 Rhode Island,1075.554451,CAA,,False
 East Carolina,1075.103024,American,,False
 Louisville,1091.8206973417846,ACC,,False
@@ -70,7 +70,7 @@ Washington State,1074.1048271190589,PAC 12,,False
 Ohio,1074.06712532253,MAC,,False
 Georgia Tech,1057.825421,ACC,,False
 Virginia,1057.125227,ACC,,False
-Hawai'i,1061.5870981405906,Mountain West,,True
+Hawai'i,1061.5870981405906,Mountain West,,False
 Arizona State,1056.294712,Big 12,,False
 San Diego,1055.216088,Pioneer,,False
 Prairie View A&M,1054.387166,SWAC,,False
@@ -103,7 +103,7 @@ Western Carolina,1031.742663,Southern,,False
 Western Kentucky,1045.2698555995878,CUSA,,False
 Wofford,1030.592257,Southern,,False
 Cincinnati,1028.307433,Big 12,,False
-Central Michigan,1027.833181,MAC,,False
+Central Michigan,997.9889213891109,MAC,,True
 Dartmouth,1026.355879,Ivy League,,False
 St. Thomas-Minnesota,1025.960886,Pioneer,,False
 Utah State,1010.3685788809412,Mountain West,,False
@@ -112,7 +112,7 @@ Drake,1022.675968,Pioneer,,False
 Memphis,1022.513956,American,,False
 West Georgia,1020.149533,UAC,,False
 North Carolina Central,1019.397017,MEAC,,False
-Minnesota,1018.807894,Big 10,,False
+Minnesota,1033.4492893424758,Big 10,,True
 Army,1017.333602,American,,False
 Stony Brook,1016.931992,CAA,,False
 South Carolina,1016.168903,SEC,,False
@@ -121,7 +121,7 @@ Pennsylvania,1015.394198,Ivy League,,False
 Nebraska,1014.216359,Big 10,,False
 Central Connecticut,1013.781549,NEC,,False
 Troy,1013.687267,Sun Belt,,False
-Northwestern,1013.075851,Big 10,,False
+Northwestern,1042.920110610889,Big 10,,True
 Arkansas State,1010.367649,Sun Belt,,False
 Maine,1010.331896,CAA,,False
 Kentucky,1008.752668,SEC,,False
@@ -129,7 +129,7 @@ Delaware State,1008.303164,MEAC,,False
 Idaho State,1005.809768,Big Sky,,False
 Richmond,1005.730194,Patriot,,False
 Long Island University,1003.546968,NEC,,False
-California,991.9358199594093,ACC,,True
+California,991.9358199594092,ACC,,False
 Southern Miss,983.083119000412,Sun Belt,,False
 William & Mary,995.9935171,CAA,,False
 Towson,994.6432405,CAA,,False
