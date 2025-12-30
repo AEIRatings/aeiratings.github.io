@@ -38,7 +38,7 @@ SMU,1099.500294,ACC,,False
 Michigan,1097.394606,Big 10,,False
 Iowa,1096.186013,Big 10,,False
 Clemson,1067.7704298405154,ACC,,False
-Missouri,1067.9524655211449,SEC,,True
+Missouri,1067.9524655211449,SEC,,False
 Navy,1086.950564,American,,False
 Tennessee,1085.7004,SEC,,False
 Pittsburgh,1067.5374544138726,ACC,,False
@@ -69,16 +69,16 @@ Kansas State,1060.540098,Big 12,,False
 Washington State,1074.1048271190589,PAC 12,,False
 Ohio,1074.06712532253,MAC,,False
 Georgia Tech,1053.3971392732878,ACC,,False
-Virginia,1077.1077864788551,ACC,,True
+Virginia,1077.1077864788551,ACC,,False
 Hawai'i,1061.5870981405906,Mountain West,,False
 Arizona State,1056.294712,Big 12,,False
 San Diego,1055.216088,Pioneer,,False
 Prairie View A&M,1054.387166,SWAC,,False
 Kennesaw State,1053.89716,CUSA,,False
-Houston,1058.8626551183202,Big 12,,True
+Houston,1058.8626551183202,Big 12,,False
 South Dakota State,1049.29229,MVC,,False
 UTSA,1076.9747646368814,American,,False
-LSU,1039.3987478816798,SEC,,True
+LSU,1039.3987478816798,SEC,,False
 Southern Illinois,1045.943576,MVC,,False
 Illinois,1045.816555,Big 10,,False
 Florida International,1016.6317553631188,CUSA,,False
@@ -137,7 +137,7 @@ Duquesne,994.1901043,NEC,,False
 Brown,992.9249151,Ivy League,,False
 Baylor,992.5787391,Big 12,,False
 Kansas,991.3728561,Big 12,,False
-Georgia Southern,991.0095752,Sun Belt,,False
+Georgia Southern,1008.8828348603203,Sun Belt,,True
 Lamar,989.9992574,Southland,,False
 Florida State,989.5885146,ACC,,False
 Alcorn State,988.6352273,SWAC,,False
@@ -181,7 +181,7 @@ Kent State,956.1976198,MAC,,False
 McNeese,955.4585526,Southland,,False
 South Alabama,955.1819829,Sun Belt,,False
 Wagner,953.7414864,NEC,,False
-App State,953.575539,Sun Belt,,False
+App State,935.7022793396798,Sun Belt,,True
 Grambling,953.5352486,SWAC,,False
 Buffalo,952.0937529,MAC,,False
 North Carolina,951.2962917,ACC,,False
