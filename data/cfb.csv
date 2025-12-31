@@ -40,7 +40,7 @@ Iowa,1096.186013,Big 10,,False
 Clemson,1067.7704298405154,ACC,,False
 Missouri,1067.9524655211449,SEC,,False
 Navy,1086.950564,American,,False
-Tennessee,1085.7004,SEC,,False
+Tennessee,1074.3645430152562,SEC,,True
 Pittsburgh,1067.5374544138726,ACC,,False
 Duke,1082.797407,ACC,,False
 Harvard,1082.038392,Ivy League,,False
@@ -80,7 +80,7 @@ South Dakota State,1049.29229,MVC,,False
 UTSA,1076.9747646368814,American,,False
 LSU,1039.3987478816798,SEC,,False
 Southern Illinois,1045.943576,MVC,,False
-Illinois,1045.816555,Big 10,,False
+Illinois,1057.1524119847438,Big 10,,True
 Florida International,1016.6317553631188,CUSA,,False
 Southern Utah,1044.705894,UAC,,False
 Monmouth,1043.721181,CAA,,False
@@ -93,7 +93,7 @@ Auburn,1042.623009,SEC,,False
 East Tennessee State,1042.138175,Southern,,False
 Boise State,1041.431818,Mountain West,,False
 Wake Forest,1039.977099,ACC,,False
-Louisiana Tech,1037.94684,CUSA,,False
+Louisiana Tech,1047.6229098605893,CUSA,,True
 Mercer,1037.334363,Southern,,False
 Sacramento State,1036.777196,Big Sky,,False
 Lafayette,1035.251206,Patriot,,False
@@ -137,7 +137,7 @@ Duquesne,994.1901043,NEC,,False
 Brown,992.9249151,Ivy League,,False
 Baylor,992.5787391,Big 12,,False
 Kansas,991.3728561,Big 12,,False
-Georgia Southern,1008.8828348603203,Sun Belt,,True
+Georgia Southern,1008.8828348603204,Sun Belt,,False
 Lamar,989.9992574,Southland,,False
 Florida State,989.5885146,ACC,,False
 Alcorn State,988.6352273,SWAC,,False
@@ -163,7 +163,7 @@ UCF,971.7623348,Big 12,,False
 Cornell,970.1040003,Ivy League,,False
 West Virginia,969.4405428,Big 12,,False
 Colgate,969.1079349,Patriot,,False
-Coastal Carolina,969.0750384,Sun Belt,,False
+Coastal Carolina,959.3989685394108,Sun Belt,,True
 Bethune-Cookman,968.5449967,SWAC,,False
 Marist,968.3701774,Pioneer,,False
 Gardner-Webb,968.3509614,OVC,,False
@@ -181,7 +181,7 @@ Kent State,956.1976198,MAC,,False
 McNeese,955.4585526,Southland,,False
 South Alabama,955.1819829,Sun Belt,,False
 Wagner,953.7414864,NEC,,False
-App State,935.7022793396798,Sun Belt,,True
+App State,935.7022793396798,Sun Belt,,False
 Grambling,953.5352486,SWAC,,False
 Buffalo,952.0937529,MAC,,False
 North Carolina,951.2962917,ACC,,False
