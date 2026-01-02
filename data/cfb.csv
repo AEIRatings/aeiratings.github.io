@@ -1,19 +1,19 @@
 Team,Elo,Conference,Notes,RatingUpdated
-Indiana,1234.370763,Big 10,,False
-Texas Tech,1230.566487,Big 12,,False
-Ohio State,1210.307015,Big 10,,False
+Indiana,1253.9610716009415,Big 10,,True
+Texas Tech,1198.9948756853491,Big 12,,True
+Ohio State,1185.0646952434245,Big 10,,True
 Montana State,1201.615875,Big Sky,,False
-Oregon,1199.616659,Big 10,,False
+Oregon,1231.188270314651,Big 10,,True
 Notre Dame,1198.827023,FBS Independent,,False
 North Dakota State,1194.174916,MVC,,False
 Georgia,1185.930191,SEC,,False
 Ole Miss,1176.074287,SEC,,False
-Utah,1184.0833574865217,Big 12,,True
-Miami,1161.711286,ACC,,False
+Utah,1184.0833574865217,Big 12,,False
+Miami,1186.9536057565756,ACC,,True
 James Madison,1156.284303,Sun Belt,,False
-Vanderbilt,1131.88480480045,SEC,,True
+Vanderbilt,1131.88480480045,SEC,,False
 Lehigh,1153.426279,Patriot,,False
-Alabama,1152.345861,SEC,,False
+Alabama,1132.7555523990584,SEC,,True
 Tarleton State,1152.226116,UAC,,False
 North Texas,1138.841589989657,American,,False
 BYU,1137.8106707267125,Big 12,,False
@@ -24,9 +24,9 @@ Texas A&M,1120.381426,SEC,,False
 Montana,1120.263105,Big Sky,,False
 Old Dominion,1119.61617,Sun Belt,,False
 Yale,1114.721145,Ivy League,,False
-USC,1100.0549026511587,Big 10,,True
+USC,1100.0549026511587,Big 10,,False
 Illinois State,1114.19804,MVC,,False
-Texas,1128.9462467449837,SEC,,True
+Texas,1128.9462467449837,SEC,,False
 Oklahoma,1113.04591,SEC,,False
 Western Michigan,1112.206383,MAC,,False
 Toledo,1091.8062686582157,MAC,,False
@@ -35,14 +35,14 @@ Stephen F. Austin,1108.22345,Southland,,False
 Alabama State,1105.735508,SWAC,,False
 Tulane,1101.277974,American,,False
 SMU,1099.500294,ACC,,False
-Michigan,1081.4954112550163,Big 10,,True
-Iowa,1119.29669819955,Big 10,,True
+Michigan,1081.4954112550165,Big 10,,False
+Iowa,1119.29669819955,Big 10,,False
 Clemson,1067.7704298405154,ACC,,False
 Missouri,1067.9524655211449,SEC,,False
 Navy,1086.950564,American,,False
 Tennessee,1074.3645430152562,SEC,,False
 Pittsburgh,1067.5374544138726,ACC,,False
-Duke,1087.744907332526,ACC,,True
+Duke,1087.744907332526,ACC,,False
 Harvard,1082.038392,Ivy League,,False
 Presbyterian,1081.112349,Pioneer,,False
 South Dakota,1080.659691,MVC,,False
@@ -60,7 +60,7 @@ Penn State,1092.808626159485,Big 10,,False
 Iowa State,1067.79884,Big 12,,False
 SE Louisiana,1067.381367,Southland,,False
 UC Davis,1066.354102,Big Sky,,False
-TCU,1079.1107793488413,Big 12,,True
+TCU,1079.110779348841,Big 12,,False
 UNLV,1047.22319667747,Mountain West,,False
 Abilene Christian,1062.703956,UAC,,False
 Youngstown State,1062.621697,MVC,,False
@@ -71,7 +71,7 @@ Ohio,1074.06712532253,MAC,,False
 Georgia Tech,1053.3971392732878,ACC,,False
 Virginia,1077.1077864788551,ACC,,False
 Hawai'i,1061.5870981405906,Mountain West,,False
-Arizona State,1051.3472116674739,Big 12,,True
+Arizona State,1051.347211667474,Big 12,,False
 San Diego,1055.216088,Pioneer,,False
 Prairie View A&M,1054.387166,SWAC,,False
 Kennesaw State,1053.89716,CUSA,,False
@@ -118,7 +118,7 @@ Stony Brook,1016.931992,CAA,,False
 South Carolina,1016.168903,SEC,,False
 Dayton,1015.56933,Pioneer,,False
 Pennsylvania,1015.394198,Ivy League,,False
-Nebraska,1001.5745515134784,Big 10,,True
+Nebraska,1001.5745515134784,Big 10,,False
 Central Connecticut,1013.781549,NEC,,False
 Troy,1013.687267,Sun Belt,,False
 Northwestern,1042.920110610889,Big 10,,False
