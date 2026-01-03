@@ -1,19 +1,19 @@
 Team,Elo,Conference,Notes,RatingUpdated
-Indiana,1253.9610716009415,Big 10,,True
-Texas Tech,1198.9948756853491,Big 12,,True
-Ohio State,1185.0646952434245,Big 10,,True
+Indiana,1253.9610716009415,Big 10,,False
+Texas Tech,1198.9948756853491,Big 12,,False
+Ohio State,1185.0646952434245,Big 10,,False
 Montana State,1201.615875,Big Sky,,False
-Oregon,1231.188270314651,Big 10,,True
+Oregon,1231.188270314651,Big 10,,False
 Notre Dame,1198.827023,FBS Independent,,False
 North Dakota State,1194.174916,MVC,,False
-Georgia,1185.930191,SEC,,False
-Ole Miss,1176.074287,SEC,,False
+Georgia,1168.7112739081558,SEC,,True
+Ole Miss,1193.293204091844,SEC,,True
 Utah,1184.0833574865217,Big 12,,False
-Miami,1186.9536057565756,ACC,,True
+Miami,1186.9536057565756,ACC,,False
 James Madison,1156.284303,Sun Belt,,False
 Vanderbilt,1131.88480480045,SEC,,False
 Lehigh,1153.426279,Patriot,,False
-Alabama,1132.7555523990584,SEC,,True
+Alabama,1132.7555523990584,SEC,,False
 Tarleton State,1152.226116,UAC,,False
 North Texas,1138.841589989657,American,,False
 BYU,1137.8106707267125,Big 12,,False
@@ -39,7 +39,7 @@ Michigan,1081.4954112550165,Big 10,,False
 Iowa,1119.29669819955,Big 10,,False
 Clemson,1067.7704298405154,ACC,,False
 Missouri,1067.9524655211449,SEC,,False
-Navy,1086.950564,American,,False
+Navy,1104.2818197278207,American,,True
 Tennessee,1074.3645430152562,SEC,,False
 Pittsburgh,1067.5374544138726,ACC,,False
 Duke,1087.744907332526,ACC,,False
@@ -88,7 +88,7 @@ Jacksonville State,1043.448513,CUSA,,False
 UT Rio Grande Valley,1043.279881,Southland,,False
 Fresno State,1060.8146468849968,Mountain West,,False
 Sacred Heart,1043.162284,FCS Independent,,False
-Texas State,1042.948953,Sun Belt,,False
+Texas State,1060.988976697165,Sun Belt,,True
 Auburn,1042.623009,SEC,,False
 East Tennessee State,1042.138175,Southern,,False
 Boise State,1041.431818,Mountain West,,False
@@ -102,7 +102,7 @@ Austin Peay,1033.423722,UAC,,False
 Western Carolina,1031.742663,Southern,,False
 Western Kentucky,1045.2698555995878,CUSA,,False
 Wofford,1030.592257,Southern,,False
-Cincinnati,1028.307433,Big 12,,False
+Cincinnati,1010.9761772721793,Big 12,,True
 Central Michigan,997.9889213891108,MAC,,False
 Dartmouth,1026.355879,Ivy League,,False
 St. Thomas-Minnesota,1025.960886,Pioneer,,False
@@ -199,7 +199,7 @@ Mercyhurst,939.7442226,NEC,,False
 Columbia,938.652905,Ivy League,,False
 Virginia Tech,938.4242132,ACC,,False
 Nicholls,937.8084779,Southland,,False
-Rice,937.0013334,American,,False
+Rice,918.9613097028351,American,,True
 Colorado,936.1508857,Big 12,,False
 Western Illinois,936.1458207,OVC,,False
 Middle Tennessee,934.2726559,CUSA,,False
