@@ -22,22 +22,24 @@
     </main>
   </div>
 
-  <script>
-    // --- Helper functions for CSV parsing and logo paths (copied and modified from script.js) ---
+ <script>
+    // --- Helper functions ---
     
-    /**
-     * Parses a CSV string into an array of JavaScript objects.
-     * Assumes the first row contains headers.
-     * @param {string} csvString The raw content of a CSV file.
-     * @returns {Array<Object>} An array of objects representing the CSV data.
-     */
+    // Logic translated from percentage.py
+    function calculateWinProbability(roadElo, homeElo) {
+        if (roadElo === 'N/A' || homeElo === 'N/A') return 'vs';
+        const rElo = parseFloat(roadElo);
+        const hElo = parseFloat(homeElo);
+        // Python: 1 / (1 + 10 ** ((HElo - AElo) / 400))
+        const probability = 1 / (1 + Math.pow(10, (hElo - rElo) / 400));
+        return (probability * 100).toFixed(1) + '%';
+    }
+
     function parseCSV(csvString) {
         const lines = csvString.trim().split('\n');
         if (lines.length === 0) return [];
-
         const headers = lines[0].split(',').map(h => h.trim());
         const data = [];
-
         for (let i = 1; i < lines.length; i++) {
             const values = lines[i].split(',');
             if (values.length === headers.length) {
@@ -52,115 +54,85 @@
     }
 
     function normalizeTeamName(teamName) {
-      // Convert to lowercase, replace spaces with underscores, and remove non-alphanumeric/underscore characters
       return teamName.toLowerCase().trim().replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, '')
     }
 
     function getLogoPath(teamName, league) {
       if (!teamName || !league) return ''
       const normalizedName = normalizeTeamName(teamName)
-      // Constructs the path: /logos/{league}/{normalized_team_name}.png
       return `/logos/${league}/${normalizedName}.png`
     }
-    // --- End Helper functions ---
 
-
-    /**
-     * Main function to fetch data and generate the schedule.
-     */
     async function generateSchedule() {
         const scheduleElement = document.getElementById('schedule');
         const leagueId = document.querySelector('main').getAttribute('data-league');
         
         try {
-            // 1. Fetch NFL Elo Ratings (nfl.csv)
             const eloResponse = await fetch('../data/nfl.csv');
-            if (!eloResponse.ok) {
-                throw new Error(`Failed to load nfl.csv: ${eloResponse.statusText}`);
-            }
             const nflCsvText = await eloResponse.text();
             const nflRatings = parseCSV(nflCsvText);
 
-            // Create a map of Team to Elo for quick lookup
             const eloMap = {};
             nflRatings.forEach(teamData => {
-                // Round Elo to two decimal places for cleaner display
                 const elo = parseFloat(teamData.Elo).toFixed(2);
                 eloMap[teamData.Team] = elo;
             });
 
-            // 2. Fetch Game Schedule (nfl_games.csv)
             const gamesResponse = await fetch('../data/nfl_games.csv');
-            if (!gamesResponse.ok) {
-                throw new Error(`Failed to load nfl_games.csv: ${gamesResponse.statusText}`); 
-            }
             const gamesCsvText = await gamesResponse.text();
             const games = parseCSV(gamesCsvText);
 
-            // 3. Group games by date
             const gamesByDate = games.reduce((acc, game) => {
                 const date = game.date;
-                if (!acc[date]) {
-                    acc[date] = [];
-                }
+                if (!acc[date]) acc[date] = [];
                 acc[date].push(game);
                 return acc;
             }, {});
 
-            // 4. Generate HTML
             let html = '';
             for (const date in gamesByDate) {
-                // Use .game-day for outer container
-                html += `<div class="game-day">`;
-                // Use h3 for date header to keep h1/h2 hierarchy clean
-                html += `<h3>${date}</h3>`;
+                html += `<div class="game-day"><h3>${date}</h3>`;
                 
                 gamesByDate[date].forEach(game => {
                     const homeTeam = game['home team'];
                     const roadTeam = game['road team'];
-                    
-                    // Look up Elo ratings, defaulting to 'N/A' if not found
                     const homeElo = eloMap[homeTeam] || 'N/A';
                     const roadElo = eloMap[roadTeam] || 'N/A';
+
+                    // Calculate win probability for the road team using the python logic
+                    const winProb = calculateWinProbability(roadElo, homeElo);
 
                     const roadLogoPath = getLogoPath(roadTeam, leagueId);
                     const homeLogoPath = getLogoPath(homeTeam, leagueId);
                     
-                    // Use new structure with .game, .team-cell, and .elo for consistent styling
                     html += `
                         <div class="game">
                             <span class="team-cell">
-                                <img src="${roadLogoPath}" alt="${roadTeam} Logo" class="team-logo" onerror="this.style.display='none'">
+                                <img src="${roadLogoPath}" alt="${roadTeam} Logo" class="team-logo">
                                 <span class="team-name-text">${roadTeam}</span>
                                 <span class="elo">(${roadElo})</span>
                             </span>
-                            <span class="at-separator">@</span>
+                            <span class="at-separator" style="min-width: 60px; text-align: center;">${winProb}</span>
                             <span class="team-cell home-team">
-                                <img src="${homeLogoPath}" alt="${homeTeam} Logo" class="team-logo" onerror="this.style.display='none'">
+                                <img src="${homeLogoPath}" alt="${homeTeam} Logo" class="team-logo">
                                 <span class="team-name-text">${homeTeam}</span>
                                 <span class="elo">(${homeElo})</span>
                             </span>
                         </div>
                     `;
                 });
-                
                 html += `</div>`;
             }
-
-            // 5. Insert generated HTML into the page
             scheduleElement.classList.remove('loading');
             scheduleElement.innerHTML = html;
-
         } catch (error) {
             console.error("Error loading data:", error);
-            scheduleElement.innerHTML = `<p style="color: red;">Error: Could not load data files (nfl.csv or nfl_games.csv). Please ensure the files are available in the correct location.</p>`;
-            scheduleElement.classList.remove('loading');
+            scheduleElement.innerHTML = `<p>Error loading schedule data.</p>`;
         }
     }
 
-    // Run the function to generate the schedule on page load
     generateSchedule();
   </script>
-
+  
 </body>
 </html>
