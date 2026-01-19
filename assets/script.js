@@ -38,45 +38,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     return FBS_CONFERENCES.includes(conference)
   }
 
-  async function loadNFLStats() {
-    try {
-        // Updated path to point correctly to the CSV file
-        const response = await fetch('/stats/nflstats.xlsx');
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.text();
-        
-        // Split by line and filter out empty rows or those starting with //
-        const rows = data.split(/\r?\n/).filter(row => row.trim() !== '' && !row.startsWith('//'));
-        
-        const tbody = document.getElementById('stats-body');
-        if (!tbody) return; // Ensure element exists
-
-        // Clear existing rows (optional, but good practice)
-        tbody.innerHTML = '';
-        
-        // Skip header row and iterate through data
-        for (let i = 1; i < rows.length; i++) {
-            const cols = rows[i].split(',');
-            const tr = document.createElement('tr');
-            
-            cols.forEach(col => {
-                const td = document.createElement('td');
-                td.textContent = col.trim();
-                tr.appendChild(td);
-            });
-            
-            tbody.appendChild(tr);
-        }
-    } catch (error) {
-        console.error('Error loading statistics:', error);
-    }
-}
-
-document.addEventListener('DOMContentLoaded', loadNFLStats);
 
   const LEAGUES = {
     'nfl': { name: 'NFL', file: 'nfl.csv', id: 'top-5-nfl' },
@@ -465,6 +426,7 @@ document.addEventListener('DOMContentLoaded', loadNFLStats);
   }
 
 })
+
 
 
 
