@@ -40,11 +40,23 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   async function loadNFLStats() {
     try {
+        // Updated path to point correctly to the CSV file
         const response = await fetch('/stats/nflstats.xlsx');
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
         const data = await response.text();
-        const rows = data.split('\n').filter(row => row.trim() !== '' && !row.startsWith('//'));
+        
+        // Split by line and filter out empty rows or those starting with //
+        const rows = data.split(/\r?\n/).filter(row => row.trim() !== '' && !row.startsWith('//'));
         
         const tbody = document.getElementById('stats-body');
+        if (!tbody) return; // Ensure element exists
+
+        // Clear existing rows (optional, but good practice)
+        tbody.innerHTML = '';
         
         // Skip header row and iterate through data
         for (let i = 1; i < rows.length; i++) {
@@ -53,8 +65,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             
             cols.forEach(col => {
                 const td = document.createElement('td');
-                // Clean up formatting for the "Total" and "Comparative" rows
-                td.textContent = col.trim().replace('', '');
+                td.textContent = col.trim();
                 tr.appendChild(td);
             });
             
@@ -454,5 +465,6 @@ document.addEventListener('DOMContentLoaded', loadNFLStats);
   }
 
 })
+
 
 
