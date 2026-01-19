@@ -250,37 +250,44 @@ th{font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5
 
 /* --- END NEW STYLES FOR NFL GAMES PAGE TWO-COLUMN GAME LAYOUT --- */
 
-/* Mobile Layout Fix for Prediction Pages */
+/* --- WCBB Predictions: Mobile Layout Fix --- */
 @media (max-width: 600px) {
-    /* 1. Target the Home Team (Left Side) */
-    /* This selects the first div inside the row */
-    #schedule-container > div > div:nth-child(1) {
-        flex-direction: column !important; /* Stack vertically */
-        text-align: center !important;     /* Center text */
-        margin-right: 5px !important;      /* Small gap from center */
-    }
 
-    /* 2. Target the Road Team (Right Side) */
-    /* This selects the third div inside the row */
-    #schedule-container > div > div:nth-child(3) {
-        /* Use column-reverse because the HTML order is Elo -> Name -> Logo.
-           Reversing it makes it Logo (top) -> Name -> Elo (bottom) */
-        flex-direction: column-reverse !important; 
-        text-align: center !important;
-        margin-left: 5px !important;
-    }
+  /* Make the whole game row tighter but still horizontal */
+  .game {
+    align-items: flex-start;
+  }
 
-    /* 3. Reset margins on images so they center properly */
-    #schedule-container img {
-        margin: 0 !important;
-        margin-bottom: 2px !important; /* Tiny space between logo and name */
-    }
+  /* Stack both teams vertically on mobile */
+  .game .team-cell {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 40%;
+    gap: 2px;
+  }
 
-    /* 4. Ensure spans (Name/Elo) block properly */
-    #schedule-container span {
-        display: block !important;
-        width: 100% !important;
-        margin: 0 !important;
-        line-height: 1.2 !important; /* Tighter text spacing */
-    }
+  /* Ensure correct visual order: Logo → Name → Elo */
+  .game .team-cell img {
+    order: 1;
+  }
+
+  .game .team-cell .team-name-text {
+    order: 2;
+    font-size: 0.9em;
+  }
+
+  .game .team-cell .elo {
+    order: 3;
+    font-size: 0.8em;
+    opacity: 0.9;
+  }
+
+  /* Center the prediction logo + percent */
+  .at-separator {
+    margin: 0 6px;
+    min-width: 55px;
+  }
 }
+
+
