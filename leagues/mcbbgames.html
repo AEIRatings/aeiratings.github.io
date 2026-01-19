@@ -9,7 +9,7 @@
 <body>
   <div class="container">
     <a href="/leagues/mens_college_basketball.html" class="back">← Back to MCBB Ratings</a>
-    <main data-league="wcbb">
+    <main data-league="mcbb">
 
       <section class="card">
           <h1>MCBB Predictions</h1>
@@ -87,7 +87,7 @@
             const ptDateStr = now.toLocaleDateString('en-US', { timeZone: 'America/Los_Angeles' });
             const todayPT = new Date(ptDateStr);
 
-            const eloResponse = await fetch('../data/wcbb.csv');
+            const eloResponse = await fetch('../data/mcbb.csv');
             const nflCsvText = await eloResponse.text();
             const nflRatings = parseCSV(nflCsvText);
 
