@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   async function loadNFLStats() {
     try {
-        const response = await fetch('/stats/nflstats.xlsx - NFL.csv');
+        const response = await fetch('/stats/nflstats.xlsx');
         const data = await response.text();
         const rows = data.split('\n').filter(row => row.trim() !== '' && !row.startsWith('//'));
         
@@ -454,4 +454,5 @@ document.addEventListener('DOMContentLoaded', loadNFLStats);
   }
 
 })
+
 
