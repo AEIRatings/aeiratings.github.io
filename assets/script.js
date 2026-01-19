@@ -17,6 +17,79 @@ document.addEventListener('DOMContentLoaded', async () => {
     return { headers, rows }
   }
 
+
+
+
+
+
+
+
+  
+  // --- Load NFL Stats Table from Excel ---
+  const nflStatsTable = qs('#nfl-stats-table');
+  if (nflStatsTable) {
+    try {
+      // 1. Fetch the file as an ArrayBuffer (required for binary files like .xlsx)
+      // Note: Ensure the file is named 'nflstats.xlsx' in your 'stats/' folder
+      const response = await fetch('../stats/nflstats.xlsx');
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const arrayBuffer = await response.arrayBuffer();
+
+      // 2. Parse the data using SheetJS
+      const workbook = XLSX.read(arrayBuffer, { type: 'array' });
+
+      // 3. Get the first worksheet
+      const firstSheetName = workbook.SheetNames[0];
+      const worksheet = workbook.Sheets[firstSheetName];
+
+      // 4. Convert the sheet directly to an HTML table string
+      // This automatically handles rows and columns
+      const htmlString = XLSX.utils.sheet_to_html(worksheet, { id: 'nfl-stats-table', editable: false });
+
+      // 5. Inject the HTML
+      // sheet_to_html returns a full <table>...</table> string. 
+      // We can either replace the whole element or parse it.
+      // Easiest way: Create a temp div, inject HTML, then move children to your existing table.
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = htmlString;
+      
+      // The library generates a table with the ID we passed or a default one. 
+      // We'll just grab the inner contents (thead/tbody) and put them in your main table.
+      const generatedTable = tempDiv.querySelector('table');
+      if (generatedTable) {
+        nflStatsTable.innerHTML = generatedTable.innerHTML;
+        
+        // Optional: Add a class to styling if needed
+        nflStatsTable.classList.add('stats-excel-data');
+      }
+
+    } catch (err) {
+      console.error('Error loading NFL stats Excel file:', err);
+      nflStatsTable.innerHTML = '<tr><td colspan="100%">Error loading stats data.</td></tr>';
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   function normalizeTeamName(teamName) {
     // Convert to lowercase, replace spaces with underscores, and remove non-alphanumeric/underscore characters
     return teamName.toLowerCase().trim().replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, '')
@@ -426,6 +499,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
 })
+
 
 
 
