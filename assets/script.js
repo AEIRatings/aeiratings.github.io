@@ -38,7 +38,34 @@ document.addEventListener('DOMContentLoaded', async () => {
     return FBS_CONFERENCES.includes(conference)
   }
 
-  // --- NEW HOMEPAGE LOGIC ---
+  async function loadNFLStats() {
+    try {
+        const response = await fetch('/stats/nflstats.xlsx - NFL.csv');
+        const data = await response.text();
+        const rows = data.split('\n').filter(row => row.trim() !== '' && !row.startsWith('//'));
+        
+        const tbody = document.getElementById('stats-body');
+        
+        // Skip header row and iterate through data
+        for (let i = 1; i < rows.length; i++) {
+            const cols = rows[i].split(',');
+            const tr = document.createElement('tr');
+            
+            cols.forEach(col => {
+                const td = document.createElement('td');
+                // Clean up formatting for the "Total" and "Comparative" rows
+                td.textContent = col.trim().replace('', '');
+                tr.appendChild(td);
+            });
+            
+            tbody.appendChild(tr);
+        }
+    } catch (error) {
+        console.error('Error loading statistics:', error);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', loadNFLStats);
 
   const LEAGUES = {
     'nfl': { name: 'NFL', file: 'nfl.csv', id: 'top-5-nfl' },
@@ -425,4 +452,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (weekFilterSelect) {
       weekFilterSelect.addEventListener('change', loadDataAndRefresh);
   }
+
 })
+
