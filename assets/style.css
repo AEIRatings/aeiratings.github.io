@@ -250,36 +250,37 @@ th{font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5
 
 /* --- END NEW STYLES FOR NFL GAMES PAGE TWO-COLUMN GAME LAYOUT --- */
 
-/* Mobile Optimization for Prediction Games */
-@media (max-width: 768px) {
-    /* 1. Target Team A (Left Side) */
-    .game-row > div:nth-child(1) {
-        flex-direction: column !important; /* Stack Logo on top of Text */
-        text-align: center !important;
-        gap: 5px !important; /* Reduce gap between logo and text */
-    }
-    
-    /* Center the text inside Team A */
-    .game-row > div:nth-child(1) > div {
-        text-align: center !important;
+/* Mobile Layout Fix for Prediction Pages */
+@media (max-width: 600px) {
+    /* 1. Target the Home Team (Left Side) */
+    /* This selects the first div inside the row */
+    #schedule-container > div > div:nth-child(1) {
+        flex-direction: column !important; /* Stack vertically */
+        text-align: center !important;     /* Center text */
+        margin-right: 5px !important;      /* Small gap from center */
     }
 
-    /* 2. Target Team B (Right Side) */
-    .game-row > div:nth-child(3) {
-        /* Use column-reverse because DOM order is Text then Logo. 
-           This flips it so Logo is on top, Text on bottom. */
+    /* 2. Target the Road Team (Right Side) */
+    /* This selects the third div inside the row */
+    #schedule-container > div > div:nth-child(3) {
+        /* Use column-reverse because the HTML order is Elo -> Name -> Logo.
+           Reversing it makes it Logo (top) -> Name -> Elo (bottom) */
         flex-direction: column-reverse !important; 
         text-align: center !important;
-        gap: 5px !important;
+        margin-left: 5px !important;
     }
 
-    /* Center the text inside Team B */
-    .game-row > div:nth-child(3) > div {
-        text-align: center !important;
+    /* 3. Reset margins on images so they center properly */
+    #schedule-container img {
+        margin: 0 !important;
+        margin-bottom: 2px !important; /* Tiny space between logo and name */
     }
 
-    /* Optional: Adjust the middle stats section if it's too wide */
-    .game-row > div:nth-child(2) {
-        margin: 0 5px !important; /* Reduce side margins to save space */
+    /* 4. Ensure spans (Name/Elo) block properly */
+    #schedule-container span {
+        display: block !important;
+        width: 100% !important;
+        margin: 0 !important;
+        line-height: 1.2 !important; /* Tighter text spacing */
     }
 }
