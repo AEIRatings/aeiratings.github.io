@@ -1,13 +1,13 @@
 /* --- New streamlined/modern CSS with a warm dark palette --- */
 
 :root{
-    /* Color Palette */
-    --bg-dark: #5f5f5f;
-    --bg-light: #5f5f5f;
-    --card-bg: rgba(30, 41, 59, 0.7);
-    --muted: #a1a1aa;
-    --text-primary: #f8fafc;
-    --accent: #131a29;
+    /* New Color Palette */
+    --bg-dark: #5f5f5f;        /* Dark Navy/Charcoal for background */
+    --bg-light: #5f5f5f;       /* Slightly lighter shade for gradients */
+    --card-bg: rgba(30, 41, 59, 0.7); /* Semi-transparent background for glass effect */
+    --muted: #a1a1aa;          /* Muted light gray for secondary text */
+    --text-primary: #f8fafc;   /* Near-white for main text */
+    --accent: #131a29;         /* Vibrant Orange/Gold for accents */
     --card-pad: 20px;
 }
 
@@ -15,78 +15,217 @@
 *{box-sizing:border-box;font-family:Inter, system-ui, -apple-system, Roboto, 'Segoe UI', Arial}
 body{
     margin:0;
+    /* Rich, subtle gradient for a premium feel */
     background:linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-light) 100%);
     color:var(--text-primary);
     min-height:100vh;
 }
-.container{max-width:1100px;margin:40px auto;padding:0 24px}
+.container{max-width:1100px;margin:40px auto;padding:0 24px} /* Wider container */
 
 /* Header */
 .site-header{display:flex;flex-direction:column;gap:8px;margin-bottom:32px}
-.site-header h1{margin:0;font-size:32px;font-weight:700;}
-.site-header h1 .muted{font-size:24px;font-weight:400;}
+.site-header h1{
+    margin:0;
+    font-size:32px; /* Larger main title */
+    font-weight:700;
+}
+.site-header h1 .muted{
+    font-size:24px;
+    font-weight:400;
+}
 .muted{color:var(--muted)}
 .tag{font-size:16px;margin-top:4px}
 
-/* Grid & Cards */
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px;}
+/* Grid & Cards (Leagues) */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px; /* Slightly larger gap */
+    margin-bottom:32px;
+}
 .card{
     background:var(--card-bg);
     padding:var(--card-pad);
-    border-radius:16px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    border-radius:16px; /* More rounded corners */
+    box-shadow:0 10px 30px rgba(0,0,0,0.3); /* Softer, deeper shadow */
     transition:transform 0.2s, box-shadow 0.2s;
-    text-decoration: none;
+    text-decoration: none; /* Remove underline from card links */
     color: inherit;
+    /* Frosted Glass Effect */
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    display: flex;
+    display: flex; /* Added for the internal elements to stack nicely */
     flex-direction: column;
 }
-.grid a.card:hover{transform: translateY(-3px); box-shadow:0 15px 35px rgba(0,0,0,0.4);}
 
-/* Predictions Button Style */
-.btn-predictions {
-    background-color: #f97316; /* AEI Orange Accent */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
+/* * MODIFICATION HERE:
+* The lift effect is now scoped to anchor tags (.card) directly inside the .grid
+* on the index.html page. This prevents the .howto card from lifting.
+*/
+.grid a.card:hover{
+    transform: translateY(-3px); /* Subtle lift on hover */
+    box-shadow:0 15px 40px rgba(0,0,0,0.4);
+    border-color: var(--accent);
+}
+
+.card h2{
+    margin:0;
+    color: var(--accent); /* Apply accent color to main heading */
     font-weight: 600;
-    width: 100%;
-    transition: background 0.2s;
 }
-.btn-predictions:hover { background-color: #ea580c; }
+.card p{margin:6px 0 0 0;color:var(--muted);font-size:15px;}
 
-/* Mobile Predictions Layout Fixes */
-@media (max-width: 600px) {
-    .game {
-        flex-direction: row !important; 
-        justify-content: space-between;
-        padding: 15px 8px !important;
-    }
-    .team-cell {
-        flex-direction: column !important;
-        align-items: center !important;
-        text-align: center;
-        width: 35%;
-    }
-    .team-logo {
-        width: 32px !important;
-        height: 32px !important;
-        margin: 0 0 5px 0 !important;
-    }
-    .team-name-text { font-size: 0.8rem; line-height: 1.1; }
-    .elo { font-size: 0.7rem; opacity: 0.8; }
-    .at-separator { min-width: 60px !important; }
-    .at-separator span { font-size: 0.7rem !important; }
+/* How-to Section (also uses .card) */
+/* The .howto card will not lift on hover because it is a section, not an <a> tag inside .grid */
+.howto h3 {
+    margin-top: 0;
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--accent); /* Accent line for structure */
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+.howto ol {
+    padding-left: 20px;
+    margin: 0;
+    line-height: 1.6;
+}
+.howto li {
+    margin-bottom: 8px;
 }
 
-/* Original Media Queries for Grid */
+/* Footer */
+.foot{
+    margin-top:40px;
+    padding-top:20px;
+    border-top:1px solid rgba(255, 255, 255, 0.05);
+    font-size:14px;
+    text-align:center;
+}
+
+/* Media Queries */
 @media(max-width:1150px){.container{margin:28px auto;}}
 @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){
-    .grid{grid-template-columns:1fr;}
+    .grid{grid-template-columns:1fr; gap: 12px;}
+    .container{padding:0 18px;}
     .site-header h1{font-size:26px;}
 }
+
+/* --- Keep the original table/form/back styles for future pages, slightly updated for new palette --- */
+.back{color:var(--muted);text-decoration:none;margin-bottom:12px;display:inline-block}
+.controls .row{display:flex;gap:8px;align-items:center;margin-bottom:8px}
+input,select{padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.1);background:var(--bg-light);color:inherit}
+table{width:100%;border-collapse:collapse;margin-top:6px}
+th,td{padding:12px;text-align:left;border-bottom:1px dashed rgba(255,255,255,0.06)}
+th{font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;}
+.small{font-size:14px}
+
+/* * NEW STYLES FOR LOGOS * */
+.team-cell {
+    /* Ensure the cell content is aligned vertically */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between logo and text */
+}
+
+.team-logo {
+    /* Define the size of the logo */
+    width: 24px;
+    height: 24px;
+    object-fit: contain; /* Ensure the image scales correctly within the box */
+    /* Add a small border-radius for a cleaner look */
+    border-radius: 4px;
+}
+/* * END NEW STYLES FOR LOGOS * */
+
+
+/* --- NEW STYLES FOR TOP 5 LIST ON INDEX PAGE --- */
+.top-5-container {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.top-5-container h3 {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    color: var(--muted); /* Use muted color for sub-title */
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.top-5-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
+.top-5-list li {
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+}
+.top-5-list li:last-child {
+    border-bottom: none;
+}
+.top-5-rank {
+    font-weight: 700;
+    width: 20px;
+    flex-shrink: 0;
+}
+.top-5-team {
+    flex-grow: 1;
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.top-5-elo {
+    font-weight: 700;
+    color: var(--accent); /* Use accent color for the rating score */
+    flex-shrink: 0;
+}
+.top-5-placeholder {
+    color: var(--muted);
+    font-style: italic;
+    font-size: 14px;
+}
+
+/* --- NEW STYLES FOR NFL GAMES PAGE TWO-COLUMN GAME LAYOUT --- */
+
+/* 1. Define the overall layout for a single game row */
+.game {
+    display: flex;
+    justify-content: space-between; /* Pushes road team to the far left and home team to the far right */
+    align-items: center; /* Vertically center the team logos and text */
+    padding: 8px 0;
+}
+
+/* 2. Style for the game day headers for better separation */
+.game-day {
+    padding-bottom: 12px;
+}
+
+/* 3. Configure the home team side to display contents in reverse order (ELO, Name, Logo) */
+.team-cell.home-team {
+    /* This reverses the order of elements within the home team span, 
+       so the logo is on the right and the ELO is closer to the separator. 
+       Visual order: (ELO) [Name] [Logo]
+    */
+    flex-direction: row-reverse;
+}
+
+/* 4. Increase flexibility of team cells to push the @ separator into the middle */
+.team-cell {
+    flex-grow: 1; /* Allow each team cell to take up available space */
+    /* Add a max-width to prevent extremely long team names from dominating wide screens */
+    max-width: 45%; 
+}
+
+/* 5. Center the @ separator and ensure it doesn't shrink */
+.at-separator {
+    margin: 0 10px; /* Add horizontal margin for breathing room */
+    flex-shrink: 0; /* Prevent the @ from shrinking if space is tight */
+}
+
+/* --- END NEW STYLES FOR NFL GAMES PAGE TWO-COLUMN GAME LAYOUT --- */
