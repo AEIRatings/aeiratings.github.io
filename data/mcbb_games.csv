@@ -1,74 +1,179 @@
 date,home team,road team
-1/19/2026,Vermont Catamounts,UAlbany Great Danes
-1/19/2026,George Washington Revolutionaries,George Mason Patriots
-1/19/2026,North Carolina A&T Aggies,Hampton Pirates
-1/19/2026,Bryant Bulldogs,NJIT Highlanders
-1/19/2026,Manhattan Jaspers,Quinnipiac Bobcats
-1/19/2026,Stonehill Skyhawks,Saint Francis Red Flash
-1/19/2026,Saint Joseph's Hawks,VCU Rams
-1/19/2026,Prairie View A&M Panthers,Alcorn State Braves
-1/19/2026,Bethune-Cookman Wildcats,Arkansas-Pine Bluff Golden Lions
-1/19/2026,East Texas A&M Lions,Incarnate Word Cardinals
-1/19/2026,Texas Southern Tigers,Jackson State Tigers
-1/19/2026,Northeastern Huskies,Monmouth Hawks
-1/19/2026,Drexel Dragons,Towson Tigers
-1/19/2026,Cornell Big Red,Brown Bears
-1/19/2026,Wagner Seahawks,Fairleigh Dickinson Knights
-1/19/2026,Pennsylvania Quakers,Harvard Crimson
-1/19/2026,New Hampshire Wildcats,Maine Black Bears
-1/19/2026,Merrimack Warriors,Marist Red Foxes
-1/19/2026,Central Connecticut Blue Devils,Mercyhurst Lakers
-1/19/2026,Mount St. Mary's Mountaineers,Niagara Purple Eagles
-1/19/2026,Sacred Heart Pioneers,Rider Broncs
-1/19/2026,Iona Gaels,Saint Peter's Peacocks
-1/19/2026,Fairfield Stags,Siena Saints
-1/19/2026,Columbia Lions,Yale Bulldogs
-1/19/2026,Long Island University Sharks,Le Moyne Dolphins
-1/19/2026,Alabama A&M Bulldogs,Alabama State Hornets
-1/19/2026,UMBC Retrievers,Binghamton Bearcats
-1/19/2026,Princeton Tigers,Dartmouth Big Green
-1/19/2026,Providence Friars,Marquette Golden Eagles
-1/19/2026,New Haven Chargers,Chicago State Cougars
-1/19/2026,Loyola Maryland Greyhounds,Lehigh Mountain Hawks
-1/19/2026,Stephen F. Austin Lumberjacks,Nicholls Colonels
-1/19/2026,SE Louisiana Lions,UT Rio Grande Valley Vaqueros
-1/19/2026,Northwestern State Demons,Houston Christian Huskies
-1/19/2026,Florida A&M Rattlers,Mississippi Valley State Delta Devils
-1/19/2026,Lamar Cardinals,New Orleans Privateers
-1/19/2026,Montana Grizzlies,Northern Arizona Lumberjacks
-1/19/2026,Montana State Bobcats,Northern Colorado Bears
-1/19/2026,McNeese Cowboys,Texas A&M-Corpus Christi Islanders
-1/20/2026,UCF Knights,Iowa State Cyclones
-1/20/2026,Indiana Hoosiers,Michigan Wolverines
-1/20/2026,Purdue Boilermakers,UCLA Bruins
-1/20/2026,Vanderbilt Commodores,Arkansas Razorbacks
-1/20/2026,Michigan State Spartans,Oregon Ducks
-1/20/2026,Texas Tech Red Raiders,Baylor Bears
-1/20/2026,LSU Tigers,Florida Gators
-1/20/2026,Georgia Bulldogs,Missouri Tigers
-1/20/2026,NC State Wolfpack,Clemson Tigers
-1/20/2026,UNLV Rebels,Utah State Aggies
-1/20/2026,Seton Hall Pirates,St. John's Red Storm
-1/20/2026,Ball State Cardinals,Central Michigan Chippewas
-1/20/2026,Saint Louis Billikens,Duquesne Dukes
-1/20/2026,Florida State Seminoles,Miami Hurricanes
-1/20/2026,Northern Illinois Huskies,Ohio Bobcats
-1/20/2026,Minnesota Golden Gophers,Ohio State Buckeyes
-1/20/2026,SMU Mustangs,Wake Forest Demon Deacons
-1/20/2026,Evansville Purple Aces,UIC Flames
-1/20/2026,Loyola Chicago Ramblers,St. Bonaventure Bonnies
-1/20/2026,Kansas Jayhawks,Colorado Buffaloes
-1/20/2026,Air Force Falcons,Colorado State Rams
-1/20/2026,Boise State Broncos,Wyoming Cowboys
-1/20/2026,San Jose State Spartans,Nevada Wolf Pack
-1/20/2026,Akron Zips,Buffalo Bulls
-1/20/2026,Toledo Rockets,Massachusetts Minutemen
-1/20/2026,DePaul Blue Demons,Butler Bulldogs
-1/20/2026,Miami (OH) RedHawks,Kent State Golden Flashes
-1/20/2026,Oklahoma Sooners,South Carolina Gamecocks
-1/20/2026,Bowling Green Falcons,Western Michigan Broncos
-1/20/2026,Rutgers Scarlet Knights,Iowa Hawkeyes
-1/20/2026,UT Martin Skyhawks,Southeast Missouri State Redhawks
-1/20/2026,Oklahoma State Cowboys,TCU Horned Frogs
-1/20/2026,Utah Utes,Kansas State Wildcats
-1/20/2026,Auburn Tigers,Ole Miss Rebels
+1/23/2026,Ohio State Buckeyes,Michigan Wolverines
+1/23/2026,Saint Louis Billikens,St. Bonaventure Bonnies
+1/23/2026,Cal State Bakersfield Roadrunners,Hawai'i Rainbow Warriors
+1/23/2026,Wagner Seahawks,Le Moyne Dolphins
+1/23/2026,Indiana Hoosiers,Rutgers Scarlet Knights
+1/23/2026,Chicago State Cougars,Saint Francis Red Flash
+1/23/2026,Mercyhurst Lakers,New Haven Chargers
+1/23/2026,UL Monroe Warhawks,App State Mountaineers
+1/23/2026,Stetson Hatters,Austin Peay Governors
+1/23/2026,Florida Gulf Coast Eagles,Lipscomb Bisons
+1/23/2026,Kennesaw State Owls,Louisiana Tech Bulldogs
+1/23/2026,Furman Paladins,UNC Greensboro Spartans
+1/23/2026,Massachusetts Minutemen,Buffalo Bulls
+1/23/2026,Fairleigh Dickinson Knights,Central Connecticut Blue Devils
+1/23/2026,Tulane Green Wave,Charlotte 49ers
+1/23/2026,Long Island University Sharks,Stonehill Skyhawks
+1/23/2026,Marquette Golden Eagles,Butler Bulldogs
+1/23/2026,Akron Zips,Ohio Bobcats
+1/23/2026,Utah State Aggies,Colorado State Rams
+1/24/2026,West Virginia Mountaineers,Arizona Wildcats
+1/24/2026,Villanova Wildcats,UConn Huskies
+1/24/2026,Illinois Fighting Illini,Purdue Boilermakers
+1/24/2026,Wake Forest Demon Deacons,Duke Blue Devils
+1/24/2026,Houston Cougars,Texas Tech Red Raiders
+1/24/2026,Nebraska Cornhuskers,Minnesota Golden Gophers
+1/24/2026,San Francisco Dons,Gonzaga Bulldogs
+1/24/2026,Iowa State Cyclones,Oklahoma State Cowboys
+1/24/2026,Maryland Terrapins,Michigan State Spartans
+1/24/2026,Utah Utes,BYU Cougars
+1/24/2026,North Carolina Tar Heels,Virginia Cavaliers
+1/24/2026,Vanderbilt Commodores,Mississippi State Bulldogs
+1/24/2026,Auburn Tigers,Florida Gators
+1/24/2026,Tennessee Volunteers,Alabama Crimson Tide
+1/24/2026,Clemson Tigers,Georgia Tech Yellow Jackets
+1/24/2026,Kansas Jayhawks,Kansas State Wildcats
+1/24/2026,LSU Tigers,Arkansas Razorbacks
+1/24/2026,Georgia Bulldogs,Texas Longhorns
+1/24/2026,Virginia Tech Hokies,Louisville Cardinals
+1/24/2026,Jackson State Tigers,Bethune-Cookman Wildcats
+1/24/2026,Vermont Catamounts,Bryant Bulldogs
+1/24/2026,Monmouth Hawks,Campbell Fighting Camels
+1/24/2026,Southern Miss Golden Eagles,Coastal Carolina Chanticleers
+1/24/2026,Boston University Terriers,Colgate Raiders
+1/24/2026,The Citadel Bulldogs,East Tennessee State Bucs
+1/24/2026,Alcorn State Braves,Florida A&M Rattlers
+1/24/2026,UNC Wilmington Seahawks,Hampton Pirates
+1/24/2026,American University Eagles,Holy Cross Crusaders
+1/24/2026,Drake Bulldogs,Indiana State Sycamores
+1/24/2026,Eastern Kentucky Colonels,Jacksonville Dolphins
+1/24/2026,Texas State Bobcats,James Madison Dukes
+1/24/2026,Delaware Blue Hens,Liberty Flames
+1/24/2026,Charleston Southern Buccaneers,Longwood Lancers
+1/24/2026,UMass Lowell River Hawks,UMBC Retrievers
+1/24/2026,UAlbany Great Danes,New Hampshire Wildcats
+1/24/2026,NC State Wolfpack,Pittsburgh Panthers
+1/24/2026,Winthrop Eagles,Presbyterian Blue Hose
+1/24/2026,Brown Bears,Princeton Tigers
+1/24/2026,Georgetown Hoyas,Providence Friars
+1/24/2026,Green Bay Phoenix,Robert Morris Colonials
+1/24/2026,Dayton Flyers,Saint Joseph's Hawks
+1/24/2026,Miami Hurricanes,Syracuse Orange
+1/24/2026,VMI Keydets,Western Carolina Catamounts
+1/24/2026,Mercer Bears,Wofford Terriers
+1/24/2026,TCU Horned Frogs,Baylor Bears
+1/24/2026,UIC Flames,Bradley Braves
+1/24/2026,Texas A&M-Corpus Christi Islanders,Incarnate Word Cardinals
+1/24/2026,Duquesne Dukes,Loyola Chicago Ramblers
+1/24/2026,New Orleans Privateers,McNeese Cowboys
+1/24/2026,Central Arkansas Sugar Bears,North Alabama Lions
+1/24/2026,East Carolina Pirates,North Texas Mean Green
+1/24/2026,Murray State Racers,Northern Iowa Panthers
+1/24/2026,East Texas A&M Lions,Northwestern State Demons
+1/24/2026,North Dakota State Bison,Oral Roberts Golden Eagles
+1/24/2026,Alabama State Hornets,Prairie View A&M Panthers
+1/24/2026,Western Kentucky Hilltoppers,Sam Houston Bearkats
+1/24/2026,Chattanooga Mocs,Samford Bulldogs
+1/24/2026,Arkansas-Pine Bluff Golden Lions,Southern Jaguars
+1/24/2026,Tennessee Tech Golden Eagles,SIU Edwardsville Cougars
+1/24/2026,Temple Owls,UTSA Roadrunners
+1/24/2026,Alabama A&M Bulldogs,Texas Southern Tigers
+1/24/2026,Memphis Tigers,Wichita State Shockers
+1/24/2026,Cincinnati Bearcats,Arizona State Sun Devils
+1/24/2026,Air Force Falcons,Boise State Broncos
+1/24/2026,UCF Knights,Colorado Buffaloes
+1/24/2026,Nevada Wolf Pack,New Mexico Lobos
+1/24/2026,Florida International Panthers,New Mexico State Aggies
+1/24/2026,San Jose State Spartans,Wyoming Cowboys
+1/24/2026,Cal State Fullerton Titans,Cal Poly Mustangs
+1/24/2026,Grand Canyon Lopes,Fresno State Bulldogs
+1/24/2026,Santa Clara Broncos,San Diego Toreros
+1/24/2026,California Golden Bears,Stanford Cardinal
+1/24/2026,Northwestern Wildcats,UCLA Bruins
+1/24/2026,Pepperdine Waves,Washington State Cougars
+1/24/2026,Ole Miss Rebels,Kentucky Wildcats
+1/24/2026,Niagara Purple Eagles,Sacred Heart Pioneers
+1/24/2026,Quinnipiac Bobcats,Marist Red Foxes
+1/24/2026,Army Black Knights,Navy Midshipmen
+1/24/2026,Northern Illinois Huskies,Ball State Cardinals
+1/24/2026,Columbia Lions,Dartmouth Big Green
+1/24/2026,Northeastern Huskies,Drexel Dragons
+1/24/2026,Canisius Golden Griffins,Fairfield Stags
+1/24/2026,South Carolina Upstate Spartans,Gardner-Webb Runnin' Bulldogs
+1/24/2026,Arkansas State Red Wolves,Georgia State Panthers
+1/24/2026,Cornell Big Red,Harvard Crimson
+1/24/2026,Binghamton Bearcats,Maine Black Bears
+1/24/2026,Oklahoma Sooners,Missouri Tigers
+1/24/2026,Towson Tigers,North Carolina A&T Aggies
+1/24/2026,Bellarmine Knights,North Florida Ospreys
+1/24/2026,Yale Bulldogs,Pennsylvania Quakers
+1/24/2026,George Mason Patriots,Rhode Island Rams
+1/24/2026,St. Thomas-Minnesota Tommies,South Dakota Coyotes
+1/24/2026,Hofstra Pride,William & Mary Tribe
+1/24/2026,St. John's Red Storm,Xavier Musketeers
+1/24/2026,Milwaukee Panthers,Youngstown State Penguins
+1/24/2026,Oakland Golden Grizzlies,Detroit Mercy Titans
+1/24/2026,Kent State Golden Flashes,Eastern Michigan Eagles
+1/24/2026,Richmond Spiders,George Washington Revolutionaries
+1/24/2026,Troy Trojans,Georgia Southern Eagles
+1/24/2026,Saint Peter's Peacocks,Merrimack Warriors
+1/24/2026,Eastern Illinois Panthers,Morehead State Eagles
+1/24/2026,South Carolina Gamecocks,Texas A&M Aggies
+1/24/2026,Elon Phoenix,Charleston Cougars
+1/24/2026,North Dakota Fighting Hawks,Denver Pioneers
+1/24/2026,UT Rio Grande Valley Vaqueros,Houston Christian Huskies
+1/24/2026,Tennessee State Tigers,Lindenwood Lions
+1/24/2026,South Alabama Jaguars,Marshall Thundering Herd
+1/24/2026,San Diego State Aztecs,UNLV Rebels
+1/24/2026,Coppin State Eagles,Norfolk State Spartans
+1/24/2026,Delaware State Hornets,North Carolina Central Eagles
+1/24/2026,High Point Panthers,Radford Highlanders
+1/24/2026,Maryland Eastern Shore Hawks,South Carolina State Bulldogs
+1/24/2026,Nicholls Colonels,SE Louisiana Lions
+1/24/2026,Western Illinois Leathernecks,Southern Indiana Screaming Eagles
+1/24/2026,Florida State Seminoles,SMU Mustangs
+1/24/2026,Little Rock Trojans,UT Martin Skyhawks
+1/24/2026,Missouri State Bears,UTEP Miners
+1/24/2026,Queens University Royals,West Georgia Wolves
+1/24/2026,UC Riverside Highlanders,UC Davis Aggies
+1/24/2026,VCU Rams,Davidson Wildcats
+1/24/2026,Seton Hall Pirates,DePaul Blue Demons
+1/24/2026,Sacramento State Hornets,Eastern Washington Eagles
+1/24/2026,Portland State Vikings,Idaho Vandals
+1/24/2026,Middle Tennessee Blue Raiders,Jacksonville State Gamecocks
+1/24/2026,Bucknell Bison,Loyola Maryland Greyhounds
+1/24/2026,Rider Broncs,Mount St. Mary's Mountaineers
+1/24/2026,Bowling Green Falcons,Toledo Rockets
+1/24/2026,Mississippi Valley State Delta Devils,Grambling Tigers
+1/24/2026,Morgan State Bears,Howard Bison
+1/24/2026,Boston College Eagles,Notre Dame Fighting Irish
+1/24/2026,Central Michigan Chippewas,Western Michigan Broncos
+1/24/2026,Manhattan Jaspers,Iona Gaels
+1/24/2026,Stephen F. Austin Lumberjacks,Lamar Cardinals
+1/24/2026,Lafayette Leopards,Lehigh Mountain Hawks
+1/24/2026,UC Santa Barbara Gauchos,Long Beach State Beach
+1/24/2026,Louisiana Ragin' Cajuns,Old Dominion Monarchs
+1/24/2026,Seattle U Redhawks,Pacific Tigers
+1/24/2026,Northern Kentucky Norse,Wright State Raiders
+1/24/2026,Utah Valley Wolverines,California Baptist Lancers
+1/24/2026,Omaha Mavericks,Kansas City Roos
+1/24/2026,Weber State Wildcats,Montana State Bobcats
+1/24/2026,Northern Colorado Bears,Northern Arizona Lumberjacks
+1/24/2026,Saint Mary's Gaels,Portland Pilots
+1/24/2026,Southern Utah Thunderbirds,Utah Tech Trailblazers
+1/24/2026,Idaho State Bengals,Montana Griz
+1/24/2026,UC Irvine Anteaters,UC San Diego Tritons
+1/25/2026,Cal State Northridge Matadors,Hawai'i Rainbow Warriors
+1/25/2026,Wagner Seahawks,Long Island University Sharks
+1/25/2026,Chicago State Cougars,Mercyhurst Lakers
+1/25/2026,Illinois State Redbirds,Belmont Bruins
+1/25/2026,Tulsa Golden Hurricane,Rice Owls
+1/25/2026,USC Trojans,Wisconsin Badgers
+1/25/2026,Oregon Ducks,Washington Huskies
+1/25/2026,Le Moyne Dolphins,Fairleigh Dickinson Knights
+1/25/2026,Saint Francis Red Flash,New Haven Chargers
+1/25/2026,Florida Atlantic Owls,South Florida Bulls
+1/25/2026,Purdue Fort Wayne Mastodons,IU Indianapolis Jaguars
+1/25/2026,Southern Illinois Salukis,Evansville Purple Aces
+1/25/2026,Central Connecticut Blue Devils,Stonehill Skyhawks
