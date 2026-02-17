@@ -25,17 +25,12 @@
  <script>
     // --- Helper functions ---
     
-    /**
-     * Adjusted win probability logic:
-     * Shows the higher percentage (win probability of the favorite).
-     */
     function calculateWinProbability(roadElo, homeElo) {
         if (roadElo === 'N/A' || homeElo === 'N/A') return { percent: 'N/A', favorite: 'none' };
         
         const rElo = parseFloat(roadElo);
         const hElo = parseFloat(homeElo);
         
-        // Original formula from percentage.py: 1 / (1 + 10 ** ((HElo - AElo) / 400))
         const roadWinProb = 1 / (1 + Math.pow(10, (hElo - rElo) / 400));
         const homeWinProb = 1 - roadWinProb;
 
@@ -49,7 +44,8 @@
     function parseCSV(csvString) {
         const lines = csvString.trim().split('\n');
         if (lines.length === 0) return [];
-        const headers = lines[0].split(',').map(h => h.trim());
+        // Handle potential BOM and trim headers
+        const headers = lines[0].split(',').map(h => h.trim().replace(/^\uFEFF/, ''));
         const data = [];
         for (let i = 1; i < lines.length; i++) {
             const values = lines[i].split(',');
@@ -65,6 +61,7 @@
     }
 
     function normalizeTeamName(teamName) {
+      if (!teamName) return '';
       return teamName.toLowerCase().trim().replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, '')
     }
 
@@ -74,25 +71,24 @@
       return `/logos/cfb/${normalizedName}.png`
     }
 
-    /**
-     * Main function to fetch data and generate the schedule.
-     */
     async function generateSchedule() {
         const scheduleElement = document.getElementById('schedule');
         const leagueId = document.querySelector('main').getAttribute('data-league');
         
         try {
-            // Get current date in Pacific Time (PT)
+            // Get today's date in Pacific Time as YYYY-MM-DD string for comparison
             const now = new Date();
-            const ptDateStr = now.toLocaleDateString('en-US', { timeZone: 'America/Los_Angeles' });
-            const todayPT = new Date(ptDateStr);
+            const options = { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit' };
+            // en-CA format is YYYY-MM-DD
+            const formatter = new Intl.DateTimeFormat('en-CA', options);
+            const todayYMD = formatter.format(now);
 
             const eloResponse = await fetch('../data/mcbb.csv');
-            const nflCsvText = await eloResponse.text();
-            const nflRatings = parseCSV(nflCsvText);
+            const eloCsvText = await eloResponse.text();
+            const teamRatings = parseCSV(eloCsvText);
 
             const eloMap = {};
-            nflRatings.forEach(teamData => {
+            teamRatings.forEach(teamData => {
                 const elo = parseFloat(teamData.Elo).toFixed(2);
                 eloMap[teamData.Team] = elo;
             });
@@ -100,16 +96,21 @@
             const gamesResponse = await fetch('../data/mcbb_games.csv');
             const gamesCsvText = await gamesResponse.text();
             const allGames = parseCSV(gamesCsvText);
+            
+            // Debugging: Check if data loaded
+            if (allGames.length === 0) {
+                 scheduleElement.innerHTML = '<p>No games found in data file.</p>';
+                 scheduleElement.classList.remove('loading');
+                 return;
+            }
 
-            // Filter for games on or after today in Pacific Time
+            // Filter for games on or after today (String comparison YYYY-MM-DD)
             const games = allGames.filter(game => {
-                // FIXED: map to 'game date (Pacific)'
-                const gameDate = new Date(game['game date (Pacific)']);
-                return gameDate >= todayPT;
+                const gameDateStr = game['game date (Pacific)'];
+                return gameDateStr >= todayYMD;
             });
 
             const gamesByDate = games.reduce((acc, game) => {
-                // FIXED: map to 'game date (Pacific)'
                 const date = game['game date (Pacific)'];
                 if (!acc[date]) acc[date] = [];
                 acc[date].push(game);
@@ -117,39 +118,40 @@
             }, {});
 
             let html = '';
-            for (const date in gamesByDate) {
+            // sort keys to ensure chronological order
+            const sortedDates = Object.keys(gamesByDate).sort();
+
+            for (const date of sortedDates) {
                 html += `<div class="game-day"><h3>${date}</h3>`;
                 
                 gamesByDate[date].forEach(game => {
                     const homeTeam = game['home team'];
-                    // FIXED: map to 'away team'
-                    const roadTeam = game['away team'];
+                    const roadTeam = game['away team']; // Adjusted to match CSV header
                     const homeElo = eloMap[homeTeam] || 'N/A';
                     const roadElo = eloMap[roadTeam] || 'N/A';
 
                     const winInfo = calculateWinProbability(roadElo, homeElo);
                     
-                    // Logic to display the favorite's logo and the high percentage
                     let displayLogo = '';
                     if (winInfo.favorite === 'home') {
                         displayLogo = getLogoPath(homeTeam, leagueId);
-                    } else {
+                    } else if (winInfo.favorite === 'road') {
                         displayLogo = getLogoPath(roadTeam, leagueId);
                     }
                     
                     html += `
                         <div class="game">
                             <span class="team-cell">
-                                <img src="${getLogoPath(roadTeam, leagueId)}" alt="${roadTeam}" class="team-logo">
+                                <img src="${getLogoPath(roadTeam, leagueId)}" alt="${roadTeam}" class="team-logo" onerror="this.style.display='none'">
                                 <span class="team-name-text">${roadTeam}</span>
                                 <span class="elo">(${roadElo})</span>
                             </span>
                             <span class="at-separator" style="display: flex; flex-direction: column; align-items: center; min-width: 65px;">
-                                <img src="${displayLogo}" class="team-logo" style="width: 20px; height: 20px; margin-bottom: 2px;">
+                                <img src="${displayLogo}" class="team-logo" style="width: 20px; height: 20px; margin-bottom: 2px;" onerror="this.style.display='none'">
                                 <span style="font-size: 0.85em; font-weight: bold;">${winInfo.percent}</span>
                             </span>
                             <span class="team-cell home-team">
-                                <img src="${getLogoPath(homeTeam, leagueId)}" alt="${homeTeam}" class="team-logo">
+                                <img src="${getLogoPath(homeTeam, leagueId)}" alt="${homeTeam}" class="team-logo" onerror="this.style.display='none'">
                                 <span class="team-name-text">${homeTeam}</span>
                                 <span class="elo">(${homeElo})</span>
                             </span>
@@ -164,7 +166,7 @@
 
         } catch (error) {
             console.error("Error loading data:", error);
-            scheduleElement.innerHTML = `<p style="color: red;">Error loading schedule.</p>`;
+            scheduleElement.innerHTML = `<p style="color: red;">Error loading schedule: ${error.message}</p>`;
             scheduleElement.classList.remove('loading');
         }
     }
