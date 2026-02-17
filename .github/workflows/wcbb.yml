@@ -80,13 +80,6 @@ jobs:
           echo "Running elo_updater_wcbb.py to calculate new ELO ratings..."
           python elo_updater_wcbb.py
           
-      - name: Run getWCBBscores Scripts
-        run: |
-          echo "Fetching yesterday's results..."
-          python getWCBBscores.py
-          echo "Fetching upcoming games..."
-          python getWCBBscoresn.py
-          
       - name: Commit and Push Changes
         # Automatically commits and pushes the updated data files
         uses: stefanzweifel/git-auto-commit-action@v5
