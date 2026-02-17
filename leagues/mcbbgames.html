@@ -103,12 +103,14 @@
 
             // Filter for games on or after today in Pacific Time
             const games = allGames.filter(game => {
-                const gameDate = new Date(game.date);
+                // FIXED: map to 'game date (Pacific)'
+                const gameDate = new Date(game['game date (Pacific)']);
                 return gameDate >= todayPT;
             });
 
             const gamesByDate = games.reduce((acc, game) => {
-                const date = game.date;
+                // FIXED: map to 'game date (Pacific)'
+                const date = game['game date (Pacific)'];
                 if (!acc[date]) acc[date] = [];
                 acc[date].push(game);
                 return acc;
@@ -120,7 +122,8 @@
                 
                 gamesByDate[date].forEach(game => {
                     const homeTeam = game['home team'];
-                    const roadTeam = game['road team'];
+                    // FIXED: map to 'away team'
+                    const roadTeam = game['away team'];
                     const homeElo = eloMap[homeTeam] || 'N/A';
                     const roadElo = eloMap[roadTeam] || 'N/A';
 
