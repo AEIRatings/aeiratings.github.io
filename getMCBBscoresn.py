@@ -56,7 +56,7 @@ def fetch_upcoming_wcbb_games():
     all_game_data = []
     seen_games = set()
 
-    for i in range(1, 2):
+    for i in range(0, 1):
         target_date = datetime.now() + timedelta(days=i)
         date_str = target_date.strftime('%Y%m%d')
         display_date = target_date.strftime('%Y-%m-%d')
