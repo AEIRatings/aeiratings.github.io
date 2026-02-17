@@ -25,7 +25,7 @@ def strip_accents(text):
 def normalize_name(raw_name):
     if not raw_name: return raw_name
     name = unicodedata.normalize('NFC', raw_name)
-    name = (name.replace('JosÃ©', 'José').replace('San Jose', 'San José').replace('Nittany Lions', 'Penn State'))
+    name = (name.replace('JosÃ©', 'José').replace('San Jose', 'San José'))
     return name.replace("No. ", "").strip()
 
 def clean_team_name(full_name, valid_team_names):
@@ -52,7 +52,7 @@ def convert_to_pacific_date(utc_string):
 
 def fetch_upcoming_wcbb_games():
     valid_team_names = load_team_names("data/mcbb.csv")
-    CSV_FILENAME = "data/mcbb_upcoming_games.csv"
+    CSV_FILENAME = "data/mcbb_games.csv"
     all_game_data = []
     seen_games = set()
 
