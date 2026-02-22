@@ -8,7 +8,6 @@
     <style>
         /* Adaptations for the tournament tab layout using site variables */
         body {
-            /* Inherits from your global style.css, but just in case: */
             background-color: var(--bg-dark, #5f5f5f);
             color: var(--text-main, #f8fafc);
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -64,7 +63,7 @@
 
         .conf-tab.active {
             background: var(--accent, #38bdf8);
-            color: #111; /* Dark text for contrast against bright accent */
+            color: #111; 
             border-color: var(--accent, #38bdf8);
             box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
         }
@@ -144,8 +143,6 @@
 
 <script>
     // Helper to format the Team Name to match the exact logo filenames 
-    // e.g. "St. Thomas-Minnesota Tommies" -> "st_thomasminnesota_tommies"
-    // e.g. "Texas A&M-Corpus Christi Islanders" -> "texas_amcorpus_christi_islanders"
     function formatLogoName(teamName) {
         return teamName.toLowerCase()
             .replace(/&/g, '')       // Remove ampersands
@@ -174,8 +171,136 @@
             const conferences = new Set();
             const confLines = confText.split('\n').map(l => l.trim()).filter(l => l);
             
-            // Check if there is a header in conferences CSV and skip it if true
             const confStartIdx = confLines[0].toLowerCase().includes('team') ? 1 : 0;
-            
             for (let i = confStartIdx; i < confLines.length; i++) {
-                const parts = confLines[i].
+                const parts = confLines[i].split(',');
+                if (parts.length >= 2) {
+                    const teamName = parts[0].trim();
+                    const confName = parts[1].trim();
+                    teamToConf[teamName] = confName;
+                    conferences.add(confName);
+                }
+            }
+
+            // 2. Process mcbb.csv (Team, Elo, Conference, RatingUpdated)
+            const teamRatings = {};
+            const ratingsLines = ratingsText.split('\n').map(l => l.trim()).filter(l => l);
+            
+            for (let i = 1; i < ratingsLines.length; i++) {
+                const parts = ratingsLines[i].split(',');
+                if (parts.length >= 2) {
+                    const teamName = parts[0].trim();
+                    const elo = parseFloat(parts[1].trim());
+                    // Only store the Elo if it's a valid number
+                    if (!isNaN(elo)) {
+                        teamRatings[teamName] = elo;
+                    }
+                }
+            }
+
+            // 3. Merge Datasets Grouped by Conference (FIXED: Safe Number Handling)
+            const confData = {};
+            for (const conf of conferences) {
+                confData[conf] = [];
+            }
+            
+            for (const [team, conf] of Object.entries(teamToConf)) {
+                if (confData[conf]) {
+                    const rawRating = teamRatings[team];
+                    let displayRating = "Unrated";
+                    let sortRating = -9999; // Default to negative so unrated teams sort to the bottom
+
+                    // If they have a valid Elo number, format it
+                    if (typeof rawRating === 'number') {
+                        displayRating = rawRating.toFixed(2);
+                        sortRating = rawRating;
+                    }
+
+                    confData[conf].push({
+                        team: team,
+                        rating: displayRating,
+                        rawRating: sortRating
+                    });
+                }
+            }
+
+            // Sort tabs alphabetically
+            const sortedConfs = Array.from(conferences).sort();
+
+            const tabsContainer = document.getElementById('tabs-container');
+            const contentContainer = document.getElementById('content-container');
+
+            // 4. Generate the DOM Elements
+            sortedConfs.forEach((conf, index) => {
+                // Sort teams within the conference by highest rating first
+                confData[conf].sort((a, b) => b.rawRating - a.rawRating);
+
+                const tabId = 'conf-tab-' + index;
+
+                // Build the Tab button
+                const tabElement = document.createElement('div');
+                tabElement.className = 'conf-tab' + (index === 0 ? ' active' : '');
+                tabElement.textContent = conf;
+                
+                // Tab click functionality
+                tabElement.addEventListener('click', () => {
+                    document.querySelectorAll('.conf-tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.conf-content').forEach(c => c.classList.remove('active'));
+                    tabElement.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+                
+                tabsContainer.appendChild(tabElement);
+
+                // Build the Table Content container
+                const contentElement = document.createElement('div');
+                contentElement.id = tabId;
+                contentElement.className = 'conf-content' + (index === 0 ? ' active' : '');
+                
+                let tableHtml = `
+                    <table class="ratings-table">
+                        <thead>
+                            <tr>
+                                <th>Seed</th>
+                                <th>Team</th>
+                                <th>Current Rating (Elo)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+                
+                if (confData[conf].length === 0) {
+                    tableHtml += `<tr><td colspan="3">No teams found for this conference.</td></tr>`;
+                } else {
+                    confData[conf].forEach((t, rank) => {
+                        const logoSrc = `../logos/cfb/${formatLogoName(t.team)}.png`;
+                        tableHtml += `
+                            <tr>
+                                <td>${rank + 1}</td>
+                                <td>
+                                    <div class="team-cell">
+                                        <img src="${logoSrc}" class="team-logo" alt="${t.team} Logo" onerror="this.style.display='none'">
+                                        <span>${t.team}</span>
+                                    </div>
+                                </td>
+                                <td><span class="rating-val">${t.rating}</span></td>
+                            </tr>
+                        `;
+                    });
+                }
+                
+                tableHtml += `</tbody></table>`;
+                contentElement.innerHTML = tableHtml;
+                contentContainer.appendChild(contentElement);
+            });
+
+        } catch (error) {
+            console.error("Error loading tournament data:", error);
+            document.getElementById('content-container').innerHTML = 
+                `<p style="color:#ef4444; text-align:center;">Error loading data. Ensure that <strong>MCBBconferences.csv</strong> and <strong>mcbb.csv</strong> exist inside the <em>data</em> folder.</p>`;
+        }
+    });
+</script>
+
+</body>
+</html>
