@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCBB Tournaments by Conference</title>
+    <link rel="stylesheet" href="../assets/style.css">
+    <style>
+        .tournaments-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            background: var(--bg-card, #ffffff);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        .tournaments-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Tabs Header Box */
+        .conf-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            border-bottom: 2px solid #ddd;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+        }
+
+        .conf-tab {
+            padding: 10px 16px;
+            cursor: pointer;
+            background: #f1f5f9;
+            color: #334155;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px 6px 0 0;
+            user-select: none;
+            font-weight: 600;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .conf-tab:hover {
+            background: #e2e8f0;
+        }
+
+        .conf-tab.active {
+            background: #0f172a;
+            color: #ffffff;
+            border-color: #0f172a;
+        }
+
+        /* Table Styles */
+        .conf-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .conf-content.active {
+            display: block;
+        }
+
+        .conf-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .conf-table th, .conf-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .conf-table th {
+            background-color: #f8fafc;
+            color: #475569;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+
+        .conf-table tr:hover {
+            background-color: #f1f5f9;
+        }
+
+        .rating-badge {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="tournaments-container">
+    <h1>Conference Tournaments & Ratings</h1>
+    
+    <div class="conf-tabs" id="tabs-container">
+        </div>
+    
+    <div id="content-container">
+        </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", async () => {
+        try {
+            // Fetch both CSV files concurrently
+            const [confResponse, ratingsResponse] = await Promise.all([
+                fetch('../data/MCBBconferences.csv'),
+                fetch('../data/mcbb.csv')
+            ]);
+            
+            if (!confResponse.ok) throw new Error("Could not load MCBBconferences.csv");
+            if (!ratingsResponse.ok) throw new Error("Could not load mcbb.csv");
+
+            const confText = await confResponse.text();
+            const ratingsText = await ratingsResponse.text();
+
+            // 1. Process MCBBconferences.csv (Team, Conference)
+            const teamToConf = {};
+            const conferences = new Set();
+            const confLines = confText.split('\n').map(l => l.trim()).filter(l => l);
+            
+            // Check if there is a header in conferences CSV and skip it if true
+            const confStartIdx = confLines[0].toLowerCase().includes('team') ? 1 : 0;
+            
+            for (let i = confStartIdx; i < confLines.length; i++) {
+                // Split by comma (handles standard format "Team Name,Conference")
+                const parts = confLines[i].split(',');
+                if (parts.length >= 2) {
+                    const teamName = parts[0].trim();
+                    const confName = parts[1].trim();
+                    teamToConf[teamName] = confName;
+                    conferences.add(confName);
+                }
+            }
+
+            // 2. Process mcbb.csv (Team, Elo, Conference, RatingUpdated)
+            const teamRatings = {};
+            const ratingsLines = ratingsText.split('\n').map(l => l.trim()).filter(l => l);
+            
+            // Assuming first line is a header like 'Team,Elo,...', we start from index 1
+            for (let i = 1; i < ratingsLines.length; i++) {
+                const parts = ratingsLines[i].split(',');
+                if (parts.length >= 2) {
+                    const teamName = parts[0].trim();
+                    const elo = parseFloat(parts[1].trim());
+                    teamRatings[teamName] = isNaN(elo) ? "N/A" : elo;
+                }
+            }
+
+            // 3. Merge Datasets Grouped by Conference
+            const confData = {};
+            for (const conf of conferences) {
+                confData[conf] = [];
+            }
+            
+            for (const [team, conf] of Object.entries(teamToConf)) {
+                if (confData[conf]) {
+                    const rawRating = teamRatings[team] || 0;
+                    confData[conf].push({
+                        team: team,
+                        rating: rawRating !== 0 ? rawRating.toFixed(2) : "Unrated",
+                        rawRating: rawRating === "N/A" ? 0 : rawRating
+                    });
+                }
+            }
+
+            // Sort tabs alphabetically
+            const sortedConfs = Array.from(conferences).sort();
+
+            const tabsContainer = document.getElementById('tabs-container');
+            const contentContainer = document.getElementById('content-container');
+
+            // 4. Generate the DOM Elements
+            sortedConfs.forEach((conf, index) => {
+                // Sort teams within the conference by highest rating first
+                confData[conf].sort((a, b) => b.rawRating - a.rawRating);
+
+                const tabId = 'conf-tab-' + index;
+
+                // Build the Tab button
+                const tabElement = document.createElement('div');
+                tabElement.className = 'conf-tab' + (index === 0 ? ' active' : '');
+                tabElement.textContent = conf;
+                
+                // Tab click functionality
+                tabElement.addEventListener('click', () => {
+                    // Remove active from all tabs and contents
+                    document.querySelectorAll('.conf-tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.conf-content').forEach(c => c.classList.remove('active'));
+                    // Set active to clicked
+                    tabElement.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+                
+                tabsContainer.appendChild(tabElement);
+
+                // Build the Table Content container
+                const contentElement = document.createElement('div');
+                contentElement.id = tabId;
+                contentElement.className = 'conf-content' + (index === 0 ? ' active' : '');
+                
+                let tableHtml = `
+                    <table class="conf-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Team</th>
+                                <th>Current Rating (Elo)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+                
+                if (confData[conf].length === 0) {
+                    tableHtml += `<tr><td colspan="3">No teams found for this conference.</td></tr>`;
+                } else {
+                    confData[conf].forEach((t, rank) => {
+                        tableHtml += `
+                            <tr>
+                                <td>${rank + 1}</td>
+                                <td><strong>${t.team}</strong></td>
+                                <td><span class="rating-badge">${t.rating}</span></td>
+                            </tr>
+                        `;
+                    });
+                }
+                
+                tableHtml += `</tbody></table>`;
+                contentElement.innerHTML = tableHtml;
+                contentContainer.appendChild(contentElement);
+            });
+
+        } catch (error) {
+            console.error("Error loading tournament data:", error);
+            document.getElementById('content-container').innerHTML = 
+                `<p style="color:red; text-align:center;">Error loading data. Ensure that <strong>MCBBconferences.csv</strong> and <strong>mcbb.csv</strong> exist inside the <em>data</em> folder.</p>`;
+        }
+    });
+</script>
+
+</body>
+</html>
