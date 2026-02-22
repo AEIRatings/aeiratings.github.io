@@ -12,7 +12,7 @@ Saint Louis Billikens,A10
 St. Bonaventure Bonnies,A10
 Saint Joseph's Hawks,A10
 VCU Rams,A10
-Boston College Eagles,A10
+Boston College Eagles,ACC
 California Golden Bears,ACC
 Clemson Tigers,ACC
 Duke Blue Devils,ACC
@@ -30,7 +30,7 @@ Syracuse Orange,ACC
 Virginia Cavaliers,ACC
 Virginia Tech Hokies,ACC
 Wake Forest Demon Deacons,ACC
-Binghamton Bearcats,ACC
+Binghamton Bearcats,America East
 Bryant Bulldogs,America East
 Maine Black Bears,America East
 New Hampshire Wildcats,America East
@@ -39,7 +39,7 @@ UAlbany Great Danes,America East
 UMass Lowell River Hawks,America East
 UMBC Retrievers,America East
 Vermont Catamounts,America East
-Charlotte 49ers,America East
+Charlotte 49ers,American
 East Carolina Pirates,American
 Florida Atlantic Owls,American
 Memphis Tigers,American
@@ -52,7 +52,7 @@ Tulsa Golden Hurricane,American
 UAB Blazers,American
 UTSA Roadrunners,American
 Wichita State Shockers,American
-Austin Peay Governors,American
+Austin Peay Governors,ASUN
 Bellarmine Knights,ASUN
 Central Arkansas Bears,ASUN
 Eastern Kentucky Colonels,ASUN
@@ -64,7 +64,7 @@ North Florida Ospreys,ASUN
 Queens University Royals,ASUN
 Stetson Hatters,ASUN
 West Georgia Wolves,ASUN
-Illinois Fighting Illini,ASUN
+Illinois Fighting Illini,Big 10
 Indiana Hoosiers,Big 10
 Iowa Hawkeyes,Big 10
 Maryland Terrapins,Big 10
@@ -82,7 +82,7 @@ UCLA Bruins,Big 10
 USC Trojans,Big 10
 Washington Huskies,Big 10
 Wisconsin Badgers,Big 10
-Arizona Wildcats,Big 10
+Arizona Wildcats,Big 12
 Arizona State Sun Devils,Big 12
 Baylor Bears,Big 12
 BYU Cougars,Big 12
@@ -98,7 +98,7 @@ Texas Tech Red Raiders,Big 12
 UCF Knights,Big 12
 Utah Utes,Big 12
 West Virginia Mountaineers,Big 12
-Butler Bulldogs,Big 12
+Butler Bulldogs,Big East
 Creighton Bluejays,Big East
 DePaul Blue Demons,Big East
 Georgetown Hoyas,Big East
@@ -109,7 +109,7 @@ St. John's Red Storm,Big East
 UConn Huskies,Big East
 Villanova Wildcats,Big East
 Xavier Musketeers,Big East
-Eastern Washington Eagles,Big East
+Eastern Washington Eagles,Big Sky
 Idaho Vandals,Big Sky
 Idaho State Bengals,Big Sky
 Montana Grizzlies,Big Sky
@@ -119,7 +119,7 @@ Northern Colorado Bears,Big Sky
 Portland State Vikings,Big Sky
 Sacramento State Hornets,Big Sky
 Weber State Wildcats,Big Sky
-Charleston Southern Buccaneers,Big Sky
+Charleston Southern Buccaneers,Big South
 Gardner-Webb Runnin' Bulldogs,Big South
 High Point Panthers,Big South
 Longwood Lancers,Big South
@@ -128,7 +128,7 @@ Radford Highlanders,Big South
 South Carolina Upstate Spartans,Big South
 UNC Asheville Bulldogs,Big South
 Winthrop Eagles,Big South
-Cal Poly Mustangs,Big South
+Cal Poly Mustangs,Big West
 Cal State Bakersfield Roadrunners,Big West
 Cal State Fullerton Titans,Big West
 Cal State Northridge Matadors,Big West
@@ -139,7 +139,7 @@ UC Irvine Anteaters,Big West
 UC Riverside Highlanders,Big West
 UC San Diego Tritons,Big West
 UC Santa Barbara Gauchos,Big West
-Campbell Fighting Camels,Big West
+Campbell Fighting Camels,CAA
 Charleston Cougars,CAA
 Drexel Dragons,CAA
 Elon Phoenix,CAA
@@ -153,7 +153,7 @@ Towson Tigers,CAA
 UNC Wilmington Seahawks,CAA
 William & Mary Tribe,CAA
 Delaware Blue Hens,CAA
-Florida International Panthers,CAA
+Florida International Panthers,CUSA
 Jacksonville State Gamecocks,CUSA
 Kennesaw State Owls,CUSA
 Liberty Flames,CUSA
@@ -163,7 +163,7 @@ Middle Tennessee Blue Raiders,CUSA
 New Mexico State Aggies,CUSA
 Sam Houston Bearkats,CUSA
 UTEP Miners,CUSA
-Western Kentucky Hilltoppers,CUSA
+Western Kentucky Hilltoppers,Horizon
 Cleveland State Vikings,Horizon
 Detroit Mercy Titans,Horizon
 Green Bay Phoenix,Horizon
@@ -174,7 +174,7 @@ Oakland Golden Grizzlies,Horizon
 Purdue Fort Wayne Mastodons,Horizon
 Robert Morris Colonials,Horizon
 Wright State Raiders,Horizon
-Youngstown State Penguins,Horizon
+Youngstown State Penguins,Ivy League
 Brown Bears,Ivy League
 Columbia Lions,Ivy League
 Cornell Big Red,Ivy League
@@ -182,7 +182,7 @@ Dartmouth Big Green,Ivy League
 Harvard Crimson,Ivy League
 Pennsylvania Quakers,Ivy League
 Princeton Tigers,Ivy League
-Yale Bulldogs,Ivy League
+Yale Bulldogs,MAAC
 Canisius Golden Griffins,MAAC
 Fairfield Stags,MAAC
 Iona Gaels,MAAC
@@ -195,7 +195,7 @@ Quinnipiac Bobcats,MAAC
 Rider Broncs,MAAC
 Sacred Heart Pioneers,MAAC
 Siena Saints,MAAC
-Saint Peter's Peacocks,MAAC
+Saint Peter's Peacocks,MAC
 Akron Zips,MAC
 Ball State Cardinals,MAC
 Bowling Green Falcons,MAC
@@ -207,7 +207,7 @@ Miami (OH) RedHawks,MAC
 Northern Illinois Huskies,MAC
 Ohio Bobcats,MAC
 Toledo Rockets,MAC
-Massachusetts Minutemen,MAC
+Massachusetts Minutemen,MEAC
 Western Michigan Broncos,MEAC
 Coppin State Eagles,MEAC
 Delaware State Hornets,MEAC
@@ -215,7 +215,7 @@ Howard Bison,MEAC
 Maryland Eastern Shore Hawks,MEAC
 Morgan State Bears,MEAC
 North Carolina Central Eagles,MEAC
-Norfolk State Spartans,MEAC
+Norfolk State Spartans,Mountain West
 South Carolina State Bulldogs,Mountain West
 Air Force Falcons,Mountain West
 Boise State Broncos,Mountain West
@@ -226,7 +226,7 @@ Nevada Wolf Pack,Mountain West
 New Mexico Lobos,Mountain West
 San Diego State Aztecs,Mountain West
 San Jose State Spartans,Mountain West
-UNLV Rebels,Mountain West
+UNLV Rebels,MVC
 Utah State Aggies,MVC
 Wyoming Cowboys,MVC
 Belmont Bruins,MVC
@@ -238,7 +238,7 @@ Indiana State Sycamores,MVC
 Murray State Racers,MVC
 Northern Iowa Panthers,MVC
 Southern Illinois Salukis,MVC
-UIC Flames,MVC
+UIC Flames,NEC
 Valparaiso Beacons,NEC
 Central Connecticut Blue Devils,NEC
 Chicago State Cougars,NEC
@@ -247,7 +247,7 @@ Le Moyne Dolphins,NEC
 Long Island University Sharks,NEC
 Mercyhurst Lakers,NEC
 New Haven Chargers,NEC
-Saint Francis Red Flash,NEC
+Saint Francis Red Flash,OVC
 Stonehill Skyhawks,OVC
 Wagner Seahawks,OVC
 Eastern Illinois Panthers,OVC
@@ -258,7 +258,7 @@ Southeast Missouri State Redhawks,OVC
 SIU Edwardsville Cougars,OVC
 Southern Indiana Screaming Eagles,OVC
 Tennessee State Tigers,OVC
-Tennessee Tech Golden Eagles,OVC
+Tennessee Tech Golden Eagles,Patriot
 UT Martin Skyhawks,Patriot
 Western Illinois Leathernecks,Patriot
 American University Eagles,Patriot
@@ -268,7 +268,7 @@ Bucknell Bison,Patriot
 Colgate Raiders,Patriot
 Holy Cross Crusaders,Patriot
 Lafayette Leopards,Patriot
-Lehigh Mountain Hawks,Patriot
+Lehigh Mountain Hawks,SEC
 Loyola Maryland Greyhounds,SEC
 Navy Midshipmen,SEC
 Alabama Crimson Tide,SEC
@@ -284,7 +284,7 @@ Oklahoma Sooners,SEC
 Ole Miss Rebels,SEC
 South Carolina Gamecocks,SEC
 Tennessee Volunteers,SEC
-Texas Longhorns,SEC
+Texas Longhorns,Southern
 Texas A&M Aggies,Southern
 Vanderbilt Commodores,Southern
 Chattanooga Mocs,Southern
@@ -294,7 +294,7 @@ Mercer Bears,Southern
 Samford Bulldogs,Southern
 The Citadel Bulldogs,Southern
 UNC Greensboro Spartans,Southern
-VMI Keydets,Southern
+VMI Keydets,Southland
 Western Carolina Catamounts,Southland
 Wofford Terriers,Southland
 East Texas A&M Lions,Southland
@@ -306,7 +306,7 @@ New Orleans Privateers,Southland
 Nicholls Colonels,Southland
 Northwestern State Demons,Southland
 SE Louisiana Lions,Southland
-Stephen F. Austin Lumberjacks,Southland
+Stephen F. Austin Lumberjacks,Summit
 Texas A&M-Corpus Christi Islanders,Summit
 UT Rio Grande Valley Vaqueros,Summit
 Denver Pioneers,Summit
@@ -315,7 +315,7 @@ North Dakota Fighting Hawks,Summit
 North Dakota State Bison,Summit
 Omaha Mavericks,Summit
 Oral Roberts Golden Eagles,Summit
-South Dakota Coyotes,Summit
+South Dakota Coyotes,Sun Belt
 South Dakota State Jackrabbits,Sun Belt
 St. Thomas-Minnesota Tommies,Sun Belt
 App State Mountaineers,Sun Belt
@@ -329,7 +329,7 @@ Marshall Thundering Herd,Sun Belt
 Old Dominion Monarchs,Sun Belt
 South Alabama Jaguars,Sun Belt
 Southern Miss Golden Eagles,Sun Belt
-Texas State Bobcats,Sun Belt
+Texas State Bobcats,SWAC
 Troy Trojans,SWAC
 UL Monroe Warhawks,SWAC
 Alabama A&M Bulldogs,SWAC
@@ -341,7 +341,7 @@ Florida A&M Rattlers,SWAC
 Grambling Tigers,SWAC
 Jackson State Tigers,SWAC
 Mississippi Valley State Delta Devils,SWAC
-Prairie View A&M Panthers,SWAC
+Prairie View A&M Panthers,WAC
 Southern Jaguars,WAC
 Texas Southern Tigers,WAC
 Abilene Christian Wildcats,WAC
@@ -350,7 +350,7 @@ Southern Utah Thunderbirds,WAC
 Tarleton State Texans,WAC
 UT Arlington Mavericks,WAC
 Utah Tech Trailblazers,WAC
-Utah Valley Wolverines,WAC
+Utah Valley Wolverines,WCC
 Gonzaga Bulldogs,WCC
 Loyola Marymount Lions,WCC
 Oregon State Beavers,WCC
