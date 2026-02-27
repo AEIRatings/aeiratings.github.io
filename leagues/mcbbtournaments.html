@@ -123,13 +123,65 @@
             font-size: 1.1rem;
         }
 
+        /* Bracket Styles */
+        .bracket-wrapper {
+            margin-bottom: 30px;
+            overflow-x: auto;
+            padding-bottom: 15px;
+        }
+        
+        .bracket-wrapper h3 {
+            color: var(--text-muted, #cbd5e1);
+            font-size: 1.2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .bracket {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            min-width: max-content;
+        }
+
+        .round {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            gap: 15px;
+        }
+
+        .match {
+            display: flex;
+            flex-direction: column;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border, rgba(255, 255, 255, 0.1));
+            border-radius: 6px;
+            min-width: 150px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .team {
+            padding: 10px 14px;
+            font-size: 0.9rem;
+            color: var(--text-main, #fff);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .team:last-child {
+            border-bottom: none;
+        }
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(5px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZKH8HFD2C"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -148,6 +200,1743 @@
     
     <div id="content-container">
         </div>
+</div>
+
+<div id="bracket-templates" style="display: none;">
+    <div class="america east">
+      <div class="bracket">
+        <div class="round">
+          <div class="match">
+            <div class="team">Team A</div>
+            <div class="team">Team B</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="mac">
+      <div class="bracket">
+        <div class="round">
+          <div class="match">
+            <div class="team">Team A</div>
+            <div class="team">Team B</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="nec">
+      <div class="bracket">
+        <div class="round">
+          <div class="match">
+            <div class="team">Team A</div>
+            <div class="team">Team B</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="american">
+      <div class="bracket">
+        <div class="round">
+          <div class="match">
+            <div class="team">Team A</div>
+            <div class="team">Team B</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="big west">
+      <div class="bracket">
+        <div class="round">
+          <div class="match">
+            <div class="team">Team A</div>
+            <div class="team">Team B</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="ivy league">
+      <div class="bracket">
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="ovc">
+      <div class="bracket">
+        <div class="round">
+          <div class="match">
+            <div class="team">Team A</div>
+            <div class="team">Team B</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="southland">
+      <div class="bracket">
+        <div class="round">
+          <div class="match">
+            <div class="team">Team A</div>
+            <div class="team">Team B</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="sun belt">
+      <div class="bracket">
+        <div class="round">
+          <div class="match">
+            <div class="team">Team A</div>
+            <div class="team">Team B</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="wcc">
+      <div class="bracket">
+        <div class="round">
+          <div class="match">
+            <div class="team">Team A</div>
+            <div class="team">Team B</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="acc">
+      <div class="bracket">
+        <div class="round">
+          <div class="match">
+            <div class="team">Team A</div>
+            <div class="team">Team B</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="asun">
+      <div class="bracket">
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="a10">
+      <div class="bracket">
+        <div class="round">
+          <div class="match">
+            <div class="team">Team A</div>
+            <div class="team">Team B</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="big east">
+      <div class="bracket">
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="big sky">
+      <div class="bracket">
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="big south">
+      <div class="bracket">
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="big 10">
+      <div class="bracket">
+        <div class="round">
+          <div class="match">
+            <div class="team">Team A</div>
+            <div class="team">Team B</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Team A</div>
+            <div class="team">Team B</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="big 12">
+      <div class="bracket">
+        <div class="round">
+          <div class="match">
+            <div class="team">Team A</div>
+            <div class="team">Team B</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="caa">
+      <div class="bracket">
+        <div class="round">
+          <div class="match">
+            <div class="team">Team A</div>
+            <div class="team">Team B</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="cusa">
+      <div class="bracket">
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="maac">
+      <div class="bracket">
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="mvc">
+      <div class="bracket">
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="mountain west">
+      <div class="bracket">
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="meac">
+      <div class="bracket">
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="patriot">
+      <div class="bracket">
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="sec">
+      <div class="bracket">
+        <div class="round">
+          <div class="match">
+            <div class="team">Team A</div>
+            <div class="team">Team B</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="southern">
+      <div class="bracket">
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="summit">
+      <div class="bracket">
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="swac">
+      <div class="bracket">
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="wac">
+      <div class="bracket">
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="horizon">
+      <div class="bracket">
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+          <div class="match">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">Winner AB</div>
+            <div class="team">Winner CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
 
 <script>
@@ -238,6 +2027,25 @@
 
             const tabsContainer = document.getElementById('tabs-container');
             const contentContainer = document.getElementById('content-container');
+            const bracketTemplates = document.getElementById('bracket-templates');
+
+            // Mapping dictionary to assist if CSV names and structural class names vary
+            const confMapping = {
+                "atlantic 10": "a10",
+                "big ten": "big 10",
+                "mid-american": "mac",
+                "northeast": "nec",
+                "ohio valley": "ovc",
+                "southeastern": "sec",
+                "southwestern athletic": "swac",
+                "western athletic": "wac",
+                "atlantic coast": "acc",
+                "coastal athletic": "caa",
+                "conference usa": "cusa",
+                "mid-eastern athletic": "meac",
+                "missouri valley": "mvc",
+                "west coast": "wcc"
+            };
 
             // 4. Generate the DOM Elements
             sortedConfs.forEach((conf, index) => {
@@ -266,7 +2074,25 @@
                 contentElement.id = tabId;
                 contentElement.className = 'conf-content' + (index === 0 ? ' active' : '');
                 
-                let tableHtml = `
+                // Attempt to find matching bracket template
+                let confLower = conf.toLowerCase().trim();
+                let searchClass = confMapping[confLower] || confLower;
+                let bracketHtml = "";
+                
+                for (const child of bracketTemplates.children) {
+                    // Match either direct class or replace spaces with single spaces to be safe
+                    if (child.className === searchClass || child.className.replace(/\s+/g, ' ') === searchClass) {
+                        bracketHtml = `
+                            <div class="bracket-wrapper">
+                                <h3>${conf} Bracket Structure</h3>
+                                ${child.innerHTML}
+                            </div>
+                        `;
+                        break;
+                    }
+                }
+
+                let tableHtml = bracketHtml + `
                     <table class="ratings-table">
                         <thead>
                             <tr>
