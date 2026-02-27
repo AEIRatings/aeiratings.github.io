@@ -1,20 +1,20 @@
 Team,Elo,Conference,RatingUpdated
-Davidson Wildcats,1052.2981458552192,A10,True
+Davidson Wildcats,1052.2981458552192,A10,False
 Dayton Flyers,1134.151363727227,A10,False
-Duquesne Dukes,1031.7620555641897,A10,True
+Duquesne Dukes,1031.7620555641895,A10,False
 Fordham Rams,1050.7446206831582,A10,False
-George Mason Patriots,1022.9601089974486,A10,True
+George Mason Patriots,1022.9601089974486,A10,False
 George Washington Revolutionaries,1088.894329780252,A10,False
 La Salle Explorers,918.35625908472,A10,False
 Loyola Chicago Ramblers,847.5107628512906,A10,False
-Rhode Island Rams,1025.0446891626837,A10,False
+Rhode Island Rams,998.1788135174826,A10,True
 Richmond Spiders,1022.8853776940008,A10,False
 Saint Louis Billikens,1215.7310381452546,A10,False
-St. Bonaventure Bonnies,996.5474767596104,A10,False
-Saint Joseph's Hawks,1073.9283517504077,A10,True
+St. Bonaventure Bonnies,1023.4133524048115,A10,True
+Saint Joseph's Hawks,1073.9283517504075,A10,False
 VCU Rams,1184.882467191634,A10,False
-Boston College Eagles,962.8262690902536,ACC,True
-California Golden Bears,1125.2794212359283,ACC,True
+Boston College Eagles,962.8262690902536,ACC,False
+California Golden Bears,1125.2794212359283,ACC,False
 Clemson Tigers,1123.6289233447174,ACC,False
 Duke Blue Devils,1322.479463508227,ACC,False
 Florida State Seminoles,1100.6307430282077,ACC,False
@@ -24,158 +24,158 @@ Miami Hurricanes,1183.4039109908329,ACC,False
 NC State Wolfpack,1159.1561689456796,ACC,False
 North Carolina Tar Heels,1173.6851891553656,ACC,False
 Notre Dame Fighting Irish,992.2490608240702,ACC,False
-Pittsburgh Panthers,980.4048252656437,ACC,True
-SMU Mustangs,1157.0081913094712,ACC,True
-Stanford Cardinal,1063.0567202450845,ACC,True
+Pittsburgh Panthers,980.4048252656436,ACC,False
+SMU Mustangs,1157.0081913094712,ACC,False
+Stanford Cardinal,1063.0567202450843,ACC,False
 Syracuse Orange,1051.3378636573066,ACC,False
 Virginia Cavaliers,1254.622961607159,ACC,False
 Virginia Tech Hokies,1122.1934170560228,ACC,False
-Wake Forest Demon Deacons,1058.5476266524877,ACC,True
-Binghamton Bearcats,774.5295407143809,America East,False
-Bryant Bulldogs,799.8314196535799,America East,False
-Maine Black Bears,844.9328185723948,America East,False
-New Hampshire Wildcats,828.4014095038158,America East,False
+Wake Forest Demon Deacons,1058.5476266524877,ACC,False
+Binghamton Bearcats,785.4419575781774,America East,True
+Bryant Bulldogs,791.9318726111239,America East,True
+Maine Black Bears,870.0058162427702,America East,True
+New Hampshire Wildcats,817.4889926400193,America East,True
 NJIT Highlanders,933.5342555057522,America East,False
-UAlbany Great Danes,897.4268753108428,America East,False
-UMass Lowell River Hawks,936.66836161009,America East,False
-UMBC Retrievers,1036.6811811391703,America East,False
-Vermont Catamounts,1000.8617083786138,America East,False
-Charlotte 49ers,986.3036206988756,American,True
-East Carolina Pirates,934.4404603682837,American,True
-Florida Atlantic Owls,1012.3892299901652,American,False
-Memphis Tigers,1017.0333201523396,American,False
-North Texas Mean Green,1009.6623314509023,American,True
-Rice Owls,931.1008477547477,American,True
-South Florida Bulls,1188.8178773625898,American,True
-Temple Owls,985.1788222479694,American,False
-Tulane Green Wave,1026.7432641528724,American,True
-Tulsa Golden Hurricane,1143.365977943464,American,True
+UAlbany Great Danes,872.3538776404674,America East,True
+UMass Lowell River Hawks,934.7648477716829,America East,True
+UMBC Retrievers,1044.5807281816265,America East,True
+Vermont Catamounts,1002.7652222170209,America East,True
+Charlotte 49ers,986.3036206988756,American,False
+East Carolina Pirates,934.4404603682837,American,False
+Florida Atlantic Owls,1019.0908569023776,American,True
+Memphis Tigers,1009.8581158738235,American,True
+North Texas Mean Green,1009.6623314509025,American,False
+Rice Owls,931.1008477547476,American,False
+South Florida Bulls,1188.8178773625898,American,False
+Temple Owls,978.477195335757,American,True
+Tulane Green Wave,1026.7432641528724,American,False
+Tulsa Golden Hurricane,1143.365977943464,American,False
 UAB Blazers,1070.47489725169,American,False
-UTSA Roadrunners,784.8030265260264,American,True
-Wichita State Shockers,1113.7408175264395,American,False
-Austin Peay Governors,1074.7362016121865,ASUN,True
-Bellarmine Knights,893.1202015485193,ASUN,True
-Central Arkansas Bears,1067.9866057532493,ASUN,True
-Eastern Kentucky Colonels,890.3387377380806,ASUN,True
-Florida Gulf Coast Eagles,954.1793486013928,ASUN,False
-Jacksonville Dolphins,864.3410928892381,ASUN,False
-Lipscomb Bisons,987.5556523221942,ASUN,True
-North Alabama Lions,825.5874573355933,ASUN,True
-North Florida Ospreys,809.0237867133683,ASUN,False
-Queens University Royals,1017.4092759019813,ASUN,True
-Stetson Hatters,864.4282913145557,ASUN,False
-West Georgia Wolves,904.3781541413579,ASUN,True
+UTSA Roadrunners,784.8030265260264,American,False
+Wichita State Shockers,1120.9160218049556,American,True
+Austin Peay Governors,1074.7362016121865,ASUN,False
+Bellarmine Knights,893.1202015485193,ASUN,False
+Central Arkansas Bears,1067.9866057532493,ASUN,False
+Eastern Kentucky Colonels,890.3387377380806,ASUN,False
+Florida Gulf Coast Eagles,929.9996337664056,ASUN,True
+Jacksonville Dolphins,872.8332045570359,ASUN,True
+Lipscomb Bisons,987.5556523221942,ASUN,False
+North Alabama Lions,825.5874573355933,ASUN,False
+North Florida Ospreys,833.2035015483555,ASUN,True
+Queens University Royals,1017.4092759019812,ASUN,False
+Stetson Hatters,855.936179646758,ASUN,True
+West Georgia Wolves,904.378154141358,ASUN,False
 Illinois Fighting Illini,1257.4721633059291,Big 10,False
 Indiana Hoosiers,1081.5951727349752,Big 10,False
-Iowa Hawkeyes,1162.5002951019146,Big 10,True
-Maryland Terrapins,979.4014920847798,Big 10,True
+Iowa Hawkeyes,1162.5002951019146,Big 10,False
+Maryland Terrapins,979.4014920847798,Big 10,False
 Michigan Wolverines,1321.4537562289495,Big 10,False
-Michigan State Spartans,1217.2762011842588,Big 10,False
+Michigan State Spartans,1231.6262640235163,Big 10,True
 Minnesota Golden Gophers,1043.843348611195,Big 10,False
-Nebraska Cornhuskers,1214.5280107010772,Big 10,True
+Nebraska Cornhuskers,1214.5280107010772,Big 10,False
 Northwestern Wildcats,1027.923359206985,Big 10,False
-Ohio State Buckeyes,1121.2875424631864,Big 10,True
-Oregon Ducks,1014.3728258937479,Big 10,True
+Ohio State Buckeyes,1121.2875424631864,Big 10,False
+Oregon Ducks,1014.372825893748,Big 10,False
 Penn State Nittany Lions,911.7187276080424,Big 10,False
-Purdue Boilermakers,1232.733619844083,Big 10,False
+Purdue Boilermakers,1218.3835570048254,Big 10,True
 Rutgers Scarlet Knights,956.3009096859686,Big 10,False
 UCLA Bruins,1130.4463443596517,Big 10,False
 USC Trojans,1052.4216865324138,Big 10,False
 Washington Huskies,1058.6106369946929,Big 10,False
-Wisconsin Badgers,1140.4215930124928,Big 10,True
+Wisconsin Badgers,1140.4215930124928,Big 10,False
 Arizona Wildcats,1299.7284168139065,Big 12,False
 Arizona State Sun Devils,1050.4367290062874,Big 12,False
 Baylor Bears,1058.537909366728,Big 12,False
 BYU Cougars,1156.4909262376543,Big 12,False
 Cincinnati Bearcats,1139.583938894643,Big 12,False
-Colorado Buffaloes,1073.086638549387,Big 12,True
+Colorado Buffaloes,1073.086638549387,Big 12,False
 Houston Cougars,1222.6022189904031,Big 12,False
 Iowa State Cyclones,1233.31219157253,Big 12,False
 Kansas Jayhawks,1218.9201138228564,Big 12,False
-Kansas State Wildcats,992.3475376229437,Big 12,True
+Kansas State Wildcats,992.3475376229436,Big 12,False
 Oklahoma State Cowboys,1049.731079681242,Big 12,False
 TCU Horned Frogs,1108.2610433637722,Big 12,False
 Texas Tech Red Raiders,1230.493409034353,Big 12,False
 UCF Knights,1135.4298213176744,Big 12,False
 Utah Utes,968.7693058758956,Big 12,False
 West Virginia Mountaineers,1048.854892299378,Big 12,False
-Butler Bulldogs,1018.1798034641187,Big East,True
-Creighton Bluejays,1024.0487543898253,Big East,True
-DePaul Blue Demons,1042.351130531871,Big East,True
+Butler Bulldogs,1018.1798034641188,Big East,False
+Creighton Bluejays,1024.0487543898253,Big East,False
+DePaul Blue Demons,1042.351130531871,Big East,False
 Georgetown Hoyas,1015.0034673414272,Big East,False
 Marquette Golden Eagles,1014.8173213252376,Big East,False
-Providence Friars,1070.7304762326187,Big East,True
+Providence Friars,1070.730476232619,Big East,False
 Seton Hall Pirates,1081.643266300896,Big East,False
-St. John's Red Storm,1216.06346997464,Big East,True
-UConn Huskies,1253.1806328413788,Big East,True
-Villanova Wildcats,1174.8692877093645,Big East,True
-Xavier Musketeers,1014.2279650910511,Big East,True
-Eastern Washington Eagles,1008.2034526906244,Big Sky,False
-Idaho Vandals,964.8399747796178,Big Sky,False
+St. John's Red Storm,1216.06346997464,Big East,False
+UConn Huskies,1253.1806328413788,Big East,False
+Villanova Wildcats,1174.8692877093645,Big East,False
+Xavier Musketeers,1014.2279650910511,Big East,False
+Eastern Washington Eagles,1028.5311028322944,Big Sky,True
+Idaho Vandals,980.0596364325849,Big Sky,True
 Idaho State Bengals,902.3153349856668,Big Sky,False
-Montana Grizzlies,933.8376400554536,Big Sky,False
-Montana State Bobcats,967.7585688490286,Big Sky,False
-Northern Arizona Lumberjacks,877.8327555869906,Big Sky,False
-Northern Colorado Bears,1025.0899032378552,Big Sky,False
-Portland State Vikings,1024.7878365644683,Big Sky,False
-Sacramento State Hornets,892.6158050227691,Big Sky,False
+Montana Grizzlies,944.306174610771,Big Sky,True
+Montana State Bobcats,995.1640307478998,Big Sky,True
+Northern Arizona Lumberjacks,862.6130939340236,Big Sky,True
+Northern Colorado Bears,1004.7622530961851,Big Sky,True
+Portland State Vikings,997.3823746655971,Big Sky,True
+Sacramento State Hornets,882.1472704674517,Big Sky,True
 Weber State Wildcats,978.3709147806292,Big Sky,False
-Charleston Southern Buccaneers,908.9501158486612,Big South,False
-Gardner-Webb Runnin' Bulldogs,682.3144055345911,Big South,False
-High Point Panthers,1171.6461904071225,Big South,False
+Charleston Southern Buccaneers,925.3815655914743,Big South,True
+Gardner-Webb Runnin' Bulldogs,678.1540904979757,Big South,True
+High Point Panthers,1175.1556017113164,Big South,True
 Longwood Lancers,945.9103162088928,Big South,False
-Presbyterian Blue Hose,924.6789139036724,Big South,False
-Radford Highlanders,992.2118766302294,Big South,False
-South Carolina Upstate Spartans,900.9125302284632,Big South,False
-UNC Asheville Bulldogs,966.8992187070352,Big South,False
-Winthrop Eagles,1084.377326585587,Big South,False
-Cal Poly Mustangs,999.5926566789672,Big West,False
-Cal State Bakersfield Roadrunners,783.6467758615286,Big West,False
+Presbyterian Blue Hose,921.1695025994785,Big South,True
+Radford Highlanders,1003.2368895268613,Big South,True
+South Carolina Upstate Spartans,889.8875173318313,Big South,True
+UNC Asheville Bulldogs,971.0595337436505,Big South,True
+Winthrop Eagles,1067.945876842774,Big South,True
+Cal Poly Mustangs,1008.729134218475,Big West,True
+Cal State Bakersfield Roadrunners,776.0461396442502,Big West,True
 Cal State Fullerton Titans,1003.1779498529904,Big West,False
-Cal State Northridge Matadors,1079.5338549323303,Big West,False
-Hawai'i Rainbow Warriors,1040.605868827394,Big West,False
-Long Beach State Beach,885.8179557602493,Big West,False
-UC Davis Aggies,1019.8442224161072,Big West,False
-UC Irvine Anteaters,1070.061835607915,Big West,False
-UC Riverside Highlanders,887.0049826235255,Big West,False
-UC San Diego Tritons,1046.2703501595638,Big West,False
-UC Santa Barbara Gauchos,1026.741583904118,Big West,False
-Campbell Fighting Camels,1007.099528605908,CAA,False
-Charleston Cougars,1075.1630429489742,CAA,False
-Drexel Dragons,1001.9602688561124,CAA,False
-Elon Phoenix,941.205581939454,CAA,False
-Hampton Pirates,943.4099890894754,CAA,False
+Cal State Northridge Matadors,1067.9779231288,Big West,True
+Hawai'i Rainbow Warriors,1049.901759797096,Big West,True
+Long Beach State Beach,876.6814782207415,Big West,True
+UC Davis Aggies,1010.5483314464052,Big West,True
+UC Irvine Anteaters,1081.6177674114454,Big West,True
+UC Riverside Highlanders,878.029091744237,Big West,True
+UC San Diego Tritons,1053.8709863768422,Big West,True
+UC Santa Barbara Gauchos,1035.7174747834065,Big West,True
+Campbell Fighting Camels,993.3895140608009,CAA,True
+Charleston Cougars,1085.8222915244712,CAA,True
+Drexel Dragons,1015.6702834012194,CAA,True
+Elon Phoenix,939.3339652507563,CAA,True
+Hampton Pirates,932.7507405139784,CAA,True
 Hofstra Pride,1104.969577126992,CAA,False
-Monmouth Hawks,1003.5976069686247,CAA,False
-North Carolina A&T Aggies,946.4876402187132,CAA,False
-Northeastern Huskies,856.3809680327673,CAA,False
-Stony Brook Seawolves,1009.7820752858024,CAA,False
-Towson Tigers,1005.8931403701064,CAA,False
-UNC Wilmington Seahawks,1127.9864498049076,CAA,False
-William & Mary Tribe,1023.5838809324902,CAA,False
-Delaware Blue Hens,920.2997363125796,CUSA,False
-Florida International Panthers,979.2669625442568,CUSA,False
-Jacksonville State Gamecocks,961.6549934519198,CUSA,False
-Kennesaw State Owls,994.5276724545158,CUSA,False
-Liberty Flames,1091.5575379918037,CUSA,False
-Louisiana Tech Bulldogs,971.4537513121076,CUSA,False
-Missouri State Bears,954.976587570075,CUSA,False
-Middle Tennessee Blue Raiders,966.0594655199812,CUSA,False
-New Mexico State Aggies,975.5573679545514,CUSA,False
-Sam Houston Bearkats,1080.2560876059492,CUSA,False
-UTEP Miners,949.2111603838308,CUSA,False
-Western Kentucky Hilltoppers,1038.6589811065462,CUSA,False
-Cleveland State Vikings,871.9200971352889,Horizon,True
-Detroit Mercy Titans,997.0283204468844,Horizon,True
+Monmouth Hawks,1024.6164445917439,CAA,True
+North Carolina A&T Aggies,933.8856168559215,CAA,True
+Northeastern Huskies,850.415740214864,CAA,True
+Stony Brook Seawolves,988.7632376626832,CAA,True
+Towson Tigers,1007.7647570588041,CAA,True
+UNC Wilmington Seahawks,1140.5884731676992,CAA,True
+William & Mary Tribe,1029.5491087503935,CAA,True
+Delaware Blue Hens,908.4060482999263,CUSA,True
+Florida International Panthers,960.5592633802638,CUSA,True
+Jacksonville State Gamecocks,973.5486814645732,CUSA,True
+Kennesaw State Owls,1020.0672762574725,CUSA,True
+Liberty Flames,1066.017934188847,CUSA,True
+Louisiana Tech Bulldogs,975.2055668647035,CUSA,True
+Missouri State Bears,951.224772017479,CUSA,True
+Middle Tennessee Blue Raiders,979.545438712925,CUSA,True
+New Mexico State Aggies,958.2817625716925,CUSA,True
+Sam Houston Bearkats,1098.963786769942,CUSA,True
+UTEP Miners,935.725187190887,CUSA,True
+Western Kentucky Hilltoppers,1055.934586489405,CUSA,True
+Cleveland State Vikings,871.9200971352889,Horizon,False
+Detroit Mercy Titans,997.0283204468844,Horizon,False
 Green Bay Phoenix,989.2519216256758,Horizon,False
-IU Indianapolis Jaguars,842.8913035455212,Horizon,True
-Milwaukee Panthers,928.6344744056502,Horizon,True
-Northern Kentucky Norse,988.4971968042694,Horizon,True
-Oakland Golden Grizzlies,986.6817160574999,Horizon,True
-Purdue Fort Wayne Mastodons,940.5073011970302,Horizon,True
-Robert Morris Colonials,1075.7068339429215,Horizon,True
-Wright State Raiders,1033.6659278950194,Horizon,True
-Youngstown State Penguins,975.0698939246568,Horizon,True
+IU Indianapolis Jaguars,842.8913035455212,Horizon,False
+Milwaukee Panthers,928.6344744056502,Horizon,False
+Northern Kentucky Norse,988.4971968042694,Horizon,False
+Oakland Golden Grizzlies,986.6817160575,Horizon,False
+Purdue Fort Wayne Mastodons,940.5073011970302,Horizon,False
+Robert Morris Colonials,1075.7068339429215,Horizon,False
+Wright State Raiders,1033.6659278950194,Horizon,False
+Youngstown State Penguins,975.0698939246568,Horizon,False
 Brown Bears,933.7527636239756,Ivy League,False
 Columbia Lions,961.929581691993,Ivy League,False
 Cornell Big Red,996.0942751095956,Ivy League,False
@@ -214,90 +214,90 @@ Coppin State Eagles,804.4812308774866,MEAC,False
 Delaware State Hornets,754.1318061387999,MEAC,False
 Howard Bison,1041.809076685346,MEAC,False
 Maryland Eastern Shore Hawks,802.9095485473998,MEAC,False
-Morgan State Bears,887.6876207039404,MEAC,True
+Morgan State Bears,887.6876207039404,MEAC,False
 North Carolina Central Eagles,817.2236364001491,MEAC,False
 Norfolk State Spartans,922.0377966766722,MEAC,False
-South Carolina State Bulldogs,797.0430237145877,MEAC,True
+South Carolina State Bulldogs,797.0430237145877,MEAC,False
 Air Force Falcons,723.0449479565111,Mountain West,False
 Boise State Broncos,1093.6566415282623,Mountain West,False
 Colorado State Rams,1082.2816304033015,Mountain West,False
 Fresno State Bulldogs,981.423834124988,Mountain West,False
-Grand Canyon Lopes,1129.3162716612314,Mountain West,True
+Grand Canyon Lopes,1129.3162716612314,Mountain West,False
 Nevada Wolf Pack,1106.2060552694215,Mountain West,False
 New Mexico Lobos,1139.9623811249787,Mountain West,False
-San Diego State Aztecs,1159.6253808967645,Mountain West,True
+San Diego State Aztecs,1159.6253808967645,Mountain West,False
 San Jose State Spartans,896.2176845082241,Mountain West,False
-UNLV Rebels,1024.0890922680221,Mountain West,True
-Utah State Aggies,1176.8052332006937,Mountain West,True
+UNLV Rebels,1024.089092268022,Mountain West,False
+Utah State Aggies,1176.8052332006937,Mountain West,False
 Wyoming Cowboys,1030.9599827107056,Mountain West,False
-Belmont Bruins,1189.613637284084,MVC,True
+Belmont Bruins,1189.613637284084,MVC,False
 Bradley Braves,1063.1265434454556,MVC,False
-Drake Bulldogs,945.1925671041706,MVC,True
-Evansville Purple Aces,838.3064868601236,MVC,True
-Illinois State Redbirds,1059.4854031287734,MVC,True
-Indiana State Sycamores,912.9089127565666,MVC,True
+Drake Bulldogs,945.1925671041706,MVC,False
+Evansville Purple Aces,838.3064868601236,MVC,False
+Illinois State Redbirds,1059.4854031287734,MVC,False
+Indiana State Sycamores,912.9089127565666,MVC,False
 Murray State Racers,1029.727425245143,MVC,False
-Northern Iowa Panthers,1063.8322593085813,MVC,True
-Southern Illinois Salukis,1055.5301295689587,MVC,True
+Northern Iowa Panthers,1063.8322593085811,MVC,False
+Southern Illinois Salukis,1055.5301295689587,MVC,False
 UIC Flames,1096.809434351385,MVC,False
-Valparaiso Beacons,1052.6929219806452,MVC,True
-Central Connecticut Blue Devils,924.1367932541544,NEC,False
-Chicago State Cougars,871.2531012796627,NEC,False
-Fairleigh Dickinson Knights,891.7861844768041,NEC,False
-Le Moyne Dolphins,923.8301104651416,NEC,False
-Long Island University Sharks,1014.9776962937262,NEC,False
-Mercyhurst Lakers,959.1849452167728,NEC,False
-New Haven Chargers,893.5347533621775,NEC,False
-Saint Francis Red Flash,806.8013084661791,NEC,False
-Stonehill Skyhawks,852.1889820946171,NEC,False
-Wagner Seahawks,897.5938613175755,NEC,False
-Eastern Illinois Panthers,868.6830282620778,OVC,False
-Lindenwood Lions,934.2356995125052,OVC,False
-Little Rock Trojans,907.8290280709836,OVC,False
-Morehead State Eagles,1005.0402714273692,OVC,False
-Southeast Missouri State Redhawks,1043.3640354319605,OVC,False
-SIU Edwardsville Cougars,973.2964317062396,OVC,False
+Valparaiso Beacons,1052.6929219806452,MVC,False
+Central Connecticut Blue Devils,934.792726935615,NEC,True
+Chicago State Cougars,859.4058660155669,NEC,True
+Fairleigh Dickinson Knights,874.973345479788,NEC,True
+Le Moyne Dolphins,940.6429494621577,NEC,True
+Long Island University Sharks,1026.824931557822,NEC,True
+Mercyhurst Lakers,948.5290115353123,NEC,True
+New Haven Chargers,885.9415369757179,NEC,True
+Saint Francis Red Flash,786.5473440379263,NEC,True
+Stonehill Skyhawks,872.4429465228699,NEC,True
+Wagner Seahawks,905.1870777040351,NEC,True
+Eastern Illinois Panthers,887.9066951104376,OVC,True
+Lindenwood Lions,915.0120326641454,OVC,True
+Little Rock Trojans,900.1744465437456,OVC,True
+Morehead State Eagles,1012.6948529546072,OVC,True
+Southeast Missouri State Redhawks,1023.001934590701,OVC,True
+SIU Edwardsville Cougars,984.7726824591964,OVC,True
 Southern Indiana Screaming Eagles,851.1739682698947,OVC,False
-Tennessee State Tigers,1027.2114616778554,OVC,False
-Tennessee Tech Golden Eagles,948.2817317510696,OVC,False
-UT Martin Skyhawks,1018.6161448114882,OVC,False
-Western Illinois Leathernecks,740.7160124236972,OVC,False
-American University Eagles,938.5645839745906,Patriot,True
-Army Black Knights,845.6265100164694,Patriot,True
-Boston University Terriers,982.4045632198166,Patriot,True
-Bucknell Bison,841.4538287644368,Patriot,True
-Colgate Raiders,968.3152109990435,Patriot,True
-Holy Cross Crusaders,857.7194516271185,Patriot,True
-Lafayette Leopards,894.4517937706593,Patriot,True
-Lehigh Mountain Hawks,946.5825767366673,Patriot,True
-Loyola Maryland Greyhounds,891.8040128542452,Patriot,True
-Navy Midshipmen,1138.0089921355773,Patriot,True
-Alabama Crimson Tide,1209.6283283840833,SEC,True
-Arkansas Razorbacks,1203.9505815649925,SEC,True
+Tennessee State Tigers,1047.5735625191148,OVC,True
+Tennessee Tech Golden Eagles,934.9347790268054,OVC,True
+UT Martin Skyhawks,1031.9630975357525,OVC,True
+Western Illinois Leathernecks,729.2397616707403,OVC,True
+American University Eagles,938.5645839745906,Patriot,False
+Army Black Knights,845.6265100164694,Patriot,False
+Boston University Terriers,982.4045632198166,Patriot,False
+Bucknell Bison,841.4538287644368,Patriot,False
+Colgate Raiders,968.3152109990436,Patriot,False
+Holy Cross Crusaders,857.7194516271185,Patriot,False
+Lafayette Leopards,894.4517937706593,Patriot,False
+Lehigh Mountain Hawks,946.5825767366672,Patriot,False
+Loyola Maryland Greyhounds,891.8040128542452,Patriot,False
+Navy Midshipmen,1138.0089921355773,Patriot,False
+Alabama Crimson Tide,1209.6283283840833,SEC,False
+Arkansas Razorbacks,1203.9505815649925,SEC,False
 Auburn Tigers,1065.9160252059482,SEC,False
-Florida Gators,1287.7313519614156,SEC,True
-Georgia Bulldogs,1129.0050233648365,SEC,True
+Florida Gators,1287.7313519614156,SEC,False
+Georgia Bulldogs,1129.0050233648365,SEC,False
 Kentucky Wildcats,1148.186861693344,SEC,False
-LSU Tigers,1044.956957222712,SEC,True
-Mississippi State Bulldogs,1027.040181651472,SEC,True
+LSU Tigers,1044.956957222712,SEC,False
+Mississippi State Bulldogs,1027.040181651472,SEC,False
 Missouri Tigers,1108.7288829534868,SEC,False
 Oklahoma Sooners,1086.7262241053463,SEC,False
-Ole Miss Rebels,982.9378833239278,SEC,True
+Ole Miss Rebels,982.9378833239278,SEC,False
 South Carolina Gamecocks,1010.5709066751368,SEC,False
 Tennessee Volunteers,1186.8916452932258,SEC,False
-Texas Longhorns,1138.2757495364187,SEC,True
-Texas A&M Aggies,1130.5544513940579,SEC,True
-Vanderbilt Commodores,1189.6423939630467,SEC,True
-Chattanooga Mocs,925.4050876147568,Southern,False
-East Tennessee State Buccaneers,1059.9692008268862,Southern,True
-Furman Paladins,1016.3933865107336,Southern,True
-Mercer Bears,998.4145312607328,Southern,True
-Samford Bulldogs,1041.2908159806889,Southern,False
-The Citadel Bulldogs,816.7680958706354,Southern,True
-UNC Greensboro Spartans,920.3656622129114,Southern,False
-VMI Keydets,728.115151669614,Southern,False
-Western Carolina Catamounts,980.6855565470621,Southern,True
-Wofford Terriers,985.9842023592105,Southern,True
+Texas Longhorns,1138.2757495364187,SEC,False
+Texas A&M Aggies,1130.554451394058,SEC,False
+Vanderbilt Commodores,1189.6423939630467,SEC,False
+Chattanooga Mocs,909.5698842204898,Southern,True
+East Tennessee State Buccaneers,1059.9692008268862,Southern,False
+Furman Paladins,1016.3933865107336,Southern,False
+Mercer Bears,998.4145312607328,Southern,False
+Samford Bulldogs,1051.2258177922508,Southern,True
+The Citadel Bulldogs,816.7680958706354,Southern,False
+UNC Greensboro Spartans,936.2008656071783,Southern,True
+VMI Keydets,718.1801498580521,Southern,True
+Western Carolina Catamounts,980.685556547062,Southern,False
+Wofford Terriers,985.9842023592104,Southern,False
 East Texas A&M Lions,863.7521485064767,Southland,False
 Houston Christian Huskies,869.6616803622276,Southland,False
 Incarnate Word Cardinals,856.6494158763124,Southland,False
@@ -310,57 +310,57 @@ SE Louisiana Lions,851.9459836470062,Southland,False
 Stephen F. Austin Lumberjacks,1148.4852689482327,Southland,False
 Texas A&M-Corpus Christi Islanders,960.020211495372,Southland,False
 UT Rio Grande Valley Vaqueros,1048.9020611592834,Southland,False
-Denver Pioneers,996.4653859347897,Summit,False
-Kansas City Roos,724.6255467884882,Summit,False
+Denver Pioneers,950.1611828661187,Summit,True
+Kansas City Roos,715.7349984280904,Summit,True
 North Dakota Fighting Hawks,936.9804522791496,Summit,False
-North Dakota State Bison,1098.7620518030958,Summit,False
-Omaha Mavericks,958.3276038132076,Summit,True
-Oral Roberts Golden Eagles,803.7202515107181,Summit,False
-South Dakota Coyotes,933.9604215562777,Summit,True
-South Dakota State Jackrabbits,949.5797274245753,Summit,False
-St. Thomas-Minnesota Tommies,1076.4526020371766,Summit,False
+North Dakota State Bison,1070.1358227363964,Summit,True
+Omaha Mavericks,958.3276038132076,Summit,False
+Oral Roberts Golden Eagles,850.024454579389,Summit,True
+South Dakota Coyotes,933.9604215562777,Summit,False
+South Dakota State Jackrabbits,958.4702757849731,Summit,True
+St. Thomas-Minnesota Tommies,1105.078831103876,Summit,True
 App State Mountaineers,1038.8563632718528,Sun Belt,False
 Arkansas State Red Wolves,1063.9412879204688,Sun Belt,False
 Coastal Carolina Chanticleers,1014.446581383729,Sun Belt,False
-Georgia Southern Eagles,916.985482351963,Sun Belt,True
+Georgia Southern Eagles,916.985482351963,Sun Belt,False
 Georgia State Panthers,894.262804341069,Sun Belt,False
-James Madison Dukes,1033.910734626701,Sun Belt,True
+James Madison Dukes,1033.910734626701,Sun Belt,False
 Louisiana Ragin' Cajuns,932.9483828800708,Sun Belt,False
 Marshall Thundering Herd,1014.8375632057076,Sun Belt,False
 Old Dominion Monarchs,942.0321962136125,Sun Belt,False
-South Alabama Jaguars,1057.6559947002947,Sun Belt,True
+South Alabama Jaguars,1057.6559947002947,Sun Belt,False
 Southern Miss Golden Eagles,972.2456860439132,Sun Belt,False
 Texas State Bobcats,1022.691378467142,Sun Belt,False
 Troy Trojans,1024.6952798947657,Sun Belt,False
-UL Monroe Warhawks,748.5050669089192,Sun Belt,True
+UL Monroe Warhawks,748.5050669089192,Sun Belt,False
 Alabama A&M Bulldogs,929.7712857542416,SWAC,False
 Alabama State Hornets,870.1247221687138,SWAC,False
-Alcorn State Braves,840.9064271505952,SWAC,False
+Alcorn State Braves,834.299597062194,SWAC,True
 Arkansas-Pine Bluff Golden Lions,875.8677274226649,SWAC,False
-Bethune-Cookman Wildcats,983.127651076881,SWAC,False
-Florida A&M Rattlers,881.2619517805202,SWAC,False
-Grambling Tigers,874.544389308554,SWAC,False
-Jackson State Tigers,852.7331025398358,SWAC,False
+Bethune-Cookman Wildcats,989.7759371664794,SWAC,True
+Florida A&M Rattlers,906.6686873077398,SWAC,True
+Grambling Tigers,867.8961032189555,SWAC,True
+Jackson State Tigers,839.5663470153521,SWAC,True
 Mississippi Valley State Delta Devils,630.1942858727663,SWAC,False
-Prairie View A&M Panthers,867.4608501820794,SWAC,False
-Southern Jaguars,936.27022707169,SWAC,False
-Texas Southern Tigers,913.8665675446346,SWAC,False
-Abilene Christian Wildcats,948.4518983742024,WAC,False
-California Baptist Lancers,1050.3294099616403,WAC,False
+Prairie View A&M Panthers,880.6276057065631,SWAC,True
+Southern Jaguars,910.8634915444704,SWAC,True
+Texas Southern Tigers,920.4733976330357,SWAC,True
+Abilene Christian Wildcats,943.8489825765146,WAC,True
+California Baptist Lancers,1062.1633512079807,WAC,True
 Southern Utah Thunderbirds,907.6294937418444,WAC,False
-Tarleton State Texans,945.871257340364,WAC,False
-UT Arlington Mavericks,987.080328912199,WAC,False
-Utah Tech Trailblazers,1034.42459762074,WAC,False
-Utah Valley Wolverines,1107.231774972414,WAC,False
-Gonzaga Bulldogs,1285.0817244563445,WCC,True
-Loyola Marymount Lions,987.53717062967,WCC,True
-Oregon State Beavers,1022.5541246318867,WCC,True
+Tarleton State Texans,940.2459325713605,WAC,True
+UT Arlington Mavericks,975.2463876658586,WAC,True
+Utah Tech Trailblazers,1039.027513418428,WAC,True
+Utah Valley Wolverines,1112.8570997414176,WAC,True
+Gonzaga Bulldogs,1285.0817244563443,WCC,False
+Loyola Marymount Lions,987.53717062967,WCC,False
+Oregon State Beavers,1022.5541246318868,WCC,False
 Pacific Tigers,1021.6903575951492,WCC,False
-Pepperdine Waves,854.8110668161709,WCC,True
-Portland Pilots,897.7712701538235,WCC,True
-San Diego Toreros,908.1706821773605,WCC,True
+Pepperdine Waves,854.8110668161709,WCC,False
+Portland Pilots,897.7712701538235,WCC,False
+San Diego Toreros,908.1706821773604,WCC,False
 San Francisco Dons,978.2977391648926,WCC,False
-Santa Clara Broncos,1188.9943499612982,WCC,True
-Seattle U Redhawks,1035.357009253217,WCC,True
-Saint Mary's Gaels,1245.9300796165571,WCC,True
-Washington State Cougars,1010.5317327785014,WCC,True
+Santa Clara Broncos,1188.9943499612982,WCC,False
+Seattle U Redhawks,1035.357009253217,WCC,False
+Saint Mary's Gaels,1245.9300796165571,WCC,False
+Washington State Cougars,1010.5317327785014,WCC,False
