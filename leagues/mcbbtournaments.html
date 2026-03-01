@@ -443,24 +443,6 @@
                 }
             });
 
-            // 6. Interactive Click Highlighting
-            document.getElementById('content-container').addEventListener('click', (e) => {
-                const teamEl = e.target.closest('.team');
-                if (!teamEl) return;
-
-                if (teamEl.classList.contains('pick-correct')) {
-                    teamEl.classList.remove('pick-correct');
-                    teamEl.classList.add('pick-wrong');
-                } else if (teamEl.classList.contains('pick-wrong')) {
-                    teamEl.classList.remove('pick-wrong');
-                    teamEl.classList.add('pick-predicted');
-                } else if (teamEl.classList.contains('pick-predicted')) {
-                    teamEl.classList.remove('pick-predicted');
-                } else {
-                    teamEl.classList.add('pick-correct');
-                }
-            });
-
         } catch (error) {
             console.error("Error loading tournament data:", error);
             document.getElementById('content-container').innerHTML = 
