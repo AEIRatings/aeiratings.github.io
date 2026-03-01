@@ -393,6 +393,7 @@
                                 <th>Seed</th>
                                 <th>Team</th>
                                 <th>Current Rating (Elo)</th>
+                                <th>Current Tournament Win %</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -442,6 +443,58 @@
                     }
                 }
             });
+
+            // 6. Calculate Tournament Win Chances (Per Conference)
+document.querySelectorAll('.conf-content').forEach(confContent => {
+    const teamWinProducts = {};
+
+    // Find all matches inside this conference tab
+    const matches = confContent.querySelectorAll('.match');
+
+    matches.forEach(match => {
+        const teams = match.querySelectorAll('.team');
+        if (teams.length !== 2) return;
+
+        const teamA = teams[0].textContent.trim();
+        const teamB = teams[1].textContent.trim();
+
+        const eloA = teamRatings[teamA];
+        const eloB = teamRatings[teamB];
+
+        if (typeof eloA === 'number' && typeof eloB === 'number') {
+            const probA = calculateWinPercentage(eloA, eloB);
+            const probB = calculateWinPercentage(eloB, eloA);
+
+            if (!teamWinProducts[teamA]) teamWinProducts[teamA] = 1;
+            if (!teamWinProducts[teamB]) teamWinProducts[teamB] = 1;
+
+            teamWinProducts[teamA] *= probA;
+            teamWinProducts[teamB] *= probB;
+        }
+    });
+
+    // Normalize so total = 100%
+    const total = Object.values(teamWinProducts).reduce((a, b) => a + b, 0);
+
+    const normalized = {};
+    Object.keys(teamWinProducts).forEach(team => {
+        normalized[team] = total > 0
+            ? (teamWinProducts[team] / total) * 100
+            : 0;
+    });
+
+    // Inject into table
+    const rows = confContent.querySelectorAll('.ratings-table tbody tr');
+
+    rows.forEach(row => {
+        const teamName = row.querySelector('.team-cell span')?.textContent.trim();
+        const winPct = normalized[teamName] || 0;
+
+        const td = document.createElement('td');
+        td.innerHTML = `<span class="rating-val">${winPct.toFixed(2)}%</span>`;
+        row.appendChild(td);
+    });
+});
 
         } catch (error) {
             console.error("Error loading tournament data:", error);
