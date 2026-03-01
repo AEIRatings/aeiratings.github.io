@@ -221,10 +221,11 @@
 
     document.addEventListener("DOMContentLoaded", async () => {
         try {
-            // Fetch both CSV files concurrently
-            const [confResponse, ratingsResponse] = await Promise.all([
+            // Fetch all data including the new brackets.json
+            const [confResponse, ratingsResponse, bracketRes] = await Promise.all([
                 fetch('../data/MCBBconferences.csv'),
-                fetch('../data/mcbb.csv')
+                fetch('../data/mcbb.csv'),
+                fetch('../data/brackets.json').catch(() => null) // Fails safely if missing
             ]);
             
             if (!confResponse.ok) throw new Error("Could not load MCBBconferences.csv");
@@ -232,6 +233,16 @@
 
             const confText = await confResponse.text();
             const ratingsText = await ratingsResponse.text();
+            
+            // Parse custom brackets if the file exists
+            let bracketsConfig = {};
+            if (bracketRes && bracketRes.ok) {
+                try {
+                    bracketsConfig = await bracketRes.json();
+                } catch (e) {
+                    console.warn("Could not parse brackets.json");
+                }
+            }
 
             // 1. Process MCBBconferences.csv (Team, Conference)
             const teamToConf = {};
@@ -265,7 +276,7 @@
                 }
             }
 
-            // 3. Merge Datasets Grouped by Conference (FIXED: Safe Number Handling)
+            // 3. Merge Datasets Grouped by Conference
             const confData = {};
             for (const conf of conferences) {
                 confData[conf] = [];
@@ -349,12 +360,29 @@
                 let bracketHtml = "";
                 
                 for (const child of bracketTemplates.children) {
-                    // Match either direct class or replace spaces with single spaces to be safe
                     if (child.className === searchClass || child.className.replace(/\s+/g, ' ') === searchClass) {
+                        
+                        // NEW: Clone the template temporarily to apply custom data and colors
+                        const tempDiv = document.createElement('div');
+                        tempDiv.innerHTML = child.innerHTML;
+                        
+                        const customBracketData = bracketsConfig[searchClass];
+                        
+                        if (customBracketData) {
+                            const teamNodes = tempDiv.querySelectorAll('.team');
+                            customBracketData.forEach((teamData, idx) => {
+                                if (teamNodes[idx]) {
+                                    teamNodes[idx].textContent = teamData.name;
+                                    if (teamData.color === 'green') teamNodes[idx].classList.add('highlight-green');
+                                    if (teamData.color === 'red') teamNodes[idx].classList.add('highlight-red');
+                                }
+                            });
+                        }
+
                         bracketHtml = `
                             <div class="bracket-wrapper">
                                 <h3>${conf} Bracket Structure</h3>
-                                ${child.innerHTML}
+                                ${tempDiv.innerHTML}
                             </div>
                         `;
                         break;
@@ -399,7 +427,6 @@
             });
 
             // 5. Calculate and inject win percentages into the brackets
-            // Find all instances of match pairings dynamically injected above
             document.querySelectorAll('#content-container .match').forEach(matchDiv => {
                 const teamDivs = matchDiv.querySelectorAll('.team');
                 if (teamDivs.length === 2) {
@@ -415,7 +442,7 @@
                         const probA = calculateWinPercentage(eloA, eloB);
                         const probB = calculateWinPercentage(eloB, eloA);
 
-                        // Inject percentage back into the HTML (e.g. "Gonzaga <span class='win-prob'>75.2%</span>")
+                        // Inject percentage back into the HTML (Preserving the color classes)
                         teamDivs[0].innerHTML = `${teamA_name} <span class="win-prob">${(probA * 100).toFixed(1)}%</span>`;
                         teamDivs[1].innerHTML = `${teamB_name} <span class="win-prob">${(probB * 100).toFixed(1)}%</span>`;
                     }
