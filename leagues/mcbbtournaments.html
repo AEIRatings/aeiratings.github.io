@@ -444,9 +444,26 @@
                 }
             });
 
-            // 6. Calculate Tournament Win Chances (Per Conference)
+            // ----------------- Fixed: Calculate Tournament Win Chances (Per Conference) -----------------
+function extractTeamNameFromDiv(teamDiv) {
+    // If there's a .win-prob span, remove its text; otherwise return trimmed textContent
+    const winSpan = teamDiv.querySelector('.win-prob');
+    if (winSpan) {
+        return teamDiv.textContent.replace(winSpan.textContent, '').trim();
+    }
+    // If there is an inner structure (like <img> + text), prefer the first text node
+    // fallback:
+    return teamDiv.textContent.trim();
+}
+
 document.querySelectorAll('.conf-content').forEach(confContent => {
     const teamWinProducts = {};
+
+    // initialize entries for every team in the ratings table (so teams without matches don't crash)
+    confContent.querySelectorAll('.ratings-table tbody .team-cell span').forEach(span => {
+        const teamName = span.textContent.trim();
+        if (teamName && !teamWinProducts[teamName]) teamWinProducts[teamName] = 1; // start product at 1
+    });
 
     // Find all matches inside this conference tab
     const matches = confContent.querySelectorAll('.match');
@@ -455,23 +472,38 @@ document.querySelectorAll('.conf-content').forEach(confContent => {
         const teams = match.querySelectorAll('.team');
         if (teams.length !== 2) return;
 
-        const teamA = teams[0].textContent.trim();
-        const teamB = teams[1].textContent.trim();
+        const teamADiv = teams[0];
+        const teamBDiv = teams[1];
 
-        const eloA = teamRatings[teamA];
-        const eloB = teamRatings[teamB];
+        const teamA_name = extractTeamNameFromDiv(teamADiv);
+        const teamB_name = extractTeamNameFromDiv(teamBDiv);
 
+        const eloA = teamRatings[teamA_name];
+        const eloB = teamRatings[teamB_name];
+
+        // only compute if we have elos for both sides
         if (typeof eloA === 'number' && typeof eloB === 'number') {
             const probA = calculateWinPercentage(eloA, eloB);
             const probB = calculateWinPercentage(eloB, eloA);
 
-            if (!teamWinProducts[teamA]) teamWinProducts[teamA] = 1;
-            if (!teamWinProducts[teamB]) teamWinProducts[teamB] = 1;
+            if (!teamWinProducts[teamA_name]) teamWinProducts[teamA_name] = 1;
+            if (!teamWinProducts[teamB_name]) teamWinProducts[teamB_name] = 1;
 
-            teamWinProducts[teamA] *= probA;
-            teamWinProducts[teamB] *= probB;
+            teamWinProducts[teamA_name] *= probA;
+            teamWinProducts[teamB_name] *= probB;
+        } else {
+            // If elos missing, ensure teams exist in map so they show 0 after normalization
+            if (teamA_name && !teamWinProducts[teamA_name]) teamWinProducts[teamA_name] = 1;
+            if (teamB_name && !teamWinProducts[teamB_name]) teamWinProducts[teamB_name] = 1;
         }
     });
+
+    // If every product is 1 (no matches with elos found), convert to zeros before normalization
+    const isAllOnes = Object.values(teamWinProducts).every(v => v === 1);
+    if (isAllOnes) {
+        // replace with zeros to avoid giving equal non-zero probs
+        Object.keys(teamWinProducts).forEach(k => teamWinProducts[k] = 0);
+    }
 
     // Normalize so total = 100%
     const total = Object.values(teamWinProducts).reduce((a, b) => a + b, 0);
@@ -483,18 +515,28 @@ document.querySelectorAll('.conf-content').forEach(confContent => {
             : 0;
     });
 
-    // Inject into table
+    // Inject into table (append column cell if not already present)
     const rows = confContent.querySelectorAll('.ratings-table tbody tr');
 
     rows.forEach(row => {
-        const teamName = row.querySelector('.team-cell span')?.textContent.trim();
-        const winPct = normalized[teamName] || 0;
+        // find team name (from same .team-cell span)
+        const teamSpan = row.querySelector('.team-cell span');
+        const teamName = teamSpan ? teamSpan.textContent.trim() : null;
+        const winPct = teamName ? (normalized[teamName] || 0) : 0;
 
-        const td = document.createElement('td');
-        td.innerHTML = `<span class="rating-val">${winPct.toFixed(2)}%</span>`;
-        row.appendChild(td);
+        // If table already has the column (maybe from previous runs), replace value; else append
+        let existingTd = row.querySelector('.tourn-win-td');
+        if (!existingTd) {
+            const td = document.createElement('td');
+            td.className = 'tourn-win-td';
+            td.innerHTML = `<span class="rating-val">${winPct.toFixed(2)}%</span>`;
+            row.appendChild(td);
+        } else {
+            existingTd.innerHTML = `<span class="rating-val">${winPct.toFixed(2)}%</span>`;
+        }
     });
 });
+// ---------------------------------------------------------------------------------------------
 
         } catch (error) {
             console.error("Error loading tournament data:", error);
