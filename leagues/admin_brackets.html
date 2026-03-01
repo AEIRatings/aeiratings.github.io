@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bracket Admin UI</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #1e293b; color: #fff; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: #334155; padding: 20px; border-radius: 8px; }
+        select, input, button { padding: 10px; margin: 5px 0; border-radius: 4px; border: none; }
+        .team-row { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; padding: 10px; background: #1e293b; border-radius: 6px; }
+        .team-row input { flex: 1; }
+        .btn-export { background: #38bdf8; color: #000; font-weight: bold; cursor: pointer; margin-top: 20px; width: 100%; }
+        .btn-export:hover { background: #0284c7; color: #fff; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Bracket Builder</h1>
+    <p>Select a conference template, assign teams to their slots, choose a highlight color, and click Export.</p>
+    
+    <label>Select Conference Template:</label>
+    <select id="conf-select">
+        <option value="">-- Choose a Conference --</option>
+        </select>
+
+    <div id="form-container" style="margin-top: 20px;"></div>
+
+    <button class="btn-export" onclick="exportData()">Export brackets.json</button>
+</div>
+
+<div id="bracket-templates" style="display: none;">
+    </div>
+
+<script>
+    const templatesContainer = document.getElementById('bracket-templates');
+    const confSelect = document.getElementById('conf-select');
+    const formContainer = document.getElementById('form-container');
+    
+    // Master object to hold our bracket data
+    let masterData = {};
+
+    // Populate dropdown based on available templates
+    Array.from(templatesContainer.children).forEach(template => {
+        const option = document.createElement('option');
+        option.value = template.className;
+        option.textContent = template.className.toUpperCase();
+        confSelect.appendChild(option);
+    });
+
+    confSelect.addEventListener('change', (e) => {
+        const confClass = e.target.value;
+        formContainer.innerHTML = ''; // Clear form
+        
+        if (!confClass) return;
+        
+        // Initialize data for this conference if it doesn't exist
+        if (!masterData[confClass]) {
+            masterData[confClass] = [];
+        }
+
+        const template = templatesContainer.querySelector(`[class="${confClass}"]`);
+        const teamNodes = template.querySelectorAll('.team');
+        
+        teamNodes.forEach((node, index) => {
+            // Ensure slot exists in data array
+            if (!masterData[confClass][index]) {
+                masterData[confClass][index] = { name: node.textContent.trim(), color: 'none' };
+            }
+
+            const row = document.createElement('div');
+            row.className = 'team-row';
+            
+            const label = document.createElement('span');
+            label.textContent = `Slot ${index + 1}: `;
+            label.style.width = "60px";
+
+            const nameInput = document.createElement('input');
+            nameInput.type = 'text';
+            nameInput.value = masterData[confClass][index].name;
+            nameInput.onchange = (ev) => masterData[confClass][index].name = ev.target.value;
+
+            const colorSelect = document.createElement('select');
+            ['none', 'green', 'red'].forEach(color => {
+                const opt = document.createElement('option');
+                opt.value = color;
+                opt.textContent = color.charAt(0).toUpperCase() + color.slice(1);
+                if (masterData[confClass][index].color === color) opt.selected = true;
+                colorSelect.appendChild(opt);
+            });
+            colorSelect.onchange = (ev) => masterData[confClass][index].color = ev.target.value;
+
+            row.appendChild(label);
+            row.appendChild(nameInput);
+            row.appendChild(colorSelect);
+            formContainer.appendChild(row);
+        });
+    });
+
+    function exportData() {
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(masterData, null, 2));
+        const anchor = document.createElement('a');
+        anchor.setAttribute("href", dataStr);
+        anchor.setAttribute("download", "brackets.json");
+        document.body.appendChild(anchor);
+        anchor.click();
+        anchor.remove();
+    }
+</script>
+</body>
+</html>
