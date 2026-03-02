@@ -269,7 +269,7 @@
     document.addEventListener("DOMContentLoaded", async () => {
         try {
             const [confResponse, ratingsResponse, winChanceResponse] = await Promise.all([
-    fetch('../data/MCBBconferences.csv'),
+    fetch('../data/WCBBconferences.csv'),
     fetch('../data/wcbb.csv'),
     fetch('../data/wwinchance.xlsx')
 ]);
