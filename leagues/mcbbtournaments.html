@@ -237,6 +237,7 @@
     </style>
 </head>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZKH8HFD2C"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
 <script>
     function formatLogoName(teamName) {
         return teamName.toLowerCase()
@@ -258,10 +259,13 @@
 
     document.addEventListener("DOMContentLoaded", async () => {
         try {
-            const [confResponse, ratingsResponse] = await Promise.all([
-                fetch('../data/MCBBconferences.csv'),
-                fetch('../data/mcbb.csv')
-            ]);
+            const [confResponse, ratingsResponse, winChanceResponse] = await Promise.all([
+    fetch('../data/MCBBconferences.csv'),
+    fetch('../data/mcbb.csv'),
+    fetch('../data/winchance.xlsx')
+]);
+
+if (!winChanceResponse.ok) throw new Error("Could not load winchance.xlsx");
             
             if (!confResponse.ok) throw new Error("Could not load MCBBconferences.csv");
             if (!ratingsResponse.ok) throw new Error("Could not load mcbb.csv");
@@ -300,6 +304,24 @@
                 }
             }
 
+            // 2b. Process winchance.xlsx
+const winChanceData = {};
+const winChanceBuffer = await winChanceResponse.arrayBuffer();
+const workbook = XLSX.read(winChanceBuffer, { type: "array" });
+const sheet = workbook.Sheets[workbook.SheetNames[0]];
+const rows = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+
+rows.forEach(row => {
+    if (row.length >= 2) {
+        const teamName = row[0]?.toString().trim();
+        const chance = row[1];
+
+        if (teamName && chance != null) {
+            winChanceData[teamName] = parseFloat(chance);
+        }
+    }
+});
+
             // 3. Merge Datasets
             const confData = {};
             for (const conf of conferences) {
@@ -317,11 +339,14 @@
                         sortRating = rawRating;
                     }
 
-                    confData[conf].push({
-                        team: team,
-                        rating: displayRating,
-                        rawRating: sortRating
-                    });
+                  const winChance = winChanceData[team];
+
+confData[conf].push({
+    team: team,
+    rating: displayRating,
+    rawRating: sortRating,
+    winChance: typeof winChance === 'number' ? winChance : null
+});
                 }
             }
 
@@ -393,14 +418,14 @@
                                 <th>Seed</th>
                                 <th>Team</th>
                                 <th>Current Rating (Elo)</th>
-                                <th>Current Tournament Win %</th>
+                                <th>Win CHance</th>
                             </tr>
                         </thead>
                         <tbody>
                 `;
                 
                 if (confData[conf].length === 0) {
-                    tableHtml += `<tr><td colspan="3">No teams found for this conference.</td></tr>`;
+                    tableHtml += `<tr><td colspan="4">No teams found for this conference.</td></tr>`;
                 } else {
                     confData[conf].forEach((t, rank) => {
                         const logoSrc = `../logos/cfb/${formatLogoName(t.team)}.png`;
@@ -413,7 +438,12 @@
                                         <span>${t.team}</span>
                                     </div>
                                 </td>
-                                <td><span class="rating-val">${t.rating}</span></td>
+                               <td><span class="rating-val">${t.rating}</span></td>
+<td>
+    ${t.winChance !== null
+        ? `<span style="color:#22c55e;font-weight:bold;">${t.winChance.toFixed(1)}%</span>`
+        : '—'}
+</td>
                             </tr>
                         `;
                     });
