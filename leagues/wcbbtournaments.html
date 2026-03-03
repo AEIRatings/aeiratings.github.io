@@ -261,10 +261,44 @@
         return 1 / (1 + Math.pow(10, (eloB - eloA) / 400));
     }
 
-    // NEW: Safe CSV Splitter - fixes commas inside team names without breaking the page
-    function safeSplitCSV(line) {
-        return line.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/).map(s => s.replace(/^"|"$/g, '').trim());
+   // NEW: Safe CSV Splitter - fixes commas inside team names without breaking the page
+function safeSplitCSV(line) {
+  return line
+    .split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/)
+    .map(s => s.replace(/^"|"$/g, '').trim());
+}
+
+// Normalize team names across CSV/XLSX/HTML so lookups don’t miss because of spacing/case.
+function normalizeTeamKey(name) {
+  return (name ?? "")
+    .toString()
+    .toLowerCase()
+    .replace(/\u00a0/g, " ")   // nbsp
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+// Format a percent using the smallest decimals possible:
+// - If > 0 but would round to 0.0 at 1 decimal, keep adding decimals until it shows a non-zero digit.
+// - For >= 1%, show up to 1 decimal and trim trailing .0
+function formatPercentSmart(pct) {
+  if (!Number.isFinite(pct)) return null;
+
+  if (pct === 0) return "0.0";
+
+  if (pct >= 1) {
+    return pct.toFixed(1).replace(/\.0$/, "");
+  }
+
+  // For tiny values (<1%), increase decimals until it stops rounding to 0
+  for (let d = 1; d <= 6; d++) {
+    const r = Number(pct.toFixed(d));
+    if (r !== 0) {
+      return pct.toFixed(d).replace(/0+$/, "").replace(/\.$/, "");
     }
+  }
+  return pct.toFixed(6).replace(/0+$/, "").replace(/\.$/, "");
+}
 
     document.addEventListener("DOMContentLoaded", async () => {
         try {
@@ -321,14 +355,17 @@ const sheet = workbook.Sheets[workbook.SheetNames[0]];
 const rows = XLSX.utils.sheet_to_json(sheet, { header: 1 });
 
 rows.forEach(row => {
-    if (row.length >= 2) {
-        const teamName = row[0]?.toString().trim();
-        const chance = row[1];
+  if (row.length >= 2) {
+    const teamNameRaw = row[0]?.toString().trim();
+    const chanceRaw = row[1];
 
-        if (teamName && chance != null) {
-            winChanceData[teamName] = parseFloat(chance);
-        }
+    if (!teamNameRaw) return;
+
+    const num = parseFloat(chanceRaw);
+    if (Number.isFinite(num)) {
+      winChanceData[normalizeTeamKey(teamNameRaw)] = num;
     }
+  }
 });
 
             // 3. Merge Datasets
@@ -348,13 +385,13 @@ rows.forEach(row => {
                         sortRating = rawRating;
                     }
 
-                  const winChance = winChanceData[team];
+                  const winChance = winChanceData[normalizeTeamKey(team)];
 
 confData[conf].push({
-    team: team,
-    rating: displayRating,
-    rawRating: sortRating,
-    winChance: typeof winChance === 'number' ? winChance : null
+  team: team,
+  rating: displayRating,
+  rawRating: sortRating,
+  winChance: Number.isFinite(winChance) ? winChance : null
 });
                 }
             }
@@ -449,9 +486,9 @@ confData[conf].push({
                                 </td>
                                <td><span class="rating-val">${t.rating}</span></td>
 <td>
-    ${t.winChance !== null
-        ? `<span style="color:#22c55e;font-weight:bold;">${t.winChance.toFixed(1)}%</span>`
-        : '—'}
+  ${t.winChance !== null
+    ? `<span style="color:#22c55e;font-weight:bold;">${(formatPercentSmart(t.winChance) ?? '—')}%</span>`
+    : '—'}
 </td>
                             </tr>
                         `;
