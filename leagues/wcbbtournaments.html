@@ -501,7 +501,11 @@ confData[conf].push({
             });
 
             // 5. Calculate Win Percentages
+            // 5. Calculate Win Percentages
             document.querySelectorAll('#content-container .match').forEach(matchDiv => {
+                // Skip calculating and displaying percentages for completed games
+                if (matchDiv.classList.contains('completed')) return;
+
                 const teamDivs = matchDiv.querySelectorAll('.team');
                 if (teamDivs.length === 2) {
                     const teamA_name = teamDivs[0].textContent.trim();
@@ -2229,7 +2233,7 @@ confData[conf].push({
       <div class="bracket">
     
         <div class="round">
-          <div class="match">
+          <div class="match completed">
             <div class="team pick-wrong">Milwaukee Panthers</div>
             <div class="team pick-wrong"><b>Detroit Mercy Titans</b></div>
           </div>
