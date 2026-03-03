@@ -504,79 +504,20 @@ confData[conf].push({
             document.querySelectorAll('#content-container .match').forEach(matchDiv => {
                 const teamDivs = matchDiv.querySelectorAll('.team');
                 if (teamDivs.length === 2) {
+                    const teamA_name = teamDivs[0].textContent.trim();
+                    const teamB_name = teamDivs[1].textContent.trim();
 
-  // Store original team names once
-  teamDivs.forEach(div => {
-    if (!div.dataset.team) div.dataset.team = div.textContent.trim();
-  });
+                    const eloA = teamRatings[teamA_name];
+                    const eloB = teamRatings[teamB_name];
 
-  const aDiv = teamDivs[0];
-  const bDiv = teamDivs[1];
+                    if (typeof eloA === 'number' && typeof eloB === 'number') {
+                        const probA = calculateWinPercentage(eloA, eloB);
+                        const probB = calculateWinPercentage(eloB, eloA);
 
-  const aName = aDiv.dataset.team.trim();
-  const bName = bDiv.dataset.team.trim();
-
-  const aFinished =
-    aDiv.classList.contains('pick-correct') ||
-    aDiv.classList.contains('pick-wrong');
-
-  const bFinished =
-    bDiv.classList.contains('pick-correct') ||
-    bDiv.classList.contains('pick-wrong');
-
-  // 🔴 IF BOTH TEAMS ARE MARKED CORRECT/WRONG → HIDE PERCENTAGES
-  if (aFinished && bFinished) {
-    aDiv.textContent = aName;
-    bDiv.textContent = bName;
-    return;
-  }
-
-  function labelToLookupName(label) {
-  return (label ?? "")
-    .toString()
-    // remove any appended percent like "Duke 65.2%"
-    .replace(/\s+\d+(\.\d+)?%\s*$/, "")
-    // remove common seed formats: "1 Duke", "(1) Duke", "1. Duke"
-    .replace(/^\s*\(\s*\d+\s*\)\s*/, "")
-    .replace(/^\s*\d+\s*[\.\)]?\s*/, "")
-    .trim();
-}
-
-function getElo(label) {
-  const cleaned = labelToLookupName(label);
-  // try cleaned first, then original as fallback
-  return (
-    teamRatings[normalizeTeamKey(cleaned)] ??
-    teamRatings[normalizeTeamKey(label)]
-  );
-}
-
-const eloA = getElo(aName);
-const eloB = getElo(bName);
-  if (
-    typeof eloA === 'number' &&
-    typeof eloB === 'number' &&
-    Number.isFinite(eloA) &&
-    Number.isFinite(eloB)
-  ) {
-    const probA = calculateWinPercentage(eloA, eloB) * 100;
-    const probB = calculateWinPercentage(eloB, eloA) * 100;
-
-    const aPct = formatPercentSmart(probA);
-    const bPct = formatPercentSmart(probB);
-
-    if (aPct && bPct) {
-      aDiv.innerHTML = `${aName} <span class="win-prob">${aPct}%</span>`;
-      bDiv.innerHTML = `${bName} <span class="win-prob">${bPct}%</span>`;
-    } else {
-      aDiv.textContent = aName;
-      bDiv.textContent = bName;
-    }
-  } else {
-    aDiv.textContent = aName;
-    bDiv.textContent = bName;
-  }
-}
+                        teamDivs[0].innerHTML = `${teamA_name} <span class="win-prob">${(probA * 100).toFixed(1)}%</span>`;
+                        teamDivs[1].innerHTML = `${teamB_name} <span class="win-prob">${(probB * 100).toFixed(1)}%</span>`;
+                    }
+                }
             });
 
         } catch (error) {
