@@ -531,9 +531,28 @@ confData[conf].push({
     return;
   }
 
-  const eloA = teamRatings[normalizeTeamKey(aName)];
-  const eloB = teamRatings[normalizeTeamKey(bName)];
+  function labelToLookupName(label) {
+  return (label ?? "")
+    .toString()
+    // remove any appended percent like "Duke 65.2%"
+    .replace(/\s+\d+(\.\d+)?%\s*$/, "")
+    // remove common seed formats: "1 Duke", "(1) Duke", "1. Duke"
+    .replace(/^\s*\(\s*\d+\s*\)\s*/, "")
+    .replace(/^\s*\d+\s*[\.\)]?\s*/, "")
+    .trim();
+}
 
+function getElo(label) {
+  const cleaned = labelToLookupName(label);
+  // try cleaned first, then original as fallback
+  return (
+    teamRatings[normalizeTeamKey(cleaned)] ??
+    teamRatings[normalizeTeamKey(label)]
+  );
+}
+
+const eloA = getElo(aName);
+const eloB = getElo(bName);
   if (
     typeof eloA === 'number' &&
     typeof eloB === 'number' &&
