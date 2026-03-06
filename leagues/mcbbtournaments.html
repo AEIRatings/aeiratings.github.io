@@ -261,67 +261,66 @@
         return 1 / (1 + Math.pow(10, (eloB - eloA) / 400));
     }
 
-   // NEW: Safe CSV Splitter - fixes commas inside team names without breaking the page
-function safeSplitCSV(line) {
-  return line
-    .split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/)
-    .map(s => s.replace(/^"|"$/g, '').trim());
-}
-
-// Normalize team names across CSV/XLSX/HTML so lookups don’t miss because of spacing/case.
-function normalizeTeamKey(name) {
-  return (name ?? "")
-    .toString()
-    .toLowerCase()
-    .replace(/\u00a0/g, " ")   // nbsp
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-// Format a percent using the smallest decimals possible:
-// - If > 0 but would round to 0.0 at 1 decimal, keep adding decimals until it shows a non-zero digit.
-// - For >= 1%, show up to 1 decimal and trim trailing .0
-function formatPercentSmart(pct) {
-  if (!Number.isFinite(pct)) return null;
-
-  if (pct === 0) return "0.0";
-
-  if (pct >= 1) {
-    return pct.toFixed(1).replace(/\.0$/, "");
-  }
-
-  // For tiny values (<1%), increase decimals until it stops rounding to 0
-  for (let d = 1; d <= 6; d++) {
-    const r = Number(pct.toFixed(d));
-    if (r !== 0) {
-      return pct.toFixed(d).replace(/0+$/, "").replace(/\.$/, "");
+    function safeSplitCSV(line) {
+      return line
+        .split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/)
+        .map(s => s.replace(/^"|"$/g, '').trim());
     }
-  }
-  return pct.toFixed(6).replace(/0+$/, "").replace(/\.$/, "");
-}
+
+    function normalizeTeamKey(name) {
+      return (name ?? "")
+        .toString()
+        .toLowerCase()
+        .replace(/\u00a0/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function formatPercentSmart(pct) {
+      if (!Number.isFinite(pct)) return null;
+      if (pct === 0) return "0.0";
+      if (pct >= 1) return pct.toFixed(1).replace(/\.0$/, "");
+      for (let d = 1; d <= 6; d++) {
+        const r = Number(pct.toFixed(d));
+        if (r !== 0) return pct.toFixed(d).replace(/0+$/, "").replace(/\.$/, "");
+      }
+      return pct.toFixed(6).replace(/0+$/, "").replace(/\.$/, "");
+    }
 
     document.addEventListener("DOMContentLoaded", async () => {
         try {
             const [confResponse, ratingsResponse, winChanceResponse] = await Promise.all([
-    fetch('../data/MCBBconferences.csv'),
-    fetch('../data/mcbb.csv'),
-    fetch('../data/winchance.xlsx')
-]);
+                fetch('../data/MCBBconferences.csv'),
+                fetch('../data/mcbb.csv'),
+                fetch('../data/winchance.xlsx')
+            ]);
 
-if (!winChanceResponse.ok) throw new Error("Could not load winchance.xlsx");
+            if (!winChanceResponse.ok) throw new Error("Could not load wwinchance.xlsx");
+            if (!confResponse.ok) throw new Error("Could not load WCBBconferences.csv");
+            if (!ratingsResponse.ok) throw new Error("Could not load wcbb.csv");
+
+            // --- PROCESS XLSX ---
+            const arrayBuffer = await winChanceResponse.arrayBuffer();
+            const workbook = XLSX.read(arrayBuffer, { type: 'array' });
+            const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+            const winChanceRaw = XLSX.utils.sheet_to_json(firstSheet);
+            const winChanceData = {};
             
-            if (!confResponse.ok) throw new Error("Could not load MCBBconferences.csv");
-            if (!ratingsResponse.ok) throw new Error("Could not load mcbb.csv");
+            winChanceRaw.forEach(row => {
+                // Adjust 'Team' and 'WinChance' keys to match your Excel column headers
+                const teamKey = normalizeTeamKey(row.Team || row.team);
+                winChanceData[teamKey] = row.WinChance || row.winchance;
+            });
 
             const confText = await confResponse.text();
             const ratingsText = await ratingsResponse.text();
 
-            // 1. Process MCBBconferences.csv
+            // 1. Process Conferences
             const teamToConf = {};
             const conferences = new Set();
             const confLines = confText.split('\n').map(l => l.trim()).filter(l => l);
-            
             const confStartIdx = confLines[0].toLowerCase().includes('team') ? 1 : 0;
+            
             for (let i = confStartIdx; i < confLines.length; i++) {
                 const parts = safeSplitCSV(confLines[i]);
                 if (parts.length >= 2) {
@@ -332,47 +331,21 @@ if (!winChanceResponse.ok) throw new Error("Could not load winchance.xlsx");
                 }
             }
 
-            // 2. Process mcbb.csv
+            // 2. Process Ratings
             const teamRatings = {};
             const ratingsLines = ratingsText.split('\n').map(l => l.trim()).filter(l => l);
-            
             for (let i = 1; i < ratingsLines.length; i++) {
                 const parts = safeSplitCSV(ratingsLines[i]);
                 if (parts.length >= 2) {
                     const teamName = parts[0];
                     const elo = parseFloat(parts[1]);
-                    if (!isNaN(elo)) {
-                        teamRatings[teamName] = elo;
-                    }
+                    if (!isNaN(elo)) teamRatings[teamName] = elo;
                 }
             }
 
-            // 2b. Process winchance.xlsx
-const winChanceData = {};
-const winChanceBuffer = await winChanceResponse.arrayBuffer();
-const workbook = XLSX.read(winChanceBuffer, { type: "array" });
-const sheet = workbook.Sheets[workbook.SheetNames[0]];
-const rows = XLSX.utils.sheet_to_json(sheet, { header: 1 });
-
-rows.forEach(row => {
-  if (row.length >= 2) {
-    const teamNameRaw = row[0]?.toString().trim();
-    const chanceRaw = row[1];
-
-    if (!teamNameRaw) return;
-
-    const num = parseFloat(chanceRaw);
-    if (Number.isFinite(num)) {
-      winChanceData[normalizeTeamKey(teamNameRaw)] = num;
-    }
-  }
-});
-
             // 3. Merge Datasets
             const confData = {};
-            for (const conf of conferences) {
-                confData[conf] = [];
-            }
+            for (const conf of conferences) confData[conf] = [];
             
             for (const [team, conf] of Object.entries(teamToConf)) {
                 if (confData[conf]) {
@@ -385,14 +358,14 @@ rows.forEach(row => {
                         sortRating = rawRating;
                     }
 
-                  const winChance = winChanceData[normalizeTeamKey(team)];
+                    const winChanceValue = winChanceData[normalizeTeamKey(team)];
 
-confData[conf].push({
-  team: team,
-  rating: displayRating,
-  rawRating: sortRating,
-  winChance: Number.isFinite(winChance) ? winChance : null
-});
+                    confData[conf].push({
+                        team: team,
+                        rating: displayRating,
+                        rawRating: sortRating,
+                        winChance: Number.isFinite(winChanceValue) ? winChanceValue : null
+                    });
                 }
             }
 
@@ -402,39 +375,28 @@ confData[conf].push({
             const bracketTemplates = document.getElementById('bracket-templates');
 
             const confMapping = {
-                "atlantic 10": "a10",
-                "big ten": "big 10",
-                "mid-american": "mac",
-                "northeast": "nec",
-                "ohio valley": "ovc",
-                "southeastern": "sec",
-                "southwestern athletic": "swac",
-                "western athletic": "wac",
-                "atlantic coast": "acc",
-                "coastal athletic": "caa",
-                "conference usa": "cusa",
-                "mid-eastern athletic": "meac",
-                "missouri valley": "mvc",
-                "west coast": "wcc"
+                "atlantic 10": "a10", "big ten": "big 10", "mid-american": "mac",
+                "northeast": "nec", "ohio valley": "ovc", "southeastern": "sec",
+                "southwestern athletic": "swac", "western athletic": "wac",
+                "atlantic coast": "acc", "coastal athletic": "caa",
+                "conference usa": "cusa", "mid-eastern athletic": "meac",
+                "missouri valley": "mvc", "west coast": "wcc"
             };
 
-            // 4. Generate the DOM Elements
+            // 4. Generate DOM
             sortedConfs.forEach((conf, index) => {
                 confData[conf].sort((a, b) => b.rawRating - a.rawRating);
-
                 const tabId = 'conf-tab-' + index;
 
                 const tabElement = document.createElement('div');
                 tabElement.className = 'conf-tab' + (index === 0 ? ' active' : '');
                 tabElement.textContent = conf;
-                
                 tabElement.addEventListener('click', () => {
                     document.querySelectorAll('.conf-tab').forEach(t => t.classList.remove('active'));
                     document.querySelectorAll('.conf-content').forEach(c => c.classList.remove('active'));
                     tabElement.classList.add('active');
                     document.getElementById(tabId).classList.add('active');
                 });
-                
                 tabsContainer.appendChild(tabElement);
 
                 const contentElement = document.createElement('div');
@@ -447,16 +409,12 @@ confData[conf].push({
                 
                 for (const child of bracketTemplates.children) {
                     if (child.className === searchClass || child.className.replace(/\s+/g, ' ') === searchClass) {
-                        bracketHtml = `
-                            <div class="bracket-wrapper">
-                                <h3>${conf} Bracket Structure</h3>
-                                ${child.innerHTML}
-                            </div>
-                        `;
+                        bracketHtml = `<div class="bracket-wrapper"><h3>${conf} Bracket Structure</h3>${child.innerHTML}</div>`;
                         break;
                     }
                 }
 
+                // TABLE UPDATED: Win Chance column removed
                 let tableHtml = bracketHtml + `
                     <table class="ratings-table">
                         <thead>
@@ -464,14 +422,13 @@ confData[conf].push({
                                 <th>Seed</th>
                                 <th>Team</th>
                                 <th>Current Rating (Elo)</th>
-                                <th>Win CHance</th>
                             </tr>
                         </thead>
                         <tbody>
                 `;
                 
                 if (confData[conf].length === 0) {
-                    tableHtml += `<tr><td colspan="4">No teams found for this conference.</td></tr>`;
+                    tableHtml += `<tr><td colspan="3">No teams found for this conference.</td></tr>`;
                 } else {
                     confData[conf].forEach((t, rank) => {
                         const logoSrc = `../logos/cfb/${formatLogoName(t.team)}.png`;
@@ -484,12 +441,7 @@ confData[conf].push({
                                         <span>${t.team}</span>
                                     </div>
                                 </td>
-                               <td><span class="rating-val">${t.rating}</span></td>
-<td>
-  ${t.winChance !== null
-    ? `<span style="color:#22c55e;font-weight:bold;">${(formatPercentSmart(t.winChance) ?? '—')}%</span>`
-    : '—'}
-</td>
+                                <td><span class="rating-val">${t.rating}</span></td>
                             </tr>
                         `;
                     });
@@ -500,23 +452,20 @@ confData[conf].push({
                 contentContainer.appendChild(contentElement);
             });
 
-            // 5. Calculate Win Percentages
+            // 5. Bracket Probabilities (Still uses Elo for math)
             document.querySelectorAll('#content-container .match').forEach(matchDiv => {
-                // Skip calculating and displaying percentages for completed games
                 if (matchDiv.classList.contains('completed')) return;
 
                 const teamDivs = matchDiv.querySelectorAll('.team');
                 if (teamDivs.length === 2) {
                     const teamA_name = teamDivs[0].textContent.trim();
                     const teamB_name = teamDivs[1].textContent.trim();
-
                     const eloA = teamRatings[teamA_name];
                     const eloB = teamRatings[teamB_name];
 
                     if (typeof eloA === 'number' && typeof eloB === 'number') {
                         const probA = calculateWinPercentage(eloA, eloB);
                         const probB = calculateWinPercentage(eloB, eloA);
-
                         teamDivs[0].innerHTML = `${teamA_name} <span class="win-prob">${(probA * 100).toFixed(1)}%</span>`;
                         teamDivs[1].innerHTML = `${teamB_name} <span class="win-prob">${(probB * 100).toFixed(1)}%</span>`;
                     }
@@ -526,7 +475,7 @@ confData[conf].push({
         } catch (error) {
             console.error("Error loading tournament data:", error);
             document.getElementById('content-container').innerHTML = 
-                `<p style="color:#ef4444; text-align:center;">Error loading data. Ensure that <strong>MCBBconferences.csv</strong> and <strong>mcbb.csv</strong> exist inside the <em>data</em> folder.</p>`;
+                `<p style="color:#ef4444; text-align:center;">Error loading data: ${error.message}</p>`;
         }
     });
 </script>
@@ -811,24 +760,24 @@ confData[conf].push({
         </div>
     
         <div class="round">
-          <div class="match">
-            <div class="team">UT Martin Skyhawks</div>
-            <div class="team">Eastern Illinois Panthers</div>
+          <div class="match completed">
+            <div class="team pick-correct"><b>UT Martin Skyhawks</b></div>
+            <div class="team pick-correct">Eastern Illinois Panthers</div>
           </div>
-          <div class="match">
-            <div class="team">Southeast Missouri State Redhawks</div>
-            <div class="team">Lindenwood Lions</div>
+          <div class="match completed">
+            <div class="team pick-correct"><b>Southeast Missouri State Redhawks</b></div>
+            <div class="team pick-correct">Lindenwood Lions</div>
           </div>
         </div>
     
         <div class="round">
           <div class="match">
             <div class="team">Tennessee State Tigers</div>
-            <div class="team pick-predicted">UT Martin Skyhawks</div>
+            <div class="team ">UT Martin Skyhawks</div>
           </div>
           <div class="match">
             <div class="team">Morehead State Eagles</div>
-            <div class="team pick-predicted">Southeast Missouri State Redhawks</div>
+            <div class="team">Southeast Missouri State Redhawks</div>
           </div>
         </div>
     
@@ -910,24 +859,24 @@ confData[conf].push({
         </div>
     
         <div class="round">
-          <div class="match">
-            <div class="team">Southern Miss Golden Eagles</div>
-            <div class="team">James Madison Dukes</div>
+          <div class="match completed">
+            <div class="team pick-wrong"><b>Southern Miss Golden Eagles</b></div>
+            <div class="team pick-wrong">James Madison Dukes</div>
           </div>
-          <div class="match">
-            <div class="team">Arkansas State Red Wolves</div>
-            <div class="team">Georgia Southern Eagles</div>
+          <div class="match completed">
+            <div class="team pick-wrong">Arkansas State Red Wolves</div>
+            <div class="team pick-wrong"><b>Georgia Southern Eagles</b></div>
           </div>
         </div>
     
         <div class="round">
           <div class="match">
             <div class="team">Texas State Bobcats</div>
-            <div class="team pick-predicted">James Madison Dukes</div>
+            <div class="team">Southern Miss Golden Eagles</div>
           </div>
           <div class="match">
             <div class="team">South Alabama Jaguars</div>
-            <div class="team pick-predicted">Arkansas State Red Wolves</div>
+            <div class="team">Georgia Southern Eagles</div>
           </div>
         </div>
     
@@ -938,7 +887,7 @@ confData[conf].push({
           </div>
           <div class="match">
             <div class="team">Coastal Carolina Chanticleers</div>
-            <div class="team pick-predicted">Arkansas State Red Wolves</div>
+            <div class="team pick-predicted">South Alabama Jaguars</div>
           </div>
         </div>
     
@@ -949,14 +898,14 @@ confData[conf].push({
           </div>
           <div class="match">
             <div class="team">Marshall Thundering Herd</div>
-            <div class="team pick-predicted">Arkansas State Red Wolves</div>
+            <div class="team pick-predicted">South Alabama Jaguars</div>
           </div>
         </div>
     
         <div class="round">
           <div class="match">
             <div class="team pick-predicted">Texas State Bobcats</div>
-            <div class="team pick-predicted">Arkansas State Red Wolves</div>
+            <div class="team pick-predicted">South Alabama Jaguars</div>
           </div>
         </div>
       </div>
@@ -965,9 +914,9 @@ confData[conf].push({
     <div class="wcc">
       <div class="bracket">
         <div class="round">
-          <div class="match">
-            <div class="team">Portland Pilots</div>
-            <div class="team">Pepperdine Waves</div>
+          <div class="match completed">
+            <div class="team pick-correct"><b>Portland Pilots</b></div>
+            <div class="team pick-correct">Pepperdine Waves</div>
           </div>
           <div class="match">
             <div class="team">Loyola Marymount Lions</div>
@@ -978,7 +927,7 @@ confData[conf].push({
         <div class="round">
           <div class="match">
             <div class="team">Washington State Cougars</div>
-            <div class="team pick-predicted">Portland Pilots</div>
+            <div class="team">Portland Pilots</div>
           </div>
           <div class="match">
             <div class="team">Seattle U Redhawks</div>
@@ -1566,64 +1515,64 @@ confData[conf].push({
       <div class="bracket">
         <div class="round">
           <div class="match">
-            <div class="team">TBD</div>
-            <div class="team">TBD</div>
+            <div class="team">North Carolina A&T Aggies</div>
+            <div class="team">Northeastern Huskies</div>
           </div>
         </div>
     
         <div class="round">
           <div class="match">
-            <div class="team">TBD</div>
-            <div class="team">TBD</div>
+            <div class="team">Drexel Dragons</div>
+            <div class="team pick-predicted">North Carolina A&T Aggies</div>
           </div>
           <div class="match">
-            <div class="team">TBD</div>
-            <div class="team">TBD</div>
+            <div class="team">Stony Brook Seawolves</div>
+            <div class="team">Campbell Fighting Camels</div>
           </div>
           <div class="match">
-            <div class="team">TBD</div>
-            <div class="team">TBD</div>
+            <div class="team">William & Mary Tribe</div>
+            <div class="team">Elon Phoenix</div>
           </div>
           <div class="match">
-            <div class="team">TBD</div>
-            <div class="team">TBD</div>
-          </div>
-        </div>
-    
-        <div class="round">
-          <div class="match">
-            <div class="team">TBD</div>
-            <div class="team">TBD</div>
-          </div>
-          <div class="match">
-            <div class="team">TBD</div>
-            <div class="team">TBD</div>
-          </div>
-          <div class="match">
-            <div class="team">TBD</div>
-            <div class="team">TBD</div>
-          </div>
-          <div class="match">
-            <div class="team">TBD</div>
-            <div class="team">TBD</div>
+            <div class="team">Towson Tigers</div>
+            <div class="team">Hampton Pirates</div>
           </div>
         </div>
     
         <div class="round">
           <div class="match">
-            <div class="team">TBD</div>
-            <div class="team">TBD</div>
+            <div class="team">Monmouth Hawks</div>
+            <div class="team pick-predicted">Drexel Dragons</div>
           </div>
           <div class="match">
-            <div class="team">TBD</div>
-            <div class="team">TBD</div>
+            <div class="team">UNC Wilmington Seahawks</div>
+            <div class="team pick-predicted">Campbell Fighting Camels</div>
+          </div>
+          <div class="match">
+            <div class="team">Hofstra Pride</div>
+            <div class="team pick-predicted">William & Mary Tribe</div>
+          </div>
+          <div class="match">
+            <div class="team">Charleston Cougars</div>
+            <div class="team pick-predicted">Towson Tigers</div>
           </div>
         </div>
     
         <div class="round">
           <div class="match">
-            <div class="team">TBD</div>
-            <div class="team">TBD</div>
+            <div class="team">UNC Wilmington Seahawks</div>
+            <div class="team">Monmouth Hawks</div>
+          </div>
+          <div class="match">
+            <div class="team">Charleston Cougars</div>
+            <div class="team">Hofstra Pride</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team">UNC Wilmington Seahawks</div>
+            <div class="team">Hofstra Pride</div>
           </div>
         </div>
       </div>
@@ -1686,20 +1635,20 @@ confData[conf].push({
       <div class="bracket">
     
         <div class="round">
-          <div class="match">
-            <div class="team">Iona Gaels</div>
-            <div class="team">Sacred Heart Pioneers</div>
+          <div class="match completed">
+            <div class="team pick-wrong">Iona Gaels</div>
+            <div class="team pick-wrong"><b>Sacred Heart Pioneers</b></div>
           </div>
-          <div class="match">
-            <div class="team">Fairfield Stags</div>
-            <div class="team">Manhattan Jaspers</div>
+          <div class="match completed">
+            <div class="team pick-correct"><b>Fairfield Stags</b></div>
+            <div class="team pick-correct">Manhattan Jaspers</div>
           </div>
         </div>
     
         <div class="round">
           <div class="match">
             <div class="team">Merrimack Warriors</div>
-            <div class="team pick-predicted">Iona Gaels</div>
+            <div class="team">Sacred Heart Pioneers</div>
           </div>
           <div class="match">
             <div class="team">Quinnipiac Bobcats</div>
@@ -1707,7 +1656,7 @@ confData[conf].push({
           </div>
           <div class="match">
             <div class="team">Saint Peter's Peacocks</div>
-            <div class="team pick-predicted">Fairfield Stags</div>
+            <div class="team">Fairfield Stags</div>
           </div>
           <div class="match">
             <div class="team">Siena Saints</div>
@@ -1739,24 +1688,24 @@ confData[conf].push({
       <div class="bracket">
     
         <div class="round">
-          <div class="match">
-            <div class="team">Southern Illinois Salukis</div>
-            <div class="team">Drake Bulldogs</div>
+          <div class="match completed">
+            <div class="team pick-wrong">Southern Illinois Salukis</div>
+            <div class="team pick-wrong"><b>Drake Bulldogs</b></div>
           </div>
-          <div class="match">
-            <div class="team">Valparaiso Beacons</div>
-            <div class="team">Indiana State Sycamores</div>
+          <div class="match completed">
+            <div class="team pick-correct"><b>Valparaiso Beacons</b></div>
+            <div class="team pick-correct">Indiana State Sycamores</div>
           </div>
-          <div class="match">
-            <div class="team">Northern Iowa Panthers</div>
-            <div class="team">Evansville Purple Aces</div>
+          <div class="match completed">
+            <div class="team pick-correct"><b>Northern Iowa Panthers</b></div>
+            <div class="team pick-correct">Evansville Purple Aces</div>
           </div>
         </div>
     
         <div class="round">
           <div class="match">
             <div class="team">Belmont Bruins</div>
-            <div class="team pick-predicted">Southern Illinois Salukis</div>
+            <div class="team">Drake Bulldogs</div>
           </div>
           <div class="match">
             <div class="team">Murray State Racers</div>
@@ -1764,11 +1713,11 @@ confData[conf].push({
           </div>
           <div class="match">
             <div class="team">Bradley Braves</div>
-            <div class="team pick-predicted">Valparaiso Beacons</div>
+            <div class="team">Valparaiso Beacons</div>
           </div>
           <div class="match">
             <div class="team">Illinois State Redbirds</div>
-            <div class="team pick-predicted">Northern Iowa Panthers</div>
+            <div class="team">Northern Iowa Panthers</div>
           </div>
         </div>
     
@@ -1904,32 +1853,32 @@ confData[conf].push({
         </div>
     
         <div class="round">
-          <div class="match">
-            <div class="team">Navy Midshipmen</div>
-            <div class="team">Bucknell Bison</div>
+          <div class="match completed">
+            <div class="team pick-correct"><b>Navy Midshipmen</b></div>
+            <div class="team pick-correct">Bucknell Bison</div>
           </div>
-          <div class="match">
-            <div class="team">Boston University Terriers</div>
-            <div class="team">American University Eagles</div>
+          <div class="match completed">
+            <div class="team pick-correct"><b>Boston University Terriers</b></div>
+            <div class="team pick-correct">American University Eagles</div>
           </div>
-          <div class="match">
-            <div class="team">Lehigh Mountain Hawks</div>
-            <div class="team">Holy Cross Crusaders</div>
+          <div class="match completed">
+            <div class="team pick-correct"><b>Lehigh Mountain Hawks</b></div>
+            <div class="team pick-correct">Holy Cross Crusaders</b></div>
           </div>
-          <div class="match">
-            <div class="team">Colgate Raiders</div>
-            <div class="team">Loyola Maryland Greyhounds</div>
+          <div class="match completed">
+            <div class="team pick-correct"><b>Colgate Raiders</div>
+            <div class="team pick-correct">Loyola Maryland Greyhounds</div>
           </div>
         </div>
     
         <div class="round">
           <div class="match">
-            <div class="team pick-predicted">Navy Midshipmen</div>
-            <div class="team pick-predicted">Boston University Terriers</div>
+            <div class="team">Navy Midshipmen</div>
+            <div class="team">Boston University Terriers</div>
           </div>
           <div class="match">
-            <div class="team pick-predicted">Lehigh Mountain Hawks</div>
-            <div class="team pick-predicted">Colgate Raiders</div>
+            <div class="team">Lehigh Mountain Hawks</div>
+            <div class="team">Colgate Raiders</div>
           </div>
         </div>
     
@@ -2026,49 +1975,49 @@ confData[conf].push({
     
         <div class="round">
           <div class="match">
-            <div class="team">TBD</div>
-            <div class="team">TBD</div>
+            <div class="team">Chattanooga Mocs</div>
+            <div class="team">The Citadel Bulldogs</div>
           </div>
           <div class="match">
-            <div class="team">TBD</div>
-            <div class="team">TBD</div>
-          </div>
-        </div>
-    
-        <div class="round">
-          <div class="match">
-            <div class="team">TBD</div>
-            <div class="team">TBD</div>
-          </div>
-          <div class="match">
-            <div class="team">TBD</div>
-            <div class="team">TBD</div>
-          </div>
-          <div class="match">
-            <div class="team">TBD</div>
-            <div class="team">TBD</div>
-          </div>
-          <div class="match">
-            <div class="team">TBD</div>
-            <div class="team">TBD</div>
+            <div class="team">UNC Greensboro Spartans</div>
+            <div class="team">VMI Keydets</div>
           </div>
         </div>
     
         <div class="round">
           <div class="match">
-            <div class="team">TBD</div>
-            <div class="team">TBD</div>
+            <div class="team">East Tennessee State Buccaneers</div>
+            <div class="team pick-predicted">Chattanooga Mocs</div>
           </div>
           <div class="match">
-            <div class="team">TBD</div>
-            <div class="team">TBD</div>
+            <div class="team">Mercer Bears</div>
+            <div class="team">Western Carolina Catamounts</div>
+          </div>
+          <div class="match">
+            <div class="team">Wofford Terriers</div>
+            <div class="team pick-predicted">UNC Greensboro Spartans</div>
+          </div>
+          <div class="match">
+            <div class="team">Samford Bulldogs</div>
+            <div class="team">Furman Paladins</div>
           </div>
         </div>
     
         <div class="round">
           <div class="match">
-            <div class="team">TBD</div>
-            <div class="team">TBD</div>
+            <div class="team pick-predicted">East Tennessee State Buccaneers</div>
+            <div class="team pick-predicted">Mercer Bears</div>
+          </div>
+          <div class="match">
+            <div class="team pick-predicted">Wofford Terriers</div>
+            <div class="team pick-predicted">Samford Bulldogs</div>
+          </div>
+        </div>
+    
+        <div class="round">
+          <div class="match">
+            <div class="team pick-predicted">East Tennessee State Buccaneers</div>
+            <div class="team pick-predicted">Samford Bulldogs</div>
           </div>
         </div>
       </div>
@@ -2085,17 +2034,17 @@ confData[conf].push({
         </div>
     
         <div class="round">
-          <div class="match">
-            <div class="team">North Dakota State Bison</div>
-            <div class="team">Oral Roberts Golden Eagles</div>
+          <div class="match completed">
+            <div class="team pick-correct"><b>North Dakota State Bison</b></div>
+            <div class="team pick-correct">Oral Roberts Golden Eagles</div>
           </div>
           <div class="match">
             <div class="team">South Dakota Coyotes</div>
             <div class="team">Omaha Mavericks</div>
           </div>
-          <div class="match">
-            <div class="team">St. Thomas-Minnesota Tommies</div>
-            <div class="team">South Dakota State Jackrabbits</div>
+          <div class="match completed">
+            <div class="team pick-correct"><b>St. Thomas-Minnesota Tommies</b></div>
+            <div class="team pick-correct">South Dakota State Jackrabbits</div>
           </div>
           <div class="match">
             <div class="team">North Dakota Fighting Hawks</div>
