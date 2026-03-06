@@ -347,26 +347,6 @@ if (!winChanceResponse.ok) throw new Error("Could not load winchance.xlsx");
                 }
             }
 
-            // 2b. Process winchance.xlsx
-const winChanceData = {};
-const winChanceBuffer = await winChanceResponse.arrayBuffer();
-const workbook = XLSX.read(winChanceBuffer, { type: "array" });
-const sheet = workbook.Sheets[workbook.SheetNames[0]];
-const rows = XLSX.utils.sheet_to_json(sheet, { header: 1 });
-
-rows.forEach(row => {
-  if (row.length >= 2) {
-    const teamNameRaw = row[0]?.toString().trim();
-    const chanceRaw = row[1];
-
-    if (!teamNameRaw) return;
-
-    const num = parseFloat(chanceRaw);
-    if (Number.isFinite(num)) {
-      winChanceData[normalizeTeamKey(teamNameRaw)] = num;
-    }
-  }
-});
 
             // 3. Merge Datasets
             const confData = {};
