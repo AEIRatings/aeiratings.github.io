@@ -1,33 +1,33 @@
 Team,Elo,Division,Notes,RatingUpdated
-Florida Panthers,998.4391089190923,E Atlantic,,True
-Boston Bruins,991.8219242674484,E Atlantic,,True
+Florida Panthers,998.4391089190924,E Atlantic,,False
+Boston Bruins,991.8219242674484,E Atlantic,,False
 Montreal Canadiens,1037.6363655819446,E Atlantic,,False
-Toronto Maple Leafs,962.806655991119,E Atlantic,,True
-Detroit Red Wings,991.4671572321962,E Atlantic,,True
+Toronto Maple Leafs,962.806655991119,E Atlantic,,False
+Detroit Red Wings,991.4671572321962,E Atlantic,,False
 Ottawa Senators,1025.392866651826,E Atlantic,,False
-Tampa Bay Lightning,1017.2674510317249,E Atlantic,,True
-Buffalo Sabres,1042.9355138212725,E Atlantic,,True
-Carolina Hurricanes,1014.8007692388288,E Metropolitan,,True
-Washington Capitals,998.3712181037416,E Metropolitan,,True
-Pittsburgh Penguins,1001.6211014131281,E Metropolitan,,True
-New York Rangers,995.5714377166044,E Metropolitan,,True
-Columbus Blue Jackets,1010.8757778559348,E Metropolitan,,True
-New Jersey Devils,964.8907663812112,E Metropolitan,,True
-Philadelphia Flyers,1009.4156952422007,E Metropolitan,,True
-New York Islanders,1014.311665892018,E Metropolitan,,False
-Colorado Avalanche,1031.207653002449,W Central,,True
-Dallas Stars,1030.3325168515116,W Central,,True
-Winnipeg Jets,969.206976340168,W Central,,True
-Nashville Predators,1009.6597063403161,W Central,,True
-Minnesota Wild,1029.8438705267713,W Central,,True
-St. Louis Blues,1017.0916430109652,W Central,,True
-Utah Mammoth,1002.3030001821428,W Central,,True
-Chicago Blackhawks,990.3700962567843,W Central,,True
-Seattle Kraken,967.1808799240695,W Pacific,,True
-Vegas Golden Knights,1010.1052543649095,W Pacific,,True
-Edmonton Oilers,1004.117141450702,W Pacific,,True
-Vancouver Canucks,934.2359242335323,W Pacific,,True
-Anaheim Ducks,990.3573309104024,W Pacific,,True
-San Jose Sharks,988.6921636619736,W Pacific,,True
-Los Angeles Kings,988.1505106260936,W Pacific,,False
-Calgary Flames,959.4198569769209,W Pacific,,True
+Tampa Bay Lightning,1017.2674510317248,E Atlantic,,False
+Buffalo Sabres,1042.9355138212725,E Atlantic,,False
+Carolina Hurricanes,1014.8007692388288,E Metropolitan,,False
+Washington Capitals,998.3712181037416,E Metropolitan,,False
+Pittsburgh Penguins,1001.621101413128,E Metropolitan,,False
+New York Rangers,995.5714377166044,E Metropolitan,,False
+Columbus Blue Jackets,1010.8757778559348,E Metropolitan,,False
+New Jersey Devils,964.8907663812112,E Metropolitan,,False
+Philadelphia Flyers,1009.4156952422009,E Metropolitan,,False
+New York Islanders,1001.5342180855836,E Metropolitan,,True
+Colorado Avalanche,1031.207653002449,W Central,,False
+Dallas Stars,1030.3325168515116,W Central,,False
+Winnipeg Jets,969.206976340168,W Central,,False
+Nashville Predators,1009.659706340316,W Central,,False
+Minnesota Wild,1029.8438705267713,W Central,,False
+St. Louis Blues,1014.5148040315453,W Central,,True
+Utah Mammoth,1002.3030001821428,W Central,,False
+Chicago Blackhawks,990.3700962567844,W Central,,False
+Seattle Kraken,967.1808799240696,W Pacific,,False
+Vegas Golden Knights,1010.1052543649096,W Pacific,,False
+Edmonton Oilers,1006.6939804301219,W Pacific,,True
+Vancouver Canucks,934.2359242335324,W Pacific,,False
+Anaheim Ducks,990.3573309104024,W Pacific,,False
+San Jose Sharks,988.6921636619736,W Pacific,,False
+Los Angeles Kings,1000.927958432528,W Pacific,,True
+Calgary Flames,959.4198569769208,W Pacific,,False
