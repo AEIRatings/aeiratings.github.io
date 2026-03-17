@@ -1,6 +1,6 @@
 Team,Elo,Conference,RatingUpdated
 Davidson Wildcats,1050.498822800001,A10,False
-Dayton Flyers,1146.9366706714868,A10,True
+Dayton Flyers,1146.9366706714868,A10,False
 Duquesne Dukes,1013.3721247222568,A10,False
 Fordham Rams,1028.033705955262,A10,False
 George Mason Patriots,1066.9986259681568,A10,False
@@ -12,7 +12,7 @@ Richmond Spiders,965.5888841777262,A10,False
 Saint Louis Billikens,1170.6292464955504,A10,False
 St. Bonaventure Bonnies,1022.6439688500712,A10,False
 Saint Joseph's Hawks,1101.5005982154285,A10,False
-VCU Rams,1230.6013127795816,A10,True
+VCU Rams,1230.6013127795816,A10,False
 Boston College Eagles,966.6894798010186,ACC,False
 California Golden Bears,1069.5602300614917,ACC,False
 Clemson Tigers,1155.9985168969283,ACC,False
@@ -46,13 +46,13 @@ Florida Atlantic Owls,1004.1645523384944,American,False
 Memphis Tigers,962.0425034675684,American,False
 North Texas Mean Green,1035.4796357844868,American,False
 Rice Owls,954.6055391483084,American,False
-South Florida Bulls,1242.758005569085,American,True
+South Florida Bulls,1242.758005569085,American,False
 Temple Owls,984.8792815308808,American,False
 Tulane Green Wave,967.7203998224676,American,False
 Tulsa Golden Hurricane,1138.5484932159466,American,False
 UAB Blazers,1045.155848426547,American,False
 UTSA Roadrunners,769.9007663049222,American,False
-Wichita State Shockers,1151.5806598064407,American,True
+Wichita State Shockers,1151.5806598064407,American,False
 Austin Peay Governors,1024.2717700863452,ASUN,False
 Bellarmine Knights,926.2672956533366,ASUN,False
 Central Arkansas Bears,1072.3018918197104,ASUN,False
@@ -69,7 +69,7 @@ Illinois Fighting Illini,1239.7427785137484,Big 10,False
 Indiana Hoosiers,1058.1093564257808,Big 10,False
 Iowa Hawkeyes,1134.7183677070364,Big 10,False
 Maryland Terrapins,963.7276466534562,Big 10,False
-Michigan Wolverines,1316.801155408346,Big 10,True
+Michigan Wolverines,1316.801155408346,Big 10,False
 Michigan State Spartans,1213.354334276885,Big 10,False
 Minnesota Golden Gophers,1016.1952439666156,Big 10,False
 Nebraska Cornhuskers,1172.2661138131048,Big 10,False
@@ -77,7 +77,7 @@ Northwestern Wildcats,1051.0141917976482,Big 10,False
 Ohio State Buckeyes,1174.5167836961916,Big 10,False
 Oregon Ducks,998.0036009435312,Big 10,False
 Penn State Nittany Lions,896.709325676596,Big 10,False
-Purdue Boilermakers,1254.175555540569,Big 10,True
+Purdue Boilermakers,1254.175555540569,Big 10,False
 Rutgers Scarlet Knights,995.4669205464432,Big 10,False
 UCLA Bruins,1178.7556673977665,Big 10,False
 USC Trojans,1001.9766829036332,Big 10,False
@@ -181,9 +181,9 @@ Columbia Lions,963.0836228467904,Ivy League,False
 Cornell Big Red,1024.6765045979932,Ivy League,False
 Dartmouth Big Green,888.1036557759435,Ivy League,False
 Harvard Crimson,1049.3179019764582,Ivy League,False
-Pennsylvania Quakers,1092.66318411053,Ivy League,True
+Pennsylvania Quakers,1092.66318411053,Ivy League,False
 Princeton Tigers,931.9688021527428,Ivy League,False
-Yale Bulldogs,1119.1153811394333,Ivy League,True
+Yale Bulldogs,1119.115381139433,Ivy League,False
 Canisius Golden Griffins,846.4998027784744,MAAC,False
 Fairfield Stags,1021.9152717560968,MAAC,False
 Iona Gaels,961.034909271829,MAAC,False
@@ -273,7 +273,7 @@ Lehigh Mountain Hawks,1001.3354596278318,Patriot,False
 Loyola Maryland Greyhounds,894.4115594048853,Patriot,False
 Navy Midshipmen,1131.942848872904,Patriot,False
 Alabama Crimson Tide,1180.2637141491955,SEC,False
-Arkansas Razorbacks,1235.061428260273,SEC,True
+Arkansas Razorbacks,1235.061428260273,SEC,False
 Auburn Tigers,1056.9847102467063,SEC,False
 Florida Gators,1291.0910123540464,SEC,False
 Georgia Bulldogs,1147.0083592365788,SEC,False
@@ -287,7 +287,7 @@ South Carolina Gamecocks,993.4261234007412,SEC,False
 Tennessee Volunteers,1168.8097170578628,SEC,False
 Texas Longhorns,1088.3986771629984,SEC,False
 Texas A&M Aggies,1124.607973299885,SEC,False
-Vanderbilt Commodores,1213.1449009959458,SEC,True
+Vanderbilt Commodores,1213.1449009959458,SEC,False
 Chattanooga Mocs,897.5871294978991,Southern,False
 East Tennessee State Buccaneers,1022.4830369187076,Southern,False
 Furman Paladins,1044.1083968036503,Southern,False
