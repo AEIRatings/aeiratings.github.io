@@ -141,11 +141,11 @@ UC Riverside Highlanders,929.7322086019568,Big West,False
 UC San Diego Tritons,1168.402983596648,Big West,False
 UC Santa Barbara Gauchos,1042.2282912347923,Big West,False
 Campbell Fighting Camels,1011.8184566392194,CAA,False
-Charleston Cougars,1168.325802312003,CAA,True
+Charleston Cougars,1168.325802312003,CAA,False
 Drexel Dragons,1049.5575124253824,CAA,False
 Elon Phoenix,990.1670523259696,CAA,False
 Hampton Lady Pirates,818.6622532276191,CAA,False
-Hofstra Pride,968.4737952846373,CAA,True
+Hofstra Pride,968.4737952846372,CAA,False
 Monmouth Hawks,1014.1972331112976,CAA,False
 North Carolina A&T Aggies,919.9235954027612,CAA,False
 Northeastern Huskies,829.3103853784773,CAA,False
@@ -233,19 +233,19 @@ Wyoming Cowgirls,913.729992869724,Mountain West,False
 Belmont Bruins,1055.0380614046735,MVC,False
 Bradley Braves,1048.2511010519463,MVC,False
 Drake Bulldogs,973.0482781445656,MVC,False
-Evansville Purple Aces,913.3240228067093,MVC,True
+Evansville Purple Aces,913.3240228067092,MVC,False
 Illinois State Redbirds,1018.7851038953108,MVC,False
 Indiana State Sycamores,829.8024366419917,MVC,False
-Murray State Racers,1241.9132487053205,MVC,True
+Murray State Racers,1241.9132487053205,MVC,False
 Northern Iowa Panthers,1059.5127658059782,MVC,False
 Southern Illinois Salukis,854.0985186981628,MVC,False
 UIC Flames,958.2310334673864,MVC,False
 Valparaiso Beacons,567.5692869640061,MVC,False
 Central Connecticut Blue Devils,693.5937263907149,NEC,False
 Chicago State Cougars,804.0789413256173,NEC,False
-Fairleigh Dickinson Knights,1250.6671545140864,NEC,True
+Fairleigh Dickinson Knights,1250.6671545140864,NEC,False
 Le Moyne Dolphins,873.7514611759564,NEC,False
-Long Island University Sharks,1036.813119963434,NEC,True
+Long Island University Sharks,1036.813119963434,NEC,False
 Mercyhurst Lakers,953.7312411444044,NEC,False
 New Haven Chargers,776.4437795664073,NEC,False
 Saint Francis Red Flash,730.6052300456604,NEC,False
@@ -267,9 +267,9 @@ Army Black Knights,1105.8510939884748,Patriot,False
 Boston University Terriers,905.350251101134,Patriot,False
 Bucknell Bison,890.1515321335297,Patriot,False
 Colgate Raiders,800.5607464743509,Patriot,False
-Holy Cross Crusaders,1131.4149777971295,Patriot,True
+Holy Cross Crusaders,1131.4149777971295,Patriot,False
 Lafayette Leopards,905.0641678401428,Patriot,False
-Lehigh Mountain Hawks,1020.9837133850497,Patriot,True
+Lehigh Mountain Hawks,1020.9837133850496,Patriot,False
 Loyola Maryland Greyhounds,904.4796708369288,Patriot,False
 Navy Midshipmen,1120.7379619362578,Patriot,False
 Alabama Crimson Tide,1182.7042628366207,SEC,False
