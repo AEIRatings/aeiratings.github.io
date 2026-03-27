@@ -1,6 +1,6 @@
 Team,Elo,Conference,RatingUpdated
 Davidson Wildcats,1043.3004161605218,A10,False
-Dayton Flyers,1153.2210876039217,A10,True
+Dayton Flyers,1153.2210876039217,A10,False
 Duquesne Dukes,1013.3721247222568,A10,False
 Fordham Rams,1028.033705955262,A10,False
 George Mason Patriots,1047.4222600796463,A10,False
@@ -65,31 +65,31 @@ North Florida Ospreys,804.5122025373738,ASUN,False
 Queens University Royals,1045.3652511033,ASUN,False
 Stetson Hatters,898.207049452229,ASUN,False
 West Georgia Wolves,916.1858371198854,ASUN,False
-Illinois Fighting Illini,1275.1657658962945,Big 10,False
+Illinois Fighting Illini,1298.7607991473608,Big 10,True
 Indiana Hoosiers,1058.1093564257808,Big 10,False
-Iowa Hawkeyes,1173.744990894667,Big 10,False
+Iowa Hawkeyes,1193.831273242236,Big 10,True
 Maryland Terrapins,963.7276466534562,Big 10,False
 Michigan Wolverines,1339.9081361227634,Big 10,False
 Michigan State Spartans,1239.3492602913952,Big 10,False
 Minnesota Golden Gophers,1016.1952439666156,Big 10,False
-Nebraska Cornhuskers,1200.97382510115,Big 10,False
+Nebraska Cornhuskers,1180.8875427535809,Big 10,True
 Northwestern Wildcats,1051.0141917976482,Big 10,False
 Ohio State Buckeyes,1161.1845179440716,Big 10,False
 Oregon Ducks,998.0036009435312,Big 10,False
 Penn State Nittany Lions,896.709325676596,Big 10,False
-Purdue Boilermakers,1278.0453866062826,Big 10,False
+Purdue Boilermakers,1277.7039906998002,Big 10,True
 Rutgers Scarlet Knights,995.4669205464432,Big 10,False
 UCLA Bruins,1168.2021481037805,Big 10,False
 USC Trojans,1001.9766829036332,Big 10,False
 Washington Huskies,1051.2370677086706,Big 10,False
 Wisconsin Badgers,1195.654304438925,Big 10,False
-Arizona Wildcats,1365.6749834867046,Big 12,False
+Arizona Wildcats,1378.472871476746,Big 12,True
 Arizona State Sun Devils,1069.5091631038997,Big 12,False
 Baylor Bears,1069.8740854311795,Big 12,False
 BYU Cougars,1131.165192937608,Big 12,False
 Cincinnati Bearcats,1151.8751641745082,Big 12,False
 Colorado Buffaloes,1042.4404262029288,Big 12,False
-Houston Cougars,1300.2432818954717,Big 12,False
+Houston Cougars,1276.6482486444054,Big 12,True
 Iowa State Cyclones,1284.657703415006,Big 12,False
 Kansas Jayhawks,1184.0661461769837,Big 12,False
 Kansas State Wildcats,976.2544174747708,Big 12,False
@@ -223,7 +223,7 @@ Boise State Broncos,1097.3271899389483,Mountain West,False
 Colorado State Rams,1080.0114543549134,Mountain West,False
 Fresno State Bulldogs,964.3530361711644,Mountain West,False
 Grand Canyon Lopes,1126.4722441972656,Mountain West,False
-Nevada Wolf Pack,1101.7611261780457,Mountain West,True
+Nevada Wolf Pack,1101.7611261780455,Mountain West,False
 New Mexico Lobos,1176.0264379000012,Mountain West,False
 San Diego State Aztecs,1130.260301257398,Mountain West,False
 San Jose State Spartans,904.0536203399326,Mountain West,False
@@ -234,7 +234,7 @@ Belmont Bruins,1114.0853235071872,MVC,False
 Bradley Braves,1061.5330369368362,MVC,False
 Drake Bulldogs,987.922005386578,MVC,False
 Evansville Purple Aces,829.265026544971,MVC,False
-Illinois State Redbirds,1128.3183417875657,MVC,True
+Illinois State Redbirds,1128.3183417875655,MVC,False
 Indiana State Sycamores,957.6562934847756,MVC,False
 Murray State Racers,992.3425580857478,MVC,False
 Northern Iowa Panthers,1120.0719183507488,MVC,False
@@ -273,8 +273,8 @@ Lehigh Mountain Hawks,977.8059215974902,Patriot,False
 Loyola Maryland Greyhounds,894.4115594048853,Patriot,False
 Navy Midshipmen,1109.4062675017817,Patriot,False
 Alabama Crimson Tide,1226.66080841273,SEC,False
-Arkansas Razorbacks,1254.0691275845058,SEC,False
-Auburn Tigers,1097.8273028496683,SEC,True
+Arkansas Razorbacks,1241.2712395944645,SEC,True
+Auburn Tigers,1097.8273028496685,SEC,False
 Florida Gators,1289.3889292990254,SEC,False
 Georgia Bulldogs,1125.9911250354974,SEC,False
 Kentucky Wildcats,1158.6357039218474,SEC,False
@@ -285,7 +285,7 @@ Oklahoma Sooners,1168.8068550660755,SEC,False
 Ole Miss Rebels,1062.031708869246,SEC,False
 South Carolina Gamecocks,993.4261234007412,SEC,False
 Tennessee Volunteers,1222.7017422400963,SEC,False
-Texas Longhorns,1155.8163399066327,SEC,False
+Texas Longhorns,1156.157735813115,SEC,True
 Texas A&M Aggies,1142.3317254961764,SEC,False
 Vanderbilt Commodores,1214.627409921689,SEC,False
 Chattanooga Mocs,897.5871294978991,Southern,False
