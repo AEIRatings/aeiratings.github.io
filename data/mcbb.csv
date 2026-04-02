@@ -71,7 +71,7 @@ Iowa Hawkeyes,1184.6630498192735,Big 10,False
 Maryland Terrapins,963.7276466534562,Big 10,False
 Michigan Wolverines,1366.82578946088,Big 10,False
 Michigan State Spartans,1231.6147590219275,Big 10,False
-Minnesota Golden Gophers,1016.1952439666156,Big 10,False
+Minnesota Golden Gophers,999.7274014730622,Big 10,True
 Nebraska Cornhuskers,1180.8875427535809,Big 10,False
 Northwestern Wildcats,1051.0141917976482,Big 10,False
 Ohio State Buckeyes,1161.1845179440716,Big 10,False
@@ -85,10 +85,10 @@ Washington Huskies,1051.2370677086706,Big 10,False
 Wisconsin Badgers,1195.654304438925,Big 10,False
 Arizona Wildcats,1388.9928563430742,Big 12,False
 Arizona State Sun Devils,1069.5091631038997,Big 12,False
-Baylor Bears,1069.8740854311795,Big 12,False
+Baylor Bears,1086.341927924733,Big 12,True
 BYU Cougars,1131.165192937608,Big 12,False
 Cincinnati Bearcats,1151.8751641745082,Big 12,False
-Colorado Buffaloes,1042.4404262029288,Big 12,False
+Colorado Buffaloes,1037.9751828212347,Big 12,True
 Houston Cougars,1276.6482486444054,Big 12,False
 Iowa State Cyclones,1255.12623637701,Big 12,False
 Kansas Jayhawks,1184.0661461769837,Big 12,False
@@ -281,7 +281,7 @@ Kentucky Wildcats,1158.6357039218474,SEC,False
 LSU Tigers,1005.0395233228676,SEC,False
 Mississippi State Bulldogs,977.4411705303478,SEC,False
 Missouri Tigers,1075.2513673157011,SEC,False
-Oklahoma Sooners,1168.8068550660755,SEC,False
+Oklahoma Sooners,1173.2720984477696,SEC,True
 Ole Miss Rebels,1062.031708869246,SEC,False
 South Carolina Gamecocks,993.4261234007412,SEC,False
 Tennessee Volunteers,1234.5670740484047,SEC,False
