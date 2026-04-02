@@ -86,7 +86,7 @@ Wisconsin Badgers,1025.597966629848,Big 10,False
 Arizona Wildcats,959.7050289661144,Big 12,False
 Arizona State Sun Devils,1130.8621333167798,Big 12,False
 Baylor Bears,1179.9955730623078,Big 12,False
-BYU Cougars,1212.0351853604202,Big 12,False
+BYU Cougars,1195.114436497632,Big 12,True
 Cincinnati Bearcats,995.8114300798158,Big 12,False
 Colorado Buffaloes,1185.4421500972262,Big 12,False
 Houston Cougars,829.7378642755424,Big 12,False
@@ -177,7 +177,7 @@ Robert Morris Colonials,973.6732448167508,Horizon,False
 Wright State Raiders,863.5650937255873,Horizon,False
 Youngstown State Penguins,1083.760035516683,Horizon,False
 Brown Bears,1051.0230264417637,Ivy League,False
-Columbia Lions,1239.1960495037365,Ivy League,False
+Columbia Lions,1256.1167983665248,Ivy League,True
 Cornell Big Red,871.1498740971817,Ivy League,False
 Dartmouth Big Green,804.1593893355015,Ivy League,False
 Harvard Crimson,1171.5942345886706,Ivy League,False
@@ -234,7 +234,7 @@ Belmont Bruins,1055.0380614046735,MVC,False
 Bradley Braves,1033.654051085471,MVC,False
 Drake Bulldogs,973.0482781445656,MVC,False
 Evansville Purple Aces,913.3240228067092,MVC,False
-Illinois State Redbirds,1078.29762629956,MVC,False
+Illinois State Redbirds,1101.8411249203625,MVC,True
 Indiana State Sycamores,829.8024366419917,MVC,False
 Murray State Racers,1209.449990537021,MVC,False
 Northern Iowa Panthers,1059.5127658059782,MVC,False
@@ -314,17 +314,17 @@ North Dakota Fighting Hawks,715.5967764119605,Summit,False
 North Dakota State Bison,1205.2270225204304,Summit,False
 Omaha Mavericks,729.4631591039724,Summit,False
 Oral Roberts Golden Eagles,931.2098995491936,Summit,False
-South Dakota Coyotes,1144.4400406758411,Summit,False
+South Dakota Coyotes,1120.8965420550387,Summit,True
 South Dakota State Jackrabbits,1228.4486301247036,Summit,False
 St. Thomas-Minnesota Tommies,963.4888793271582,Summit,False
 App State Mountaineers,894.6383952727771,Sun Belt,False
-Arkansas State Red Wolves,1180.9051423924284,Sun Belt,False
+Arkansas State Red Wolves,1159.7374514040057,Sun Belt,True
 Coastal Carolina Chanticleers,965.0551287155686,Sun Belt,False
 Georgia Southern Eagles,1141.4461153192694,Sun Belt,False
 Georgia State Panthers,857.1398882320877,Sun Belt,False
 James Madison Dukes,1240.4104890735907,Sun Belt,False
 Louisiana Ragin' Cajuns,772.2725406688153,Sun Belt,False
-Marshall Thundering Herd,1151.0683667440665,Sun Belt,False
+Marshall Thundering Herd,1172.2360577324891,Sun Belt,True
 Old Dominion Monarchs,1016.3356099365822,Sun Belt,False
 South Alabama Jaguars,1022.4869536634998,Sun Belt,False
 Southern Miss Lady Eagles,949.212059226451,Sun Belt,False
