@@ -1,31 +1,31 @@
 Team,Elo,Division,Notes,RatingUpdated
-Boston Celtics,1205.58467380838,E Atlantic,,True
+Boston Celtics,1205.58467380838,E Atlantic,,False
 New York Knicks,1144.478263031804,E Atlantic,,False
-Toronto Raptors,1047.151702137884,E Atlantic,,True
-Brooklyn Nets,794.9094683349551,E Atlantic,,True
+Toronto Raptors,1047.151702137884,E Atlantic,,False
+Brooklyn Nets,794.9094683349551,E Atlantic,,False
 Philadelphia 76ers,1021.0063128033572,E Atlantic,,False
-Cleveland Cavaliers,1099.6390135402569,E Central,,False
-Indiana Pacers,822.0501965077741,E Central,,True
-Milwaukee Bucks,852.1889955500587,E Central,,True
-Detroit Pistons,1135.5862796090669,E Central,,False
-Chicago Bulls,833.3224870028245,E Central,,True
-Orlando Magic,1039.3833408143537,E Southeast,,False
-Miami Heat,991.395825109796,E Southeast,,True
-Atlanta Hawks,1148.9590937006838,E Southeast,,False
-Charlotte Hornets,1168.0711091350445,E Southeast,,True
-Washington Wizards,697.0870360899255,E Southeast,,True
-Oklahoma City Thunder,1254.7141173837326,W Northwest,,True
-Denver Nuggets,1142.2963304214018,W Northwest,,False
-Minnesota Timberwolves,1039.7342432580147,W Northwest,,True
-Portland Trail Blazers,1020.3933809779096,W Northwest,,False
-Utah Jazz,731.3620099387981,W Northwest,,True
-Los Angeles Lakers,1076.2523443637526,W Pacific,,True
+Cleveland Cavaliers,1118.9028531867295,E Central,,True
+Indiana Pacers,822.0501965077741,E Central,,False
+Milwaukee Bucks,840.4110527768032,E Central,,True
+Detroit Pistons,1147.3642223823224,E Central,,True
+Chicago Bulls,833.3224870028245,E Central,,False
+Orlando Magic,1056.5797200348609,E Southeast,,True
+Miami Heat,991.395825109796,E Southeast,,False
+Atlanta Hawks,1129.695254054211,E Southeast,,True
+Charlotte Hornets,1168.0711091350445,E Southeast,,False
+Washington Wizards,697.0870360899255,E Southeast,,False
+Oklahoma City Thunder,1254.7141173837326,W Northwest,,False
+Denver Nuggets,1150.633261074668,W Northwest,,True
+Minnesota Timberwolves,1022.5378640375077,W Northwest,,True
+Portland Trail Blazers,1014.1106328599584,W Northwest,,True
+Utah Jazz,731.3620099387981,W Northwest,,False
+Los Angeles Lakers,1076.2523443637526,W Pacific,,False
 Los Angeles Clippers,1009.3,W Pacific,,False
-Golden State Warriors,913.77269804525,W Pacific,,True
-Sacramento Kings,831.0399471180391,W Pacific,,True
-Phoenix Suns,1007.4368704481986,W Pacific,,True
-Houston Rockets,1116.3248358835,W Southwest,,True
-Memphis Grizzlies,751.8707528782845,W Southwest,,False
-Dallas Mavericks,861.6699117810145,W Southwest,,False
-San Antonio Spurs,1252.8030973595476,W Southwest,,False
-New Orleans Pelicans,930.0156629663899,W Southwest,,True
+Golden State Warriors,913.77269804525,W Pacific,,False
+Sacramento Kings,831.0399471180391,W Pacific,,False
+Phoenix Suns,1012.147689190125,W Pacific,,True
+Houston Rockets,1116.3248358835,W Southwest,,False
+Memphis Grizzlies,743.5338222250182,W Southwest,,True
+Dallas Mavericks,856.9590930390882,W Southwest,,True
+San Antonio Spurs,1259.0858454774989,W Southwest,,True
+New Orleans Pelicans,930.01566296639,W Southwest,,False
