@@ -1,31 +1,31 @@
 Team,Elo,Division,Notes,RatingUpdated
-Boston Celtics,1185.7268305847645,E Atlantic,,True
-New York Knicks,1142.1755268243191,E Atlantic,,False
+Boston Celtics,1185.7268305847645,E Atlantic,,False
+New York Knicks,1158.679276825242,E Atlantic,,True
 Toronto Raptors,1074.5730086828632,E Atlantic,,False
 Brooklyn Nets,741.953122244686,E Atlantic,,False
-Philadelphia 76ers,1071.3062292456839,E Atlantic,,True
+Philadelphia 76ers,1071.306229245684,E Atlantic,,False
 Cleveland Cavaliers,1093.3492128471626,E Central,,False
 Indiana Pacers,831.6322031817111,E Central,,False
 Milwaukee Bucks,843.0799346276461,E Central,,False
-Detroit Pistons,1165.451887238674,E Central,,False
+Detroit Pistons,1142.7860791923845,E Central,,True
 Chicago Bulls,811.4032595943256,E Central,,False
-Orlando Magic,1099.8565289170415,E Southeast,,False
+Orlando Magic,1122.522336963331,E Southeast,,True
 Miami Heat,1039.6503969052476,E Southeast,,False
-Atlanta Hawks,1112.2478989726324,E Southeast,,False
+Atlanta Hawks,1095.7441489717096,E Southeast,,True
 Charlotte Hornets,1118.2916876585334,E Southeast,,False
 Washington Wizards,669.1891203763918,E Southeast,,False
-Oklahoma City Thunder,1185.517855798364,W Northwest,,False
-Denver Nuggets,1157.838925897914,W Northwest,,False
-Minnesota Timberwolves,1107.03213998376,W Northwest,,False
-Portland Trail Blazers,1052.6319299410952,W Northwest,,True
+Oklahoma City Thunder,1193.69652188092,W Northwest,,True
+Denver Nuggets,1129.7399806166834,W Northwest,,True
+Minnesota Timberwolves,1135.1310852649906,W Northwest,,True
+Portland Trail Blazers,1052.6319299410952,W Northwest,,False
 Utah Jazz,756.1851514449827,W Northwest,,False
-Los Angeles Lakers,1147.6583061770152,W Pacific,,True
+Los Angeles Lakers,1147.6583061770152,W Pacific,,False
 Los Angeles Clippers,1009.3,W Pacific,,False
 Golden State Warriors,873.024948020489,W Pacific,,False
 Sacramento Kings,841.546789215638,W Pacific,,False
-Phoenix Suns,1019.8885676533693,W Pacific,,False
-Houston Rockets,1084.7628289610993,W Southwest,,True
+Phoenix Suns,1011.7099015708133,W Pacific,,True
+Houston Rockets,1084.762828961099,W Southwest,,False
 Memphis Grizzlies,695.3683046904728,W Southwest,,False
 Dallas Mavericks,868.9418922256386,W Southwest,,False
-San Antonio Spurs,1227.805786175734,W Southwest,,True
+San Antonio Spurs,1227.805786175734,W Southwest,,False
 New Orleans Pelicans,912.4097259127444,W Southwest,,False
