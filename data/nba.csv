@@ -1,15 +1,15 @@
 Team,Elo,Division,Notes,RatingUpdated
-Boston Celtics,1115.3002989401807,E Atlantic,,True
+Boston Celtics,1115.3002989401807,E Atlantic,,False
 New York Knicks,1200.544753358174,E Atlantic,,False
-Toronto Raptors,1084.378550811488,E Atlantic,,False
+Toronto Raptors,1066.2830470567192,E Atlantic,,True
 Brooklyn Nets,741.953122244686,E Atlantic,,False
-Philadelphia 76ers,1141.7327608902679,E Atlantic,,True
-Cleveland Cavaliers,1083.5436707185377,E Central,,False
+Philadelphia 76ers,1141.732760890268,E Atlantic,,False
+Cleveland Cavaliers,1101.6391744733064,E Central,,True
 Indiana Pacers,831.6322031817111,E Central,,False
 Milwaukee Bucks,843.0799346276461,E Central,,False
-Detroit Pistons,1159.47662327227,E Central,,False
+Detroit Pistons,1176.384321296971,E Central,,True
 Chicago Bulls,811.4032595943256,E Central,,False
-Orlando Magic,1105.8317928834458,E Southeast,,False
+Orlando Magic,1088.9240948587449,E Southeast,,True
 Miami Heat,1039.6503969052476,E Southeast,,False
 Atlanta Hawks,1053.8786724387776,E Southeast,,False
 Charlotte Hornets,1118.2916876585334,E Southeast,,False
