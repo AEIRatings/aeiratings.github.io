@@ -1,12 +1,12 @@
 Team,Elo,Division,Notes,RatingUpdated
 Florida Panthers,997.6397288136887,E Atlantic,,False
 Boston Bruins,1011.864104490636,E Atlantic,,False
-Montreal Canadiens,1042.4534918575273,E Atlantic,,True
+Montreal Canadiens,1042.4534918575273,E Atlantic,,False
 Toronto Maple Leafs,946.8782209262472,E Atlantic,,False
 Detroit Red Wings,974.4187205514552,E Atlantic,,False
 Ottawa Senators,1016.6070396753372,E Atlantic,,False
 Tampa Bay Lightning,1006.2388033525004,E Atlantic,,False
-Buffalo Sabres,1013.448687557091,E Atlantic,,True
+Buffalo Sabres,1013.448687557091,E Atlantic,,False
 Carolina Hurricanes,1067.6374486447503,E Metropolitan,,False
 Washington Capitals,1034.1068975939163,E Metropolitan,,False
 Pittsburgh Penguins,1011.9573227928691,E Metropolitan,,False
@@ -24,10 +24,10 @@ St. Louis Blues,1033.072702916803,W Central,,False
 Utah Mammoth,998.5044187918552,W Central,,False
 Chicago Blackhawks,965.236093681057,W Central,,False
 Seattle Kraken,956.324985204213,W Pacific,,False
-Vegas Golden Knights,1034.577488077475,W Pacific,,True
+Vegas Golden Knights,1034.577488077475,W Pacific,,False
 Edmonton Oilers,991.965884777304,W Pacific,,False
 Vancouver Canucks,938.3382188878523,W Pacific,,False
-Anaheim Ducks,999.444795832773,W Pacific,,True
+Anaheim Ducks,999.444795832773,W Pacific,,False
 San Jose Sharks,975.5163085229188,W Pacific,,False
 Los Angeles Kings,977.1505903594888,W Pacific,,False
 Calgary Flames,986.1220366936,W Pacific,,False
