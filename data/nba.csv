@@ -1,6 +1,6 @@
 Team,Elo,Division,Notes,RatingUpdated
 Boston Celtics,1115.3002989401807,E Atlantic,,False
-New York Knicks,1303.2237688361352,E Atlantic,,True
+New York Knicks,1303.2237688361352,E Atlantic,,False
 Toronto Raptors,1066.2830470567192,E Atlantic,,False
 Brooklyn Nets,741.953122244686,E Atlantic,,False
 Philadelphia 76ers,1088.016258514756,E Atlantic,,False
@@ -27,5 +27,5 @@ Phoenix Suns,1005.4502582428422,W Pacific,,False
 Houston Rockets,1101.1982955654173,W Southwest,,False
 Memphis Grizzlies,695.3683046904728,W Southwest,,False
 Dallas Mavericks,868.9418922256386,W Southwest,,False
-San Antonio Spurs,1266.6471852680615,W Southwest,,True
+San Antonio Spurs,1266.6471852680615,W Southwest,,False
 New Orleans Pelicans,912.4097259127444,W Southwest,,False
