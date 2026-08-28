@@ -76,9 +76,11 @@ def fetch_upcoming_cfb_games():
     # FBS (groups=80) and FCS (groups=81)
     GROUP_IDS = [80, 81]
 
-    # College football is played mostly on a weekly cadence (largely Saturdays),
-    # so look ahead across the coming week rather than just today.
-    DAYS_AHEAD = 8
+    # Pull every game from today through the end of the season (national
+    # championship / bowl season wraps up well before this date), rather
+    # than only a short rolling window.
+    TARGET_DATE = datetime(2027, 3, 1)
+    DAYS_AHEAD = max(0, (TARGET_DATE.date() - datetime.now().date()).days + 1)
 
     for i in range(0, DAYS_AHEAD):
         target_date = datetime.now() + timedelta(days=i)

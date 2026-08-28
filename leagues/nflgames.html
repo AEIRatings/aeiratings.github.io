@@ -91,10 +91,12 @@
         const leagueId = document.querySelector('main').getAttribute('data-league');
         
         try {
-            // Get current date in Pacific Time (PT)
+            // Get today's date in Pacific Time as YYYY-MM-DD string for comparison
             const now = new Date();
-            const ptDateStr = now.toLocaleDateString('en-US', { timeZone: 'America/Los_Angeles' });
-            const todayPT = new Date(ptDateStr);
+            const options = { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit' };
+            // en-CA format is YYYY-MM-DD
+            const formatter = new Intl.DateTimeFormat('en-CA', options);
+            const todayYMD = formatter.format(now);
 
             const eloResponse = await fetch('../data/nfl.csv');
             const nflCsvText = await eloResponse.text();
@@ -110,26 +112,35 @@
             const gamesCsvText = await gamesResponse.text();
             const allGames = parseCSV(gamesCsvText);
 
-            // Filter for games on or after today in Pacific Time
+            if (allGames.length === 0) {
+                scheduleElement.innerHTML = '<p>No games found in data file.</p>';
+                scheduleElement.classList.remove('loading');
+                return;
+            }
+
+            // Filter for games on or after today (String comparison YYYY-MM-DD)
             const games = allGames.filter(game => {
-                const gameDate = new Date(game.date);
-                return gameDate >= todayPT;
+                const gameDateStr = game['game date (Pacific)'];
+                return gameDateStr >= todayYMD;
             });
 
             const gamesByDate = games.reduce((acc, game) => {
-                const date = game.date;
+                const date = game['game date (Pacific)'];
                 if (!acc[date]) acc[date] = [];
                 acc[date].push(game);
                 return acc;
             }, {});
 
             let html = '';
-            for (const date in gamesByDate) {
+            // sort keys to ensure chronological order
+            const sortedDates = Object.keys(gamesByDate).sort();
+
+            for (const date of sortedDates) {
                 html += `<div class="game-day"><h3>${date}</h3>`;
-                
+
                 gamesByDate[date].forEach(game => {
                     const homeTeam = game['home team'];
-                    const roadTeam = game['road team'];
+                    const roadTeam = game['away team'];
                     const homeElo = eloMap[homeTeam] || 'N/A';
                     const roadElo = eloMap[roadTeam] || 'N/A';
 
