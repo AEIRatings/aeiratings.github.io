@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#7e22ce" />
   <title>MCBB Predictions | AEIRatings</title>
   <link rel="stylesheet" href="/assets/style.css" />
 </head>
@@ -15,21 +16,32 @@
 
   gtag('config', 'G-SZKH8HFD2C');
 </script>
-<body>
-  <div class="container">
-    <a href="/leagues/mens_college_basketball.html" class="back">← Back to MCBB Ratings</a>
-    <main data-league="mcbb">
+<body style="--header-from:#7e22ce; --header-to:#9333ea; --league-color:#7e22ce">
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
-      <section class="card">
-          <h1>MCBB Predictions</h1>
-          <div id="schedule" class="loading">
-              Loading MCBB game schedule and Elo ratings...
-          </div>
-      </section>
-
-      <footer class="foot muted">© AEIRatings</footer>
-    </main>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">🏀</span>
+      <div>
+        <p class="eyebrow"><a href="/">AEIRatings</a></p>
+        <h1 class="brand-name">MCBB Predictions</h1>
+      </div>
+    </div>
+    <a href="/leagues/mens_college_basketball.html" class="header-back">← MCBB Ratings</a>
   </div>
+</header>
+
+  <main class="container" id="main-content" data-league="mcbb">
+
+    <section class="card">
+        <div id="schedule" class="loading">
+            Loading MCBB game schedule and Elo ratings...
+        </div>
+    </section>
+
+    <footer class="foot muted">© AEIRatings</footer>
+  </main>
 
  <script>
     // --- Helper functions ---

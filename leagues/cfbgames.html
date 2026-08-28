@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#92400e" />
   <title>CFB Predictions | AEIRatings</title>
   <link rel="stylesheet" href="/assets/style.css" />
 </head>
@@ -15,25 +16,36 @@
 
   gtag('config', 'G-SZKH8HFD2C');
 </script>
-<body>
-  <div class="container">
-    <a href="/leagues/cfb.html" class="back">← Back to CFB Ratings</a>
-    <main data-league="cfb">
+<body style="--header-from:#92400e; --header-to:#b45309; --league-color:#b45309">
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
-      <section class="card">
-          <h1>CFB Predictions</h1>
-          <div class="row small" id="daySelectorRow" style="display:none; align-items:center; gap:8px; margin-bottom:12px;">
-            <label for="daySelector">Select day</label>
-            <select id="daySelector"></select>
-          </div>
-          <div id="schedule" class="loading">
-              Loading CFB game schedule and Elo ratings...
-          </div>
-      </section>
-
-      <footer class="foot muted">© AEIRatings</footer>
-    </main>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">🏈</span>
+      <div>
+        <p class="eyebrow"><a href="/">AEIRatings</a></p>
+        <h1 class="brand-name">CFB Predictions</h1>
+      </div>
+    </div>
+    <a href="/leagues/cfb.html" class="header-back">← CFB Ratings</a>
   </div>
+</header>
+
+  <main class="container" id="main-content" data-league="cfb">
+
+    <section class="card">
+        <div class="row small" id="daySelectorRow" style="display:none; align-items:center; gap:8px; margin-bottom:12px;">
+          <label for="daySelector">Select day</label>
+          <select id="daySelector"></select>
+        </div>
+        <div id="schedule" class="loading">
+            Loading CFB game schedule and Elo ratings...
+        </div>
+    </section>
+
+    <footer class="foot muted">© AEIRatings</footer>
+  </main>
 
  <script>
     // --- Helper functions ---

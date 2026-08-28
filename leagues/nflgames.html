@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1d4ed8" />
   <title>NFL Schedule with Elo Ratings | AEIRatings</title>
   <link rel="stylesheet" href="/assets/style.css" />
 </head>
@@ -15,21 +16,33 @@
 
   gtag('config', 'G-SZKH8HFD2C');
 </script>
-<body>
-  <div class="container">
-    <a href="/leagues/nfl.html" class="back">← Back to NFL Ratings</a>
-    <main data-league="nfl">
+<body style="--header-from:#1d4ed8; --header-to:#2563eb; --league-color:#1d4ed8">
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
-      <section class="card">
-          <h1>NFL Schedule with Current Elo Ratings</h1>
-          <div id="schedule" class="loading">
-              Loading NFL game schedule and Elo ratings...
-          </div>
-      </section>
-
-      <footer class="foot muted">© AEIRatings</footer>
-    </main>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">🏈</span>
+      <div>
+        <p class="eyebrow"><a href="/">AEIRatings</a></p>
+        <h1 class="brand-name">NFL Predictions</h1>
+      </div>
+    </div>
+    <a href="/leagues/nfl.html" class="header-back">← NFL Ratings</a>
   </div>
+</header>
+
+  <main class="container" id="main-content" data-league="nfl">
+
+    <section class="card">
+        <h2>NFL Schedule with Current Elo Ratings</h2>
+        <div id="schedule" class="loading">
+            Loading NFL game schedule and Elo ratings...
+        </div>
+    </section>
+
+    <footer class="foot muted">© AEIRatings</footer>
+  </main>
 
  <script>
     // --- Helper functions ---

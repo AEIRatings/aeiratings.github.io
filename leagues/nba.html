@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#b91c1c" />
   <title>NBA Elo Ratings | AEIRatings</title>
   <link rel="stylesheet" href="/assets/style.css" />
 </head>
@@ -15,8 +16,23 @@
 
   gtag('config', 'G-SZKH8HFD2C');
 </script>
-<body>
-  <main data-league="nba">
+<body style="--header-from:#b91c1c; --header-to:#dc2626; --league-color:#b91c1c">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">🏀</span>
+      <div>
+        <p class="eyebrow"><a href="/">AEIRatings</a></p>
+        <h1 class="brand-name">NBA Elo Ratings</h1>
+      </div>
+    </div>
+    <a href="/" class="header-back">← All Leagues</a>
+  </div>
+</header>
+
+  <main class="container" id="main-content" data-league="nba">
 
     <section class="card">
       <div class="row">
