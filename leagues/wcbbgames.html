@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#be185d" />
   <title>WCBB Predictions | AEIRatings</title>
   <link rel="stylesheet" href="/assets/style.css" />
 </head>
@@ -15,21 +16,32 @@
 
   gtag('config', 'G-SZKH8HFD2C');
 </script>
-<body>
-  <div class="container">
-    <a href="/leagues/womens_college_basketball.html" class="back">← Back to WCBB Ratings</a>
-    <main data-league="wcbb">
+<body style="--header-from:#be185d; --header-to:#db2777; --league-color:#be185d">
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
-      <section class="card">
-          <h1>WCBB Predictions</h1>
-          <div id="schedule" class="loading">
-              Loading WCBB game schedule and Elo ratings...
-          </div>
-      </section>
-
-      <footer class="foot muted">© AEIRatings</footer>
-    </main>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">🏀</span>
+      <div>
+        <p class="eyebrow"><a href="/">AEIRatings</a></p>
+        <h1 class="brand-name">WCBB Predictions</h1>
+      </div>
+    </div>
+    <a href="/leagues/womens_college_basketball.html" class="header-back">← WCBB Ratings</a>
   </div>
+</header>
+
+  <main class="container" id="main-content" data-league="wcbb">
+
+    <section class="card">
+        <div id="schedule" class="loading">
+            Loading WCBB game schedule and Elo ratings...
+        </div>
+    </section>
+
+    <footer class="foot muted">© AEIRatings</footer>
+  </main>
 
  <script>
     // --- Helper functions ---

@@ -1,15 +1,15 @@
-/* --- New streamlined/modern CSS with a warm dark palette --- */
+/* --- AEIRatings: white-background theme with a colored per-league header --- */
 
 :root{
-    /* New Color Palette */
-    --bg-dark: #0f172a;        /* Deep slate for background */
-    --bg-light: #1e293b;       /* Slightly lighter slate for gradients */
-    --card-bg: rgba(30, 41, 59, 0.7); /* Semi-transparent background for glass effect */
-    --muted: #a1a1aa;          /* Muted light gray for secondary text */
-    --text-primary: #f8fafc;   /* Near-white for main text */
-    --accent: #f5a524;         /* Vibrant gold for accents, meets AA contrast on dark surfaces */
-    --ink: #131a29;            /* Dark navy, for text on light/accent-colored surfaces */
-    --focus-ring: #7dd3fc;     /* High-contrast focus outline color */
+    --ink: #0f172a;            /* Primary text on white, ~17.9:1 */
+    --muted: #64748b;          /* Secondary text on white, ~4.8:1 */
+    --border: #e2e8f0;         /* Hairline borders / dividers */
+    --surface: #f8fafc;        /* Off-white panel fill (row hover, chip bg) */
+    --accent: #f5a524;         /* Warm gold, used only for the skip link so it reads on every page */
+    --accent-ink: #0f172a;     /* Text color for on-accent surfaces (e.g. the skip link) */
+    --focus-ring: #4338ca;     /* Keyboard focus outline, ~7.9:1 on white */
+    --header-from: #4338ca;    /* Default header gradient (indigo); pages override via style="--header-from/--header-to" */
+    --header-to: #7c3aed;
     --card-pad: 20px;
 }
 
@@ -31,7 +31,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     left:0;
     top:-60px;
     background:var(--accent);
-    color:var(--ink);
+    color:var(--accent-ink);
     padding:12px 20px;
     font-weight:700;
     text-decoration:none;
@@ -47,44 +47,23 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 *{box-sizing:border-box;font-family:Inter, system-ui, -apple-system, Roboto, 'Segoe UI', Arial}
 body{
     margin:0;
-    /* Soft decorative glow layered under a rich base gradient for a premium feel.
-       These are background layers (not an overlaid element), so they always paint
-       beneath page content and never interfere with readability, clicks, or stacking. */
-    background:
-        radial-gradient(650px circle at 12% -10%, rgba(245,165,36,0.08), transparent 60%),
-        radial-gradient(550px circle at 100% 0%, rgba(125,211,252,0.06), transparent 60%),
-        linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-light) 100%);
-    background-repeat:no-repeat;
-    color:var(--text-primary);
+    background:#ffffff;
+    color:var(--ink);
     min-height:100vh;
     line-height:1.5;
 }
-.container{max-width:1100px;margin:40px auto;padding:0 24px} /* Wider container */
+.container{max-width:1100px;margin:40px auto;padding:0 24px}
 .muted{color:var(--muted)}
 
 /* ==========================================================================
-   Home page ("body.home"): a distinct white-background layout used only by
-   index.html. Everything below in this block is scoped to it so the dark
-   glassmorphism theme used by the league/table pages is untouched.
+   Colored hero header, used on every page. Full-bleed (outside .container)
+   so it spans edge-to-edge; --header-from/--header-to are overridden per
+   page (usually per-league) via an inline style on the <header> itself.
    ========================================================================== */
-body.home{
-    --home-ink: #0f172a;      /* Primary text on white */
-    --home-muted: #64748b;    /* Secondary text on white, ~5.7:1 on white */
-    --home-border: #e2e8f0;
-    --home-surface: #f8fafc;  /* Off-white panel fill */
-    /* The dark theme's --focus-ring (light cyan) all but disappears on white
-       (~1.7:1); swap it for a color that clears the 3:1 non-text minimum here. */
-    --focus-ring: #4338ca;
-    background:#ffffff;
-    color:var(--home-ink);
-}
-
-/* Full-bleed colored hero header, deliberately outside .container so it can
-   span edge-to-edge while its content still lines up with the page below. */
 .site-header{
-    background:linear-gradient(135deg, #4338ca 0%, #7c3aed 100%);
+    background:linear-gradient(135deg, var(--header-from) 0%, var(--header-to) 100%);
     color:#fff;
-    padding:48px 24px 56px;
+    padding:40px 24px 46px;
 }
 .header-inner{
     max-width:1100px;
@@ -93,7 +72,7 @@ body.home{
     flex-wrap:wrap;
     align-items:center;
     justify-content:space-between;
-    gap:24px;
+    gap:20px;
 }
 .brand{display:flex;align-items:center;gap:16px}
 .brand-mark{
@@ -110,7 +89,24 @@ body.home{
     font-weight:800;
     backdrop-filter:blur(6px);
 }
-.brand-name{margin:0;font-size:30px;font-weight:800;letter-spacing:-0.02em}
+/* Small breadcrumb-style link back to the home page, shown above the page's
+   own <h1> on every page except the home page itself. */
+.eyebrow{
+    margin:0 0 2px;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+}
+.eyebrow a{
+    color:rgba(255,255,255,0.75);
+    text-decoration:none;
+}
+.eyebrow a:hover, .eyebrow a:focus-visible{
+    color:#fff;
+    text-decoration:underline;
+}
+.brand-name{margin:0;font-size:28px;font-weight:800;letter-spacing:-0.02em}
 .brand-tag{margin:4px 0 0;font-size:15px;color:rgba(255,255,255,0.85);max-width:44ch}
 
 .header-stats{
@@ -143,7 +139,29 @@ body.home{
     flex-shrink:0;
 }
 
-/* Quick jump nav to each league's row, color-coded per league via --league-color */
+/* Pill link back to the previous/parent page (ratings <-> predictions <-> home) */
+.header-back{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:rgba(255,255,255,0.14);
+    border:1px solid rgba(255,255,255,0.32);
+    color:#fff;
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:999px;
+    font-size:14px;
+    font-weight:700;
+    backdrop-filter:blur(6px);
+    transition:background 0.15s ease, transform 0.15s ease;
+    white-space:nowrap;
+}
+.header-back:hover, .header-back:focus-visible{
+    background:rgba(255,255,255,0.26);
+    transform:translateY(-1px);
+}
+
+/* Quick jump nav to each league's row (home page), color-coded per league via --league-color */
 .league-nav{
     display:flex;
     flex-wrap:wrap;
@@ -154,21 +172,21 @@ body.home{
     padding:8px 16px;
     border-radius:999px;
     background:#fff;
-    border:1.5px solid var(--league-color, var(--home-border));
-    color:var(--league-color, var(--home-ink));
+    border:1.5px solid var(--league-color, var(--border));
+    color:var(--league-color, var(--ink));
     text-decoration:none;
     font-size:14px;
     font-weight:700;
     transition:background 0.15s ease, color 0.15s ease;
 }
 .league-nav a:hover, .league-nav a:focus-visible{
-    background:var(--league-color, var(--home-ink));
+    background:var(--league-color, var(--ink));
     color:#fff;
 }
 
-/* League list: a stacked column of full-width, color-striped rows -
-   deliberately not a grid of cards, so each league reads as its own
-   scannable band with the ranked teams flowing inside it. */
+/* League list (home page): a stacked column of full-width, color-striped
+   rows - each league reads as its own scannable band with the ranked teams
+   flowing inside it. */
 .league-list{
     display:flex;
     flex-direction:column;
@@ -178,8 +196,8 @@ body.home{
 .league-row{
     position:relative;
     background:#fff;
-    border:1px solid var(--home-border);
-    border-left:6px solid var(--league-color, var(--home-ink));
+    border:1px solid var(--border);
+    border-left:6px solid var(--league-color, var(--ink));
     border-radius:14px;
     padding:22px 26px;
     box-shadow:0 1px 2px rgba(15,23,42,0.04);
@@ -189,7 +207,7 @@ body.home{
 .league-row:hover, .league-row:focus-within{
     box-shadow:0 10px 24px rgba(15,23,42,0.08);
     transform:translateY(-2px);
-    border-color:var(--league-color, var(--home-border));
+    border-color:var(--league-color, var(--border));
 }
 .league-row-head{
     display:flex;
@@ -207,11 +225,11 @@ body.home{
     display:inline-flex;
     align-items:center;
     gap:12px;
-    color:var(--home-ink);
+    color:var(--ink);
     text-decoration:none;
 }
 .league-row h2 a:hover, .league-row h2 a:focus-visible{
-    color:var(--league-color, var(--home-ink));
+    color:var(--league-color, var(--ink));
 }
 .league-icon{
     display:inline-flex;
@@ -220,7 +238,7 @@ body.home{
     width:34px;
     height:34px;
     border-radius:10px;
-    background:var(--league-color, var(--home-ink));
+    background:var(--league-color, var(--ink));
     font-size:17px;
     flex-shrink:0;
 }
@@ -230,45 +248,22 @@ body.home{
     gap:8px;
 }
 
-/* How-to Section (also uses .card) */
-/* The .howto card will not lift on hover because it is a section, not an <a> tag inside .grid */
-.howto h3 {
-    margin-top: 0;
-    color: var(--text-primary);
-    border-bottom: 2px solid var(--accent); /* Accent line for structure */
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-}
-.howto ol {
-    padding-left: 20px;
-    margin: 0;
-    line-height: 1.6;
-}
-.howto li {
-    margin-bottom: 8px;
-}
-
 /* Footer */
 .foot{
     margin-top:40px;
     padding-top:20px;
-    border-top:1px solid rgba(255, 255, 255, 0.05);
+    border-top:1px solid var(--border);
     font-size:14px;
     text-align:center;
-}
-/* The dark theme's footer rule above is unreadable on white, so the home
-   page (white background) gets its own border/text color here. */
-body.home .foot{
-    border-top-color:var(--home-border);
-    color:var(--home-muted);
+    color:var(--muted);
 }
 
 /* Media Queries */
 @media(max-width:1150px){.container{margin:28px auto;}}
 @media(max-width:640px){
-    .site-header{padding:36px 20px 44px;}
-    .header-inner{gap:18px;}
-    .brand-name{font-size:24px;}
+    .site-header{padding:32px 20px 38px;}
+    .header-inner{gap:16px;}
+    .brand-name{font-size:23px;}
     .brand-mark{width:46px;height:46px;font-size:20px;}
     .league-row{padding:18px 18px;}
 }
@@ -276,62 +271,74 @@ body.home .foot{
     .container{padding:0 18px;}
 }
 
-/* --- Keep the original table/form/back styles for future pages, slightly updated for new palette --- */
+/* --- Filter / control panels and data tables --- */
 .back{color:var(--muted);text-decoration:none;margin-bottom:12px;display:inline-block}
 .controls .row{display:flex;gap:8px;align-items:center;margin-bottom:8px}
-input,select{padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.1);background:var(--bg-light);color:inherit}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+.row label{font-size:14px;color:var(--muted);font-weight:600}
+input,select{padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:#fff;color:var(--ink)}
+
+.card{
+    background:#fff;
+    padding:var(--card-pad);
+    border-radius:16px;
+    box-shadow:0 1px 3px rgba(15,23,42,0.05);
+    border:1px solid var(--border);
+    display:flex;
+    flex-direction:column;
+    margin-bottom:18px;
+}
+.card h1{margin:0 0 6px;font-size:20px}
+.card h2{margin:0 0 6px;font-size:18px}
+.card p{margin:6px 0 0 0;color:var(--muted);font-size:15px;}
+
 table{width:100%;border-collapse:collapse;margin-top:6px}
-th,td{padding:12px;text-align:left;border-bottom:1px dashed rgba(255,255,255,0.06)}
+th,td{padding:12px;text-align:left;border-bottom:1px solid var(--border)}
 th{font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;}
+tbody tr:hover{background:var(--surface)}
 .small{font-size:14px}
 
-/* * NEW STYLES FOR LOGOS * */
+/* * LOGOS * */
 .team-cell {
-    /* Ensure the cell content is aligned vertically */
     display: flex;
     align-items: center;
-    gap: 10px; /* Space between logo and text */
+    gap: 10px;
 }
-
 .team-logo {
-    /* Define the size of the logo */
     width: 24px;
     height: 24px;
-    object-fit: contain; /* Ensure the image scales correctly within the box */
-    /* Add a small border-radius for a cleaner look */
+    object-fit: contain;
     border-radius: 4px;
 }
-/* * END NEW STYLES FOR LOGOS * */
 
-/* Prediction / stats links inside a .league-row, styled as light pill buttons
-   that pick up that row's --league-color on hover. */
+/* Prediction / stats links, styled as light pill buttons that pick up the
+   surrounding page or row's --league-color on hover. */
 .btn-predictions {
     display: inline-block;
     background: #fff;
-    color: var(--home-ink, #0f172a);
+    color: var(--ink);
     padding: 8px 16px;
     border-radius: 999px;
     text-decoration: none;
     font-weight: 600;
     font-size: 13px;
-    border: 1.5px solid var(--home-border, #e2e8f0);
+    border: 1.5px solid var(--border);
     transition: all 0.15s ease;
 }
-
 .btn-predictions:hover, .btn-predictions:focus-visible {
-    border-color: var(--league-color, var(--home-ink));
-    color: var(--league-color, var(--home-ink));
+    border-color: var(--league-color, var(--ink));
+    color: var(--league-color, var(--ink));
     transform: translateY(-1px);
 }
 
-/* --- Top-5 rankings, rendered as a horizontal row of "chips" per league --- */
+/* --- Top-5 rankings (home page), rendered as a horizontal row of "chips" --- */
 .top-5-container {
     margin-top: 4px;
 }
 .top-5-container h3 {
     margin: 0 0 10px 0;
     font-size: 12px;
-    color: var(--home-muted);
+    color: var(--muted);
     text-transform: uppercase;
     letter-spacing: 0.06em;
     font-weight: 700;
@@ -348,8 +355,8 @@ th{font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5
     display: flex;
     align-items: center;
     gap: 8px;
-    background: var(--home-surface);
-    border: 1px solid var(--home-border);
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 999px;
     padding: 6px 14px 6px 6px;
     font-size: 13px;
@@ -361,7 +368,7 @@ th{font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background: var(--league-color, var(--home-ink));
+    background: var(--league-color, var(--ink));
     color: #fff;
     font-weight: 700;
     font-size: 11px;
@@ -371,69 +378,57 @@ th{font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5
     display: flex;
     align-items: center;
     gap: 6px;
-    color: var(--home-ink);
+    color: var(--ink);
     font-weight: 600;
     white-space: nowrap;
 }
 .top-5-elo {
     font-weight: 700;
-    color: var(--league-color, var(--home-ink)); /* Rating value colored by league */
+    color: var(--league-color, var(--ink));
     flex-shrink: 0;
 }
 .top-5-placeholder {
-    color: var(--home-muted);
+    color: var(--muted);
     font-style: italic;
     font-size: 14px;
 }
 
-/* --- NEW STYLES FOR NFL GAMES PAGE TWO-COLUMN GAME LAYOUT --- */
-
-/* 1. Define the overall layout for a single game row */
+/* --- Predictions/games pages: two-column game layout --- */
 .game {
     display: flex;
-    justify-content: space-between; /* Pushes road team to the far left and home team to the far right */
-    align-items: center; /* Vertically center the team logos and text */
-    padding: 8px 0;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
 }
+.game:last-child{border-bottom:none}
+.game .elo{color:var(--muted)}
 
-/* 2. Style for the game day headers for better separation */
 .game-day {
     padding-bottom: 12px;
+    margin-top: 18px;
 }
+.game-day:first-child{margin-top:0}
+.game-day h3{margin:0 0 8px;font-size:15px;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em}
 
-/* 3. Configure the home team side to display contents in reverse order (ELO, Name, Logo) */
 .team-cell.home-team {
-    /* This reverses the order of elements within the home team span, 
-       so the logo is on the right and the ELO is closer to the separator. 
-       Visual order: (ELO) [Name] [Logo]
-    */
     flex-direction: row-reverse;
 }
-
-/* 4. Increase flexibility of team cells to push the @ separator into the middle */
 .team-cell {
-    flex-grow: 1; /* Allow each team cell to take up available space */
-    /* Add a max-width to prevent extremely long team names from dominating wide screens */
-    max-width: 45%; 
+    flex-grow: 1;
+    max-width: 45%;
 }
-
-/* 5. Center the @ separator and ensure it doesn't shrink */
 .at-separator {
-    margin: 0 10px; /* Add horizontal margin for breathing room */
-    flex-shrink: 0; /* Prevent the @ from shrinking if space is tight */
+    margin: 0 10px;
+    flex-shrink: 0;
+    color: var(--league-color, var(--ink));
 }
 
-/* --- END NEW STYLES FOR NFL GAMES PAGE TWO-COLUMN GAME LAYOUT --- */
-
-/* --- WCBB Predictions: Mobile Layout Fix --- */
+/* --- WCBB/predictions mobile layout fix --- */
 @media (max-width: 600px) {
-
-  /* Make the whole game row tighter but still horizontal */
   .game {
     align-items: flex-start;
   }
-
-  /* Stack both teams vertically on mobile */
   .game .team-cell {
     flex-direction: column;
     align-items: center;
@@ -441,28 +436,20 @@ th{font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5
     max-width: 40%;
     gap: 2px;
   }
-
-  /* Ensure correct visual order: Logo → Name → Elo */
   .game .team-cell img {
     order: 1;
   }
-
   .game .team-cell .team-name-text {
     order: 2;
     font-size: 0.9em;
   }
-
   .game .team-cell .elo {
     order: 3;
     font-size: 0.8em;
     opacity: 0.9;
   }
-
-  /* Center the prediction logo + percent */
   .at-separator {
     margin: 0 6px;
     min-width: 55px;
   }
 }
-
-

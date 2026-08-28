@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MCBB Tournaments by Conference | AEIRatings</title>
+    <title>MCBB Conference Tournaments | AEIRatings</title>
+    <meta name="theme-color" content="#7e22ce">
     <link rel="stylesheet" href="../assets/style.css">
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZKH8HFD2C"></script>
@@ -15,29 +16,25 @@
   gtag('config', 'G-SZKH8HFD2C');
 </script>
     <style>
-        /* Adaptations for the tournament tab layout using site variables */
+        /* Adaptations for the tournament tab layout, using the site's light theme + this page's league accent */
         body {
-            background-color: #0f172a;
-            color: #f8fafc;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
+            padding: 20px 20px 40px;
         }
 
         .tournaments-container {
             max-width: 1200px;
             margin: 0 auto 40px auto;
-            background: rgba(30, 41, 59, 0.7);
+            background: #fff;
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+            border: 1px solid var(--border, #e2e8f0);
         }
 
-        .tournaments-container h1 {
+        .tournaments-container h2 {
             text-align: center;
             margin-bottom: 30px;
-            color: #ffffff;
+            color: var(--ink, #0f172a);
             font-weight: 700;
         }
 
@@ -46,7 +43,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 2px solid var(--border, #e2e8f0);
             margin-bottom: 20px;
             padding-bottom: 15px;
             justify-content: center;
@@ -55,9 +52,9 @@
         .conf-tab {
             padding: 8px 16px;
             cursor: pointer;
-            background: rgba(0, 0, 0, 0.2);
-            color: #cbd5e1;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--surface, #f8fafc);
+            color: var(--muted, #64748b);
+            border: 1px solid var(--border, #e2e8f0);
             border-radius: 6px;
             user-select: none;
             font-weight: 600;
@@ -66,15 +63,15 @@
         }
 
         .conf-tab:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: #ffffff;
+            background: var(--border, #e2e8f0);
+            color: var(--ink, #0f172a);
         }
 
         .conf-tab.active {
-            background: #38bdf8;
-            color: #111; 
-            border-color: #38bdf8;
-            box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+            background: var(--league-color, #7e22ce);
+            color: #fff;
+            border-color: var(--league-color, #7e22ce);
+            box-shadow: 0 0 12px rgba(126, 34, 206, 0.35);
         }
 
         /* Table Styles */
@@ -96,12 +93,12 @@
         .ratings-table th, .ratings-table td {
             padding: 14px 16px;
             text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid var(--border, #e2e8f0);
         }
 
         .ratings-table th {
-            background-color: rgba(0, 0, 0, 0.3);
-            color: #cbd5e1;
+            background-color: var(--surface, #f8fafc);
+            color: var(--muted, #64748b);
             font-weight: bold;
             text-transform: uppercase;
             font-size: 0.85rem;
@@ -109,7 +106,7 @@
         }
 
         .ratings-table tr:hover {
-            background-color: rgba(255, 255, 255, 0.05);
+            background-color: var(--surface, #f8fafc);
         }
 
         .team-cell {
@@ -117,7 +114,7 @@
             align-items: center;
             gap: 12px;
             font-weight: 600;
-            color: #ffffff;
+            color: var(--ink, #0f172a);
         }
 
         .team-logo {
@@ -128,7 +125,7 @@
 
         .rating-val {
             font-weight: bold;
-            color: #38bdf8;
+            color: var(--league-color, #7e22ce);
             font-size: 1.1rem;
         }
 
@@ -138,11 +135,11 @@
             overflow-x: auto;
             padding-bottom: 15px;
         }
-        
+
         .bracket-wrapper h3 {
-            color: #cbd5e1;
+            color: var(--muted, #64748b);
             font-size: 1.2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid var(--border, #e2e8f0);
             padding-bottom: 10px;
             margin-top: 0;
             margin-bottom: 20px;
@@ -165,44 +162,44 @@
         .match {
             display: flex;
             flex-direction: column;
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--surface, #f8fafc);
+            border: 1px solid var(--border, #e2e8f0);
             border-radius: 6px;
             min-width: 150px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(15, 23, 42, 0.06);
         }
 
         /* Bracket Status Highlighting */
         .team {
             padding: 10px 14px;
             font-size: 0.9rem;
-            color: #ffffff;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            background: rgba(255, 255, 255, 0.02);
+            color: var(--ink, #0f172a);
+            border-bottom: 1px solid var(--border, #e2e8f0);
+            background: #fff;
             cursor: pointer;
             transition: all 0.2s ease;
             border-left: 4px solid transparent;
         }
 
         .pick-correct {
-            background: rgba(34, 197, 94, 0.2) !important;
-            border-left: 4px solid #22c55e !important;
+            background: rgba(34, 197, 94, 0.16) !important;
+            border-left: 4px solid #16a34a !important;
         }
 
         .pick-wrong {
-            background: rgba(239, 68, 68, 0.2) !important;
-            border-left: 4px solid #ef4444 !important;
+            background: rgba(239, 68, 68, 0.14) !important;
+            border-left: 4px solid #dc2626 !important;
         }
 
         .pick-predicted {
-            background: rgba(234, 179, 8, 0.2) !important;
-            border-left: 4px solid #eab308 !important;
+            background: rgba(234, 179, 8, 0.16) !important;
+            border-left: 4px solid #ca8a04 !important;
         }
 
         .win-prob {
             float: right;
-            color: #38bdf8;
+            color: var(--league-color, #7e22ce);
             font-size: 0.85em;
             font-weight: bold;
         }
@@ -218,10 +215,10 @@
             flex-wrap: wrap;
             gap: 24px;
             margin-bottom: 25px;
-            background: rgba(0, 0, 0, 0.2);
+            background: var(--surface, #f8fafc);
             padding: 12px 20px;
             border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--border, #e2e8f0);
         }
 
         .legend-item {
@@ -230,7 +227,7 @@
             gap: 8px;
             font-size: 0.9rem;
             font-weight: 600;
-            color: #cbd5e1;
+            color: var(--muted, #64748b);
         }
 
         .legend-color {
@@ -479,11 +476,26 @@
         }
     });
 </script>
-<body>
+<body style="--header-from:#7e22ce; --header-to:#9333ea; --league-color:#7e22ce">
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">🏀</span>
+      <div>
+        <p class="eyebrow"><a href="/">AEIRatings</a></p>
+        <h1 class="brand-name">MCBB Conference Tournaments</h1>
+      </div>
+    </div>
+    <a href="/leagues/mens_college_basketball.html" class="header-back">← MCBB Ratings</a>
+  </div>
+</header>
+
+<main id="main-content">
 <div class="tournaments-container">
-    <h1>Conference Tournaments & Ratings</h1>
-    
+    <h2>Conference Tournaments &amp; Ratings</h2>
+
     <div class="status-legend">
         <div class="legend-item">
             <div class="legend-color" style="background: #22c55e;"></div> Correct Pick
@@ -2238,5 +2250,7 @@
     </div>
 </div>
 
+<footer class="foot muted">© AEIRatings</footer>
+</main>
 </body>
 </html>
