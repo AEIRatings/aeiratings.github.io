@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="theme-color" content="#0f172a" />
+<meta name="theme-color" content="#4338ca" />
 <meta name="description" content="Live Adjusted Elo power rankings, predictions, and accuracy stats for NFL, College Football, NCAA Basketball, NBA, and NHL." />
 <title>AEI Ratings — Adjusted Elo Ratings</title>
 <link rel="stylesheet" href="/assets/style.css">
@@ -17,63 +17,96 @@
 
   gtag('config', 'G-SZKH8HFD2C');
 </script>
-<body>
+<body class="home">
 <a class="skip-link" href="#main-content">Skip to main content</a>
-<main class="container" id="main-content">
+
 <header class="site-header">
-<h1>AEIRatings<span class="muted"> — Adjusted Elo Ratings</span></h1>
-<p class="tag">Live power rankings for college &amp; pro sports, powered by an Adjusted Elo rating system.</p>
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">Æ</span>
+      <div>
+        <p class="brand-name">AEIRatings</p>
+        <p class="brand-tag">Adjusted Elo power rankings for college &amp; pro sports</p>
+      </div>
+    </div>
+    <ul class="header-stats">
+      <li><span class="live-dot" aria-hidden="true"></span> Live Elo ratings</li>
+      <li>6 leagues tracked</li>
+      <li>Predictions &amp; accuracy stats</li>
+    </ul>
+  </div>
 </header>
 
+<main class="container" id="main-content">
+
 <nav class="league-nav" aria-label="Jump to a league">
-<a href="#league-nfl">NFL</a>
-<a href="#league-cfb">College Football</a>
-<a href="#league-mcbb">Men's CBB</a>
-<a href="#league-wcbb">Women's CBB</a>
-<a href="#league-nba">NBA</a>
-<a href="#league-nhl">NHL</a>
+<a href="#league-nfl" style="--league-color:#1d4ed8">NFL</a>
+<a href="#league-cfb" style="--league-color:#b45309">College Football</a>
+<a href="#league-mcbb" style="--league-color:#7e22ce">Men's CBB</a>
+<a href="#league-wcbb" style="--league-color:#be185d">Women's CBB</a>
+<a href="#league-nba" style="--league-color:#b91c1c">NBA</a>
+<a href="#league-nhl" style="--league-color:#0f766e">NHL</a>
 </nav>
 
-<section class="grid" aria-label="League ratings">
-<article class="card" id="league-nfl">
-    <h2><a href="/leagues/nfl.html">NFL</a></h2>
+<section class="league-list" aria-label="League ratings">
+
+<article class="league-row" id="league-nfl" style="--league-color:#1d4ed8">
+    <div class="league-row-head">
+        <h2><a href="/leagues/nfl.html"><span class="league-icon" aria-hidden="true">🏈</span>NFL</a></h2>
+        <div class="league-actions">
+            <a href="/leagues/nflgames.html" class="btn-predictions">View Predictions</a>
+            <a href="/leagues/nflstats.html" class="btn-predictions">View Accuracy Statistics</a>
+        </div>
+    </div>
     <div id="top-5-nfl" class="top-5-container" aria-live="polite"></div>
-    <div class="card-actions">
-        <a href="/leagues/nflgames.html" class="btn-predictions">View Predictions</a>
-        <a href="/leagues/nflstats.html" class="btn-predictions">View Accuracy Statistics</a>
-    </div>
 </article>
-<article class="card" id="league-cfb">
-    <h2><a href="/leagues/cfb.html">College Football</a></h2>
+
+<article class="league-row" id="league-cfb" style="--league-color:#b45309">
+    <div class="league-row-head">
+        <h2><a href="/leagues/cfb.html"><span class="league-icon" aria-hidden="true">🏈</span>College Football</a></h2>
+        <div class="league-actions">
+            <a href="/leagues/cfbgames.html" class="btn-predictions">View Predictions</a>
+        </div>
+    </div>
     <div id="top-5-cfb" class="top-5-container" aria-live="polite"></div>
-    <div class="card-actions">
-        <a href="/leagues/cfbgames.html" class="btn-predictions">View Predictions</a>
-    </div>
 </article>
-<article class="card" id="league-mcbb">
-    <h2><a href="/leagues/mens_college_basketball.html">NCAA Men's Basketball</a></h2>
+
+<article class="league-row" id="league-mcbb" style="--league-color:#7e22ce">
+    <div class="league-row-head">
+        <h2><a href="/leagues/mens_college_basketball.html"><span class="league-icon" aria-hidden="true">🏀</span>NCAA Men's Basketball</a></h2>
+        <div class="league-actions">
+            <a href="/leagues/mcbbgames.html" class="btn-predictions">View Predictions</a>
+            <a href="/leagues/mcbbtournaments.html" class="btn-predictions">Conference Tournament Central</a>
+        </div>
+    </div>
     <div id="top-5-mcbb" class="top-5-container" aria-live="polite"></div>
-    <div class="card-actions">
-        <a href="/leagues/mcbbgames.html" class="btn-predictions">View Predictions</a>
-        <a href="/leagues/mcbbtournaments.html" class="btn-predictions">Conference Tournament Central</a>
-    </div>
 </article>
-<article class="card" id="league-wcbb">
-    <h2><a href="/leagues/womens_college_basketball.html">NCAA Women's Basketball</a></h2>
+
+<article class="league-row" id="league-wcbb" style="--league-color:#be185d">
+    <div class="league-row-head">
+        <h2><a href="/leagues/womens_college_basketball.html"><span class="league-icon" aria-hidden="true">🏀</span>NCAA Women's Basketball</a></h2>
+        <div class="league-actions">
+            <a href="/leagues/wcbbgames.html" class="btn-predictions">View Predictions</a>
+            <a href="/leagues/wcbbtournaments.html" class="btn-predictions">Conference Tournament Central</a>
+        </div>
+    </div>
     <div id="top-5-wcbb" class="top-5-container" aria-live="polite"></div>
-    <div class="card-actions">
-        <a href="/leagues/wcbbgames.html" class="btn-predictions">View Predictions</a>
-        <a href="/leagues/wcbbtournaments.html" class="btn-predictions">Conference Tournament Central</a>
-    </div>
 </article>
-<article class="card" id="league-nba">
-    <h2><a href="/leagues/nba.html">NBA</a></h2>
+
+<article class="league-row" id="league-nba" style="--league-color:#b91c1c">
+    <div class="league-row-head">
+        <h2><a href="/leagues/nba.html"><span class="league-icon" aria-hidden="true">🏀</span>NBA</a></h2>
+    </div>
     <div id="top-5-nba" class="top-5-container" aria-live="polite"></div>
 </article>
-<article class="card" id="league-nhl">
-    <h2><a href="/leagues/nhl.html">NHL</a></h2>
+
+<article class="league-row" id="league-nhl" style="--league-color:#0f766e">
+    <div class="league-row-head">
+        <h2><a href="/leagues/nhl.html"><span class="league-icon" aria-hidden="true">🏒</span>NHL</a></h2>
+    </div>
     <div id="top-5-nhl" class="top-5-container" aria-live="polite"></div>
 </article>
+
 </section>
 
 <footer class="foot muted">© AEIRatings 2025 - Created and maintained by Gavin Carpenter</footer>
