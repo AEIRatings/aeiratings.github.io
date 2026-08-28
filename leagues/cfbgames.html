@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CFB Predictions | AEIRatings</title>
+  <link rel="stylesheet" href="/assets/style.css" />
+</head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SZKH8HFD2C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SZKH8HFD2C');
+</script>
+<body>
+  <div class="container">
+    <a href="/leagues/cfb.html" class="back">← Back to CFB Ratings</a>
+    <main data-league="cfb">
+
+      <section class="card">
+          <h1>CFB Predictions</h1>
+          <div class="row small" id="daySelectorRow" style="display:none; align-items:center; gap:8px; margin-bottom:12px;">
+            <label for="daySelector">Select day</label>
+            <select id="daySelector"></select>
+          </div>
+          <div id="schedule" class="loading">
+              Loading CFB game schedule and Elo ratings...
+          </div>
+      </section>
+
+      <footer class="foot muted">© AEIRatings</footer>
+    </main>
+  </div>
+
+ <script>
+    // --- Helper functions ---
+
+    function calculateWinProbability(roadElo, homeElo) {
+        if (roadElo === 'N/A' || homeElo === 'N/A') return { percent: 'N/A', favorite: 'none' };
+
+        const rElo = parseFloat(roadElo);
+        const hElo = parseFloat(homeElo);
+
+        const roadWinProb = 1 / (1 + Math.pow(10, (hElo - rElo) / 400));
+        const homeWinProb = 1 - roadWinProb;
+
+        if (homeWinProb >= roadWinProb) {
+            return { percent: (homeWinProb * 100).toFixed(1) + '%', favorite: 'home' };
+        } else {
+            return { percent: (roadWinProb * 100).toFixed(1) + '%', favorite: 'road' };
+        }
+    }
+
+    function parseCSV(csvString) {
+        const lines = csvString.trim().split('\n');
+        if (lines.length === 0) return [];
+        // Handle potential BOM and trim headers
+        const headers = lines[0].split(',').map(h => h.trim().replace(/^﻿/, ''));
+        const data = [];
+        for (let i = 1; i < lines.length; i++) {
+            const values = lines[i].split(',');
+            if (values.length === headers.length) {
+                const row = {};
+                for (let j = 0; j < headers.length; j++) {
+                    row[headers[j]] = (values[j] || '').trim();
+                }
+                data.push(row);
+            }
+        }
+        return data;
+    }
+
+    function normalizeTeamName(teamName) {
+      if (!teamName) return '';
+      return teamName.toLowerCase().trim().replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, '')
+    }
+
+    function getLogoPath(teamName, league) {
+      if (!teamName || !league) return ''
+      const normalizedName = normalizeTeamName(teamName)
+      return `/logos/cfb/${normalizedName}.png`
+    }
+
+    function formatDayLabel(dateStr) {
+      // dateStr is YYYY-MM-DD; parse as UTC to avoid local-timezone day shifting
+      const [year, month, day] = dateStr.split('-').map(Number);
+      const d = new Date(Date.UTC(year, month - 1, day));
+      return d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+    }
+
+    function renderGamesForDay(gamesByDate, date, eloMap, leagueId, scheduleElement) {
+        const dayGames = gamesByDate[date] || [];
+
+        let html = `<div class="game-day"><h3>${formatDayLabel(date)}</h3>`;
+
+        dayGames.forEach(game => {
+            const homeTeam = game['home team'];
+            const roadTeam = game['away team'];
+            const homeElo = eloMap[homeTeam] || 'N/A';
+            const roadElo = eloMap[roadTeam] || 'N/A';
+
+            const winInfo = calculateWinProbability(roadElo, homeElo);
+
+            let displayLogo = '';
+            if (winInfo.favorite === 'home') {
+                displayLogo = getLogoPath(homeTeam, leagueId);
+            } else if (winInfo.favorite === 'road') {
+                displayLogo = getLogoPath(roadTeam, leagueId);
+            }
+
+            html += `
+                <div class="game">
+                    <span class="team-cell">
+                        <img src="${getLogoPath(roadTeam, leagueId)}" alt="${roadTeam}" class="team-logo" onerror="this.style.display='none'">
+                        <span class="team-name-text">${roadTeam}</span>
+                        <span class="elo">(${roadElo})</span>
+                    </span>
+                    <span class="at-separator" style="display: flex; flex-direction: column; align-items: center; min-width: 65px;">
+                        <img src="${displayLogo}" class="team-logo" style="width: 20px; height: 20px; margin-bottom: 2px;" onerror="this.style.display='none'">
+                        <span style="font-size: 0.85em; font-weight: bold;">${winInfo.percent}</span>
+                    </span>
+                    <span class="team-cell home-team">
+                        <img src="${getLogoPath(homeTeam, leagueId)}" alt="${homeTeam}" class="team-logo" onerror="this.style.display='none'">
+                        <span class="team-name-text">${homeTeam}</span>
+                        <span class="elo">(${homeElo})</span>
+                    </span>
+                </div>
+            `;
+        });
+        html += `</div>`;
+
+        scheduleElement.classList.remove('loading');
+        scheduleElement.innerHTML = html;
+    }
+
+    async function generateSchedule() {
+        const scheduleElement = document.getElementById('schedule');
+        const daySelectorRow = document.getElementById('daySelectorRow');
+        const daySelector = document.getElementById('daySelector');
+        const leagueId = document.querySelector('main').getAttribute('data-league');
+
+        try {
+            // Get today's date in Pacific Time as YYYY-MM-DD string for comparison
+            const now = new Date();
+            const options = { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit' };
+            // en-CA format is YYYY-MM-DD
+            const formatter = new Intl.DateTimeFormat('en-CA', options);
+            const todayYMD = formatter.format(now);
+
+            const eloResponse = await fetch('../data/cfb.csv');
+            const eloCsvText = await eloResponse.text();
+            const teamRatings = parseCSV(eloCsvText);
+
+            const eloMap = {};
+            teamRatings.forEach(teamData => {
+                const elo = parseFloat(teamData.Elo).toFixed(2);
+                eloMap[teamData.Team] = elo;
+            });
+
+            const gamesResponse = await fetch('../data/cfb_games.csv');
+            const gamesCsvText = await gamesResponse.text();
+            const allGames = parseCSV(gamesCsvText);
+
+            // Debugging: Check if data loaded
+            if (allGames.length === 0) {
+                 scheduleElement.innerHTML = '<p>No games found in data file.</p>';
+                 scheduleElement.classList.remove('loading');
+                 return;
+            }
+
+            // Filter for games on or after today (String comparison YYYY-MM-DD)
+            const games = allGames.filter(game => {
+                const gameDateStr = game['game date (Pacific)'];
+                return gameDateStr >= todayYMD;
+            });
+
+            if (games.length === 0) {
+                scheduleElement.classList.remove('loading');
+                scheduleElement.innerHTML = '<p>No upcoming games scheduled.</p>';
+                return;
+            }
+
+            const gamesByDate = games.reduce((acc, game) => {
+                const date = game['game date (Pacific)'];
+                if (!acc[date]) acc[date] = [];
+                acc[date].push(game);
+                return acc;
+            }, {});
+
+            // sort keys to ensure chronological order
+            const sortedDates = Object.keys(gamesByDate).sort();
+
+            // Populate the day selector
+            daySelector.innerHTML = sortedDates.map(date =>
+                `<option value="${date}">${formatDayLabel(date)}</option>`
+            ).join('');
+            daySelectorRow.style.display = sortedDates.length > 1 ? 'flex' : 'none';
+
+            // Default to the soonest upcoming day (today, if it has games, otherwise the next one)
+            const defaultDate = sortedDates.includes(todayYMD) ? todayYMD : sortedDates[0];
+            daySelector.value = defaultDate;
+
+            renderGamesForDay(gamesByDate, defaultDate, eloMap, leagueId, scheduleElement);
+
+            daySelector.addEventListener('change', () => {
+                renderGamesForDay(gamesByDate, daySelector.value, eloMap, leagueId, scheduleElement);
+            });
+
+        } catch (error) {
+            console.error("Error loading data:", error);
+            scheduleElement.innerHTML = `<p style="color: red;">Error loading schedule: ${error.message}</p>`;
+            scheduleElement.classList.remove('loading');
+        }
+    }
+
+    generateSchedule();
+  </script>
+
+</body>
+</html>
