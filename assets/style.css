@@ -2,28 +2,67 @@
 
 :root{
     /* New Color Palette */
-    --bg-dark: #5f5f5f;        /* Dark Navy/Charcoal for background */
-    --bg-light: #5f5f5f;       /* Slightly lighter shade for gradients */
+    --bg-dark: #0f172a;        /* Deep slate for background */
+    --bg-light: #1e293b;       /* Slightly lighter slate for gradients */
     --card-bg: rgba(30, 41, 59, 0.7); /* Semi-transparent background for glass effect */
     --muted: #a1a1aa;          /* Muted light gray for secondary text */
     --text-primary: #f8fafc;   /* Near-white for main text */
-    --accent: #131a29;         /* Vibrant Orange/Gold for accents */
+    --accent: #f5a524;         /* Vibrant gold for accents, meets AA contrast on dark surfaces */
+    --ink: #131a29;            /* Dark navy, for text on light/accent-colored surfaces */
+    --focus-ring: #7dd3fc;     /* High-contrast focus outline color */
     --card-pad: 20px;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important;animation-iteration-count:1 !important;transition-duration:0.001ms !important;scroll-behavior:auto !important}
+}
+
+/* Visible keyboard focus for all interactive elements */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible{
+    outline:3px solid var(--focus-ring);
+    outline-offset:2px;
+    border-radius:6px;
+}
+
+/* Skip link: hidden until keyboard-focused, lets keyboard/screen-reader users bypass repeated nav */
+.skip-link{
+    position:absolute;
+    left:0;
+    top:-60px;
+    background:var(--accent);
+    color:var(--ink);
+    padding:12px 20px;
+    font-weight:700;
+    text-decoration:none;
+    border-radius:0 0 10px 0;
+    z-index:1000;
+    transition:top 0.2s ease;
+}
+.skip-link:focus{
+    top:0;
 }
 
 /* Base Styles */
 *{box-sizing:border-box;font-family:Inter, system-ui, -apple-system, Roboto, 'Segoe UI', Arial}
 body{
     margin:0;
-    /* Rich, subtle gradient for a premium feel */
-    background:linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-light) 100%);
+    /* Soft decorative glow layered under a rich base gradient for a premium feel.
+       These are background layers (not an overlaid element), so they always paint
+       beneath page content and never interfere with readability, clicks, or stacking. */
+    background:
+        radial-gradient(650px circle at 12% -10%, rgba(245,165,36,0.08), transparent 60%),
+        radial-gradient(550px circle at 100% 0%, rgba(125,211,252,0.06), transparent 60%),
+        linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-light) 100%);
+    background-repeat:no-repeat;
     color:var(--text-primary);
     min-height:100vh;
+    line-height:1.5;
 }
 .container{max-width:1100px;margin:40px auto;padding:0 24px} /* Wider container */
 
 /* Header */
-.site-header{display:flex;flex-direction:column;gap:8px;margin-bottom:32px}
+.site-header{display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
 .site-header h1{
     margin:0;
     font-size:32px; /* Larger main title */
@@ -34,7 +73,30 @@ body{
     font-weight:400;
 }
 .muted{color:var(--muted)}
-.tag{font-size:16px;margin-top:4px}
+.tag{font-size:16px;margin-top:4px;max-width:60ch}
+
+/* Quick jump nav to each league's card */
+.league-nav{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:28px;
+}
+.league-nav a{
+    padding:6px 14px;
+    border-radius:999px;
+    background:var(--card-bg);
+    border:1px solid rgba(255,255,255,0.1);
+    color:var(--text-primary);
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+    backdrop-filter:blur(5px);
+    transition:border-color 0.2s, transform 0.2s;
+}
+.league-nav a:hover, .league-nav a:focus-visible{
+    border-color:var(--accent);
+}
 
 /* Grid & Cards (Leagues) */
 .grid{
@@ -44,6 +106,7 @@ body{
     margin-bottom:32px;
 }
 .card{
+    position:relative; /* anchors the h2 link's stretched hit-area (see .card h2 a::after) */
     background:var(--card-bg);
     padding:var(--card-pad);
     border-radius:16px; /* More rounded corners */
@@ -56,13 +119,15 @@ body{
     border: 1px solid rgba(255, 255, 255, 0.08);
     display: flex; /* Added for the internal elements to stack nicely */
     flex-direction: column;
+    scroll-margin-top:20px; /* keeps the card's heading clear of the viewport edge when jumped to */
 }
 
 /* * MODIFICATION HERE:
-* The lift effect is now scoped to anchor tags (.card) directly inside the .grid
+* The lift effect is scoped to .card elements directly inside the .grid
 * on the index.html page. This prevents the .howto card from lifting.
+* Also triggers on focus-within so keyboard users get the same feedback as hover.
 */
-.grid a.card:hover{
+.grid .card:hover, .grid .card:focus-within{
     transform: translateY(-3px); /* Subtle lift on hover */
     box-shadow:0 15px 40px rgba(0,0,0,0.4);
     border-color: var(--accent);
@@ -70,10 +135,36 @@ body{
 
 .card h2{
     margin:0;
-    color: var(--accent); /* Apply accent color to main heading */
     font-weight: 600;
+    font-size:22px;
+}
+/* The card's whole-surface click target: a single real link, stretched over the card via ::after.
+   Keeps the "click anywhere on the card" UX without nesting interactive elements (invalid HTML,
+   and previously caused the outer <a> and inner <button onclick> to race on click). */
+.card h2 a{
+    color: var(--accent); /* Apply accent color to main heading */
+    text-decoration:none;
+}
+.card h2 a:hover, .card h2 a:focus-visible{
+    text-decoration:underline;
+}
+.card h2 a::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:0;
 }
 .card p{margin:6px 0 0 0;color:var(--muted);font-size:15px;}
+
+/* Secondary links (e.g. "View Predictions") sit above the stretched card link so they stay clickable */
+.card-actions{
+    position:relative;
+    z-index:1;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:14px;
+}
 
 /* How-to Section (also uses .card) */
 /* The .howto card will not lift on hover because it is a section, not an <a> tag inside .grid */
@@ -147,13 +238,13 @@ th{font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5
     border-radius: 12px;
     text-decoration: none;
     font-weight: 600;
+    font-size: 14px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px); /* Frosted glass effect */
     transition: all 0.2s ease;
-    margin-bottom: 16px;
 }
 
-.btn-predictions:hover {
+.btn-predictions:hover, .btn-predictions:focus-visible {
     border-color: var(--accent); /* Highlights with the accent color on hover */
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
