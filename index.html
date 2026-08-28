@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#0f172a" />
+<meta name="description" content="Live Adjusted Elo power rankings, predictions, and accuracy stats for NFL, College Football, NCAA Basketball, NBA, and NHL." />
 <title>AEI Ratings — Adjusted Elo Ratings</title>
 <link rel="stylesheet" href="/assets/style.css">
 </head>
@@ -16,66 +18,62 @@
   gtag('config', 'G-SZKH8HFD2C');
 </script>
 <body>
-<main class="container">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<main class="container" id="main-content">
 <header class="site-header">
 <h1>AEIRatings<span class="muted"> — Adjusted Elo Ratings</span></h1>
-<p class="tag">Power rankings for college & pro sports</p>
+<p class="tag">Live power rankings for college &amp; pro sports, powered by an Adjusted Elo rating system.</p>
 </header>
 
-<section class="grid">
-<a class="card" href="/leagues/nfl.html">
-    <h2>NFL</h2>
-    <div id="top-5-nfl" class="top-5-container"></div>
-    <div style="margin-top: 10px;">
-        <button onclick="window.location.href='/leagues/nflgames.html'; return false;" class="btn-predictions">
-            View Predictions
-        </button>
-        <button onclick="window.location.href='/leagues/nflstats.html'; return false;" class="btn-predictions">
-            View Accuracy Statistics
-        </button>
+<nav class="league-nav" aria-label="Jump to a league">
+<a href="#league-nfl">NFL</a>
+<a href="#league-cfb">College Football</a>
+<a href="#league-mcbb">Men's CBB</a>
+<a href="#league-wcbb">Women's CBB</a>
+<a href="#league-nba">NBA</a>
+<a href="#league-nhl">NHL</a>
+</nav>
+
+<section class="grid" aria-label="League ratings">
+<article class="card" id="league-nfl">
+    <h2><a href="/leagues/nfl.html">NFL</a></h2>
+    <div id="top-5-nfl" class="top-5-container" aria-live="polite"></div>
+    <div class="card-actions">
+        <a href="/leagues/nflgames.html" class="btn-predictions">View Predictions</a>
+        <a href="/leagues/nflstats.html" class="btn-predictions">View Accuracy Statistics</a>
     </div>
-</a>
-<a class="card" href="/leagues/cfb.html">
-    <h2>College Football</h2>
-    <div id="top-5-cfb" class="top-5-container"></div>
-    <div style="margin-top: 10px;">
-        <button onclick="window.location.href='/leagues/cfbgames.html'; return false;" class="btn-predictions">
-            View Predictions
-        </button>
+</article>
+<article class="card" id="league-cfb">
+    <h2><a href="/leagues/cfb.html">College Football</a></h2>
+    <div id="top-5-cfb" class="top-5-container" aria-live="polite"></div>
+    <div class="card-actions">
+        <a href="/leagues/cfbgames.html" class="btn-predictions">View Predictions</a>
     </div>
-</a>
-<a class="card" href="/leagues/mens_college_basketball.html">
-    <h2>NCAA Men's Basketball</h2>
-    <div id="top-5-mcbb" class="top-5-container"></div>
-    <div style="margin-top: 10px;">
-        <button onclick="window.location.href='/leagues/mcbbgames.html'; return false;" class="btn-predictions">
-            View Predictions
-        </button>
-      <button onclick="window.location.href='/leagues/mcbbtournaments.html'; return false;" class="btn-predictions">
-            Conference Tournament Central
-        </button>
+</article>
+<article class="card" id="league-mcbb">
+    <h2><a href="/leagues/mens_college_basketball.html">NCAA Men's Basketball</a></h2>
+    <div id="top-5-mcbb" class="top-5-container" aria-live="polite"></div>
+    <div class="card-actions">
+        <a href="/leagues/mcbbgames.html" class="btn-predictions">View Predictions</a>
+        <a href="/leagues/mcbbtournaments.html" class="btn-predictions">Conference Tournament Central</a>
     </div>
-</a>
-<a class="card" href="/leagues/womens_college_basketball.html">
-    <h2>NCAA Women's Basketball</h2>
-    <div id="top-5-wcbb" class="top-5-container"></div>
-    <div style="margin-top: 10px;">
-        <button onclick="window.location.href='/leagues/wcbbgames.html'; return false;" class="btn-predictions">
-            View Predictions
-        </button>
-      <button onclick="window.location.href='/leagues/wcbbtournaments.html'; return false;" class="btn-predictions">
-            Conference Tournament Central
-        </button>
+</article>
+<article class="card" id="league-wcbb">
+    <h2><a href="/leagues/womens_college_basketball.html">NCAA Women's Basketball</a></h2>
+    <div id="top-5-wcbb" class="top-5-container" aria-live="polite"></div>
+    <div class="card-actions">
+        <a href="/leagues/wcbbgames.html" class="btn-predictions">View Predictions</a>
+        <a href="/leagues/wcbbtournaments.html" class="btn-predictions">Conference Tournament Central</a>
     </div>
-</a>
-<a class="card" href="/leagues/nba.html">
-    <h2>NBA</h2>
-    <div id="top-5-nba" class="top-5-container"></div>
-</a>
-<a class="card" href="/leagues/nhl.html">
-    <h2>NHL</h2>
-    <div id="top-5-nhl" class="top-5-container"></div>
-</a>
+</article>
+<article class="card" id="league-nba">
+    <h2><a href="/leagues/nba.html">NBA</a></h2>
+    <div id="top-5-nba" class="top-5-container" aria-live="polite"></div>
+</article>
+<article class="card" id="league-nhl">
+    <h2><a href="/leagues/nhl.html">NHL</a></h2>
+    <div id="top-5-nhl" class="top-5-container" aria-live="polite"></div>
+</article>
 </section>
 
 <footer class="foot muted">© AEIRatings 2025 - Created and maintained by Gavin Carpenter</footer>
@@ -83,9 +81,3 @@
 <script src="/assets/script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
