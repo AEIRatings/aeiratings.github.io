@@ -3,25 +3,28 @@ import csv
 import unicodedata
 from datetime import datetime, timedelta
 
-def load_team_names(filename="data/cfb.csv"):
+def load_team_names(filename="data/cfb_espn_aliases.csv"):
     """
-    Loads valid college football team names (without nicknames) from a CSV file.
-    Returns a set of team names for matching.
+    Loads the ESPN-display-name -> roster-team-name lookup table (same idea as
+    mcbb.csv/wcbb.csv, which store the full ESPN name directly). Each row maps
+    one exact ESPN 'displayName' string (e.g. 'Ohio State Buckeyes') to the
+    canonical short team name used in data/cfb.csv (e.g. 'Ohio State').
+    Returns a dict keyed by the normalized ESPN name for O(1) exact lookup.
     """
-    team_names = set()
+    aliases = {}
     try:
         with open(filename, newline='', encoding='utf-8') as csvfile:
-            reader = csv.reader(csvfile)
+            reader = csv.DictReader(csvfile)
             for row in reader:
-                if row:
-                    team = row[0].strip()
-                    if team:
-                        team_names.add(team)
+                espn_name = (row.get('espn_name') or '').strip()
+                team = (row.get('team') or '').strip()
+                if espn_name and team:
+                    aliases[normalize_match_key(espn_name)] = team
     except FileNotFoundError:
         print(f"❌ Could not find {filename}. Make sure the file exists in the data/ folder.")
     except Exception as e:
-        print(f"Error loading team names from {filename}: {e}")
-    return team_names
+        print(f"Error loading team aliases from {filename}: {e}")
+    return aliases
 
 
 def strip_accents(text):
@@ -30,6 +33,20 @@ def strip_accents(text):
         return text
     return ''.join(c for c in unicodedata.normalize('NFD', text)
                    if unicodedata.category(c) != 'Mn')
+
+
+def normalize_match_key(name):
+    """
+    Collapses a team name down to a stable lookup key: lowercased, accents
+    stripped, apostrophes/periods removed (so "Ragin' Cajuns" lines up with
+    "Ragin Cajuns" and "St. Thomas" lines up with "St Thomas"), whitespace
+    collapsed. Used on both sides of the exact-match lookup so minor
+    punctuation differences don't cause an otherwise-correct match to miss.
+    """
+    key = strip_accents(name.lower())
+    key = key.replace("'", "").replace(".", "")
+    key = " ".join(key.split())
+    return key
 
 
 def normalize_name(raw_name):
@@ -49,40 +66,27 @@ def normalize_name(raw_name):
     return name
 
 
-def clean_team_name(full_name, valid_team_names):
+def clean_team_name(full_name, espn_aliases):
     """
-    Strips nicknames (e.g., 'Georgia Bulldogs' -> 'Georgia') by matching a known
-    team name against the START of the ESPN name, requiring the match to end on
-    a word boundary (end of string or a non-alphanumeric character).
+    Resolves an ESPN 'displayName' to the roster's canonical team name using
+    only an exact lookup against espn_aliases (built by load_team_names from
+    data/cfb_espn_aliases.csv) - the same approach getMCBBscores.py /
+    getWCBBscores.py use, where the roster stores the full ESPN name so
+    matching is a direct dict lookup instead of a heuristic.
 
-    ESPN's displayName is always '<team name> <mascot>', so the team name is
-    always a prefix, never merely present somewhere in the middle. Anchoring the
-    match to the start (instead of a plain "is this substring contained
-    anywhere" check) prevents a short team name from being falsely matched just
-    because it happens to appear inside another team's mascot or parenthetical
-    qualifier - e.g. 'Miami (Ohio) RedHawks' must resolve to 'Miami (OH)', not
-    to 'Ohio', even though "ohio" is technically contained in that string.
+    Deliberately returns None (instead of falling back to a fuzzy/partial
+    match) when the name isn't a known alias. This is what actually fixes the
+    "Ohio Dominican counted as Ohio" / "Northwestern (IA) counted as
+    Northwestern" bug: those schools aren't FBS/FCS teams, so they don't - and
+    shouldn't - have an alias entry. Returning None means the game containing
+    them is skipped entirely rather than silently credited to the wrong,
+    similarly-named FBS/FCS program.
     """
     if not full_name:
-        return full_name
+        return None
 
     normalized = normalize_name(full_name)
-    lower_no_accents = strip_accents(normalized.lower())
-
-    best_match = None
-    for team in valid_team_names:
-        team_no_accents = strip_accents(team.lower())
-        if not lower_no_accents.startswith(team_no_accents):
-            continue
-        boundary_index = len(team_no_accents)
-        if boundary_index < len(lower_no_accents) and lower_no_accents[boundary_index].isalnum():
-            # The match runs into more letters/digits (e.g. "ohio" inside
-            # "ohioan"), so it isn't actually the team name - skip it.
-            continue
-        if not best_match or len(team) > len(best_match):
-            best_match = team
-
-    return best_match if best_match else normalized
+    return espn_aliases.get(normalize_match_key(normalized))
 
 
 def fetch_and_save_college_football_scores():
@@ -90,7 +94,7 @@ def fetch_and_save_college_football_scores():
     Fetches college football (FBS + FCS) scoreboard data for the previous day
     and saves them into a single deduplicated CSV file.
     """
-    valid_team_names = load_team_names("data/cfb.csv")
+    espn_aliases = load_team_names()
 
     # 1. Determine the date for the data (yesterday)
     yesterday = datetime.now() - timedelta(days=2)
@@ -148,7 +152,7 @@ def fetch_and_save_college_football_scores():
                 team_info = competitor.get('team', {})
                 team_display_name = normalize_name(team_info.get('displayName'))
                 score = competitor.get('score')
-                cleaned_name = clean_team_name(team_display_name, valid_team_names)
+                cleaned_name = clean_team_name(team_display_name, espn_aliases)
 
                 if competitor.get('homeAway') == 'away':
                     away_team_name = cleaned_name
