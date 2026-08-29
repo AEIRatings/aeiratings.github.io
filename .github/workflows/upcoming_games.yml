@@ -8,14 +8,6 @@ on:
   # Allows you to run this manually from the Actions tab
   workflow_dispatch:
 
-  # TEMPORARY: workflow_dispatch runs are stuck queued and not being picked
-  # up by a runner. Using a push trigger to force an immediate run instead.
-  # Remove this block once confirmed working again.
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/upcoming_games.yml'
-
 jobs:
   update_upcoming_games:
     runs-on: ubuntu-latest
