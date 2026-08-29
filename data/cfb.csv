@@ -81,15 +81,15 @@ Bryant,700.0,CAA,,False
 Campbell,700.0,CAA,,False
 Elon,700.0,CAA,,False
 Hampton,700.0,CAA,,False
-Maine,711.9336676123729,CAA,,True
+Maine,711.9336676123729,CAA,,False
 Monmouth,700.0,CAA,,False
-New Hampshire,700.0,CAA,,False
+New Hampshire,680.4221521560911,CAA,,True
 North Carolina A&T,700.0,CAA,,False
-Rhode Island,700.0,CAA,,False
+Rhode Island,727.0218521933529,CAA,,True
 Sacred Heart,700.0,CAA,,False
-Stony Brook,685.8507875971854,CAA,,True
-Towson,688.0663323876271,CAA,,True
-UAlbany,700.0,CAA,,False
+Stony Brook,685.8507875971854,CAA,,False
+Towson,688.0663323876271,CAA,,False
+UAlbany,719.5778478439089,CAA,,True
 Delaware,1000.0,CUSA,,False
 Florida International,1000.0,CUSA,,False
 Jacksonville State,1000.0,CUSA,,False
@@ -103,7 +103,7 @@ Western Kentucky,1000.0,CUSA,,False
 Notre Dame,1000.0,FBS Independent,,False
 UConn,1000.0,FBS Independent,,False
 Chicago State,700.0,FCS Independent,,False
-Merrimack,700.0,FCS Independent,,False
+Merrimack,672.9781478066471,FCS Independent,,True
 Brown,700.0,Ivy League,,False
 Columbia,700.0,Ivy League,,False
 Cornell,700.0,Ivy League,,False
@@ -125,7 +125,7 @@ Ohio,1000.0,MAC,,False
 Sacramento State,1000.0,MAC,,False
 Toledo,1000.0,MAC,,False
 Western Michigan,1000.0,MAC,,False
-Delaware State,714.1492124028146,MEAC,,True
+Delaware State,714.1492124028146,MEAC,,False
 Howard,700.0,MEAC,,False
 Morgan State,700.0,MEAC,,False
 Norfolk State,700.0,MEAC,,False
@@ -143,28 +143,28 @@ UTEP,1000.0,Mountain West,,False
 Wyoming,1000.0,Mountain West,,False
 Illinois State,700.0,MVC,,False
 Indiana State,700.0,MVC,,False
-Murray State,679.2093977573912,MVC,,True
+Murray State,679.2093977573912,MVC,,False
 North Dakota,700.0,MVC,,False
 Northern Iowa,700.0,MVC,,False
 South Dakota,700.0,MVC,,False
 South Dakota State,700.0,MVC,,False
-Southern Illinois,691.0804829680926,MVC,,True
-Youngstown State,728.5806256676345,MVC,,True
+Southern Illinois,691.0804829680926,MVC,,False
+Youngstown State,728.5806256676345,MVC,,False
 Central Connecticut,700.0,NEC,,False
 Duquesne,700.0,NEC,,False
 Long Island University,700.0,NEC,,False
-Mercyhurst,671.4193743323655,NEC,,True
-New Haven,700.0,NEC,,False
+Mercyhurst,671.4193743323655,NEC,,False
+New Haven,700.0,NEC,,True
 Robert Morris,700.0,NEC,,False
 Stonehill,700.0,NEC,,False
 Wagner,700.0,NEC,,False
-Charleston Southern,691.0804829680926,OVC,,True
-Eastern Illinois,720.7906022426088,OVC,,True
-Gardner-Webb,678.0872296168798,OVC,,True
-Lindenwood,708.9195170319074,OVC,,True
+Charleston Southern,691.0804829680926,OVC,,False
+Eastern Illinois,720.7906022426088,OVC,,False
+Gardner-Webb,678.0872296168798,OVC,,False
+Lindenwood,708.9195170319074,OVC,,False
 Southeast Missouri State,700.0,OVC,,False
 Tennessee State,700.0,OVC,,False
-UT Martin,680.4221521560911,OVC,,True
+UT Martin,680.4221521560911,OVC,,False
 Western Illinois,700.0,OVC,,False
 Boise State,1000.0,PAC 12,,False
 Colorado State,1000.0,PAC 12,,False
@@ -175,20 +175,20 @@ Texas State,1000.0,PAC 12,,False
 Utah State,1000.0,PAC 12,,False
 Washington State,1000.0,PAC 12,,False
 Bucknell,700.0,Patriot,,False
-Colgate,700.0,Patriot,,False
-Fordham,700.0,Patriot,,False
+Colgate,718.2512943255426,Patriot,,True
+Fordham,681.7487056744574,Patriot,,True
 Georgetown,700.0,Patriot,,False
 Holy Cross,700.0,Patriot,,False
 Lafayette,700.0,Patriot,,False
 Lehigh,700.0,Patriot,,False
 Richmond,700.0,Patriot,,False
-Villanova,700.0,Patriot,,False
-William & Mary,700.0,Patriot,,False
+Villanova,688.0663323876271,Patriot,,True
+William & Mary,711.9336676123729,Patriot,,True
 Butler,700.0,Pioneer,,False
 Davidson,700.0,Pioneer,,False
 Dayton,700.0,Pioneer,,False
 Drake,700.0,Pioneer,,False
-Marist,700.0,Pioneer,,False
+Marist,700.0,Pioneer,,True
 Morehead State,700.0,Pioneer,,False
 Presbyterian,700.0,Pioneer,,False
 San Diego,700.0,Pioneer,,False
@@ -211,7 +211,7 @@ Tennessee,1000.0,SEC,,False
 Texas,1000.0,SEC,,False
 Texas A&M,1000.0,SEC,,False
 Vanderbilt,1000.0,SEC,,False
-Chattanooga,720.7906022426088,Southern,,True
+Chattanooga,720.7906022426088,Southern,,False
 East Tennessee State,700.0,Southern,,False
 Furman,700.0,Southern,,False
 Mercer,700.0,Southern,,False
@@ -222,13 +222,13 @@ VMI,700.0,Southern,,False
 Western Carolina,700.0,Southern,,False
 Wofford,700.0,Southern,,False
 East Texas A&M,700.0,Southland,,False
-Houston Christian,715.0955839512609,Southland,,True
+Houston Christian,715.0955839512609,Southland,,False
 Incarnate Word,700.0,Southland,,False
 Lamar,700.0,Southland,,False
 McNeese,700.0,Southland,,False
-Nicholls,728.952401695584,Southland,,True
+Nicholls,728.952401695584,Southland,,False
 Northwestern State,700.0,Southland,,False
-SE Louisiana,684.9044160487391,Southland,,True
+SE Louisiana,684.9044160487391,Southland,,False
 Stephen F. Austin,700.0,Southland,,False
 UT Rio Grande Valley,700.0,Southland,,False
 App State,1000.0,Sun Belt,,False
@@ -253,15 +253,15 @@ Bethune-Cookman,700.0,SWAC,,False
 Florida A&M,700.0,SWAC,,False
 Grambling,700.0,SWAC,,False
 Jackson State,700.0,SWAC,,False
-Mississippi Valley State,671.047598304416,SWAC,,True
+Mississippi Valley State,671.047598304416,SWAC,,False
 Prairie View A&M,700.0,SWAC,,False
 Southern,700.0,SWAC,,False
 Texas Southern,700.0,SWAC,,False
 Abilene Christian,700.0,UAC,,False
-Austin Peay,721.9127703831202,UAC,,True
-Central Arkansas,719.5778478439089,UAC,,True
+Austin Peay,721.9127703831202,UAC,,False
+Central Arkansas,719.5778478439089,UAC,,False
 Eastern Kentucky,700.0,UAC,,False
 North Alabama,700.0,UAC,,False
 Tarleton State,700.0,UAC,,False
-West Florida,708.9195170319074,UAC,,True
-West Georgia,679.2093977573912,UAC,,True
+West Florida,708.9195170319074,UAC,,False
+West Georgia,679.2093977573912,UAC,,False
