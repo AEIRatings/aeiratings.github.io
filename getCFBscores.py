@@ -51,8 +51,17 @@ def normalize_name(raw_name):
 
 def clean_team_name(full_name, valid_team_names):
     """
-    Strips nicknames (e.g., 'Georgia Bulldogs' -> 'Georgia') using substring match
-    against known team names list.
+    Strips nicknames (e.g., 'Georgia Bulldogs' -> 'Georgia') by matching a known
+    team name against the START of the ESPN name, requiring the match to end on
+    a word boundary (end of string or a non-alphanumeric character).
+
+    ESPN's displayName is always '<team name> <mascot>', so the team name is
+    always a prefix, never merely present somewhere in the middle. Anchoring the
+    match to the start (instead of a plain "is this substring contained
+    anywhere" check) prevents a short team name from being falsely matched just
+    because it happens to appear inside another team's mascot or parenthetical
+    qualifier - e.g. 'Miami (Ohio) RedHawks' must resolve to 'Miami (OH)', not
+    to 'Ohio', even though "ohio" is technically contained in that string.
     """
     if not full_name:
         return full_name
@@ -63,9 +72,15 @@ def clean_team_name(full_name, valid_team_names):
     best_match = None
     for team in valid_team_names:
         team_no_accents = strip_accents(team.lower())
-        if team_no_accents in lower_no_accents:
-            if not best_match or len(team) > len(best_match):
-                best_match = team
+        if not lower_no_accents.startswith(team_no_accents):
+            continue
+        boundary_index = len(team_no_accents)
+        if boundary_index < len(lower_no_accents) and lower_no_accents[boundary_index].isalnum():
+            # The match runs into more letters/digits (e.g. "ohio" inside
+            # "ohioan"), so it isn't actually the team name - skip it.
+            continue
+        if not best_match or len(team) > len(best_match):
+            best_match = team
 
     return best_match if best_match else normalized
 
