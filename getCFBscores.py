@@ -97,7 +97,7 @@ def fetch_and_save_college_football_scores():
     espn_aliases = load_team_names()
 
     # 1. Determine the date for the data (yesterday)
-    yesterday = datetime.now() - timedelta(days=2)
+    yesterday = datetime.now() - timedelta(days=1)
     date_str = yesterday.strftime('%Y%m%d') 
     file_date_str = yesterday.strftime('%Y-%m-%d')
 
