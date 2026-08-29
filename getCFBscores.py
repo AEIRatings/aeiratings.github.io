@@ -93,7 +93,7 @@ def fetch_and_save_college_football_scores():
     valid_team_names = load_team_names("data/cfb.csv")
 
     # 1. Determine the date for the data (yesterday)
-    yesterday = datetime.now() - timedelta(days=1)
+    yesterday = datetime.now() - timedelta(days=2)
     date_str = yesterday.strftime('%Y%m%d') 
     file_date_str = yesterday.strftime('%Y-%m-%d')
 
