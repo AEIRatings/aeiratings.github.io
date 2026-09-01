@@ -129,8 +129,6 @@ Norfolk State,Virginia,2026-09-11
 Richmond,NC State,2026-09-11
 Rutgers,Boston College,2026-09-11
 Missouri,Kansas,2026-09-11
-Cal Poly,San Jose State,2026-09-11
-Mercyhurst,New Mexico,2026-09-11
 Oregon,Oklahoma State,2026-09-12
 Howard,Indiana,2026-09-12
 Arizona State,Texas A&M,2026-09-12
@@ -168,6 +166,7 @@ Wagner,James Madison,2026-09-12
 UNLV,North Texas,2026-09-12
 UC Davis,SMU,2026-09-12
 Northern Colorado,Wyoming,2026-09-12
+Mercyhurst,New Mexico,2026-09-12
 Alabama State,Troy,2026-09-12
 Delaware,Vanderbilt,2026-09-12
 Campbell,Florida,2026-09-12
@@ -201,6 +200,7 @@ Charlotte,Ole Miss,2026-09-12
 Southern Miss,Auburn,2026-09-12
 Prairie View A&M,Baylor,2026-09-12
 Grambling,TCU,2026-09-12
+Cal Poly,San Jose State,2026-09-12
 Texas Southern,UTEP,2026-09-12
 North Dakota State,Air Force,2026-09-12
 Arkansas,Utah,2026-09-12
@@ -208,10 +208,9 @@ Sacramento State,Fresno State,2026-09-12
 Montana State,Nevada,2026-09-12
 Louisiana,USC,2026-09-12
 New Mexico State,Hawai'i,2026-09-12
-UAlbany,Long Island University,2026-09-11
-Kentucky,Chicago State,2026-09-11
 Elon,Rhode Island,2026-09-12
 Marist,Lafayette,2026-09-12
+Kentucky,Chicago State,2026-09-12
 Bucknell,VMI,2026-09-12
 Eastern Washington,South Dakota,2026-09-12
 Duquesne,Youngstown State,2026-09-12
@@ -225,6 +224,7 @@ Morehead State,Austin Peay,2026-09-12
 Incarnate Word,Northern Arizona,2026-09-12
 Bryant,Hampton,2026-09-12
 Stonehill,New Hampshire,2026-09-12
+UAlbany,Long Island University,2026-09-12
 North Carolina A&T,North Carolina Central,2026-09-12
 Virginia,Morgan State,2026-09-12
 Virginia,South Carolina State,2026-09-12
@@ -237,7 +237,6 @@ Valparaiso,Murray State,2026-09-12
 Southeast Missouri State,Southern Illinois,2026-09-12
 Oklahoma,Central Arkansas,2026-09-12
 North Alabama,SE Louisiana,2026-09-12
-Tennessee State,Alabama A&M,2026-09-12
 Tarleton State,McNeese,2026-09-12
 UT Rio Grande Valley,Nicholls,2026-09-12
 Arkansas-Pine Bluff,Alcorn State,2026-09-12
@@ -245,6 +244,7 @@ Samford,Tennessee Tech,2026-09-12
 Northwestern State,East Texas A&M,2026-09-12
 Arkansas,Houston Christian,2026-09-12
 New Haven,South Dakota State,2026-09-12
+Tennessee State,Alabama A&M,2026-09-12
 Stephen F. Austin,Abilene Christian,2026-09-12
 North Dakota,Portland State,2026-09-12
 Syracuse,Pittsburgh,2026-09-17
