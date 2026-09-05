@@ -1,12 +1,4 @@
 away team,home team,game date (Pacific)
-San Jose State,Eastern Michigan,2026-09-04
-Indiana State,Purdue,2026-09-04
-North Carolina A&T,Georgia State,2026-09-04
-UTEP,Oklahoma,2026-09-04
-Long Island University,Kansas,2026-09-04
-Toledo,Michigan State,2026-09-04
-Miami,Stanford,2026-09-04
-Fresno State,USC,2026-09-04
 North Texas,Indiana,2026-09-05
 East Carolina,Alabama,2026-09-05
 Oregon State,Houston,2026-09-05
@@ -92,12 +84,13 @@ Presbyterian,Mercer,2026-09-05
 Tennessee Tech,Chattanooga,2026-09-05
 Richmond,Howard,2026-09-05
 Chicago State,UT Martin,2026-09-05
-Illinois State,Western Illinois,2026-09-05
 West Florida,Central Arkansas,2026-09-05
 Northern Iowa,Eastern Washington,2026-09-05
 Kentucky,Southern,2026-09-05
 Texas,McNeese,2026-09-05
+Illinois State,Western Illinois,2026-09-05
 South Dakota,Northern Colorado,2026-09-05
+Washington,Cal Poly,2026-09-05
 Weber State,Southern Utah,2026-09-05
 East Texas A&M,Stephen F. Austin,2026-09-05
 Butler,Montana State,2026-09-05
@@ -186,6 +179,7 @@ Charlotte,Ole Miss,2026-09-12
 Southern Miss,Auburn,2026-09-12
 Prairie View A&M,Baylor,2026-09-12
 Grambling,TCU,2026-09-12
+Cal Poly,San Jose State,2026-09-12
 Texas Southern,UTEP,2026-09-12
 North Dakota State,Air Force,2026-09-12
 Arkansas,Utah,2026-09-12
@@ -194,6 +188,7 @@ Montana State,Nevada,2026-09-12
 Louisiana,USC,2026-09-12
 New Mexico State,Hawai'i,2026-09-12
 Elon,Rhode Island,2026-09-12
+UAlbany,Long Island University,2026-09-12
 Marist,Lafayette,2026-09-12
 Kentucky,Chicago State,2026-09-12
 Bucknell,VMI,2026-09-12
@@ -209,7 +204,6 @@ Morehead State,Austin Peay,2026-09-12
 Incarnate Word,Northern Arizona,2026-09-12
 Bryant,Hampton,2026-09-12
 Stonehill,New Hampshire,2026-09-12
-UAlbany,Long Island University,2026-09-12
 North Carolina A&T,North Carolina Central,2026-09-12
 Virginia,Morgan State,2026-09-12
 Virginia,South Carolina State,2026-09-12
@@ -346,6 +340,7 @@ Morehead State,Western Illinois,2026-09-19
 Merrimack,Tarleton State,2026-09-19
 Louisiana,Southern,2026-09-19
 Houston Christian,Incarnate Word,2026-09-19
+San Diego,Cal Poly,2026-09-19
 Northern Arizona,Utah Tech,2026-09-19
 Northwestern State,Weber State,2026-09-19
 McNeese,UT Rio Grande Valley,2026-09-19
@@ -457,6 +452,7 @@ Towson,Delaware State,2026-09-26
 Mississippi Valley State,Alabama State,2026-09-26
 Southern Illinois,Murray State,2026-09-26
 South Carolina State,Bethune-Cookman,2026-09-26
+Cal Poly,Eastern Washington,2026-09-26
 Eastern Illinois,South Dakota State,2026-09-26
 Alabama A&M,Florida A&M,2026-09-26
 SE Louisiana,Northwestern State,2026-09-26
@@ -578,6 +574,7 @@ Arkansas-Pine Bluff,Southern,2026-10-03
 Northwestern State,Lamar,2026-10-03
 Nicholls,Houston Christian,2026-10-03
 West Florida,Abilene Christian,2026-10-03
+Weber State,Cal Poly,2026-10-03
 Northern Arizona,Idaho State,2026-10-03
 Southern Utah,Utah Tech,2026-10-03
 Eastern Washington,UC Davis,2026-10-03
@@ -679,6 +676,7 @@ Montana,Northern Arizona,2026-10-10
 Jackson State,Grambling,2026-10-10
 Davidson,Presbyterian,2026-10-10
 South Carolina State,Charleston Southern,2026-10-10
+Cal Poly,Idaho State,2026-10-10
 West Georgia,Eastern Kentucky,2026-10-10
 Tarleton State,Austin Peay,2026-10-10
 Northern Colorado,Eastern Washington,2026-10-10
@@ -800,6 +798,7 @@ UT Rio Grande Valley,Incarnate Word,2026-10-17
 Lamar,SE Louisiana,2026-10-17
 Mercer,Samford,2026-10-17
 East Texas A&M,Houston Christian,2026-10-17
+Cal Poly,Northern Colorado,2026-10-17
 UC Davis,Southern Utah,2026-10-17
 Middle Tennessee,Florida International,2026-10-20
 Missouri State,Delaware,2026-10-20
@@ -860,8 +859,8 @@ Georgia State,Arkansas State,2026-10-24
 Utah State,Texas State,2026-10-24
 North Dakota State,New Mexico,2026-10-24
 Stonehill,Long Island University,2026-10-23
-New Hampshire,Merrimack,2026-10-24
 UAlbany,Rhode Island,2026-10-24
+New Hampshire,Merrimack,2026-10-24
 Cornell,Brown,2026-10-24
 New Haven,Central Connecticut,2026-10-24
 Wagner,Duquesne,2026-10-24
@@ -902,6 +901,7 @@ Lehigh,Villanova,2026-10-24
 Charleston Southern,Tennessee State,2026-10-24
 UT Martin,Western Illinois,2026-10-24
 Houston Christian,Lamar,2026-10-24
+Utah Tech,Cal Poly,2026-10-24
 Southern Utah,Idaho,2026-10-24
 UT Rio Grande Valley,Central Arkansas,2026-10-24
 McNeese,Incarnate Word,2026-10-24
@@ -975,12 +975,12 @@ Maine,Rhode Island,2026-10-31
 Sacred Heart,Stony Brook,2026-10-31
 Pennsylvania,Brown,2026-10-31
 Yale,Columbia,2026-10-31
+Cornell,Princeton,2026-10-31
 North Dakota,Youngstown State,2026-10-31
 Mercyhurst,Stonehill,2026-10-31
 Wagner,Merrimack,2026-10-31
 Bucknell,Lehigh,2026-10-31
 Duquesne,New Haven,2026-10-31
-Cornell,Princeton,2026-10-31
 Villanova,Lafayette,2026-10-31
 Bryant,Monmouth,2026-10-31
 Elon,North Carolina A&T,2026-10-31
@@ -999,6 +999,7 @@ Western Illinois,Charleston Southern,2026-10-31
 Gardner-Webb,Southeast Missouri State,2026-10-31
 Tennessee State,Lindenwood,2026-10-31
 Western Carolina,Furman,2026-10-31
+Cal Poly,Montana State,2026-10-31
 Idaho State,Utah Tech,2026-10-31
 Northern Arizona,Southern Utah,2026-10-31
 UC Davis,Weber State,2026-10-31
@@ -1135,6 +1136,7 @@ Southeast Missouri State,Tennessee State,2026-11-07
 Stephen F. Austin,Lamar,2026-11-07
 East Texas A&M,Nicholls,2026-11-07
 Eastern Kentucky,Austin Peay,2026-11-07
+Northern Arizona,Cal Poly,2026-11-07
 Eastern Washington,Idaho,2026-11-07
 West Georgia,Central Arkansas,2026-11-07
 McNeese,Houston Christian,2026-11-07
@@ -1391,6 +1393,7 @@ Prairie View A&M,Alabama State,2026-11-21
 Jackson State,Alcorn State,2026-11-21
 Yale,Harvard,2026-11-21
 Florida A&M,Bethune-Cookman,2026-11-21
+Cal Poly,UC Davis,2026-11-21
 Portland State,Eastern Washington,2026-11-21
 Northern Colorado,Northern Arizona,2026-11-21
 Tarleton State,North Alabama,2026-11-21
