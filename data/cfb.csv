@@ -3,14 +3,14 @@ Boston College,977.5548148062508,ACC,,False
 California,1000.0,ACC,,False
 Clemson,1000.0,ACC,,False
 Duke,1019.5778478439088,ACC,,False
-Florida State,1021.36186340239,ACC,,False
+Florida State,1005.679720285158,ACC,,True
 Georgia Tech,1000.0,ACC,,False
-Louisville,991.0804829680926,ACC,,True
+Louisville,991.0804829680926,ACC,,False
 Miami,1000.0,ACC,,False
 NC State,974.2342051490753,ACC,,False
 North Carolina,1014.1492124028146,ACC,,False
 Pittsburgh,1032.670731996492,ACC,,False
-SMU,1000.0,ACC,,False
+SMU,1015.6821431172319,ACC,,True
 Stanford,1016.776084111174,ACC,,False
 Syracuse,1019.7121683386086,ACC,,False
 Virginia,1025.7657948509247,ACC,,False
@@ -46,8 +46,8 @@ Purdue,1012.0089857688776,Big 10,,False
 Rutgers,978.0872296168798,Big 10,,False
 UCLA,1000.0,Big 10,,False
 USC,1020.7906022426088,Big 10,,False
-Washington,1019.5778478439089,Big 10,,True
-Wisconsin,973.3877544571801,Big 10,,True
+Washington,1019.5778478439088,Big 10,,False
+Wisconsin,973.38775445718,Big 10,,False
 Arizona,1000.0,Big 12,,False
 Arizona State,1000.0,Big 12,,False
 Baylor,1000.0,Big 12,,False
@@ -78,7 +78,7 @@ UC Davis,715.9663827282524,Big Sky,,False
 Utah Tech,700.0,Big Sky,,False
 Weber State,700.0,Big Sky,,False
 Bryant,703.790938785129,CAA,,False
-Campbell,737.6128852657708,CAA,,True
+Campbell,737.6128852657708,CAA,,False
 Elon,731.0567406892674,CAA,,False
 Hampton,700.0,CAA,,False
 Maine,693.6632947488531,CAA,,False
@@ -100,7 +100,7 @@ Missouri State,965.8185017755654,CUSA,,False
 New Mexico State,978.63813659761,CUSA,,False
 Sam Houston,991.0804829680926,CUSA,,False
 Western Kentucky,1000.0,CUSA,,False
-Notre Dame,1026.61224554282,FBS Independent,,True
+Notre Dame,1026.61224554282,FBS Independent,,False
 UConn,1017.5427481652456,FBS Independent,,False
 Chicago State,667.2517433383535,FCS Independent,,False
 Merrimack,658.6064124754292,FCS Independent,,False
@@ -130,7 +130,7 @@ Howard,701.7691401123882,MEAC,,False
 Morgan State,718.2512943255426,MEAC,,False
 Norfolk State,689.0866213882603,MEAC,,False
 North Carolina Central,681.7487056744574,MEAC,,False
-South Carolina State,722.9607068272339,MEAC,,True
+South Carolina State,722.9607068272339,MEAC,,False
 Air Force,1014.4052492726058,Mountain West,,False
 Hawai'i,983.223915888826,Mountain West,,False
 Nevada,1000.0,Mountain West,,False
@@ -173,7 +173,7 @@ Oregon State,981.069378847753,PAC 12,,False
 San Diego State,1000.0,PAC 12,,False
 Texas State,965.239323903329,PAC 12,,False
 Utah State,952.4314952409468,PAC 12,,False
-Washington State,980.4221521560911,PAC 12,,True
+Washington State,980.4221521560912,PAC 12,,False
 Bucknell,669.5609008631717,Patriot,,False
 Colgate,738.6767456899659,Patriot,,False
 Fordham,667.0102100200152,Patriot,,False
@@ -205,7 +205,7 @@ LSU,1000.0,SEC,,False
 Mississippi State,1033.886761079001,SEC,,False
 Missouri,1000.0,SEC,,False
 Oklahoma,1000.0,SEC,,False
-Ole Miss,1008.9195170319074,SEC,,True
+Ole Miss,1008.9195170319074,SEC,,False
 South Carolina,1036.1532806308442,SEC,,False
 Tennessee,1017.1610200866082,SEC,,False
 Texas,1034.760676096671,SEC,,False
@@ -219,7 +219,7 @@ Samford,670.4997383349024,Southern,,False
 Tennessee Tech,744.9837062594405,Southern,,False
 The Citadel,704.7620332594195,Southern,,False
 VMI,652.6831012414266,Southern,,False
-Western Carolina,706.8440491930085,Southern,,True
+Western Carolina,706.8440491930085,Southern,,False
 Wofford,733.4909174517296,Southern,,False
 East Texas A&M,684.9044160487391,Southland,,False
 Houston Christian,702.0212237603175,Southland,,False
@@ -250,13 +250,13 @@ Alabama State,720.1967977239789,SWAC,,False
 Alcorn State,683.0334586997818,SWAC,,False
 Arkansas-Pine Bluff,700.0,SWAC,,False
 Bethune-Cookman,679.3737392082236,SWAC,,False
-Florida A&M,677.0392931727661,SWAC,,True
+Florida A&M,677.0392931727661,SWAC,,False
 Grambling,700.0,SWAC,,False
 Jackson State,700.0,SWAC,,False
 Mississippi Valley State,671.047598304416,SWAC,,False
-Prairie View A&M,733.7577798386591,SWAC,,True
+Prairie View A&M,733.7577798386591,SWAC,,False
 Southern,679.8032022760211,SWAC,,False
-Texas Southern,684.4935144868836,SWAC,,True
+Texas Southern,684.4935144868836,SWAC,,False
 Abilene Christian,674.4425423482484,UAC,,False
 Austin Peay,711.4578880111934,UAC,,False
 Central Arkansas,689.6893719109597,UAC,,False
