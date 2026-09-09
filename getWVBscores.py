@@ -60,28 +60,35 @@ def clean_team_name(full_name, valid_team_names):
 
 def extract_set_scores(away_competitor, home_competitor):
     """
-    Pulls per-set point totals out of ESPN's 'linescores' array, the same
-    field ESPN uses for periods/innings in other sports and, for
-    set-based sports like volleyball, one entry per set. Returns a list of
-    (away_points, home_points) tuples in set order, or None if either
-    side has no usable linescores (caller falls back to the summary
-    endpoint in that case).
+    Pulls per-set point totals out of ESPN's 'linescores' array (confirmed
+    present directly on the scoreboard response for volleyball, each entry
+    carrying an explicit 'period' number, e.g.
+    {"value": 25.0, "period": 1}). Sets are matched up by that 'period'
+    number rather than by list position/length, so a missing or
+    out-of-order entry on one side can't silently misalign set N for one
+    team with set N+1 for the other. Returns a list of
+    (away_points, home_points) tuples in set order, or None if there's no
+    usable overlap (caller falls back to the summary endpoint in that
+    case).
     """
-    away_lines = away_competitor.get('linescores') or []
-    home_lines = home_competitor.get('linescores') or []
-    if not away_lines or not home_lines:
-        return None
+    def scores_by_period(lines):
+        by_period = {}
+        for entry in (lines or []):
+            period = entry.get('period')
+            value = entry.get('value')
+            if period is None or value is None:
+                continue
+            try:
+                by_period[int(period)] = int(value)
+            except (TypeError, ValueError):
+                continue
+        return by_period
 
-    sets = []
-    for i in range(min(len(away_lines), len(home_lines))):
-        a_val = away_lines[i].get('value')
-        h_val = home_lines[i].get('value')
-        if a_val is None or h_val is None:
-            continue
-        try:
-            sets.append((int(a_val), int(h_val)))
-        except (TypeError, ValueError):
-            continue
+    away_by_period = scores_by_period(away_competitor.get('linescores'))
+    home_by_period = scores_by_period(home_competitor.get('linescores'))
+
+    common_periods = sorted(set(away_by_period) & set(home_by_period))
+    sets = [(away_by_period[p], home_by_period[p]) for p in common_periods]
 
     return sets or None
 
@@ -146,8 +153,13 @@ def fetch_matches_for_date(date_obj, valid_team_names):
             continue
 
         comp = competitions[0]
-        status = comp.get('status', {}).get('type', {}).get('state')
-        if status != 'post':
+        status_type = comp.get('status', {}).get('type', {})
+        # Checking `completed` rather than `state == 'post'` matters here:
+        # a suspended/postponed match (e.g. weather-suspended outdoor
+        # matches) reports state 'post' with completed=False and only a
+        # partial set or two recorded - state alone would wrongly treat
+        # that partial, unfinished match as a final result.
+        if not status_type.get('completed'):
             continue
 
         competitors = comp.get('competitors', [])
