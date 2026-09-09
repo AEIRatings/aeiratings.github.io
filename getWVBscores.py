@@ -48,14 +48,38 @@ def normalize_name(raw_name):
     return name.replace("No. ", "").strip()
 
 
+# Every character seen in the wild standing in for an apostrophe/okina in a
+# school name (e.g. "Hawai'i" vs "Hawaiʻi" vs "Hawai’i") - the ESPN
+# scoreboard and the ESPN teams endpoint don't reliably agree on which one
+# they use for the same school, so matching has to be blind to all of them.
+_APOSTROPHE_CHARS = ["'", "’", "ʻ", "ʼ", "`"]
+
+
+def normalize_match_key(name):
+    """
+    Collapses a team name down to a stable lookup key: lowercased, accents
+    stripped, every apostrophe/okina variant and periods removed (so
+    "Hawai'i" lines up with "Hawaiʻi" and "St. Thomas" lines up with
+    "St Thomas"), whitespace collapsed. Used on both sides of the
+    exact-match lookup so punctuation/glyph differences alone can't cause
+    an otherwise-correct match to miss.
+    """
+    key = strip_accents(name.lower())
+    for ch in _APOSTROPHE_CHARS:
+        key = key.replace(ch, "")
+    key = key.replace(".", "")
+    key = " ".join(key.split())
+    return key
+
+
 def clean_team_name(full_name, valid_team_names):
-    """Exact-match (case/accent-insensitive) lookup against the wvb.csv roster."""
+    """Exact-match (case/accent/punctuation-insensitive) lookup against the wvb.csv roster."""
     if not full_name:
         return None
     normalized = normalize_name(full_name)
-    lower_no_accents = strip_accents(normalized.lower())
-    valid_processed = {strip_accents(team.lower()): team for team in valid_team_names}
-    return valid_processed.get(lower_no_accents)
+    key = normalize_match_key(normalized)
+    valid_processed = {normalize_match_key(team): team for team in valid_team_names}
+    return valid_processed.get(key)
 
 
 def extract_set_scores(away_competitor, home_competitor):
@@ -173,7 +197,12 @@ def fetch_matches_for_date(date_obj, valid_team_names):
         away_team = clean_team_name(away_raw, valid_team_names)
         home_team = clean_team_name(home_raw, valid_team_names)
         if not away_team or not home_team:
-            print(f"  Warning: Could not resolve '{away_raw}' / '{home_raw}' against the wvb.csv roster; skipping.")
+            unresolved = []
+            if not away_team:
+                unresolved.append(f"away='{away_raw}'")
+            if not home_team:
+                unresolved.append(f"home='{home_raw}'")
+            print(f"  Warning: Could not resolve {' and '.join(unresolved)} against the wvb.csv roster; skipping match.")
             continue
 
         event_id = event.get('id')
