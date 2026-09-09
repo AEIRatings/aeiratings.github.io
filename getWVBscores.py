@@ -1,0 +1,446 @@
+import argparse
+import requests
+import csv
+import unicodedata
+from datetime import datetime, timedelta
+
+# NCAA Division I Women's Volleyball on ESPN's public site API. Unlike
+# basketball/football, this endpoint doesn't need a `groups=` filter - the
+# womens-college-volleyball league on ESPN's site API is D1-only already.
+BASE_URL = "https://site.api.espn.com/apis/site/v2/sports/volleyball/womens-college-volleyball/scoreboard"
+SUMMARY_URL = "https://site.api.espn.com/apis/site/v2/sports/volleyball/womens-college-volleyball/summary"
+
+
+def load_team_names(filename="data/wvb.csv"):
+    """
+    Loads valid team names from data/wvb.csv (which stores each team under
+    its full ESPN 'displayName', the same convention getWCBBscores.py uses)
+    for exact-match lookup.
+    """
+    team_names = set()
+    try:
+        with open(filename, newline='', encoding='utf-8') as csvfile:
+            reader = csv.reader(csvfile)
+            next(reader, None)  # header
+            for row in reader:
+                if row:
+                    team = row[0].strip()
+                    if team:
+                        team_names.add(team)
+    except FileNotFoundError:
+        print(f"❌ Could not find {filename}. Run build_wvb_teams.py first to bootstrap the roster.")
+    except Exception as e:
+        print(f"Error loading team names from {filename}: {e}")
+    return team_names
+
+
+def strip_accents(text):
+    if not text:
+        return text
+    return ''.join(c for c in unicodedata.normalize('NFD', text) if unicodedata.category(c) != 'Mn')
+
+
+def normalize_name(raw_name):
+    if not raw_name:
+        return raw_name
+    name = unicodedata.normalize('NFC', raw_name)
+    name = name.replace('JosÃ©', 'José').replace('San Jose', 'San José')
+    return name.replace("No. ", "").strip()
+
+
+# Every character seen in the wild standing in for an apostrophe/okina in a
+# school name (e.g. "Hawai'i" vs "Hawaiʻi" vs "Hawai’i") - the ESPN
+# scoreboard and the ESPN teams endpoint don't reliably agree on which one
+# they use for the same school, so matching has to be blind to all of them.
+_APOSTROPHE_CHARS = ["'", "’", "ʻ", "ʼ", "`"]
+
+
+def normalize_match_key(name):
+    """
+    Collapses a team name down to a stable lookup key: lowercased, accents
+    stripped, every apostrophe/okina variant and periods removed (so
+    "Hawai'i" lines up with "Hawaiʻi" and "St. Thomas" lines up with
+    "St Thomas"), whitespace collapsed. Used on both sides of the
+    exact-match lookup so punctuation/glyph differences alone can't cause
+    an otherwise-correct match to miss.
+    """
+    key = strip_accents(name.lower())
+    for ch in _APOSTROPHE_CHARS:
+        key = key.replace(ch, "")
+    key = key.replace(".", "")
+    key = " ".join(key.split())
+    return key
+
+
+def clean_team_name(full_name, valid_team_names):
+    """Exact-match (case/accent/punctuation-insensitive) lookup against the wvb.csv roster."""
+    if not full_name:
+        return None
+    normalized = normalize_name(full_name)
+    key = normalize_match_key(normalized)
+    valid_processed = {normalize_match_key(team): team for team in valid_team_names}
+    return valid_processed.get(key)
+
+
+# data/wcbb.csv still lists Saint Francis (PA) even though it has since
+# dropped its athletics program out of Division I - so it must not be
+# trusted as evidence of D1 status despite being on that list.
+WCBB_CROSS_CHECK_EXCLUDE = {normalize_match_key("Saint Francis Red Flash")}
+
+# West Florida is a genuine D1 program that isn't yet reflected in
+# data/wcbb.csv, so it's allowed through by name alone.
+WCBB_CROSS_CHECK_EXTRA_LOCATIONS = {normalize_match_key("West Florida")}
+
+
+def load_wcbb_roster(filename="data/wcbb.csv"):
+    """
+    Loads the existing women's basketball roster (Team column only) purely
+    as a cross-check for whether a volleyball opponent that doesn't match
+    wvb.csv is actually a D1 school - nearly every D1 athletics department
+    sponsors both sports, so this catches a non-D1 opponent (e.g. an
+    early-season exhibition game) before it gets auto-registered as if it
+    were a real D1 volleyball program.
+    """
+    teams = set()
+    try:
+        with open(filename, newline='', encoding='utf-8') as csvfile:
+            reader = csv.reader(csvfile)
+            next(reader, None)  # header
+            for row in reader:
+                if row and row[0].strip():
+                    teams.add(row[0].strip())
+    except FileNotFoundError:
+        print(f"  Warning: Could not find {filename} for the D1 cross-check.")
+    except Exception as e:
+        print(f"  Warning: Error loading {filename} for the D1 cross-check: {e}")
+    return teams
+
+
+def is_known_d1_school(location, wcbb_roster):
+    """
+    True if `location` (ESPN's team.location field, e.g. 'Vanderbilt' -
+    not the full 'Vanderbilt Commodores' display name) matches the school
+    behind some entry in the women's basketball roster (or is one of the
+    small set of known exceptions), used to decide whether an otherwise-
+    unresolved volleyball opponent is a legitimate new D1 program worth
+    auto-registering.
+    """
+    if not location:
+        return False
+    key = normalize_match_key(location)
+    if key in WCBB_CROSS_CHECK_EXTRA_LOCATIONS:
+        return True
+    for team in wcbb_roster:
+        team_key = normalize_match_key(team)
+        if team_key in WCBB_CROSS_CHECK_EXCLUDE:
+            continue
+        if team_key.startswith(key):
+            return True
+    return False
+
+
+def extract_set_scores(away_competitor, home_competitor):
+    """
+    Pulls per-set point totals out of ESPN's 'linescores' array (confirmed
+    present directly on the scoreboard response for volleyball, each entry
+    carrying an explicit 'period' number, e.g.
+    {"value": 25.0, "period": 1}). Sets are matched up by that 'period'
+    number rather than by list position/length, so a missing or
+    out-of-order entry on one side can't silently misalign set N for one
+    team with set N+1 for the other. Returns a list of
+    (away_points, home_points) tuples in set order, or None if there's no
+    usable overlap (caller falls back to the summary endpoint in that
+    case).
+    """
+    def scores_by_period(lines):
+        by_period = {}
+        for entry in (lines or []):
+            period = entry.get('period')
+            value = entry.get('value')
+            if period is None or value is None:
+                continue
+            try:
+                by_period[int(period)] = int(value)
+            except (TypeError, ValueError):
+                continue
+        return by_period
+
+    away_by_period = scores_by_period(away_competitor.get('linescores'))
+    home_by_period = scores_by_period(home_competitor.get('linescores'))
+
+    common_periods = sorted(set(away_by_period) & set(home_by_period))
+    sets = [(away_by_period[p], home_by_period[p]) for p in common_periods]
+
+    return sets or None
+
+
+def fetch_set_scores_from_summary(event_id):
+    """
+    Fallback for when the scoreboard response doesn't carry per-set
+    linescores directly: fetches ESPN's boxscore/summary endpoint for a
+    single event and pulls the same linescores off its header competitors.
+    """
+    url = f"{SUMMARY_URL}?event={event_id}"
+    try:
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()
+        data = response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"  Error fetching summary for event {event_id}: {e}")
+        return None
+
+    try:
+        competitors = data['header']['competitions'][0]['competitors']
+    except (KeyError, IndexError, TypeError):
+        return None
+
+    away_c = next((c for c in competitors if c.get('homeAway') == 'away'), None)
+    home_c = next((c for c in competitors if c.get('homeAway') == 'home'), None)
+    if not away_c or not home_c:
+        return None
+
+    return extract_set_scores(away_c, home_c)
+
+
+MANUAL_MATCHES_FILE = "data/wvb_manual_matches.csv"
+
+
+def load_manual_matches(date_obj, valid_team_names, filename=MANUAL_MATCHES_FILE):
+    """
+    Loads hand-entered matches for a single date from data/wvb_manual_matches.csv
+    - an escape valve for matches ESPN never published set-by-set scores for
+    (it happens occasionally). Row format mirrors the long-format scores
+    CSV plus a leading 'date' column:
+
+        date,away team,home team,set,away score,home score,start_time
+
+    'start_time' is optional (ISO-ish, e.g. '2026-08-29T20:00Z') - only
+    needed if that same team also played an ESPN-sourced match the same
+    day and the two need correct chronological ordering; leave it blank
+    otherwise. Team names are matched against the wvb.csv roster the same
+    punctuation/accent-insensitive way ESPN names are, but fall back to
+    whatever was typed if there's no match (so a new/renamed team can
+    still be entered by hand).
+
+    Get the away/home assignment right: calculate_new_elo's
+    abs((ascore - hscore) + 1) ** 0.42 term is not symmetric under
+    swapping which side is "away" (that +1 offset means sign(d)*|d+1|^0.42
+    != -sign(-d)*|1-d|^0.42 in general), so the SAME final score produces
+    a different rating swing depending on which team is labeled away vs
+    home. This isn't specific to manual entries - it's a property of the
+    formula every sport in this repo uses - but a hand-entered match has
+    no ESPN 'homeAway' field to get it from automatically, so it has to be
+    entered correctly by hand.
+
+    Returns the same shape fetch_matches_for_date does, so callers can
+    merge the two lists directly.
+    """
+    file_date_str = date_obj.strftime('%Y-%m-%d')
+    rows_by_match = {}
+
+    try:
+        with open(filename, newline='', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                if (row.get('date') or '').strip() != file_date_str:
+                    continue
+                away_team = clean_team_name(row['away team'], valid_team_names) or row['away team'].strip()
+                home_team = clean_team_name(row['home team'], valid_team_names) or row['home team'].strip()
+                key = (away_team, home_team, row.get('start_time', ''))
+                rows_by_match.setdefault(key, []).append(row)
+    except FileNotFoundError:
+        return []
+    except Exception as e:
+        print(f"  Warning: Error loading {filename}: {e}")
+        return []
+
+    matches = []
+    for (away_team, home_team, start_time), rows in rows_by_match.items():
+        rows.sort(key=lambda r: int(r['set']))
+        sets = [(int(r['away score']), int(r['home score'])) for r in rows]
+        matches.append({
+            'match_id': f"manual-{file_date_str}-{away_team}-{home_team}",
+            'away_team': away_team,
+            'home_team': home_team,
+            'sets': sets,
+            'start_time': (start_time or '').strip(),
+        })
+        print(f"  Note: Loaded manual match for {file_date_str}: {away_team} @ {home_team} ({len(sets)} set(s))")
+
+    return matches
+
+
+def fetch_matches_for_date(date_obj, valid_team_names):
+    """
+    Fetches finished D1 women's volleyball matches for a single date,
+    returning a list of dicts:
+      {'match_id', 'away_team', 'home_team', 'sets': [(a1,h1), (a2,h2), ...]}
+
+    Also merges in any hand-entered matches for the same date from
+    data/wvb_manual_matches.csv (see load_manual_matches) - for the rare
+    match ESPN never published set-by-set scores for - skipping a manual
+    entry if ESPN already has that team pair for the day so a match can't
+    get double-counted once ESPN eventually backfills it.
+
+    Shared by fetch_and_save_wvb_scores (which asks for "yesterday" by
+    default) and backfill_wvb.py (which replays a range of dates).
+    """
+    date_str = date_obj.strftime('%Y%m%d')
+    file_date_str = date_obj.strftime('%Y-%m-%d')
+
+    url = f"{BASE_URL}?dates={date_str}&limit=500"
+
+    matches = []
+    seen_ids = set()
+    wcbb_roster = load_wcbb_roster()
+
+    try:
+        print(f" -> Fetching from {url}")
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()
+        data = response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching data from {url}: {e}")
+        return matches
+
+    for event in data.get('events', []):
+        competitions = event.get('competitions', [])
+        if not competitions:
+            continue
+
+        comp = competitions[0]
+        status_type = comp.get('status', {}).get('type', {})
+        # Checking `completed` rather than `state == 'post'` matters here:
+        # a suspended/postponed match (e.g. weather-suspended outdoor
+        # matches) reports state 'post' with completed=False and only a
+        # partial set or two recorded - state alone would wrongly treat
+        # that partial, unfinished match as a final result.
+        if not status_type.get('completed'):
+            continue
+
+        competitors = comp.get('competitors', [])
+        away_c = next((c for c in competitors if c.get('homeAway') == 'away'), None)
+        home_c = next((c for c in competitors if c.get('homeAway') == 'home'), None)
+        if not away_c or not home_c:
+            continue
+
+        away_raw = normalize_name(away_c.get('team', {}).get('displayName'))
+        home_raw = normalize_name(home_c.get('team', {}).get('displayName'))
+        if not away_raw or not home_raw:
+            print(f"  Warning: Missing team display name for event {event.get('id')}; skipping match.")
+            continue
+
+        # This scoreboard endpoint only ever returns D1 women's volleyball
+        # matches, but that doesn't guarantee every *opponent* it names is
+        # D1 too (e.g. an early-season exhibition against a D2/D3/NAIA
+        # guest team). A name that isn't in wvb.csv yet gets cross-checked
+        # against the existing women's basketball roster - nearly every D1
+        # athletics department sponsors both sports - before being trusted
+        # as a legitimate new program (like Vanderbilt in 2026) worth
+        # auto-registering, rather than a non-D1 opponent worth skipping.
+        away_team = clean_team_name(away_raw, valid_team_names)
+        if not away_team:
+            away_location = away_c.get('team', {}).get('location')
+            if is_known_d1_school(away_location, wcbb_roster):
+                print(f"  Note: '{away_raw}' isn't in the wvb.csv roster yet; treating it as a new D1 team.")
+                away_team = away_raw
+            else:
+                print(f"  Warning: '{away_raw}' does not appear to be a D1 program (not on the wcbb.csv "
+                      f"cross-check list); skipping match.")
+                continue
+        home_team = clean_team_name(home_raw, valid_team_names)
+        if not home_team:
+            home_location = home_c.get('team', {}).get('location')
+            if is_known_d1_school(home_location, wcbb_roster):
+                print(f"  Note: '{home_raw}' isn't in the wvb.csv roster yet; treating it as a new D1 team.")
+                home_team = home_raw
+            else:
+                print(f"  Warning: '{home_raw}' does not appear to be a D1 program (not on the wcbb.csv "
+                      f"cross-check list); skipping match.")
+                continue
+
+        event_id = event.get('id')
+        if event_id in seen_ids:
+            continue
+
+        sets = extract_set_scores(away_c, home_c)
+        if not sets and event_id:
+            sets = fetch_set_scores_from_summary(event_id)
+
+        if not sets:
+            print(f"  Warning: No set-by-set scores found for {away_team} @ {home_team} ({file_date_str}); skipping match.")
+            continue
+
+        if event_id:
+            seen_ids.add(event_id)
+
+        matches.append({
+            'match_id': event_id or f"{date_str}-{away_team}-{home_team}",
+            'away_team': away_team,
+            'home_team': home_team,
+            'sets': sets,
+            # Raw ESPN UTC kickoff time (e.g. '2026-09-09T18:00Z'). Lets
+            # downstream consumers order matches chronologically within a
+            # day - early-season tournaments routinely have a team play 2-3
+            # matches in one day, and each of those matches has to be
+            # applied in the order it was actually played, not scoreboard
+            # order, so a team's rating going into its 2pm match reflects
+            # what happened in its 10am match.
+            'start_time': event.get('date', ''),
+        })
+
+    existing_pairs = {(m['away_team'], m['home_team']) for m in matches}
+    existing_pairs |= {(h, a) for a, h in existing_pairs}
+    for manual_match in load_manual_matches(date_obj, valid_team_names):
+        pair = (manual_match['away_team'], manual_match['home_team'])
+        if pair in existing_pairs:
+            print(f"  Note: Skipping manual match for {pair[0]} @ {pair[1]} - ESPN already has this match.")
+            continue
+        matches.append(manual_match)
+
+    # Chronological order within the day, for readability and so any
+    # consumer that just reads matches top-to-bottom (rather than
+    # re-sorting) still gets the right order.
+    matches.sort(key=lambda m: (not m['start_time'], m['start_time']))
+
+    return matches
+
+
+def save_matches(matches, csv_filename):
+    with open(csv_filename, 'w', newline='', encoding='utf-8') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(['match_id', 'start_time', 'set', 'away team', 'home team', 'away score', 'home score'])
+        for match in matches:
+            for i, (away_score, home_score) in enumerate(match['sets'], start=1):
+                writer.writerow([match['match_id'], match['start_time'], i, match['away_team'], match['home_team'],
+                                  away_score, home_score])
+    total_sets = sum(len(m['sets']) for m in matches)
+    print(f"✅ Saved {len(matches)} match(es), {total_sets} set(s) to {csv_filename}")
+
+
+def fetch_and_save_wvb_scores(target_date=None):
+    """
+    Fetches D1 women's volleyball results (default: yesterday) and saves
+    every set of every match into a single long-format CSV, one row per
+    set, ready for elo_updater_wvb.py to replay set-by-set.
+    """
+    valid_team_names = load_team_names()
+
+    day = target_date if target_date else (datetime.now() - timedelta(days=1))
+    file_date_str = day.strftime('%Y-%m-%d')
+
+    CSV_FILENAME = "wvb_scores_previous_day.csv"
+
+    print(f"Fetching D1 Women's Volleyball scores for {file_date_str}...")
+
+    matches = fetch_matches_for_date(day, valid_team_names)
+    save_matches(matches, CSV_FILENAME)
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description="Fetch D1 women's volleyball set-by-set results for a given day.")
+    parser.add_argument('--date', help="Date to fetch, YYYY-MM-DD (defaults to yesterday)")
+    args = parser.parse_args()
+
+    target = datetime.strptime(args.date, '%Y-%m-%d') if args.date else None
+    fetch_and_save_wvb_scores(target)

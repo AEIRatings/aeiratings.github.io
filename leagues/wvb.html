@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0e7490" />
+  <title>NCAA Women's Volleyball Elo Ratings | AEIRatings</title>
+  <link rel="stylesheet" href="/assets/style.css" />
+</head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SZKH8HFD2C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SZKH8HFD2C');
+</script>
+<body style="--header-from:#0e7490; --header-to:#0891b2; --league-color:#0e7490">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">🏐</span>
+      <div>
+        <p class="eyebrow"><a href="/">AEIRatings</a></p>
+        <h1 class="brand-name">NCAA Women's Volleyball Elo Ratings</h1>
+      </div>
+    </div>
+    <a href="/" class="header-back">← All Leagues</a>
+  </div>
+</header>
+
+  <main class="container" id="main-content" data-league="wvb">
+
+    <section class="card">
+      <div class="row">
+        <label>Search / filter teams</label>
+        <input id="filter" placeholder="Search team name or conference..." />
+      </div>
+
+      <div class="row small">
+        <label>Sort by</label>
+        <select id="sortBy">
+          <option value="elo">Elo (desc)</option>
+          <option value="team">Team (A → Z)</option>
+        </select>
+
+        <label>Rows</label>
+        <select id="rowsPerPage">
+          <option value="0" selected>All</option>
+          <option value="10">10</option>
+          <option value="25">25</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="card">
+      <table id="teamsTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Team</th>
+            <th>Elo</th>
+            <th>Conference</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+
+    <footer class="foot muted">© AEIRatings</footer>
+  </main>
+
+  <script src="/assets/script.js" type="module"></script>
+</body>
+</html>

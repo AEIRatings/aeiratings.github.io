@@ -1,0 +1,40 @@
+name: Bootstrap WVB Teams
+
+on:
+  # Manual only - this seeds data/wvb_preseason.csv and data/wvb.csv from
+  # ESPN's team list and should not run on a schedule. Safe to re-run:
+  # build_wvb_teams.py refuses to overwrite data/wvb.csv if it already
+  # exists (it only (re)writes data/wvb_preseason.csv in that case).
+  workflow_dispatch:
+
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Run build_wvb_teams Script
+        run: |
+          echo "Fetching D1 Women's Volleyball team list from ESPN..."
+          python build_wvb_teams.py
+
+      - name: Commit and Push Changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "🤖 Bootstrap WVB team roster from ESPN"
+          file_pattern: "data/wvb_preseason.csv data/wvb.csv"
+          commit_author: 'GitHub Actions Bot <action@github.com>'
