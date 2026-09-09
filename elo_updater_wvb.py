@@ -1,3 +1,5 @@
+from datetime import date
+
 import pandas as pd
 import numpy as np
 
@@ -175,9 +177,16 @@ def process_matches():
     # ratings_df.index.map() above only ever updates rows that already
     # existed in RATINGS_FILE.
     if new_teams_registered:
-        other_columns = [c for c in ratings_df.columns if c not in ('Team', 'Elo')]
+        # Flagged in Notes (rather than added silently) because the
+        # scoreboard endpoint being D1-only doesn't rule out an early-season
+        # exhibition match against a non-D1 opponent sneaking through as a
+        # scored event - this makes any bad auto-add easy to spot and
+        # manually remove (`grep "Auto-registered" data/wvb.csv`) without
+        # losing legitimate new-program cases like Vanderbilt.
+        other_columns = [c for c in ratings_df.columns if c not in ('Team', 'Elo', 'Notes')]
+        note = f"Auto-registered {date.today().isoformat()} - verify this is a real D1 program"
         new_rows = pd.DataFrame([
-            {'Team': team, 'Elo': current_ratings[team], **{c: '' for c in other_columns}}
+            {'Team': team, 'Elo': current_ratings[team], 'Notes': note, **{c: '' for c in other_columns}}
             for team in sorted(new_teams_registered)
         ])
         ratings_df = pd.concat([ratings_df, new_rows], ignore_index=True)

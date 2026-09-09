@@ -1,5 +1,5 @@
 import argparse
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 
 import pandas as pd
 
@@ -84,9 +84,12 @@ def backfill(start_date_str, end_date_str, baseline_file, output_file):
     ratings_df = ratings_df.reset_index()
 
     if new_teams_registered:
-        other_columns = [c for c in ratings_df.columns if c not in ('Team', 'Elo')]
+        # See elo_updater_wvb.py's process_matches for why this is flagged
+        # in Notes rather than added silently.
+        other_columns = [c for c in ratings_df.columns if c not in ('Team', 'Elo', 'Notes')]
+        note = f"Auto-registered {date.today().isoformat()} - verify this is a real D1 program"
         new_rows = pd.DataFrame([
-            {'Team': team, 'Elo': current_ratings[team], **{c: '' for c in other_columns}}
+            {'Team': team, 'Elo': current_ratings[team], 'Notes': note, **{c: '' for c in other_columns}}
             for team in sorted(new_teams_registered)
         ])
         ratings_df = pd.concat([ratings_df, new_rows], ignore_index=True)
