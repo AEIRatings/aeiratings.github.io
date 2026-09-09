@@ -92,7 +92,8 @@
     function getLogoPath(teamName, league) {
       if (!teamName || !league) return ''
       const normalizedName = normalizeTeamName(teamName)
-      return `/logos/${league}/${normalizedName}.png`
+      // WVB reuses the same logo set as mcbb/wcbb, stored under logos/cfb/.
+      return `/logos/cfb/${normalizedName}.png`
     }
 
     function formatDayLabel(dateStr) {

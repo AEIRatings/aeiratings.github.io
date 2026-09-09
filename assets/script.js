@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // Determine the logo path for College sports
-    const logoLeague = (leagueId === 'mcbb' || leagueId === 'wcbb') ? 'cfb' : leagueId;
+    const logoLeague = (leagueId === 'mcbb' || leagueId === 'wcbb' || leagueId === 'wvb') ? 'cfb' : leagueId;
 
     let html = `<h3>Top 5 Elo Ratings</h3><ol class="top-5-list">`;
     topTeams.forEach((team, index) => {
@@ -211,8 +211,12 @@ document.addEventListener('DOMContentLoaded', async () => {
               Elo: r.Elo || r.elo || r.Points || r.points || '0', 
               Wins: r.Wins || r.wins || '',
               Losses: r.Losses || r.losses || '',
-              // Important: Capture Conference/Division/Notes for FBS check
-              Conference: r.Conference || r.conference || r.Division || r.Notes || ''
+              // Important: Capture Conference/Division for FBS check. Notes
+              // is deliberately excluded from this fallback chain - it's an
+              // internal data-quality field (e.g. "Auto-registered ... -
+              // verify this is a real D1 program" for WVB), not something
+              // that should ever be shown to site visitors as a conference.
+              Conference: r.Conference || r.conference || r.Division || ''
             }));
 
             // Pass the normalized rows and league key for filtering/sorting
@@ -247,8 +251,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const tbody = qs('#teamsTable tbody')
     tbody.innerHTML = ''
     
-    const isCollegeBasketball = league === 'mcbb' || league === 'wcbb';
-    const logoLeague = isCollegeBasketball ? 'cfb' : league;
+    const sharesCfbLogos = league === 'mcbb' || league === 'wcbb' || league === 'wvb';
+    const logoLeague = sharesCfbLogos ? 'cfb' : league;
 
     data.forEach((r, i) => {
       const tr = document.createElement('tr')
@@ -379,8 +383,10 @@ document.addEventListener('DOMContentLoaded', async () => {
       Wins: r.Wins || r.wins || '',
       Losses: r.Losses || r.losses || '',
       Points: r.Points || r.points || '', 
-      // Use 'Division' for NFL/NBA/NHL, 'Conference' for CBB/CFB where applicable
-      Conference: r.Conference || r.conference || r.Division || r.Notes || ''
+      // Use 'Division' for NFL/NBA/NHL, 'Conference' for CBB/CFB where
+      // applicable. Notes is deliberately excluded here too - see the
+      // matching comment in loadHomePageRatings above.
+      Conference: r.Conference || r.conference || r.Division || ''
     }));
 
     // Re-run the conference population logic if present (currently only auto-populated for CFB)

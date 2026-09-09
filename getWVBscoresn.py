@@ -3,7 +3,7 @@ import csv
 from datetime import datetime, timedelta
 import pytz
 
-from getWVBscores import BASE_URL, load_team_names, normalize_name, clean_team_name
+from getWVBscores import BASE_URL, load_team_names, load_wcbb_roster, normalize_name, resolve_opponent_name
 
 
 def convert_to_pacific_date(utc_string):
@@ -20,9 +20,11 @@ def convert_to_pacific_date(utc_string):
 
 def fetch_upcoming_wvb_games():
     valid_team_names = load_team_names("data/wvb.csv")
+    wcbb_roster = load_wcbb_roster()
     CSV_FILENAME = "data/wvb_games.csv"
     all_game_data = []
     seen_games = set()
+    skipped = 0
 
     # D1 women's volleyball runs roughly late August through the National
     # Championship in mid-December, so 120 days ahead comfortably covers
@@ -57,22 +59,29 @@ def fetch_upcoming_wvb_games():
             game_date_pacific = convert_to_pacific_date(game_time_utc)
 
             competitors = comp.get('competitors', [])
-            away_team, home_team = None, None
+            away_c = next((c for c in competitors if c.get('homeAway') == 'away'), None)
+            home_c = next((c for c in competitors if c.get('homeAway') == 'home'), None)
+            if not away_c or not home_c:
+                continue
 
-            for competitor in competitors:
-                raw_name = normalize_name(competitor.get('team', {}).get('displayName'))
-                cleaned_name = clean_team_name(raw_name, valid_team_names)
+            away_raw = normalize_name(away_c.get('team', {}).get('displayName'))
+            home_raw = normalize_name(home_c.get('team', {}).get('displayName'))
+            away_team = resolve_opponent_name(
+                away_raw, away_c.get('team', {}).get('location'), valid_team_names, wcbb_roster)
+            home_team = resolve_opponent_name(
+                home_raw, home_c.get('team', {}).get('location'), valid_team_names, wcbb_roster)
 
-                if competitor.get('homeAway') == 'away':
-                    away_team = cleaned_name
-                else:
-                    home_team = cleaned_name
+            if not away_team or not home_team:
+                unresolved = away_raw if not away_team else home_raw
+                print(f"  Warning: '{unresolved}' does not appear to be a D1 program; skipping "
+                      f"{away_raw} @ {home_raw} on {display_date}.")
+                skipped += 1
+                continue
 
-            if away_team and home_team:
-                game_id = (away_team, home_team, game_date_pacific)
-                if game_id not in seen_games:
-                    seen_games.add(game_id)
-                    all_game_data.append([away_team, home_team, game_date_pacific])
+            game_id = (away_team, home_team, game_date_pacific)
+            if game_id not in seen_games:
+                seen_games.add(game_id)
+                all_game_data.append([away_team, home_team, game_date_pacific])
 
     with open(CSV_FILENAME, 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile)
@@ -80,7 +89,8 @@ def fetch_upcoming_wvb_games():
         writer.writerows(all_game_data)
 
     if all_game_data:
-        print(f"\n✅ Finished! Saved {len(all_game_data)} total games to {CSV_FILENAME}")
+        print(f"\n✅ Finished! Saved {len(all_game_data)} total games to {CSV_FILENAME}"
+              + (f" ({skipped} game(s) skipped as non-D1)" if skipped else ""))
     else:
         print("\nNo upcoming games found for the specified period.")
 
