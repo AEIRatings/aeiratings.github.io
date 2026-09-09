@@ -2,6 +2,7 @@ import requests
 import csv
 import unicodedata
 from datetime import datetime, timedelta
+import pytz
 
 def load_team_names(filename="data/nfl.csv"):
     """
@@ -30,6 +31,31 @@ def strip_accents(text):
         return text
     return ''.join(c for c in unicodedata.normalize('NFD', text)
                    if unicodedata.category(c) != 'Mn')
+
+
+def event_date_eastern(event_date_full):
+    """
+    Converts an ESPN event's UTC date string (e.g. '2024-12-21T17:00Z') to a
+    'YYYY-MM-DD' date in US/Eastern.
+
+    ESPN's scoreboard 'dates' query buckets NFL games by their Eastern-time
+    game day, but a game's own 'date' field is UTC. A Sunday/Monday night
+    kickoff (e.g. 8:15 PM ET) is reported as after-midnight UTC on the
+    following day. Comparing that raw UTC date against the requested day
+    would wrongly conclude the game belongs to the next day and drop it from
+    the correct day's results - and it never gets picked up on the following
+    day's run either, since ESPN's own 'dates=<next day>' query doesn't
+    return a game it buckets under the earlier day. Converting back to
+    Eastern before comparing keeps the game bucketed the same way ESPN
+    buckets it.
+    """
+    try:
+        utc_dt = datetime.strptime(event_date_full, "%Y-%m-%dT%H:%MZ")
+        utc_dt = pytz.utc.localize(utc_dt)
+        eastern_dt = utc_dt.astimezone(pytz.timezone('US/Eastern'))
+        return eastern_dt.strftime('%Y-%m-%d')
+    except Exception:
+        return event_date_full.split('T')[0]
 
 
 def normalize_name(raw_name):
@@ -82,7 +108,7 @@ def fetch_and_save_college_football_scores():
     date_str = yesterday.strftime('%Y%m%d') 
     file_date_str = yesterday.strftime('%Y-%m-%d')
 
-    BASE_URL = "http://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard""
+    BASE_URL = "http://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard"
     API_URLS = [
         f"{BASE_URL}?dates={date_str}",  # FBS
     ]
@@ -106,11 +132,13 @@ def fetch_and_save_college_football_scores():
 
         events = data.get('events', [])
         for event in events:
-            # FIX: Double-check the actual event date string from the API
-            # The API event date format is usually ISO: "2024-12-21T17:00Z"
+            # Double-check the actual event date string from the API against
+            # the Eastern-time game day (see event_date_eastern) rather than
+            # the raw UTC date, so late-kickoff games that roll into the next
+            # UTC calendar day aren't dropped.
             event_date_full = event.get('date', '')
             if event_date_full:
-                event_date_only = event_date_full.split('T')[0]
+                event_date_only = event_date_eastern(event_date_full)
                 if event_date_only != file_date_str:
                     # Skip games that don't actually match "yesterday"
                     continue
