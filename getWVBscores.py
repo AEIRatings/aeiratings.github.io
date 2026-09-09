@@ -202,11 +202,75 @@ def fetch_set_scores_from_summary(event_id):
     return extract_set_scores(away_c, home_c)
 
 
+MANUAL_MATCHES_FILE = "data/wvb_manual_matches.csv"
+
+
+def load_manual_matches(date_obj, valid_team_names, filename=MANUAL_MATCHES_FILE):
+    """
+    Loads hand-entered matches for a single date from data/wvb_manual_matches.csv
+    - an escape valve for matches ESPN never published set-by-set scores for
+    (it happens occasionally). Row format mirrors the long-format scores
+    CSV plus a leading 'date' column:
+
+        date,away team,home team,set,away score,home score,start_time
+
+    'start_time' is optional (ISO-ish, e.g. '2026-08-29T20:00Z') - only
+    needed if that same team also played an ESPN-sourced match the same
+    day and the two need correct chronological ordering; leave it blank
+    otherwise. Team names are matched against the wvb.csv roster the same
+    punctuation/accent-insensitive way ESPN names are, but fall back to
+    whatever was typed if there's no match (so a new/renamed team can
+    still be entered by hand).
+
+    Returns the same shape fetch_matches_for_date does, so callers can
+    merge the two lists directly.
+    """
+    file_date_str = date_obj.strftime('%Y-%m-%d')
+    rows_by_match = {}
+
+    try:
+        with open(filename, newline='', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                if (row.get('date') or '').strip() != file_date_str:
+                    continue
+                away_team = clean_team_name(row['away team'], valid_team_names) or row['away team'].strip()
+                home_team = clean_team_name(row['home team'], valid_team_names) or row['home team'].strip()
+                key = (away_team, home_team, row.get('start_time', ''))
+                rows_by_match.setdefault(key, []).append(row)
+    except FileNotFoundError:
+        return []
+    except Exception as e:
+        print(f"  Warning: Error loading {filename}: {e}")
+        return []
+
+    matches = []
+    for (away_team, home_team, start_time), rows in rows_by_match.items():
+        rows.sort(key=lambda r: int(r['set']))
+        sets = [(int(r['away score']), int(r['home score'])) for r in rows]
+        matches.append({
+            'match_id': f"manual-{file_date_str}-{away_team}-{home_team}",
+            'away_team': away_team,
+            'home_team': home_team,
+            'sets': sets,
+            'start_time': (start_time or '').strip(),
+        })
+        print(f"  Note: Loaded manual match for {file_date_str}: {away_team} @ {home_team} ({len(sets)} set(s))")
+
+    return matches
+
+
 def fetch_matches_for_date(date_obj, valid_team_names):
     """
     Fetches finished D1 women's volleyball matches for a single date,
     returning a list of dicts:
       {'match_id', 'away_team', 'home_team', 'sets': [(a1,h1), (a2,h2), ...]}
+
+    Also merges in any hand-entered matches for the same date from
+    data/wvb_manual_matches.csv (see load_manual_matches) - for the rare
+    match ESPN never published set-by-set scores for - skipping a manual
+    entry if ESPN already has that team pair for the day so a match can't
+    get double-counted once ESPN eventually backfills it.
 
     Shared by fetch_and_save_wvb_scores (which asks for "yesterday" by
     default) and backfill_wvb.py (which replays a range of dates).
@@ -314,6 +378,15 @@ def fetch_matches_for_date(date_obj, valid_team_names):
             # what happened in its 10am match.
             'start_time': event.get('date', ''),
         })
+
+    existing_pairs = {(m['away_team'], m['home_team']) for m in matches}
+    existing_pairs |= {(h, a) for a, h in existing_pairs}
+    for manual_match in load_manual_matches(date_obj, valid_team_names):
+        pair = (manual_match['away_team'], manual_match['home_team'])
+        if pair in existing_pairs:
+            print(f"  Note: Skipping manual match for {pair[0]} @ {pair[1]} - ESPN already has this match.")
+            continue
+        matches.append(manual_match)
 
     # Chronological order within the day, for readability and so any
     # consumer that just reads matches top-to-bottom (rather than
