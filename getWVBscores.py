@@ -82,6 +82,63 @@ def clean_team_name(full_name, valid_team_names):
     return valid_processed.get(key)
 
 
+# data/wcbb.csv still lists Saint Francis (PA) even though it has since
+# dropped its athletics program out of Division I - so it must not be
+# trusted as evidence of D1 status despite being on that list.
+WCBB_CROSS_CHECK_EXCLUDE = {normalize_match_key("Saint Francis Red Flash")}
+
+# West Florida is a genuine D1 program that isn't yet reflected in
+# data/wcbb.csv, so it's allowed through by name alone.
+WCBB_CROSS_CHECK_EXTRA_LOCATIONS = {normalize_match_key("West Florida")}
+
+
+def load_wcbb_roster(filename="data/wcbb.csv"):
+    """
+    Loads the existing women's basketball roster (Team column only) purely
+    as a cross-check for whether a volleyball opponent that doesn't match
+    wvb.csv is actually a D1 school - nearly every D1 athletics department
+    sponsors both sports, so this catches a non-D1 opponent (e.g. an
+    early-season exhibition game) before it gets auto-registered as if it
+    were a real D1 volleyball program.
+    """
+    teams = set()
+    try:
+        with open(filename, newline='', encoding='utf-8') as csvfile:
+            reader = csv.reader(csvfile)
+            next(reader, None)  # header
+            for row in reader:
+                if row and row[0].strip():
+                    teams.add(row[0].strip())
+    except FileNotFoundError:
+        print(f"  Warning: Could not find {filename} for the D1 cross-check.")
+    except Exception as e:
+        print(f"  Warning: Error loading {filename} for the D1 cross-check: {e}")
+    return teams
+
+
+def is_known_d1_school(location, wcbb_roster):
+    """
+    True if `location` (ESPN's team.location field, e.g. 'Vanderbilt' -
+    not the full 'Vanderbilt Commodores' display name) matches the school
+    behind some entry in the women's basketball roster (or is one of the
+    small set of known exceptions), used to decide whether an otherwise-
+    unresolved volleyball opponent is a legitimate new D1 program worth
+    auto-registering.
+    """
+    if not location:
+        return False
+    key = normalize_match_key(location)
+    if key in WCBB_CROSS_CHECK_EXTRA_LOCATIONS:
+        return True
+    for team in wcbb_roster:
+        team_key = normalize_match_key(team)
+        if team_key in WCBB_CROSS_CHECK_EXCLUDE:
+            continue
+        if team_key.startswith(key):
+            return True
+    return False
+
+
 def extract_set_scores(away_competitor, home_competitor):
     """
     Pulls per-set point totals out of ESPN's 'linescores' array (confirmed
@@ -161,6 +218,7 @@ def fetch_matches_for_date(date_obj, valid_team_names):
 
     matches = []
     seen_ids = set()
+    wcbb_roster = load_wcbb_roster()
 
     try:
         print(f" -> Fetching from {url}")
@@ -199,21 +257,33 @@ def fetch_matches_for_date(date_obj, valid_team_names):
             continue
 
         # This scoreboard endpoint only ever returns D1 women's volleyball
-        # matches, so any competitor it names is a real D1 team by
-        # construction - even one that isn't in our roster yet (e.g. a
-        # program that just started sponsoring the sport this season, like
-        # Vanderbilt in 2026). Falling back to the raw ESPN name instead of
-        # dropping the match means that team gets auto-registered (at the
-        # standard starting Elo) by elo_updater_wvb.py rather than having
-        # every one of its matches silently skipped all season.
+        # matches, but that doesn't guarantee every *opponent* it names is
+        # D1 too (e.g. an early-season exhibition against a D2/D3/NAIA
+        # guest team). A name that isn't in wvb.csv yet gets cross-checked
+        # against the existing women's basketball roster - nearly every D1
+        # athletics department sponsors both sports - before being trusted
+        # as a legitimate new program (like Vanderbilt in 2026) worth
+        # auto-registering, rather than a non-D1 opponent worth skipping.
         away_team = clean_team_name(away_raw, valid_team_names)
         if not away_team:
-            print(f"  Note: '{away_raw}' isn't in the wvb.csv roster yet; treating it as a new team.")
-            away_team = away_raw
+            away_location = away_c.get('team', {}).get('location')
+            if is_known_d1_school(away_location, wcbb_roster):
+                print(f"  Note: '{away_raw}' isn't in the wvb.csv roster yet; treating it as a new D1 team.")
+                away_team = away_raw
+            else:
+                print(f"  Warning: '{away_raw}' does not appear to be a D1 program (not on the wcbb.csv "
+                      f"cross-check list); skipping match.")
+                continue
         home_team = clean_team_name(home_raw, valid_team_names)
         if not home_team:
-            print(f"  Note: '{home_raw}' isn't in the wvb.csv roster yet; treating it as a new team.")
-            home_team = home_raw
+            home_location = home_c.get('team', {}).get('location')
+            if is_known_d1_school(home_location, wcbb_roster):
+                print(f"  Note: '{home_raw}' isn't in the wvb.csv roster yet; treating it as a new D1 team.")
+                home_team = home_raw
+            else:
+                print(f"  Warning: '{home_raw}' does not appear to be a D1 program (not on the wcbb.csv "
+                      f"cross-check list); skipping match.")
+                continue
 
         event_id = event.get('id')
         if event_id in seen_ids:
