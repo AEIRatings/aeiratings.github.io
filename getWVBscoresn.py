@@ -3,7 +3,7 @@ import csv
 from datetime import datetime, timedelta
 import pytz
 
-from getWVBscores import BASE_URL, GROUP_ID, load_team_names, normalize_name, clean_team_name
+from getWVBscores import BASE_URL, load_team_names, normalize_name, clean_team_name
 
 
 def convert_to_pacific_date(utc_string):
@@ -36,7 +36,7 @@ def fetch_upcoming_wvb_games():
 
         print(f"[{i}/{DAYS_AHEAD}] Checking games for {display_date}...")
 
-        url = f"{BASE_URL}?groups={GROUP_ID}&dates={date_str}&limit=500"
+        url = f"{BASE_URL}?dates={date_str}&limit=500"
 
         try:
             response = requests.get(url, timeout=10)

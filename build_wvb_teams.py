@@ -15,7 +15,6 @@ import os
 import requests
 
 TEAMS_URL = "https://site.api.espn.com/apis/site/v2/sports/volleyball/womens-college-volleyball/teams"
-GROUP_ID = 50  # Division I
 PRESEASON_FILE = "data/wvb_preseason.csv"
 RATINGS_FILE = "data/wvb.csv"
 STARTING_ELO = 1000
@@ -28,7 +27,7 @@ def fetch_all_teams():
     page = 1
 
     while page <= MAX_PAGES:
-        url = f"{TEAMS_URL}?groups={GROUP_ID}&limit=500&page={page}"
+        url = f"{TEAMS_URL}?limit=500&page={page}"
         try:
             print(f" -> Fetching {url}")
             response = requests.get(url, timeout=15)

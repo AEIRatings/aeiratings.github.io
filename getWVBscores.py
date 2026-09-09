@@ -4,10 +4,11 @@ import csv
 import unicodedata
 from datetime import datetime, timedelta
 
-# NCAA Division I Women's Volleyball on ESPN's public site API.
+# NCAA Division I Women's Volleyball on ESPN's public site API. Unlike
+# basketball/football, this endpoint doesn't need a `groups=` filter - the
+# womens-college-volleyball league on ESPN's site API is D1-only already.
 BASE_URL = "https://site.api.espn.com/apis/site/v2/sports/volleyball/womens-college-volleyball/scoreboard"
 SUMMARY_URL = "https://site.api.espn.com/apis/site/v2/sports/volleyball/womens-college-volleyball/summary"
-GROUP_ID = 50  # Division I
 
 
 def load_team_names(filename="data/wvb.csv"):
@@ -125,7 +126,7 @@ def fetch_matches_for_date(date_obj, valid_team_names):
     date_str = date_obj.strftime('%Y%m%d')
     file_date_str = date_obj.strftime('%Y-%m-%d')
 
-    url = f"{BASE_URL}?groups={GROUP_ID}&dates={date_str}&limit=500"
+    url = f"{BASE_URL}?dates={date_str}&limit=500"
 
     matches = []
     seen_ids = set()
