@@ -26,10 +26,11 @@ jobs:
           python-version: '3.x'
 
       - name: Install Dependencies
-        # Installs requests (for fetching scores) and beautifulsoup4
+        # Installs requests (for fetching scores), beautifulsoup4, and pytz
+        # (for Eastern-time game-day bucketing of late-kickoff games)
         run: |
           python -m pip install --upgrade pip
-          pip install beautifulsoup4 requests 
+          pip install beautifulsoup4 requests pytz
 
       - name: Run getcfbscores Script
         run: |
