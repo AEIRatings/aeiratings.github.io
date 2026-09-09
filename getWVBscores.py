@@ -183,7 +183,20 @@ def fetch_matches_for_date(date_obj, valid_team_names):
             'away_team': away_team,
             'home_team': home_team,
             'sets': sets,
+            # Raw ESPN UTC kickoff time (e.g. '2026-09-09T18:00Z'). Lets
+            # downstream consumers order matches chronologically within a
+            # day - early-season tournaments routinely have a team play 2-3
+            # matches in one day, and each of those matches has to be
+            # applied in the order it was actually played, not scoreboard
+            # order, so a team's rating going into its 2pm match reflects
+            # what happened in its 10am match.
+            'start_time': event.get('date', ''),
         })
+
+    # Chronological order within the day, for readability and so any
+    # consumer that just reads matches top-to-bottom (rather than
+    # re-sorting) still gets the right order.
+    matches.sort(key=lambda m: (not m['start_time'], m['start_time']))
 
     return matches
 
@@ -191,10 +204,11 @@ def fetch_matches_for_date(date_obj, valid_team_names):
 def save_matches(matches, csv_filename):
     with open(csv_filename, 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(['match_id', 'set', 'away team', 'home team', 'away score', 'home score'])
+        writer.writerow(['match_id', 'start_time', 'set', 'away team', 'home team', 'away score', 'home score'])
         for match in matches:
             for i, (away_score, home_score) in enumerate(match['sets'], start=1):
-                writer.writerow([match['match_id'], i, match['away_team'], match['home_team'], away_score, home_score])
+                writer.writerow([match['match_id'], match['start_time'], i, match['away_team'], match['home_team'],
+                                  away_score, home_score])
     total_sets = sum(len(m['sets']) for m in matches)
     print(f"✅ Saved {len(matches)} match(es), {total_sets} set(s) to {csv_filename}")
 

@@ -50,9 +50,14 @@ def process_matches():
     Reads existing Elo ratings and set-by-set match results, then replays
     each match one set at a time: the ratings entering set 2 are whatever
     set 1 just produced, the ratings entering set 3 are whatever set 2 just
-    produced, and so on until the match's last set is applied. Matches
-    themselves are independent of each other (a team plays at most one
-    match per day), so only the set order *within* a match_id matters.
+    produced, and so on until the match's last set is applied.
+
+    Matches are applied in chronological (start_time) order, not file/
+    scoreboard order, because a team can play more than one match on the
+    same day (very common in early-season tournaments - pool play routinely
+    has a team playing 2-3 matches in a single day). If that team's 10am
+    match isn't applied before its 2pm match, the 2pm match would be scored
+    against a stale rating.
     """
     try:
         # Load current Elo ratings
@@ -84,12 +89,25 @@ def process_matches():
     matches_processed = 0
     sets_processed = 0
 
-    # groupby(..., sort=False) preserves the order matches first appear in
-    # the scores file; within each match the sets are explicitly re-sorted
-    # so set 1 is always applied before set 2, etc.
+    if 'start_time' not in scores_df.columns:
+        scores_df['start_time'] = ''
+    scores_df['start_time'] = scores_df['start_time'].fillna('')
+
+    # Build one (start_time, match_id, sorted_sets) tuple per match, then
+    # sort the matches themselves by start_time - missing/unparseable
+    # timestamps sort last (via the `not start_time` key) rather than
+    # first, since '' < any real ISO timestamp string would otherwise put
+    # them first. Within each match, sets are explicitly re-sorted so set 1
+    # is always applied before set 2, etc.
+    match_groups = []
     for match_id, match_sets in scores_df.groupby('match_id', sort=False):
         match_sets = match_sets.sort_values('set')
+        start_time = match_sets.iloc[0]['start_time'] or ''
+        match_groups.append((start_time, match_id, match_sets))
 
+    match_groups.sort(key=lambda g: (not g[0], g[0]))
+
+    for start_time, match_id, match_sets in match_groups:
         away_team = match_sets.iloc[0]['away team']
         home_team = match_sets.iloc[0]['home team']
 
@@ -131,7 +149,8 @@ def process_matches():
         updated_teams.add(home_team)
         matches_processed += 1
 
-        print(f"Match {match_id}: {away_team} @ {home_team} - {len(trajectory) - 1} set(s) applied sequentially")
+        when = f" ({start_time})" if start_time else ""
+        print(f"Match {match_id}{when}: {away_team} @ {home_team} - {len(trajectory) - 1} set(s) applied sequentially")
         for set_num, a, h in trajectory:
             label = "start" if set_num == 0 else f"after set {int(set_num)}"
             print(f"    {label}: {away_team}={a:.2f}, {home_team}={h:.2f}")

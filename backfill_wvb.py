@@ -16,9 +16,13 @@ def backfill(start_date_str, end_date_str, baseline_file, output_file):
     ratings to output_file.
 
     Days are applied in order (each day's starting ratings are whatever
-    the previous day left behind), and within a day each match is applied
-    set-by-set (each set's starting ratings are whatever the previous set
-    in that same match left behind).
+    the previous day left behind). Within a day, matches are applied in
+    chronological start-time order - not fetch order - since a team can
+    play more than one match on the same day (early-season tournaments
+    routinely have teams playing 2-3 matches in a single day), and each
+    set's starting ratings must reflect every set of every earlier match
+    that team has already played that day, not just earlier sets of the
+    same match.
     """
     ratings_df = pd.read_csv(baseline_file)
     ratings_df['Elo'] = pd.to_numeric(ratings_df['Elo'], errors='coerce')
@@ -36,6 +40,10 @@ def backfill(start_date_str, end_date_str, baseline_file, output_file):
     while day <= end_date:
         file_date_str = day.strftime('%Y-%m-%d')
         matches = fetch_matches_for_date(day, valid_team_names)
+        # fetch_matches_for_date already returns matches sorted by
+        # start_time, but re-sort defensively here too since correctness
+        # of same-day ordering is what this whole loop depends on.
+        matches.sort(key=lambda m: (not m.get('start_time'), m.get('start_time') or ''))
 
         day_updated_teams = set()
         for match in matches:
