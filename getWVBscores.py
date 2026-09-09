@@ -222,6 +222,16 @@ def load_manual_matches(date_obj, valid_team_names, filename=MANUAL_MATCHES_FILE
     whatever was typed if there's no match (so a new/renamed team can
     still be entered by hand).
 
+    Get the away/home assignment right: calculate_new_elo's
+    abs((ascore - hscore) + 1) ** 0.42 term is not symmetric under
+    swapping which side is "away" (that +1 offset means sign(d)*|d+1|^0.42
+    != -sign(-d)*|1-d|^0.42 in general), so the SAME final score produces
+    a different rating swing depending on which team is labeled away vs
+    home. This isn't specific to manual entries - it's a property of the
+    formula every sport in this repo uses - but a hand-entered match has
+    no ESPN 'homeAway' field to get it from automatically, so it has to be
+    entered correctly by hand.
+
     Returns the same shape fetch_matches_for_date does, so callers can
     merge the two lists directly.
     """
