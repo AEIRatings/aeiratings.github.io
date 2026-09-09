@@ -4,10 +4,13 @@ One-time/manual bootstrap for the NCAA Women's Volleyball roster.
 Fetches the full Division I women's volleyball team list from ESPN's site
 API and writes data/wvb_preseason.csv (a fixed Elo=1000 baseline used by
 backfill_wvb.py) plus data/wvb.csv (the live ratings file the daily
-pipeline reads/writes), unless data/wvb.csv already exists - in which
-case it's left untouched so a re-run can't clobber ratings that have
-already played out. Run this once via the "Bootstrap WVB Teams" workflow
-(or locally) before the daily scores/elo workflow is enabled.
+pipeline reads/writes), unless data/wvb.csv already has real team ratings
+in it - in which case it's left untouched so a re-run can't clobber
+ratings that have already played out. A header-only/empty data/wvb.csv
+(e.g. the placeholder checked into the repo before this script has ever
+been run) does not count as "real ratings" and will be populated. Run
+this once via the "Bootstrap WVB Teams" workflow (or locally) before the
+daily scores/elo workflow is enabled.
 """
 
 import csv
@@ -56,6 +59,24 @@ def fetch_all_teams():
     return sorted(teams)
 
 
+def has_real_ratings(filename):
+    """
+    True only if `filename` exists AND has at least one row with a
+    non-empty Team value - i.e. actual ratings worth protecting, not just
+    a header-only placeholder (which is what a freshly-checked-out repo's
+    data/wvb.csv is before this script has ever populated it).
+    """
+    if not os.path.exists(filename):
+        return False
+    try:
+        with open(filename, newline='', encoding='utf-8') as f:
+            reader = csv.reader(f)
+            next(reader, None)  # header
+            return any(row and row[0].strip() for row in reader)
+    except Exception:
+        return False
+
+
 def write_roster(teams):
     os.makedirs('data', exist_ok=True)
 
@@ -70,8 +91,8 @@ def write_roster(teams):
             writer.writerow([team, STARTING_ELO, '', '', 'FALSE'])
     print(f"Wrote {len(teams)} teams to {PRESEASON_FILE}")
 
-    if os.path.exists(RATINGS_FILE):
-        print(f"{RATINGS_FILE} already exists - leaving current ratings untouched. "
+    if has_real_ratings(RATINGS_FILE):
+        print(f"{RATINGS_FILE} already has team ratings - leaving them untouched. "
               f"Delete it first if you want to reset every team back to the fresh preseason baseline.")
         return
 
