@@ -1,0 +1,50 @@
+name: Backfill cfb ELO Ratings
+
+# Manual-only: replays CFB games day-by-day from data/cfb_preseason.csv
+# forward using backfill_cfb.py, to rebuild data/cfb.csv from a clean
+# baseline with the current (fixed) score-fetching logic. Not scheduled -
+# this is a one-off repair tool, not part of the daily pipeline.
+on:
+  workflow_dispatch:
+    inputs:
+      start_date:
+        description: 'First date to replay (YYYY-MM-DD, inclusive)'
+        required: true
+      end_date:
+        description: 'Last date to replay (YYYY-MM-DD, inclusive)'
+        required: true
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install beautifulsoup4 requests pandas pytz
+
+      - name: Run Backfill Script
+        run: |
+          echo "Backfilling CFB ratings from ${{ inputs.start_date }} through ${{ inputs.end_date }}..."
+          python backfill_cfb.py --start "${{ inputs.start_date }}" --end "${{ inputs.end_date }}"
+
+      - name: Commit and Push Changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "🤖 Backfill cfb ELO ratings: replayed ${{ inputs.start_date }} through ${{ inputs.end_date }}"
+          file_pattern: data/cfb.csv
+          commit_author: 'GitHub Actions Bot <action@github.com>'
+          skip_dirty_check: true

@@ -85,7 +85,6 @@ def normalize_name(raw_name):
     name = unicodedata.normalize('NFC', raw_name)
     name = (name.replace('JosÃ©', 'José')
                 .replace('San Jose', 'San José')
-                .replace('Nittany Lions', 'Penn State')
             )
     name = name.replace("No. ", "").strip()
     return name
@@ -114,17 +113,19 @@ def clean_team_name(full_name, espn_aliases):
     return espn_aliases.get(normalize_match_key(normalized))
 
 
-def fetch_and_save_college_football_scores():
+def fetch_games_for_date(date_obj, espn_aliases):
     """
-    Fetches college football (FBS + FCS) scoreboard data for the previous day
-    and saves them into a single deduplicated CSV file.
-    """
-    espn_aliases = load_team_names()
+    Fetches FBS+FCS final scores for a single date (a datetime/date) from
+    ESPN, returning a de-duplicated list of
+    [away_team, home_team, away_score, home_score] rows.
 
-    # 1. Determine the date for the data (yesterday)
-    yesterday = datetime.now() - timedelta(days=1)
-    date_str = yesterday.strftime('%Y%m%d') 
-    file_date_str = yesterday.strftime('%Y-%m-%d')
+    Shared by fetch_and_save_college_football_scores (which always asks for
+    "yesterday") and backfill_cfb.py (which replays a range of historical
+    dates), so both get the same alias-based name resolution and
+    Eastern-bucketed date filtering.
+    """
+    date_str = date_obj.strftime('%Y%m%d')
+    file_date_str = date_obj.strftime('%Y-%m-%d')
 
     BASE_URL = "http://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard"
     API_URLS = [
@@ -132,12 +133,8 @@ def fetch_and_save_college_football_scores():
         f"{BASE_URL}?groups=81&dates={date_str}"   # FCS
     ]
 
-    CSV_FILENAME = "cfb_scores_previous_day.csv"
-
     all_game_data = []
     seen_games = set()
-
-    print(f"Fetching College Football scores for {file_date_str}...")
 
     for api_url in API_URLS:
         try:
@@ -193,6 +190,26 @@ def fetch_and_save_college_football_scores():
                 if game_id not in seen_games:
                     seen_games.add(game_id)
                     all_game_data.append([away_team_name, home_team_name, away_score, home_score])
+
+    return all_game_data
+
+
+def fetch_and_save_college_football_scores():
+    """
+    Fetches college football (FBS + FCS) scoreboard data for the previous day
+    and saves them into a single deduplicated CSV file.
+    """
+    espn_aliases = load_team_names()
+
+    # 1. Determine the date for the data (yesterday)
+    yesterday = datetime.now() - timedelta(days=1)
+    file_date_str = yesterday.strftime('%Y-%m-%d')
+
+    CSV_FILENAME = "cfb_scores_previous_day.csv"
+
+    print(f"Fetching College Football scores for {file_date_str}...")
+
+    all_game_data = fetch_games_for_date(yesterday, espn_aliases)
 
     # Save to CSV
     try:

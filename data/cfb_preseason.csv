@@ -1,0 +1,267 @@
+Team,Elo,Conference,Notes,RatingUpdated
+Boston College,1000,ACC,,FALSE
+California,1000,ACC,,FALSE
+Clemson,1000,ACC,,FALSE
+Duke,1000,ACC,,FALSE
+Florida State,1000,ACC,,FALSE
+Georgia Tech,1000,ACC,,FALSE
+Louisville,1000,ACC,,FALSE
+Miami,1000,ACC,,FALSE
+NC State,1000,ACC,,FALSE
+North Carolina,1000,ACC,,FALSE
+Pittsburgh,1000,ACC,,FALSE
+SMU,1000,ACC,,FALSE
+Stanford,1000,ACC,,FALSE
+Syracuse,1000,ACC,,FALSE
+Virginia,1000,ACC,,FALSE
+Virginia Tech,1000,ACC,,FALSE
+Wake Forest,1000,ACC,,FALSE
+Army,1000,American,,FALSE
+Charlotte,1000,American,,FALSE
+East Carolina,1000,American,,FALSE
+Florida Atlantic,1000,American,,FALSE
+Memphis,1000,American,,FALSE
+Navy,1000,American,,FALSE
+North Texas,1000,American,,FALSE
+Rice,1000,American,,FALSE
+South Florida,1000,American,,FALSE
+Temple,1000,American,,FALSE
+Tulane,1000,American,,FALSE
+Tulsa,1000,American,,FALSE
+UAB,1000,American,,FALSE
+UTSA,1000,American,,FALSE
+Illinois,1000,Big 10,,FALSE
+Indiana,1000,Big 10,,FALSE
+Iowa,1000,Big 10,,FALSE
+Maryland,1000,Big 10,,FALSE
+Michigan,1000,Big 10,,FALSE
+Michigan State,1000,Big 10,,FALSE
+Minnesota,1000,Big 10,,FALSE
+Nebraska,1000,Big 10,,FALSE
+Northwestern,1000,Big 10,,FALSE
+Ohio State,1000,Big 10,,FALSE
+Oregon,1000,Big 10,,FALSE
+Penn State,1000,Big 10,,FALSE
+Purdue,1000,Big 10,,FALSE
+Rutgers,1000,Big 10,,FALSE
+UCLA,1000,Big 10,,FALSE
+USC,1000,Big 10,,FALSE
+Washington,1000,Big 10,,FALSE
+Wisconsin,1000,Big 10,,FALSE
+Arizona,1000,Big 12,,FALSE
+Arizona State,1000,Big 12,,FALSE
+Baylor,1000,Big 12,,FALSE
+BYU,1000,Big 12,,FALSE
+Cincinnati,1000,Big 12,,FALSE
+Colorado,1000,Big 12,,FALSE
+Houston,1000,Big 12,,FALSE
+Iowa State,1000,Big 12,,FALSE
+Kansas,1000,Big 12,,FALSE
+Kansas State,1000,Big 12,,FALSE
+Oklahoma State,1000,Big 12,,FALSE
+TCU,1000,Big 12,,FALSE
+Texas Tech,1000,Big 12,,FALSE
+UCF,1000,Big 12,,FALSE
+Utah,1000,Big 12,,FALSE
+West Virginia,1000,Big 12,,FALSE
+Cal Poly,700,Big Sky,,FALSE
+Eastern Washington,700,Big Sky,,FALSE
+Idaho,700,Big Sky,,FALSE
+Idaho State,700,Big Sky,,FALSE
+Montana,700,Big Sky,,FALSE
+Montana State,700,Big Sky,,FALSE
+Northern Arizona,700,Big Sky,,FALSE
+Northern Colorado,700,Big Sky,,FALSE
+Portland State,700,Big Sky,,FALSE
+Southern Utah,700,Big Sky,,FALSE
+UC Davis,700,Big Sky,,FALSE
+Utah Tech,700,Big Sky,,FALSE
+Weber State,700,Big Sky,,FALSE
+Bryant,700,CAA,,FALSE
+Campbell,700,CAA,,FALSE
+Elon,700,CAA,,FALSE
+Hampton,700,CAA,,FALSE
+Maine,700,CAA,,FALSE
+Monmouth,700,CAA,,FALSE
+New Hampshire,700,CAA,,FALSE
+North Carolina A&T,700,CAA,,FALSE
+Rhode Island,700,CAA,,FALSE
+Sacred Heart,700,CAA,,FALSE
+Stony Brook,700,CAA,,FALSE
+Towson,700,CAA,,FALSE
+UAlbany,700,CAA,,FALSE
+Delaware,1000,CUSA,,FALSE
+Florida International,1000,CUSA,,FALSE
+Jacksonville State,1000,CUSA,,FALSE
+Kennesaw State,1000,CUSA,,FALSE
+Liberty,1000,CUSA,,FALSE
+Middle Tennessee,1000,CUSA,,FALSE
+Missouri State,1000,CUSA,,FALSE
+New Mexico State,1000,CUSA,,FALSE
+Sam Houston,1000,CUSA,,FALSE
+Western Kentucky,1000,CUSA,,FALSE
+Notre Dame,1000,FBS Independent,,FALSE
+UConn,1000,FBS Independent,,FALSE
+Chicago State,700,FCS Independent,,FALSE
+Merrimack,700,FCS Independent,,FALSE
+Brown,700,Ivy League,,FALSE
+Columbia,700,Ivy League,,FALSE
+Cornell,700,Ivy League,,FALSE
+Dartmouth,700,Ivy League,,FALSE
+Harvard,700,Ivy League,,FALSE
+Pennsylvania,700,Ivy League,,FALSE
+Princeton,700,Ivy League,,FALSE
+Yale,700,Ivy League,,FALSE
+Akron,1000,MAC,,FALSE
+Ball State,1000,MAC,,FALSE
+Bowling Green,1000,MAC,,FALSE
+Buffalo,1000,MAC,,FALSE
+Central Michigan,1000,MAC,,FALSE
+Eastern Michigan,1000,MAC,,FALSE
+Kent State,1000,MAC,,FALSE
+Massachusetts,1000,MAC,,FALSE
+Miami (OH),1000,MAC,,FALSE
+Ohio,1000,MAC,,FALSE
+Sacramento State,1000,MAC,,FALSE
+Toledo,1000,MAC,,FALSE
+Western Michigan,1000,MAC,,FALSE
+Delaware State,700,MEAC,,FALSE
+Howard,700,MEAC,,FALSE
+Morgan State,700,MEAC,,FALSE
+Norfolk State,700,MEAC,,FALSE
+North Carolina Central,700,MEAC,,FALSE
+South Carolina State,700,MEAC,,FALSE
+Air Force,1000,Mountain West,,FALSE
+Hawai'i,1000,Mountain West,,FALSE
+Nevada,1000,Mountain West,,FALSE
+New Mexico,1000,Mountain West,,FALSE
+North Dakota State,1000,Mountain West,,FALSE
+Northern Illinois,1000,Mountain West,,FALSE
+San Jose State,1000,Mountain West,,FALSE
+UNLV,1000,Mountain West,,FALSE
+UTEP,1000,Mountain West,,FALSE
+Wyoming,1000,Mountain West,,FALSE
+Illinois State,700,MVC,,FALSE
+Indiana State,700,MVC,,FALSE
+Murray State,700,MVC,,FALSE
+North Dakota,700,MVC,,FALSE
+Northern Iowa,700,MVC,,FALSE
+South Dakota,700,MVC,,FALSE
+South Dakota State,700,MVC,,FALSE
+Southern Illinois,700,MVC,,FALSE
+Youngstown State,700,MVC,,FALSE
+Central Connecticut,700,NEC,,FALSE
+Duquesne,700,NEC,,FALSE
+Long Island University,700,NEC,,FALSE
+Mercyhurst,700,NEC,,FALSE
+New Haven,700,NEC,,FALSE
+Robert Morris,700,NEC,,FALSE
+Stonehill,700,NEC,,FALSE
+Wagner,700,NEC,,FALSE
+Charleston Southern,700,OVC,,FALSE
+Eastern Illinois,700,OVC,,FALSE
+Gardner-Webb,700,OVC,,FALSE
+Lindenwood,700,OVC,,FALSE
+Southeast Missouri State,700,OVC,,FALSE
+Tennessee State,700,OVC,,FALSE
+UT Martin,700,OVC,,FALSE
+Western Illinois,700,OVC,,FALSE
+Boise State,1000,PAC 12,,FALSE
+Colorado State,1000,PAC 12,,FALSE
+Fresno State,1000,PAC 12,,FALSE
+Oregon State,1000,PAC 12,,FALSE
+San Diego State,1000,PAC 12,,FALSE
+Texas State,1000,PAC 12,,FALSE
+Utah State,1000,PAC 12,,FALSE
+Washington State,1000,PAC 12,,FALSE
+Bucknell,700,Patriot,,FALSE
+Colgate,700,Patriot,,FALSE
+Fordham,700,Patriot,,FALSE
+Georgetown,700,Patriot,,FALSE
+Holy Cross,700,Patriot,,FALSE
+Lafayette,700,Patriot,,FALSE
+Lehigh,700,Patriot,,FALSE
+Richmond,700,Patriot,,FALSE
+Villanova,700,Patriot,,FALSE
+William & Mary,700,Patriot,,FALSE
+Butler,700,Pioneer,,FALSE
+Davidson,700,Pioneer,,FALSE
+Dayton,700,Pioneer,,FALSE
+Drake,700,Pioneer,,FALSE
+Marist,700,Pioneer,,FALSE
+Morehead State,700,Pioneer,,FALSE
+Presbyterian,700,Pioneer,,FALSE
+San Diego,700,Pioneer,,FALSE
+St. Thomas-Minnesota,700,Pioneer,,FALSE
+Stetson,700,Pioneer,,FALSE
+Valparaiso,700,Pioneer,,FALSE
+Alabama,1000,SEC,,FALSE
+Arkansas,1000,SEC,,FALSE
+Auburn,1000,SEC,,FALSE
+Florida,1000,SEC,,FALSE
+Georgia,1000,SEC,,FALSE
+Kentucky,1000,SEC,,FALSE
+LSU,1000,SEC,,FALSE
+Mississippi State,1000,SEC,,FALSE
+Missouri,1000,SEC,,FALSE
+Oklahoma,1000,SEC,,FALSE
+Ole Miss,1000,SEC,,FALSE
+South Carolina,1000,SEC,,FALSE
+Tennessee,1000,SEC,,FALSE
+Texas,1000,SEC,,FALSE
+Texas A&M,1000,SEC,,FALSE
+Vanderbilt,1000,SEC,,FALSE
+Chattanooga,700,Southern,,FALSE
+East Tennessee State,700,Southern,,FALSE
+Furman,700,Southern,,FALSE
+Mercer,700,Southern,,FALSE
+Samford,700,Southern,,FALSE
+Tennessee Tech,700,Southern,,FALSE
+The Citadel,700,Southern,,FALSE
+VMI,700,Southern,,FALSE
+Western Carolina,700,Southern,,FALSE
+Wofford,700,Southern,,FALSE
+East Texas A&M,700,Southland,,FALSE
+Houston Christian,700,Southland,,FALSE
+Incarnate Word,700,Southland,,FALSE
+Lamar,700,Southland,,FALSE
+McNeese,700,Southland,,FALSE
+Nicholls,700,Southland,,FALSE
+Northwestern State,700,Southland,,FALSE
+SE Louisiana,700,Southland,,FALSE
+Stephen F. Austin,700,Southland,,FALSE
+UT Rio Grande Valley,700,Southland,,FALSE
+App State,1000,Sun Belt,,FALSE
+Arkansas State,1000,Sun Belt,,FALSE
+Coastal Carolina,1000,Sun Belt,,FALSE
+Georgia Southern,1000,Sun Belt,,FALSE
+Georgia State,1000,Sun Belt,,FALSE
+James Madison,1000,Sun Belt,,FALSE
+Louisiana,1000,Sun Belt,,FALSE
+Louisiana Tech,1000,Sun Belt,,FALSE
+Marshall,1000,Sun Belt,,FALSE
+Old Dominion,1000,Sun Belt,,FALSE
+South Alabama,1000,Sun Belt,,FALSE
+Southern Miss,1000,Sun Belt,,FALSE
+Troy,1000,Sun Belt,,FALSE
+UL Monroe,1000,Sun Belt,,FALSE
+Alabama A&M,700,SWAC,,FALSE
+Alabama State,700,SWAC,,FALSE
+Alcorn State,700,SWAC,,FALSE
+Arkansas-Pine Bluff,700,SWAC,,FALSE
+Bethune-Cookman,700,SWAC,,FALSE
+Florida A&M,700,SWAC,,FALSE
+Grambling,700,SWAC,,FALSE
+Jackson State,700,SWAC,,FALSE
+Mississippi Valley State,700,SWAC,,FALSE
+Prairie View A&M,700,SWAC,,FALSE
+Southern,700,SWAC,,FALSE
+Texas Southern,700,SWAC,,FALSE
+Abilene Christian,700,UAC,,FALSE
+Austin Peay,700,UAC,,FALSE
+Central Arkansas,700,UAC,,FALSE
+Eastern Kentucky,700,UAC,,FALSE
+North Alabama,700,UAC,,FALSE
+Tarleton State,700,UAC,,FALSE
+West Florida,700,UAC,,FALSE
+West Georgia,700,UAC,,FALSE
