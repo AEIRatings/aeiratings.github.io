@@ -5,6 +5,7 @@ import numpy as np
 RATINGS_FILE = 'data/wvb.csv'
 SCORES_FILE = 'wvb_scores_previous_day.csv'
 OUTPUT_FILE = 'data/wvb.csv'
+STARTING_ELO = 1000  # matches build_wvb_teams.py's preseason baseline
 
 
 def calculate_new_elo(AElo, HElo, ascore, hscore):
@@ -86,6 +87,7 @@ def process_matches():
         return
 
     updated_teams = set()
+    new_teams_registered = set()
     matches_processed = 0
     sets_processed = 0
 
@@ -111,11 +113,19 @@ def process_matches():
         away_team = match_sets.iloc[0]['away team']
         home_team = match_sets.iloc[0]['home team']
 
-        if away_team not in current_ratings or home_team not in current_ratings:
-            missing = away_team if away_team not in current_ratings else home_team
-            print(f"Warning: Team '{missing}' not found in '{RATINGS_FILE}'. Skipping match {match_id} "
-                  f"({away_team} @ {home_team}).")
-            continue
+        # getWVBscores.py only ever hands this pipeline teams from a D1-only
+        # ESPN endpoint, so a name that isn't in current_ratings yet is a
+        # real program that just isn't registered - e.g. a school starting
+        # D1 volleyball mid-cycle - not a bad match. Register it at the
+        # standard starting Elo (new_teams_registered gets it added as a
+        # proper row in the output CSV below) rather than skipping every
+        # match it plays until someone manually adds it.
+        for team in (away_team, home_team):
+            if team not in current_ratings:
+                current_ratings[team] = STARTING_ELO
+                new_teams_registered.add(team)
+                print(f"Note: '{team}' isn't in '{RATINGS_FILE}' yet - registering it at the starting "
+                      f"Elo of {STARTING_ELO}.")
 
         trajectory = [(0, current_ratings[away_team], current_ratings[home_team])]
         applied_any_set = False
@@ -159,6 +169,19 @@ def process_matches():
     ratings_df = ratings_df.set_index('Team')
     ratings_df['Elo'] = ratings_df.index.map(current_ratings)
     ratings_df = ratings_df.reset_index()
+
+    # Give any newly-registered team (see above) an actual row in the
+    # output file, matching the other columns' schema, so it isn't lost -
+    # ratings_df.index.map() above only ever updates rows that already
+    # existed in RATINGS_FILE.
+    if new_teams_registered:
+        other_columns = [c for c in ratings_df.columns if c not in ('Team', 'Elo')]
+        new_rows = pd.DataFrame([
+            {'Team': team, 'Elo': current_ratings[team], **{c: '' for c in other_columns}}
+            for team in sorted(new_teams_registered)
+        ])
+        ratings_df = pd.concat([ratings_df, new_rows], ignore_index=True)
+
     ratings_df['RatingUpdated'] = ratings_df['Team'].apply(lambda team: team in updated_teams)
 
     ratings_df.to_csv(OUTPUT_FILE, index=False)
@@ -166,6 +189,9 @@ def process_matches():
     print(f"\nSuccessfully calculated new Elo ratings and saved to '{OUTPUT_FILE}'.")
     print(f"Processed {matches_processed} match(es), {sets_processed} set(s) total. "
           f"Updated ratings for {len(updated_teams)} team(s) that played.")
+    if new_teams_registered:
+        print(f"Registered {len(new_teams_registered)} new team(s) not previously in '{RATINGS_FILE}': "
+              f"{', '.join(sorted(new_teams_registered))}")
 
 
 if __name__ == '__main__':

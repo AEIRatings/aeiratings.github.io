@@ -194,16 +194,26 @@ def fetch_matches_for_date(date_obj, valid_team_names):
 
         away_raw = normalize_name(away_c.get('team', {}).get('displayName'))
         home_raw = normalize_name(home_c.get('team', {}).get('displayName'))
-        away_team = clean_team_name(away_raw, valid_team_names)
-        home_team = clean_team_name(home_raw, valid_team_names)
-        if not away_team or not home_team:
-            unresolved = []
-            if not away_team:
-                unresolved.append(f"away='{away_raw}'")
-            if not home_team:
-                unresolved.append(f"home='{home_raw}'")
-            print(f"  Warning: Could not resolve {' and '.join(unresolved)} against the wvb.csv roster; skipping match.")
+        if not away_raw or not home_raw:
+            print(f"  Warning: Missing team display name for event {event.get('id')}; skipping match.")
             continue
+
+        # This scoreboard endpoint only ever returns D1 women's volleyball
+        # matches, so any competitor it names is a real D1 team by
+        # construction - even one that isn't in our roster yet (e.g. a
+        # program that just started sponsoring the sport this season, like
+        # Vanderbilt in 2026). Falling back to the raw ESPN name instead of
+        # dropping the match means that team gets auto-registered (at the
+        # standard starting Elo) by elo_updater_wvb.py rather than having
+        # every one of its matches silently skipped all season.
+        away_team = clean_team_name(away_raw, valid_team_names)
+        if not away_team:
+            print(f"  Note: '{away_raw}' isn't in the wvb.csv roster yet; treating it as a new team.")
+            away_team = away_raw
+        home_team = clean_team_name(home_raw, valid_team_names)
+        if not home_team:
+            print(f"  Note: '{home_raw}' isn't in the wvb.csv roster yet; treating it as a new team.")
+            home_team = home_raw
 
         event_id = event.get('id')
         if event_id in seen_ids:

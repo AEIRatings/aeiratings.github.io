@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 import pandas as pd
 
 from getWVBscores import fetch_matches_for_date
-from elo_updater_wvb import calculate_new_elo
+from elo_updater_wvb import calculate_new_elo, STARTING_ELO
 
 
 def backfill(start_date_str, end_date_str, baseline_file, output_file):
@@ -33,6 +33,7 @@ def backfill(start_date_str, end_date_str, baseline_file, output_file):
     end_date = datetime.strptime(end_date_str, '%Y-%m-%d')
 
     last_day_updated_teams = set()
+    new_teams_registered = set()
     total_matches = 0
     total_sets = 0
 
@@ -50,10 +51,17 @@ def backfill(start_date_str, end_date_str, baseline_file, output_file):
             away_team = match['away_team']
             home_team = match['home_team']
 
-            if away_team not in current_ratings or home_team not in current_ratings:
-                missing = away_team if away_team not in current_ratings else home_team
-                print(f"  Warning: '{missing}' not found in ratings. Skipping {away_team} @ {home_team}.")
-                continue
+            # A team not yet in current_ratings is a real D1 program that
+            # just isn't registered yet (this endpoint is D1-only), e.g. a
+            # school that started sponsoring volleyball mid-cycle - not a
+            # bad match. Register it at the standard starting Elo instead
+            # of skipping every match it plays for the rest of the backfill.
+            for team in (away_team, home_team):
+                if team not in current_ratings:
+                    current_ratings[team] = STARTING_ELO
+                    new_teams_registered.add(team)
+                    print(f"  Note: '{team}' isn't in the baseline yet - registering it at the starting "
+                          f"Elo of {STARTING_ELO}.")
 
             for away_score, home_score in match['sets']:
                 AElo = current_ratings[away_team]
@@ -74,11 +82,23 @@ def backfill(start_date_str, end_date_str, baseline_file, output_file):
     ratings_df = ratings_df.set_index('Team')
     ratings_df['Elo'] = ratings_df.index.map(current_ratings)
     ratings_df = ratings_df.reset_index()
+
+    if new_teams_registered:
+        other_columns = [c for c in ratings_df.columns if c not in ('Team', 'Elo')]
+        new_rows = pd.DataFrame([
+            {'Team': team, 'Elo': current_ratings[team], **{c: '' for c in other_columns}}
+            for team in sorted(new_teams_registered)
+        ])
+        ratings_df = pd.concat([ratings_df, new_rows], ignore_index=True)
+
     ratings_df['RatingUpdated'] = ratings_df['Team'].apply(lambda t: t in last_day_updated_teams)
     ratings_df.to_csv(output_file, index=False)
 
     print(f"\nDone. Replayed {total_matches} match(es), {total_sets} set(s) total from {start_date_str} through {end_date_str}.")
     print(f"Saved final ratings to '{output_file}'.")
+    if new_teams_registered:
+        print(f"Registered {len(new_teams_registered)} new team(s) not in the baseline: "
+              f"{', '.join(sorted(new_teams_registered))}")
 
 
 if __name__ == '__main__':
