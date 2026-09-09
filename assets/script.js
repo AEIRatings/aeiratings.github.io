@@ -117,6 +117,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     'cfb': { name: 'College Football', file: 'cfb.csv', id: 'top-5-cfb' },
     'mcbb': { name: "NCAA Men's Basketball", file: 'mcbb.csv', id: 'top-5-mcbb' },
     'wcbb': { name: "NCAA Women's Basketball", file: 'wcbb.csv', id: 'top-5-wcbb' },
+    'wvb': { name: "NCAA Women's Volleyball", file: 'wvb.csv', id: 'top-5-wvb' },
     'nba': { name: 'NBA', file: 'nba.csv', id: 'top-5-nba' },
     'nhl': { name: 'NHL', file: 'nhl.csv', id: 'top-5-nhl' },
   };
