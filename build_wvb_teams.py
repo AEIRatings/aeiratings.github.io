@@ -91,14 +91,6 @@ MANUAL_CONFERENCE = {
     "Tennessee Volunteers": "SEC",
     "The Citadel Bulldogs": "",
     "UNLV Rebels": "Mountain West",
-    # Kept as-is rather than renamed to "Valparaiso Beacons": this team
-    # has a real, non-baseline Elo, meaning ESPN's own volleyball feed
-    # has been consistently reporting it under this malformed name (no
-    # normalize_name/.upper() call in this codebase produces it) -
-    # renaming the roster entry would break future exact-name matching
-    # against ESPN's actual data. Flagged for the maintainer to verify
-    # live and fix by hand if ESPN's feed has since corrected itself.
-    "Valparaiso VALPARAISO": "MVC",
     "West Florida Argonauts": "",
     "Wyoming Cowboys": "Mountain West",
 }

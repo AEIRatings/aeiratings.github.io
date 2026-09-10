@@ -40,12 +40,24 @@ def strip_accents(text):
     return ''.join(c for c in unicodedata.normalize('NFD', text) if unicodedata.category(c) != 'Mn')
 
 
+# Known corrections for teams ESPN's own volleyball feed reports under a
+# malformed displayName (confirmed via a real event: Valparaiso showed up
+# as "Valparaiso VALPARAISO" - location repeated in place of a missing
+# mascot field - not a bug in this codebase). Applied unconditionally in
+# normalize_name so it's fixed both in the roster and on every future
+# fetch, in case ESPN's feed is still sending the broken name.
+ESPN_NAME_FIXES = {
+    "Valparaiso VALPARAISO": "Valparaiso Beacons",
+}
+
+
 def normalize_name(raw_name):
     if not raw_name:
         return raw_name
     name = unicodedata.normalize('NFC', raw_name)
     name = name.replace('JosÃ©', 'José').replace('San Jose', 'San José')
-    return name.replace("No. ", "").strip()
+    name = name.replace("No. ", "").strip()
+    return ESPN_NAME_FIXES.get(name, name)
 
 
 # Every character seen in the wild standing in for an apostrophe/okina in a
