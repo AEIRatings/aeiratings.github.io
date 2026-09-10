@@ -1,0 +1,39 @@
+name: Validate WVB Roster Against wcbb.csv
+
+on:
+  # Manual only. Cross-checks the existing data/wvb.csv roster against
+  # data/wcbb.csv, drops confirmed non-D1/garbage entries (see
+  # build_wvb_teams.py's MANUAL_DROP), backfills Conference where there's
+  # a confident match, and rewrites data/wvb_preseason.csv (fixed
+  # Elo=1000 baseline) to match the surviving roster. Safe to re-run
+  # any time - it only ever drops/enriches existing rows, never adds new
+  # ones (new teams are added by getWVBscores.py's own D1 cross-check the
+  # first time they show up in a real match).
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Run build_wvb_teams Script
+        run: |
+          echo "Validating WVB roster against data/wcbb.csv..."
+          python build_wvb_teams.py
+
+      - name: Commit and Push Changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "🤖 Validate WVB roster against wcbb.csv"
+          file_pattern: "data/wvb_preseason.csv data/wvb.csv"
+          commit_author: 'GitHub Actions Bot <action@github.com>'
