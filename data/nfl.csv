@@ -1,33 +1,33 @@
-Team,Elo,Division,Notes
-Buffalo Bills,1000.0,AFC East,
-Miami Dolphins,1000.0,AFC East,
-New England Patriots,1000.0,AFC East,
-New York Jets,1000.0,AFC East,
-Baltimore Ravens,1000.0,AFC North,
-Cincinnati Bengals,1000.0,AFC North,
-Cleveland Browns,1000.0,AFC North,
-Pittsburgh Steelers,1000.0,AFC North,
-Houston Texans,1000.0,AFC South,
-Indianapolis Colts,1000.0,AFC South,
-Jacksonville Jaguars,1000.0,AFC South,
-Tennessee Titans,1000.0,AFC South,
-Denver Broncos,1000.0,AFC West,
-Kansas City Chiefs,1000.0,AFC West,
-Las Vegas Raiders,1000.0,AFC West,
-Los Angeles Chargers,1000.0,AFC West,
-Dallas Cowboys,1000.0,NFC East,
-New York Giants,1000.0,NFC East,
-Philadelphia Eagles,1000.0,NFC East,
-Washington Commanders,1000.0,NFC East,
-Chicago Bears,1000.0,NFC North,
-Detroit Lions,1000.0,NFC North,
-Green Bay Packers,1000.0,NFC North,
-Minnesota Vikings,1000.0,NFC North,
-Atlanta Falcons,1000.0,NFC South,
-Carolina Panthers,1000.0,NFC South,
-New Orleans Saints,1000.0,NFC South,
-Tampa Bay Buccaneers,1000.0,NFC South,
-Arizona Cardinals,1000.0,NFC West,
-Los Angeles Rams,1000.0,NFC West,
-San Francisco 49ers,1000.0,NFC West,
-Seattle Seahawks,1000.0,NFC West,
+Team,Elo,Division,Notes,RatingUpdated
+Buffalo Bills,1000.0,AFC East,,False
+Miami Dolphins,1000.0,AFC East,,False
+New England Patriots,991.0804829680926,AFC East,,True
+New York Jets,1000.0,AFC East,,False
+Baltimore Ravens,1000.0,AFC North,,False
+Cincinnati Bengals,1000.0,AFC North,,False
+Cleveland Browns,1000.0,AFC North,,False
+Pittsburgh Steelers,1000.0,AFC North,,False
+Houston Texans,1000.0,AFC South,,False
+Indianapolis Colts,1000.0,AFC South,,False
+Jacksonville Jaguars,1000.0,AFC South,,False
+Tennessee Titans,1000.0,AFC South,,False
+Denver Broncos,1000.0,AFC West,,False
+Kansas City Chiefs,1000.0,AFC West,,False
+Las Vegas Raiders,1000.0,AFC West,,False
+Los Angeles Chargers,1000.0,AFC West,,False
+Dallas Cowboys,1000.0,NFC East,,False
+New York Giants,1000.0,NFC East,,False
+Philadelphia Eagles,1000.0,NFC East,,False
+Washington Commanders,1000.0,NFC East,,False
+Chicago Bears,1000.0,NFC North,,False
+Detroit Lions,1000.0,NFC North,,False
+Green Bay Packers,1000.0,NFC North,,False
+Minnesota Vikings,1000.0,NFC North,,False
+Atlanta Falcons,1000.0,NFC South,,False
+Carolina Panthers,1000.0,NFC South,,False
+New Orleans Saints,1000.0,NFC South,,False
+Tampa Bay Buccaneers,1000.0,NFC South,,False
+Arizona Cardinals,1000.0,NFC West,,False
+Los Angeles Rams,1000.0,NFC West,,False
+San Francisco 49ers,1000.0,NFC West,,False
+Seattle Seahawks,1008.9195170319074,NFC West,,True
