@@ -1,14 +1,18 @@
-name: Bootstrap WVB Teams
+name: Validate WVB Roster Against wcbb.csv
 
 on:
-  # Manual only - this seeds data/wvb_preseason.csv and data/wvb.csv from
-  # ESPN's team list and should not run on a schedule. Safe to re-run:
-  # build_wvb_teams.py refuses to overwrite data/wvb.csv if it already
-  # exists (it only (re)writes data/wvb_preseason.csv in that case).
+  # Manual only. Cross-checks the existing data/wvb.csv roster against
+  # data/wcbb.csv, drops confirmed non-D1/garbage entries (see
+  # build_wvb_teams.py's MANUAL_DROP), backfills Conference where there's
+  # a confident match, and rewrites data/wvb_preseason.csv (fixed
+  # Elo=1000 baseline) to match the surviving roster. Safe to re-run
+  # any time - it only ever drops/enriches existing rows, never adds new
+  # ones (new teams are added by getWVBscores.py's own D1 cross-check the
+  # first time they show up in a real match).
   workflow_dispatch:
 
 jobs:
-  bootstrap:
+  validate:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -22,19 +26,14 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install requests
-
       - name: Run build_wvb_teams Script
         run: |
-          echo "Fetching D1 Women's Volleyball team list from ESPN..."
+          echo "Validating WVB roster against data/wcbb.csv..."
           python build_wvb_teams.py
 
       - name: Commit and Push Changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "🤖 Bootstrap WVB team roster from ESPN"
+          commit_message: "🤖 Validate WVB roster against wcbb.csv"
           file_pattern: "data/wvb_preseason.csv data/wvb.csv"
           commit_author: 'GitHub Actions Bot <action@github.com>'
