@@ -270,6 +270,26 @@ def load_manual_matches(date_obj, valid_team_names, filename=MANUAL_MATCHES_FILE
     return matches
 
 
+def resolve_opponent_name(raw_name, location, valid_team_names, wcbb_roster):
+    """
+    Resolves one ESPN competitor to a canonical team name: an exact match
+    against the wvb.csv roster if there is one, otherwise the raw ESPN name
+    itself if its school cross-checks as a real D1 program (see
+    is_known_d1_school) - the same "trust ESPN's own D1-only data, but
+    verify an unlisted name is actually D1" policy used for completed
+    matches, applied here so a legitimate new/unregistered program's
+    *upcoming* games don't just silently vanish from the schedule either.
+    Returns None (and the caller should skip/warn) if neither matches.
+    """
+    resolved = clean_team_name(raw_name, valid_team_names)
+    if resolved:
+        return resolved
+    if is_known_d1_school(location, wcbb_roster):
+        print(f"  Note: '{raw_name}' isn't in the wvb.csv roster yet; treating it as a new D1 team.")
+        return raw_name
+    return None
+
+
 def fetch_matches_for_date(date_obj, valid_team_names):
     """
     Fetches finished D1 women's volleyball matches for a single date,
@@ -338,26 +358,15 @@ def fetch_matches_for_date(date_obj, valid_team_names):
         # athletics department sponsors both sports - before being trusted
         # as a legitimate new program (like Vanderbilt in 2026) worth
         # auto-registering, rather than a non-D1 opponent worth skipping.
-        away_team = clean_team_name(away_raw, valid_team_names)
-        if not away_team:
-            away_location = away_c.get('team', {}).get('location')
-            if is_known_d1_school(away_location, wcbb_roster):
-                print(f"  Note: '{away_raw}' isn't in the wvb.csv roster yet; treating it as a new D1 team.")
-                away_team = away_raw
-            else:
-                print(f"  Warning: '{away_raw}' does not appear to be a D1 program (not on the wcbb.csv "
-                      f"cross-check list); skipping match.")
-                continue
-        home_team = clean_team_name(home_raw, valid_team_names)
-        if not home_team:
-            home_location = home_c.get('team', {}).get('location')
-            if is_known_d1_school(home_location, wcbb_roster):
-                print(f"  Note: '{home_raw}' isn't in the wvb.csv roster yet; treating it as a new D1 team.")
-                home_team = home_raw
-            else:
-                print(f"  Warning: '{home_raw}' does not appear to be a D1 program (not on the wcbb.csv "
-                      f"cross-check list); skipping match.")
-                continue
+        away_team = resolve_opponent_name(
+            away_raw, away_c.get('team', {}).get('location'), valid_team_names, wcbb_roster)
+        home_team = resolve_opponent_name(
+            home_raw, home_c.get('team', {}).get('location'), valid_team_names, wcbb_roster)
+        if not away_team or not home_team:
+            unresolved = away_raw if not away_team else home_raw
+            print(f"  Warning: '{unresolved}' does not appear to be a D1 program (not on the wvb.csv "
+                  f"roster or the wcbb.csv cross-check list); skipping match.")
+            continue
 
         event_id = event.get('id')
         if event_id in seen_ids:
