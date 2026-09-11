@@ -1,69 +1,4 @@
 away team,home team,game date (Pacific)
-Alcorn State Braves,Memphis Tigers,2026-09-10
-UT Rio Grande Valley Vaqueros,Texas Tech Red Raiders,2026-09-10
-Sam Houston Bearkats,Tarleton State Texans,2026-09-10
-Prairie View A&M Panthers,Portland State Vikings,2026-09-10
-Toledo Rockets,Lehigh Mountain Hawks,2026-09-10
-Delaware Blue Hens,Rider Broncs,2026-09-10
-North Texas Mean Green,UT Arlington Mavericks,2026-09-10
-Missouri State Bears,Incarnate Word Cardinals,2026-09-10
-Cleveland State Vikings,Akron Zips,2026-09-10
-Eastern Kentucky Colonels,James Madison Dukes,2026-09-10
-Georgia Tech Yellow Jackets,Baylor Bears,2026-09-10
-Cincinnati Bearcats,Morehead State Eagles,2026-09-10
-VCU Rams,West Virginia Mountaineers,2026-09-10
-Denver Pioneers,Texas A&M-Corpus Christi Islanders,2026-09-10
-Bradley Braves,Alabama A&M Bulldogs,2026-09-10
-Idaho Vandals,Sacred Heart Pioneers,2026-09-10
-Fairleigh Dickinson Knights,Yale Bulldogs,2026-09-10
-Central Connecticut Blue Devils,Iona Gaels,2026-09-10
-McNeese Cowboys,UL Monroe Warhawks,2026-09-10
-Northwestern State Demons,Mississippi Valley State Delta Devils,2026-09-10
-TCU Horned Frogs,South Florida Bulls,2026-09-10
-Villanova Wildcats,American University Eagles,2026-09-10
-Milwaukee Panthers,Indiana State Sycamores,2026-09-10
-Idaho State Bengals,Tennessee Tech Golden Eagles,2026-09-10
-Portland State Vikings,UT Rio Grande Valley Vaqueros,2026-09-10
-Stony Brook Seawolves,Rutgers Scarlet Knights,2026-09-10
-North Carolina Central Eagles,North Carolina A&T Aggies,2026-09-10
-The Citadel Bulldogs,Charleston Southern Buccaneers,2026-09-10
-Coastal Carolina Chanticleers,Wofford Terriers,2026-09-10
-UC Riverside Highlanders,Grand Canyon Lopes,2026-09-10
-Louisiana Ragin' Cajuns,Florida A&M Rattlers,2026-09-10
-South Carolina State Bulldogs,Tuskegee Golden Tigers,2026-09-10
-Saint Mary's Gaels,Eastern Washington Eagles,2026-09-10
-Coppin State Eagles,Valparaiso VALPARAISO,2026-09-10
-Cal Poly Mustangs,Indiana Hoosiers,2026-09-10
-Temple Owls,Binghamton Bearcats,2026-09-10
-Southern Illinois Salukis,Iowa Hawkeyes,2026-09-10
-Gonzaga Bulldogs,UTSA Roadrunners,2026-09-10
-Pepperdine Waves,Western Kentucky Hilltoppers,2026-09-10
-Evansville Purple Aces,Tennessee State Tigers,2026-09-10
-Bellarmine Knights,Butler Bulldogs,2026-09-10
-Texas State Bobcats,Stephen F. Austin Lumberjacks,2026-09-10
-Houston Christian Huskies,Southern Miss Golden Eagles,2026-09-10
-New Mexico Lobos,Nebraska Cornhuskers,2026-09-10
-Grambling Tigers,Louisiana Tech Bulldogs,2026-09-10
-Southeast Missouri State Redhawks,Loyola Chicago Ramblers,2026-09-10
-Sacramento State Hornets,Boise State Broncos,2026-09-10
-UC Santa Barbara Gauchos,Wyoming Cowboys,2026-09-10
-UTEP Miners,New Mexico State Aggies,2026-09-10
-Prairie View A&M Panthers,Texas Tech Red Raiders,2026-09-10
-UC Davis Aggies,Arizona State Sun Devils,2026-09-10
-North Dakota State Bison,Montana State Bobcats,2026-09-10
-Omaha Mavericks,Northern Arizona Lumberjacks,2026-09-10
-South Dakota Coyotes,Colorado State Rams,2026-09-10
-North Dakota Fighting Hawks,California Baptist Lancers,2026-09-10
-Little Rock Trojans,Air Force Falcons,2026-09-10
-Weber State Wildcats,Nevada Wolf Pack,2026-09-10
-Lipscomb Bisons,Washington Huskies,2026-09-10
-Central Arkansas Bears,Hawai'i Rainbow Warriors,2026-09-10
-Arkansas Razorbacks,Robert Morris Colonials,2026-09-11
-Chattanooga Mocs,Queens University Royals,2026-09-11
-Northern Kentucky Norse,Duquesne Dukes,2026-09-11
-Harvard Crimson,UNC Asheville Bulldogs,2026-09-11
-UAB Blazers,Oakland Golden Grizzlies,2026-09-11
-Niagara Purple Eagles,Kent State Golden Flashes,2026-09-11
 Northern Colorado Bears,Murray State Racers,2026-09-11
 Lehigh Mountain Hawks,West Virginia Mountaineers,2026-09-11
 Chicago State Cougars,Northern Illinois Huskies,2026-09-11
@@ -286,6 +221,7 @@ St. John's Red Storm,NJIT Highlanders,2026-09-12
 Seton Hall Pirates,Princeton Tigers,2026-09-12
 Northern Colorado Bears,Georgia State Panthers,2026-09-12
 Northern Kentucky Norse,Charleston Cougars,2026-09-12
+Harvard Crimson,UNC Wilmington Seahawks,2026-09-12
 Iowa State Cyclones,American University Eagles,2026-09-12
 Liberty Flames,Fairfield Stags,2026-09-12
 Coppin State Eagles,Cleveland State Vikings,2026-09-12
@@ -311,7 +247,6 @@ Omaha Mavericks,Grand Canyon Lopes,2026-09-12
 South Dakota State Jackrabbits,UC Santa Barbara Gauchos,2026-09-12
 Idaho Vandals,California Baptist Lancers,2026-09-12
 Butler Bulldogs,Bellarmine Knights,2026-09-12
-Harvard Crimson,UNC Wilmington Seahawks,2026-09-12
 Bethune-Cookman Wildcats,Charleston Southern Buccaneers,2026-09-12
 Bucknell Bison,Siena Saints,2026-09-12
 McNeese Cowboys,Louisiana Tech Bulldogs,2026-09-12
@@ -465,7 +400,6 @@ UCLA Bruins,Utah Utes,2026-09-13
 California Golden Bears,Santa Clara Broncos,2026-09-13
 North Alabama Lions,Florida State Seminoles,2026-09-14
 George Washington Revolutionaries,Virginia Cavaliers,2026-09-15
-Cal State Bakersfield Roadrunners,Saint Mary's Gaels,2026-09-15
 Tennessee Volunteers,Queens University Royals,2026-09-15
 South Carolina Gamecocks,East Tennessee State Buccaneers,2026-09-15
 App State Mountaineers,NC State Wolfpack,2026-09-15
@@ -494,20 +428,21 @@ Louisiana Tech Bulldogs,Northwestern State Demons,2026-09-15
 Louisiana Ragin' Cajuns,SE Louisiana Lions,2026-09-15
 Utah State Aggies,Weber State Wildcats,2026-09-15
 Utah Valley Wolverines,BYU Cougars,2026-09-15
+Cal State Bakersfield Roadrunners,Saint Mary's Gaels,2026-09-15
 Manhattan Jaspers,Bryant Bulldogs,2026-09-16
-Butler Bulldogs,IU Indianapolis Jaguars,2026-09-16
+Creighton Bluejays,Nebraska Cornhuskers,2026-09-16
 Louisville Cardinals,Western Kentucky Hilltoppers,2026-09-16
 Illinois Fighting Illini,Eastern Illinois Panthers,2026-09-16
-Drake Bulldogs,Iowa Hawkeyes,2026-09-16
+Butler Bulldogs,IU Indianapolis Jaguars,2026-09-16
 Rider Broncs,Pennsylvania Quakers,2026-09-16
 Tennessee State Tigers,Austin Peay Governors,2026-09-16
 Little Rock Trojans,Southeast Missouri State Redhawks,2026-09-16
 Alcorn State Braves,Alabama Crimson Tide,2026-09-16
 UTEP Miners,TCU Horned Frogs,2026-09-16
 Grambling Tigers,Nicholls Colonels,2026-09-16
-Creighton Bluejays,Nebraska Cornhuskers,2026-09-16
 Incarnate Word Cardinals,Baylor Bears,2026-09-16
 Air Force Falcons,Denver Pioneers,2026-09-16
+Drake Bulldogs,Iowa Hawkeyes,2026-09-16
 California Golden Bears,UC Davis Aggies,2026-09-16
 Maryland Terrapins,Campbell Fighting Camels,2026-09-17
 Texas Southern Tigers,San Francisco Dons,2026-09-17
@@ -2581,6 +2516,7 @@ UTSA Roadrunners,Temple Owls,2026-10-25
 Southern Jaguars,Bethune-Cookman Wildcats,2026-10-25
 Alcorn State Braves,Florida A&M Rattlers,2026-10-25
 Pittsburgh Panthers,Clemson Tigers,2026-10-25
+Texas A&M Aggies,Kentucky Wildcats,2026-10-25
 Michigan Wolverines,Wisconsin Badgers,2026-10-25
 Texas Longhorns,South Carolina Gamecocks,2026-10-25
 Ole Miss Rebels,Florida Gators,2026-10-25
@@ -2612,7 +2548,6 @@ Texas Tech Red Raiders,Kansas State Wildcats,2026-10-25
 Belmont Bruins,Illinois State Redbirds,2026-10-25
 Stony Brook Seawolves,Northeastern Huskies,2026-10-25
 Lafayette Leopards,Bucknell Bison,2026-10-25
-Texas A&M Aggies,Kentucky Wildcats,2026-10-25
 Penn State Nittany Lions,Indiana Hoosiers,2026-10-25
 Colorado Buffaloes,Utah Utes,2026-10-25
 LSU Tigers,Auburn Tigers,2026-10-25
