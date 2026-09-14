@@ -15,17 +15,17 @@ Denver Broncos,1000.0,AFC West,,False
 Kansas City Chiefs,1000.0,AFC West,,False
 Las Vegas Raiders,1000.0,AFC West,,False
 Los Angeles Chargers,1000.0,AFC West,,False
-Dallas Cowboys,1000.0,NFC East,,False
-New York Giants,1000.0,NFC East,,False
+Dallas Cowboys,984.9044160487391,NFC East,,True
+New York Giants,1015.0955839512609,NFC East,,True
 Philadelphia Eagles,1000.0,NFC East,,False
 Washington Commanders,1000.0,NFC East,,False
-Chicago Bears,1000.0,NFC North,,False
-Detroit Lions,1000.0,NFC North,,False
+Chicago Bears,1024.8790866148704,NFC North,,True
+Detroit Lions,1000.0,NFC North,,True
 Green Bay Packers,1000.0,NFC North,,False
 Minnesota Vikings,1000.0,NFC North,,False
 Atlanta Falcons,1000.0,NFC South,,False
-Carolina Panthers,1000.0,NFC South,,False
-New Orleans Saints,1000.0,NFC South,,False
+Carolina Panthers,975.1209133851296,NFC South,,True
+New Orleans Saints,1000.0,NFC South,,True
 Tampa Bay Buccaneers,1000.0,NFC South,,False
 Arizona Cardinals,1000.0,NFC West,,False
 Los Angeles Rams,976.0535662517556,NFC West,,False
