@@ -4,8 +4,8 @@ Miami,Wake Forest,2026-09-18
 Houston,Texas Tech,2026-09-18
 Portland State,Oregon,2026-09-18
 Coastal Carolina,Delaware,2026-09-19
-Kent State,Ohio State,2026-09-19
 Georgia,Arkansas,2026-09-19
+Kent State,Ohio State,2026-09-19
 Buffalo,Penn State,2026-09-19
 Tulane,Kansas State,2026-09-19
 Bowling Green,Iowa State,2026-09-19
@@ -25,9 +25,9 @@ Florida State,Alabama,2026-09-19
 USC,Rutgers,2026-09-19
 SMU,Louisville,2026-09-19
 Utah State,Utah,2026-09-19
+UTEP,Michigan,2026-09-19
 Miami (OH),Cincinnati,2026-09-19
 Wagner,California,2026-09-19
-UTEP,Michigan,2026-09-19
 Duquesne,Washington State,2026-09-19
 Stonehill,Massachusetts,2026-09-19
 Western Kentucky,Indiana,2026-09-19
@@ -53,12 +53,12 @@ Nevada,Middle Tennessee,2026-09-19
 Ohio,South Alabama,2026-09-19
 Georgia Southern,Jacksonville State,2026-09-19
 Nicholls,Sam Houston,2026-09-19
-Eastern Washington,Washington,2026-09-19
 North Dakota,Nebraska,2026-09-19
+Eastern Washington,Washington,2026-09-19
 Michigan State,Notre Dame,2026-09-19
 LSU,Ole Miss,2026-09-19
-New Mexico,Oklahoma,2026-09-19
 BYU,Colorado State,2026-09-19
+New Mexico,Oklahoma,2026-09-19
 West Virginia,Virginia,2026-09-19
 Colorado,Northwestern,2026-09-19
 Virginia Tech,Maryland,2026-09-19
@@ -126,32 +126,32 @@ Navy,UAB,2026-09-25
 Northwestern,Indiana,2026-09-25
 Clemson,California,2026-09-25
 Harvard,Brown,2026-09-25
-Illinois,Ohio State,2026-09-25
 Oklahoma,Georgia,2026-09-25
 Notre Dame,Purdue,2026-09-25
-Oregon,USC,2026-09-25
+Illinois,Ohio State,2026-09-25
 Texas A&M,LSU,2026-09-25
 Ole Miss,Florida,2026-09-25
 South Carolina,Alabama,2026-09-25
+Oregon,USC,2026-09-25
 Sam Houston,Texas Tech,2026-09-25
 Wisconsin,Penn State,2026-09-25
 Missouri State,SMU,2026-09-25
-Minnesota,Washington,2026-09-25
 Utah,Iowa State,2026-09-25
 Iowa,Michigan,2026-09-25
-Houston,Georgia Southern,2026-09-25
 Missouri,Mississippi State,2026-09-25
-Wake Forest,Louisville,2026-09-25
-Delaware,Virginia,2026-09-25
+Houston,Georgia Southern,2026-09-25
+Wake Forest,Louisville,2026-09-26
+Delaware,Virginia,2026-09-26
 Vanderbilt,Auburn,2026-09-25
 Colorado,Baylor,2026-09-25
 Kansas State,Cincinnati,2026-09-25
 TCU,UCF,2026-09-25
 Oklahoma State,West Virginia,2026-09-25
-Central Arkansas,Florida State,2026-09-25
-Virginia Tech,Boston College,2026-09-25
+Central Arkansas,Florida State,2026-09-26
+Virginia Tech,Boston College,2026-09-26
 UCLA,Maryland,2026-09-25
 Nebraska,Michigan State,2026-09-25
+Minnesota,Washington,2026-09-25
 San Diego State,Toledo,2026-09-25
 Colorado State,UTSA,2026-09-25
 Boise State,Western Michigan,2026-09-25
@@ -163,7 +163,7 @@ South Florida,Bowling Green,2026-09-25
 Air Force,Nevada,2026-09-25
 Northern Illinois,Georgia State,2026-09-25
 UNLV,Akron,2026-09-25
-App State,NC State,2026-09-25
+App State,NC State,2026-09-26
 Ball State,Kent State,2026-09-25
 Massachusetts,Sacramento State,2026-09-25
 James Madison,Old Dominion,2026-09-25
@@ -191,6 +191,7 @@ Tulsa,Arkansas,2026-09-26
 Oregon State,UTEP,2026-09-26
 Rice,Fresno State,2026-09-26
 Georgia Tech,Stanford,2026-09-26
+Central Arkansas,Florida State,2026-09-25
 Norfolk State,Chicago State,2026-09-25
 Southern,Jackson State,2026-09-25
 New Hampshire,Sacred Heart,2026-09-26
@@ -244,19 +245,20 @@ Pittsburgh,Virginia Tech,2026-10-02
 Liberty,Delaware,2026-10-02
 Penn State,Northwestern,2026-10-02
 Montana State,Idaho,2026-10-02
-Ohio State,Iowa,2026-10-02
 Vanderbilt,Georgia,2026-10-02
 Notre Dame,North Carolina,2026-10-02
 Miami,Clemson,2026-10-02
+Ohio State,Iowa,2026-10-02
 Arkansas,Texas A&M,2026-10-02
 Alabama,Mississippi State,2026-10-02
-Texas Tech,Colorado,2026-10-02
-Washington,USC,2026-10-02
 BYU,TCU,2026-10-02
-Boston College,SMU,2026-10-02
+Washington,USC,2026-10-02
+Texas Tech,Colorado,2026-10-02
 Auburn,Tennessee,2026-10-02
-UCF,Houston,2026-10-02
+Boston College,SMU,2026-10-02
+Michigan,Minnesota,2026-10-02
 Florida,Missouri,2026-10-02
+UCF,Houston,2026-10-02
 Louisville,NC State,2026-10-02
 Virginia,Florida State,2026-10-02
 Kentucky,South Carolina,2026-10-02
@@ -266,7 +268,6 @@ Cincinnati,Arizona,2026-10-02
 West Virginia,Iowa State,2026-10-02
 Stanford,Wake Forest,2026-10-02
 Purdue,Illinois,2026-10-02
-Michigan,Minnesota,2026-10-02
 Maryland,Nebraska,2026-10-02
 Michigan State,Wisconsin,2026-10-02
 Memphis,Charlotte,2026-10-02
@@ -364,16 +365,16 @@ Washington State,Utah State,2026-10-09
 Wyoming,San Jose State,2026-10-09
 Iowa State,BYU,2026-10-09
 Columbia,Marist,2026-10-09
-Maryland,Ohio State,2026-10-09
 Georgia,Alabama,2026-10-09
 Indiana,Nebraska,2026-10-09
-UCLA,Oregon,2026-10-09
+Maryland,Ohio State,2026-10-09
 LSU,Kentucky,2026-10-09
 Ole Miss,Vanderbilt,2026-10-09
 Texas A&M,Missouri,2026-10-09
 USC,Penn State,2026-10-09
 Tennessee,Arkansas,2026-10-09
 Kansas,Utah,2026-10-09
+UCLA,Oregon,2026-10-09
 Houston,Kansas State,2026-10-09
 Syracuse,Virginia,2026-10-09
 South Carolina,Florida,2026-10-09
@@ -402,8 +403,8 @@ Coastal Carolina,Marshall,2026-10-09
 James Madison,Georgia Southern,2026-10-09
 Louisiana,Louisiana Tech,2026-10-09
 Tulane,Army,2026-10-10
-Stanford,Notre Dame,2026-10-10
 Texas,Oklahoma,2026-10-10
+Stanford,Notre Dame,2026-10-10
 Tulsa,Navy,2026-10-10
 Eastern Michigan,Akron,2026-10-10
 San Diego State,Oregon State,2026-10-10
@@ -467,22 +468,22 @@ Memphis,Tulane,2026-10-16
 Washington,Purdue,2026-10-16
 App State,Coastal Carolina,2026-10-16
 Columbia,Pennsylvania,2026-10-16
-Ohio State,Indiana,2026-10-16
+Florida,Texas,2026-10-16
 Auburn,Georgia,2026-10-16
 Notre Dame,BYU,2026-10-16
-Florida,Texas,2026-10-16
-Nebraska,Oregon,2026-10-16
+Ohio State,Indiana,2026-10-16
 Florida State,Miami,2026-10-16
 Mississippi State,LSU,2026-10-16
 Missouri,Ole Miss,2026-10-16
-Kentucky,Oklahoma,2026-10-16
 Alabama,Tennessee,2026-10-16
 Arizona State,Texas Tech,2026-10-16
 Penn State,Michigan,2026-10-16
 Virginia,SMU,2026-10-16
 Utah,Colorado,2026-10-16
+Nebraska,Oregon,2026-10-16
 Oklahoma State,Houston,2026-10-16
 Louisville,Syracuse,2026-10-16
+Kentucky,Oklahoma,2026-10-16
 Arkansas,Vanderbilt,2026-10-16
 Cincinnati,West Virginia,2026-10-16
 Kansas,Kansas State,2026-10-16
@@ -589,17 +590,17 @@ North Carolina Central,Delaware State,2026-10-23
 Yale,Pennsylvania,2026-10-23
 Ole Miss,Texas,2026-10-23
 Indiana,Michigan,2026-10-23
-Oregon,Illinois,2026-10-23
 Pittsburgh,Miami,2026-10-23
 Texas A&M,Alabama,2026-10-23
-Oklahoma,Mississippi State,2026-10-23
-Texas Tech,Cincinnati,2026-10-23
-USC,Wisconsin,2026-10-23
 BYU,UCF,2026-10-23
-California,SMU,2026-10-23
+USC,Wisconsin,2026-10-23
+Texas Tech,Cincinnati,2026-10-23
 Tennessee,South Carolina,2026-10-23
+California,SMU,2026-10-23
 Houston,Utah,2026-10-23
 Iowa,Minnesota,2026-10-23
+Oregon,Illinois,2026-10-23
+Oklahoma,Mississippi State,2026-10-23
 Vanderbilt,Kentucky,2026-10-23
 Baylor,Kansas,2026-10-23
 Colorado,Oklahoma State,2026-10-23
@@ -694,22 +695,22 @@ Tulane,Charlotte,2026-10-30
 Baylor,UCF,2026-10-30
 Kent State,Sacramento State,2026-10-30
 Harvard,Dartmouth,2026-10-30
-Ohio State,USC,2026-10-30
 Mississippi State,Texas,2026-10-30
 Minnesota,Indiana,2026-10-30
-Northwestern,Oregon,2026-10-30
 Miami,North Carolina,2026-10-30
+Ohio State,USC,2026-10-30
 Auburn,Ole Miss,2026-10-30
-South Carolina,Oklahoma,2026-10-30
-Arizona,Texas Tech,2026-10-30
 Arizona State,BYU,2026-10-30
+Arizona,Texas Tech,2026-10-30
 Purdue,Penn State,2026-10-30
 SMU,Syracuse,2026-10-30
-Washington,Nebraska,2026-10-30
 Utah,Cincinnati,2026-10-30
 Wisconsin,Iowa,2026-10-30
+Michigan,Rutgers,2026-10-30
 Missouri,Arkansas,2026-10-30
+Northwestern,Oregon,2026-10-30
 Stanford,Louisville,2026-10-30
+South Carolina,Oklahoma,2026-10-30
 Virginia,Wake Forest,2026-10-30
 Kansas,TCU,2026-10-30
 Kansas State,Colorado,2026-10-30
@@ -719,7 +720,7 @@ Boston College,Duke,2026-10-30
 Clemson,Florida State,2026-10-30
 Georgia Tech,Pittsburgh,2026-10-30
 Illinois,Maryland,2026-10-30
-Michigan,Rutgers,2026-10-30
+Washington,Nebraska,2026-10-30
 Nevada,UCLA,2026-10-30
 Oregon State,Fresno State,2026-10-30
 Army,Memphis,2026-10-30
@@ -809,19 +810,20 @@ South Florida,East Carolina,2026-11-06
 Nebraska,Illinois,2026-11-06
 New Mexico,Nevada,2026-11-06
 TCU,Arizona,2026-11-06
-Oregon,Ohio State,2026-11-06
-Georgia,Ole Miss,2026-11-06
 Texas,Missouri,2026-11-06
+Georgia,Ole Miss,2026-11-06
+Oregon,Ohio State,2026-11-06
 Alabama,LSU,2026-11-06
 Texas A&M,South Carolina,2026-11-06
-Oklahoma,Florida,2026-11-06
-West Virginia,Texas Tech,2026-11-06
 BYU,Utah,2026-11-06
+West Virginia,Texas Tech,2026-11-06
 Penn State,Washington,2026-11-06
 Kentucky,Tennessee,2026-11-06
 Iowa,Northwestern,2026-11-06
+Michigan State,Michigan,2026-11-06
 Cincinnati,Houston,2026-11-06
 Louisville,Georgia Tech,2026-11-06
+Oklahoma,Florida,2026-11-06
 Arkansas,Auburn,2026-11-06
 Vanderbilt,Mississippi State,2026-11-06
 UCF,Kansas,2026-11-06
@@ -832,7 +834,6 @@ Clemson,Syracuse,2026-11-06
 Duke,NC State,2026-11-06
 Florida State,Boston College,2026-11-06
 Merrimack,Wake Forest,2026-11-06
-Michigan State,Michigan,2026-11-06
 UCLA,Minnesota,2026-11-06
 Maryland,Purdue,2026-11-06
 Rutgers,Wisconsin,2026-11-06
@@ -931,22 +932,21 @@ Florida State,Pittsburgh,2026-11-13
 Illinois,UCLA,2026-11-13
 Houston,Colorado,2026-11-13
 Southern Utah,Portland State,2026-11-13
-Northwestern,Ohio State,2026-11-13
-Missouri,Georgia,2026-11-13
 Texas,LSU,2026-11-13
+Missouri,Georgia,2026-11-13
 USC,Indiana,2026-11-13
-Michigan,Oregon,2026-11-13
 Duke,Miami,2026-11-13
+Northwestern,Ohio State,2026-11-13
 Ole Miss,Oklahoma,2026-11-13
 Tennessee,Texas A&M,2026-11-13
 Alabama,Vanderbilt,2026-11-13
-Texas Tech,Oklahoma State,2026-11-13
 Baylor,BYU,2026-11-13
+Texas Tech,Oklahoma State,2026-11-13
 Minnesota,Penn State,2026-11-13
 Wake Forest,SMU,2026-11-13
-Washington,Michigan State,2026-11-13
 Utah,Arizona,2026-11-13
 Purdue,Iowa,2026-11-13
+Michigan,Oregon,2026-11-13
 Louisville,North Carolina,2026-11-13
 California,Virginia,2026-11-13
 Arizona State,UCF,2026-11-13
@@ -960,6 +960,7 @@ Georgia Tech,Clemson,2026-11-13
 Stanford,Virginia Tech,2026-11-13
 Syracuse,NC State,2026-11-13
 Wisconsin,Maryland,2026-11-13
+Washington,Michigan State,2026-11-13
 Nebraska,Rutgers,2026-11-13
 East Carolina,Charlotte,2026-11-13
 Florida Atlantic,Tulsa,2026-11-13
@@ -1061,21 +1062,22 @@ Clemson,Duke,2026-11-20
 Bowling Green,Toledo,2026-11-20
 Oregon,Michigan State,2026-11-20
 UTEP,Air Force,2026-11-20
-Ohio State,Nebraska,2026-11-20
-Georgia,South Carolina,2026-11-20
 Arkansas,Texas,2026-11-20
+Georgia,South Carolina,2026-11-20
 Indiana,Washington,2026-11-20
 Virginia Tech,Miami,2026-11-20
+Ohio State,Nebraska,2026-11-20
 LSU,Tennessee,2026-11-20
 Texas A&M,Oklahoma,2026-11-20
-Texas Tech,Baylor,2026-11-20
-Maryland,USC,2026-11-20
 BYU,Kansas,2026-11-20
+Maryland,USC,2026-11-20
+Texas Tech,Baylor,2026-11-20
 Rutgers,Penn State,2026-11-20
 Utah,TCU,2026-11-20
 Iowa,Illinois,2026-11-20
-Houston,West Virginia,2026-11-20
+UCLA,Michigan,2026-11-20
 Kentucky,Missouri,2026-11-20
+Houston,West Virginia,2026-11-20
 Pittsburgh,Louisville,2026-11-20
 North Carolina,Virginia,2026-11-20
 Vanderbilt,Florida,2026-11-20
@@ -1086,7 +1088,6 @@ NC State,Florida State,2026-11-20
 Stanford,California,2026-11-20
 Syracuse,Boston College,2026-11-20
 Wake Forest,Georgia Tech,2026-11-20
-UCLA,Michigan,2026-11-20
 Northwestern,Minnesota,2026-11-20
 Wisconsin,Purdue,2026-11-20
 Charlotte,Tulsa,2026-11-20
@@ -1196,16 +1197,16 @@ West Virginia,Utah,2026-11-27
 Georgia Tech,Georgia,2026-11-27
 Notre Dame,Syracuse,2026-11-27
 Purdue,Indiana,2026-11-27
-Washington,Oregon,2026-11-27
 Boston College,Miami,2026-11-27
 LSU,Arkansas,2026-11-27
-Oklahoma,Missouri,2026-11-27
 Auburn,Alabama,2026-11-27
-USC,UCLA,2026-11-27
 Cincinnati,BYU,2026-11-27
+USC,UCLA,2026-11-27
 Penn State,Maryland,2026-11-27
-SMU,Stanford,2026-11-27
 Tennessee,Vanderbilt,2026-11-27
+SMU,Stanford,2026-11-27
+Oklahoma,Missouri,2026-11-27
+Washington,Oregon,2026-11-27
 Baylor,Houston,2026-11-27
 Louisville,Kentucky,2026-11-27
 Virginia,Virginia Tech,2026-11-27
