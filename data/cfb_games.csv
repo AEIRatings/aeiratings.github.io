@@ -1,120 +1,4 @@
 away team,home team,game date (Pacific)
-Coastal Carolina,Delaware,2026-09-19
-Georgia,Arkansas,2026-09-19
-Kent State,Ohio State,2026-09-19
-Buffalo,Penn State,2026-09-19
-Tulane,Kansas State,2026-09-19
-Bowling Green,Iowa State,2026-09-19
-Arizona State,Kansas,2026-09-19
-Mercer,Georgia Tech,2026-09-19
-North Carolina,Clemson,2026-09-19
-Akron,Minnesota,2026-09-19
-North Texas,Texas State,2026-09-19
-Eastern Michigan,Wisconsin,2026-09-19
-NC State,Vanderbilt,2026-09-19
-Wyoming,Central Michigan,2026-09-19
-Maine,Boston College,2026-09-19
-Southern Illinois,Illinois,2026-09-19
-Temple,Toledo,2026-09-19
-Kentucky,Texas A&M,2026-09-19
-Florida State,Alabama,2026-09-19
-USC,Rutgers,2026-09-19
-SMU,Louisville,2026-09-19
-Utah State,Utah,2026-09-19
-UTEP,Michigan,2026-09-19
-Miami (OH),Cincinnati,2026-09-19
-Wagner,California,2026-09-19
-Duquesne,Washington State,2026-09-19
-Stonehill,Massachusetts,2026-09-19
-Western Kentucky,Indiana,2026-09-19
-Northern Iowa,Iowa,2026-09-19
-Stanford,Duke,2026-09-19
-Ball State,Liberty,2026-09-19
-Louisiana Tech,Baylor,2026-09-19
-Mississippi State,South Carolina,2026-09-19
-SE Louisiana,UL Monroe,2026-09-19
-East Carolina,Old Dominion,2026-09-19
-Florida International,Florida Atlantic,2026-09-19
-Charlotte,App State,2026-09-19
-Marshall,Missouri State,2026-09-19
-Troy,Missouri,2026-09-19
-Florida,Auburn,2026-09-19
-Georgia State,UCF,2026-09-19
-Murray State,Oklahoma State,2026-09-19
-UConn,Southern Miss,2026-09-19
-UT Martin,Memphis,2026-09-19
-Western Michigan,Rice,2026-09-19
-Delaware State,South Florida,2026-09-19
-Nevada,Middle Tennessee,2026-09-19
-Ohio,South Alabama,2026-09-19
-Georgia Southern,Jacksonville State,2026-09-19
-Nicholls,Sam Houston,2026-09-19
-North Dakota,Nebraska,2026-09-19
-Eastern Washington,Washington,2026-09-19
-Michigan State,Notre Dame,2026-09-19
-LSU,Ole Miss,2026-09-19
-BYU,Colorado State,2026-09-19
-New Mexico,Oklahoma,2026-09-19
-West Virginia,Virginia,2026-09-19
-Colorado,Northwestern,2026-09-19
-Virginia Tech,Maryland,2026-09-19
-Kennesaw State,Tennessee,2026-09-19
-UTSA,Texas,2026-09-19
-Arkansas State,TCU,2026-09-19
-East Texas A&M,Tulsa,2026-09-19
-UAB,Louisiana,2026-09-19
-South Dakota,Boise State,2026-09-19
-James Madison,San Diego State,2026-09-19
-Northern Illinois,Arizona,2026-09-19
-North Dakota State,Sacramento State,2026-09-19
-Purdue,UCLA,2026-09-19
-Montana,Oregon State,2026-09-19
-Fresno State,San Jose State,2026-09-19
-Brown,New Haven,2026-09-19
-Lafayette,Columbia,2026-09-19
-Dartmouth,Lehigh,2026-09-19
-Villanova,Long Island University,2026-09-19
-West Georgia,East Tennessee State,2026-09-19
-Princeton,Bryant,2026-09-19
-Harvard,New Hampshire,2026-09-19
-Chicago State,Butler,2026-09-19
-Cornell,Colgate,2026-09-19
-Valparaiso,Indiana State,2026-09-19
-VMI,Davidson,2026-09-19
-Yale,Holy Cross,2026-09-19
-Rhode Island,Stony Brook,2026-09-19
-Presbyterian,Western Carolina,2026-09-19
-Eastern Illinois,Illinois State,2026-09-19
-Central Connecticut,Montana State,2026-09-19
-Pennsylvania,Bucknell,2026-09-19
-Monmouth,UAlbany,2026-09-19
-Georgetown,Richmond,2026-09-19
-Hampton,Norfolk State,2026-09-19
-Abilene Christian,Idaho,2026-09-19
-Virginia,Bethune-Cookman,2026-09-19
-North Carolina A&T,Campbell,2026-09-19
-Sacred Heart,Elon,2026-09-19
-Morgan State,Towson,2026-09-19
-North Carolina Central,Gardner-Webb,2026-09-19
-Fordham,William & Mary,2026-09-19
-Dayton,Eastern Kentucky,2026-09-19
-Wofford,Chattanooga,2026-09-19
-Youngstown State,South Dakota State,2026-09-19
-South Carolina State,Furman,2026-09-19
-Austin Peay,West Florida,2026-09-19
-Central Arkansas,Southeast Missouri State,2026-09-19
-Alcorn State,North Alabama,2026-09-19
-Tennessee State,Florida A&M,2026-09-19
-Morehead State,Western Illinois,2026-09-19
-Merrimack,Tarleton State,2026-09-19
-Louisiana,Southern,2026-09-19
-Houston Christian,Incarnate Word,2026-09-19
-San Diego,Cal Poly,2026-09-19
-Northern Arizona,Utah Tech,2026-09-19
-Northwestern State,Weber State,2026-09-19
-McNeese,UT Rio Grande Valley,2026-09-19
-Stephen F. Austin,Prairie View A&M,2026-09-19
-Stetson,UC Davis,2026-09-19
 Liberty,Coastal Carolina,2026-09-24
 Army,Temple,2026-09-25
 Howard,Rutgers,2026-09-25
@@ -122,8 +6,6 @@ Navy,UAB,2026-09-25
 Northwestern,Indiana,2026-09-25
 Clemson,California,2026-09-25
 Harvard,Brown,2026-09-25
-Houston,Georgia Southern,2026-09-25
-Boise State,Western Michigan,2026-09-25
 Texas,Tennessee,2026-09-26
 Illinois,Ohio State,2026-09-26
 Sam Houston,Texas Tech,2026-09-26
@@ -148,11 +30,13 @@ Utah,Iowa State,2026-09-26
 Iowa,Michigan,2026-09-26
 TCU,UCF,2026-09-26
 William & Mary,Duke,2026-09-26
+Boise State,Western Michigan,2026-09-26
 UConn,Miami (OH),2026-09-26
 New Mexico,New Mexico State,2026-09-26
 Robert Morris,Buffalo,2026-09-26
 Stonehill,Ohio,2026-09-26
 Gardner-Webb,Marshall,2026-09-26
+Houston,Georgia Southern,2026-09-26
 North Carolina Central,East Carolina,2026-09-26
 Vanderbilt,Auburn,2026-09-26
 Wisconsin,Penn State,2026-09-26
