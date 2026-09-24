@@ -1,19 +1,4 @@
 away team,home team,game date (Pacific)
-Texas A&M-Corpus Christi Islanders,Nicholls Colonels,2026-09-23
-Seton Hall Pirates,St. John's Red Storm,2026-09-23
-New Hampshire Wildcats,Dartmouth Big Green,2026-09-23
-Charlotte 49ers,East Carolina Pirates,2026-09-23
-Temple Owls,Fairleigh Dickinson Knights,2026-09-23
-Akron Zips,Kent State Golden Flashes,2026-09-23
-New Haven Chargers,Marist Red Foxes,2026-09-23
-Long Island University Sharks,Saint Peter's Peacocks,2026-09-23
-Jacksonville Dolphins,Florida Gators,2026-09-23
-Missouri Tigers,Nebraska Cornhuskers,2026-09-23
-South Carolina Gamecocks,Georgia Bulldogs,2026-09-23
-UT Rio Grande Valley Vaqueros,McNeese Cowboys,2026-09-23
-Miami Hurricanes,Florida State Seminoles,2026-09-23
-Alabama Crimson Tide,LSU Tigers,2026-09-23
-Kentucky Wildcats,Vanderbilt Commodores,2026-09-23
 Kansas State Wildcats,UCF Knights,2026-09-24
 Elon Phoenix,Hampton Pirates,2026-09-24
 Miami (OH) RedHawks,Bowling Green Falcons,2026-09-24
@@ -323,9 +308,9 @@ Rider Broncs,Saint Peter's Peacocks,2026-09-29
 Central Michigan Chippewas,Western Michigan Broncos,2026-09-29
 Loyola Maryland Greyhounds,Coppin State Eagles,2026-09-29
 North Alabama Lions,West Georgia Wolves,2026-09-29
-Marist Red Foxes,Siena Saints,2026-09-29
 Green Bay Phoenix,Milwaukee Panthers,2026-09-29
 Fairfield Stags,Sacred Heart Pioneers,2026-09-29
+Marist Red Foxes,Siena Saints,2026-09-29
 Southern Utah Thunderbirds,Utah Tech Trailblazers,2026-09-29
 Norfolk State Spartans,Hampton Pirates,2026-09-30
 Stonehill Skyhawks,New Hampshire Wildcats,2026-09-30
@@ -1648,7 +1633,6 @@ Texas Longhorns,South Carolina Gamecocks,2026-10-25
 Ole Miss Rebels,Florida Gators,2026-10-25
 Northwestern Wildcats,Purdue Boilermakers,2026-10-25
 Vanderbilt Commodores,Tennessee Volunteers,2026-10-25
-Kansas Jayhawks,Baylor Bears,2026-10-25
 Virginia Cavaliers,Boston College Eagles,2026-10-25
 California Golden Bears,Duke Blue Devils,2026-10-25
 New Hampshire Wildcats,Binghamton Bearcats,2026-10-25
@@ -1676,6 +1660,7 @@ Belmont Bruins,Illinois State Redbirds,2026-10-25
 Stony Brook Seawolves,Northeastern Huskies,2026-10-25
 Lafayette Leopards,Bucknell Bison,2026-10-25
 Penn State Nittany Lions,Indiana Hoosiers,2026-10-25
+Kansas Jayhawks,Baylor Bears,2026-10-25
 Colorado Buffaloes,Utah Utes,2026-10-25
 LSU Tigers,Auburn Tigers,2026-10-25
 Arkansas Razorbacks,Mississippi State Bulldogs,2026-10-25
