@@ -1,7 +1,7 @@
 Team,Elo,Conference,Notes,RatingUpdated
 Boston College,995.445491011708,ACC,,False
-California,1008.4667270551282,ACC,,False
-Clemson,1014.8963926016512,ACC,,False
+California,989.9168007317217,ACC,,True
+Clemson,1033.4463189250578,ACC,,True
 Duke,1053.7051359611091,ACC,,False
 Florida State,991.9540257181018,ACC,,False
 Georgia Tech,986.5593483554568,ACC,,False
@@ -16,34 +16,34 @@ Syracuse,988.3351204511068,ACC,,False
 Virginia,1021.7168581112307,ACC,,False
 Virginia Tech,1060.8139205343698,ACC,,False
 Wake Forest,1015.9849799608252,ACC,,False
-Army,1005.0885332909608,American,,False
+Army,1015.5964288858446,American,,True
 Charlotte,940.4180167505116,American,,False
 East Carolina,978.8548789073822,American,,False
 Florida Atlantic,1004.5948776981866,American,,False
 Memphis,1016.6788445679704,American,,False
-Navy,991.8357982038316,American,,False
+Navy,978.1564410830279,American,,True
 North Texas,980.8578504111896,American,,False
 Rice,970.7299369148708,American,,False
 South Florida,1046.502363135727,American,,False
-Temple,995.4610742682612,American,,False
+Temple,984.9531786733774,American,,True
 Tulane,983.2801256333958,American,,False
 Tulsa,1045.8002056714367,American,,False
-UAB,976.2121182121144,American,,False
+UAB,989.8914753329182,American,,True
 UTSA,1000.1484250539128,American,,False
 Illinois,1023.5770169710756,Big 10,,False
-Indiana,1067.9568145124265,Big 10,,False
+Indiana,1076.9336712882894,Big 10,,True
 Iowa,1054.788290733925,Big 10,,False
 Maryland,1026.082981695744,Big 10,,False
 Michigan,1042.491954731987,Big 10,,False
 Michigan State,1021.8232122539112,Big 10,,False
 Minnesota,1023.2240527704728,Big 10,,False
 Nebraska,1064.4826800401104,Big 10,,False
-Northwestern,1041.9372132406625,Big 10,,False
+Northwestern,1032.9603564647996,Big 10,,True
 Ohio State,1063.8297261584842,Big 10,,False
 Oregon,1016.7349503069908,Big 10,,False
 Penn State,1074.4267816956967,Big 10,,False
 Purdue,990.01151110026,Big 10,,False
-Rutgers,956.5290589023562,Big 10,,False
+Rutgers,975.1000354362798,Big 10,,True
 UCLA,1057.7475441089086,Big 10,,False
 USC,1072.4065085568343,Big 10,,False
 Washington,1034.837839760835,Big 10,,False
@@ -94,7 +94,7 @@ Delaware,1013.5413966512506,CUSA,,False
 Florida International,989.4439218787032,CUSA,,False
 Jacksonville State,993.360209892208,CUSA,,False
 Kennesaw State,972.8201955056448,CUSA,,False
-Liberty,1027.6908547135145,CUSA,,True
+Liberty,1027.6908547135145,CUSA,,False
 Middle Tennessee,1010.997052012974,CUSA,,False
 Missouri State,964.824018499188,CUSA,,False
 New Mexico State,972.2835828380748,CUSA,,False
@@ -104,11 +104,11 @@ Notre Dame,1075.2117011788184,FBS Independent,,False
 UConn,1017.3568629913595,FBS Independent,,False
 Chicago State,643.2773633902855,FCS Independent,,False
 Merrimack,662.1701940438236,FCS Independent,,False
-Brown,711.3798012187631,Ivy League,,False
+Brown,700.3665401670377,Ivy League,,True
 Columbia,711.9330363365043,Ivy League,,False
 Cornell,685.0589179504841,Ivy League,,False
 Dartmouth,693.9225433998057,Ivy League,,False
-Harvard,722.3335956776742,Ivy League,,False
+Harvard,733.3468567293996,Ivy League,,True
 Pennsylvania,717.6267725971869,Ivy League,,False
 Princeton,689.0011468920486,Ivy League,,False
 Yale,712.9630006874553,Ivy League,,False
@@ -126,7 +126,7 @@ Sacramento State,946.7091464856928,MAC,,False
 Toledo,999.3458211061932,MAC,,False
 Western Michigan,1025.7874021856958,MAC,,False
 Delaware State,683.7227982571285,MEAC,,False
-Howard,683.6595194694577,MEAC,,False
+Howard,665.0885429355341,MEAC,,True
 Morgan State,715.0322879348356,MEAC,,False
 Norfolk State,691.8686697550332,MEAC,,False
 North Carolina Central,666.3253402681407,MEAC,,False
@@ -233,7 +233,7 @@ Stephen F. Austin,779.239889077362,Southland,,False
 UT Rio Grande Valley,700.2857626770756,Southland,,False
 App State,1030.947491855441,Sun Belt,,False
 Arkansas State,975.5505483668538,Sun Belt,,False
-Coastal Carolina,966.5711363050754,Sun Belt,,True
+Coastal Carolina,966.5711363050754,Sun Belt,,False
 Georgia Southern,974.6549111182644,Sun Belt,,False
 Georgia State,1014.7027384881152,Sun Belt,,False
 James Madison,1051.0376847477569,Sun Belt,,False
