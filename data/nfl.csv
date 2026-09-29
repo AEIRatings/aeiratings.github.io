@@ -1,33 +1,33 @@
 Team,Elo,Division,Notes,RatingUpdated
 Buffalo Bills,1000.0,AFC East,,False
 Miami Dolphins,1000.0,AFC East,,False
-New England Patriots,962.1223936895482,AFC East,,True
-New York Jets,976.7293633766088,AFC East,,True
-Baltimore Ravens,995.8544816840858,AFC North,,True
+New England Patriots,962.1223936895482,AFC East,,False
+New York Jets,976.7293633766088,AFC East,,False
+Baltimore Ravens,995.8544816840858,AFC North,,False
 Cincinnati Bengals,1000.0,AFC North,,False
 Cleveland Browns,1000.0,AFC North,,False
 Pittsburgh Steelers,1000.0,AFC North,,False
 Houston Texans,1000.0,AFC South,,False
 Indianapolis Colts,1000.0,AFC South,,False
-Jacksonville Jaguars,1014.8088768757299,AFC South,,True
+Jacksonville Jaguars,1014.80887687573,AFC South,,False
 Tennessee Titans,1000.0,AFC South,,False
-Denver Broncos,1022.4425505855801,AFC West,,True
+Denver Broncos,1022.44255058558,AFC West,,False
 Kansas City Chiefs,1000.0,AFC West,,False
-Las Vegas Raiders,1034.8801102147418,AFC West,,True
+Las Vegas Raiders,1034.8801102147418,AFC West,,False
 Los Angeles Chargers,980.4221521560912,AFC West,,False
-Dallas Cowboys,973.083551636401,NFC East,,True
+Dallas Cowboys,973.083551636401,NFC East,,False
 New York Giants,985.0699230419992,NFC East,,False
-Philadelphia Eagles,1000.0,NFC East,,False
+Philadelphia Eagles,981.4796315907244,NFC East,,True
 Washington Commanders,1000.0,NFC East,,False
-Chicago Bears,1024.8790866148704,NFC North,,False
-Detroit Lions,1011.3369690110184,NFC North,,True
+Chicago Bears,1043.399455024146,NFC North,,True
+Detroit Lions,1011.3369690110184,NFC North,,False
 Green Bay Packers,980.7354560759244,NFC North,,False
 Minnesota Vikings,1000.0,NFC North,,False
 Atlanta Falcons,997.5702069247128,NFC South,,False
 Carolina Panthers,1008.7489179968652,NFC South,,False
-New Orleans Saints,1000.6641203574194,NFC South,,True
+New Orleans Saints,1000.6641203574194,NFC South,,False
 Tampa Bay Buccaneers,1000.0,NFC South,,False
 Arizona Cardinals,1000.0,NFC West,,False
-Los Angeles Rams,997.7858889782517,NFC West,,True
+Los Angeles Rams,997.7858889782516,NFC West,,False
 San Francisco 49ers,1023.9464337482444,NFC West,,False
 Seattle Seahawks,1008.9195170319074,NFC West,,False
