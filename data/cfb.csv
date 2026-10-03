@@ -9,12 +9,12 @@ Louisville,1014.2516031147296,ACC,,False
 Miami,1096.0075293879177,ACC,,False
 NC State,1013.0642264463092,ACC,,False
 North Carolina,1007.793535554454,ACC,,False
-Pittsburgh,1074.1235752185569,ACC,,False
+Pittsburgh,1083.1054656502572,ACC,,True
 SMU,1023.266850493734,ACC,,False
 Stanford,979.5053146445794,ACC,,False
 Syracuse,988.3351204511068,ACC,,False
 Virginia,1049.7774703324335,ACC,,False
-Virginia Tech,1070.1554091120772,ACC,,False
+Virginia Tech,1061.173518680377,ACC,,True
 Wake Forest,1030.9710348914386,ACC,,False
 Army,1015.5964288858446,American,,False
 Charlotte,921.4810598444178,American,,False
@@ -22,12 +22,12 @@ East Carolina,993.0186762107172,American,,False
 Florida Atlantic,1023.2432905822992,American,,False
 Memphis,1016.6788445679704,American,,False
 Navy,978.156441083028,American,,False
-North Texas,1010.0116096750459,American,,True
+North Texas,1010.011609675046,American,,False
 Rice,957.564286616516,American,,False
 South Florida,1054.0955572701596,American,,False
 Temple,984.9531786733774,American,,False
 Tulane,988.6749045947796,American,,False
-Tulsa,996.9755066436193,American,,True
+Tulsa,996.9755066436192,American,,False
 UAB,989.8914753329182,American,,False
 UTSA,1022.9248782591736,American,,False
 Illinois,1005.0062016405144,Big 10,,False
@@ -38,10 +38,10 @@ Michigan,1036.4930390934403,Big 10,,False
 Michigan State,1005.0499567222284,Big 10,,False
 Minnesota,1038.0418992153914,Big 10,,False
 Nebraska,1081.255935571793,Big 10,,False
-Northwestern,1032.9603564647996,Big 10,,False
+Northwestern,1060.906653942889,Big 10,,True
 Ohio State,1082.4005414890455,Big 10,,False
 Oregon,1044.8897313056748,Big 10,,False
-Penn State,1054.9695587899578,Big 10,,False
+Penn State,1027.0232613118683,Big 10,,True
 Purdue,968.7466451284762,Big 10,,False
 Rutgers,975.1000354362798,Big 10,,False
 UCLA,1086.564674511547,Big 10,,False
@@ -66,10 +66,10 @@ Utah,1078.8003027278532,Big 12,,False
 West Virginia,1025.0008717943772,Big 12,,False
 Cal Poly,698.4636839817898,Big Sky,,False
 Eastern Washington,663.3144291637365,Big Sky,,False
-Idaho,648.5875834496768,Big Sky,,False
+Idaho,652.8475191366554,Big Sky,,True
 Idaho State,803.3365572579896,Big Sky,,False
 Montana,774.4237658144825,Big Sky,,False
-Montana State,825.3439765809424,Big Sky,,False
+Montana State,821.0840408939638,Big Sky,,True
 Northern Arizona,717.4145915991893,Big Sky,,False
 Northern Colorado,688.3758934090671,Big Sky,,False
 Portland State,646.441265029593,Big Sky,,False
@@ -90,16 +90,16 @@ Sacred Heart,677.1939363464021,CAA,,False
 Stony Brook,739.0097078356318,CAA,,False
 Towson,635.7502498403423,CAA,,False
 UAlbany,685.8313427974679,CAA,,False
-Delaware,985.4807844300478,CUSA,,False
+Delaware,969.487072846131,CUSA,,True
 Florida International,998.782133600999,CUSA,,False
 Jacksonville State,1013.72383772463,CUSA,,False
 Kennesaw State,964.9274258721,CUSA,,False
-Liberty,1027.6908547135145,CUSA,,False
+Liberty,1043.6845662974313,CUSA,,True
 Middle Tennessee,990.633424180552,CUSA,,False
 Missouri State,953.4030917102756,CUSA,,False
-New Mexico State,974.1003039832619,CUSA,,True
+New Mexico State,974.100303983262,CUSA,,False
 Sam Houston,976.7968063978494,CUSA,,False
-Western Kentucky,920.5040933447432,CUSA,,True
+Western Kentucky,920.5040933447432,CUSA,,False
 Notre Dame,1096.4765671506022,FBS Independent,,False
 UConn,1003.7841404678176,FBS Independent,,False
 Chicago State,623.3476068667089,FCS Independent,,False
