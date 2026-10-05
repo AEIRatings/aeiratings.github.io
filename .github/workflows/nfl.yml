@@ -89,4 +89,3 @@ jobs:
           # FIX: Only commit data/nfl.csv, resolving the 'pathspec did not match' error
           file_pattern: data/nfl.csv
           commit_author: 'GitHub Actions Bot <action@github.com>'
-          skip_dirty_check: true
