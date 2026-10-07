@@ -1,18 +1,4 @@
 away team,home team,game date (Pacific)
-VCU Rams,Davidson Wildcats,2026-10-06
-Duquesne Dukes,Dayton Flyers,2026-10-06
-Bryant Bulldogs,Holy Cross Crusaders,2026-10-06
-High Point Panthers,Charleston Cougars,2026-10-06
-Robert Morris Colonials,Youngstown State Penguins,2026-10-06
-Miami (OH) RedHawks,Ball State Cardinals,2026-10-06
-Austin Peay Governors,Eastern Kentucky Colonels,2026-10-06
-UNC Greensboro Spartans,East Tennessee State Buccaneers,2026-10-06
-Furman Paladins,The Citadel Bulldogs,2026-10-06
-Western Carolina Catamounts,Wofford Terriers,2026-10-06
-Bradley Braves,Illinois State Redbirds,2026-10-06
-Chattanooga Mocs,Tennessee Tech Golden Eagles,2026-10-06
-Mercer Bears,Samford Bulldogs,2026-10-06
-Idaho Vandals,Eastern Washington Eagles,2026-10-06
 Fordham Rams,Rhode Island Rams,2026-10-07
 East Carolina Pirates,Charlotte 49ers,2026-10-07
 George Washington Revolutionaries,George Mason Patriots,2026-10-07
@@ -67,6 +53,7 @@ Boise State Broncos,Utah State Aggies,2026-10-08
 Seattle U Redhawks,Saint Mary's Gaels,2026-10-08
 Loyola Marymount Lions,San Diego Toreros,2026-10-08
 Montana Grizzlies,Portland State Vikings,2026-10-08
+James Madison Dukes,Marshall Thundering Herd,2026-10-09
 Stanford Cardinal,Notre Dame Fighting Irish,2026-10-09
 St. John's Red Storm,UConn Huskies,2026-10-09
 Seton Hall Pirates,Providence Friars,2026-10-09
@@ -111,7 +98,6 @@ South Carolina State Bulldogs,Norfolk State Spartans,2026-10-09
 Georgia Southern Eagles,App State Mountaineers,2026-10-09
 Coastal Carolina Chanticleers,Old Dominion Monarchs,2026-10-09
 New Haven Chargers,Le Moyne Dolphins,2026-10-09
-James Madison Dukes,Marshall Thundering Herd,2026-10-09
 Mercyhurst Lakers,Stonehill Skyhawks,2026-10-09
 East Tennessee State Buccaneers,Chattanooga Mocs,2026-10-09
 Furman Paladins,Western Carolina Catamounts,2026-10-09
@@ -418,7 +404,6 @@ Cal State Fullerton Titans,Sacramento State Hornets,2026-10-15
 Middle Tennessee Blue Raiders,Western Kentucky Hilltoppers,2026-10-16
 Charleston Cougars,Stony Brook Seawolves,2026-10-16
 Jackson State Tigers,Alabama A&M Bulldogs,2026-10-16
-VCU Rams,George Mason Patriots,2026-10-16
 Duquesne Dukes,Rhode Island Rams,2026-10-16
 DePaul Blue Demons,Seton Hall Pirates,2026-10-16
 Tennessee State Tigers,Eastern Illinois Panthers,2026-10-16
@@ -428,6 +413,7 @@ Florida Gulf Coast Eagles,Jacksonville Dolphins,2026-10-16
 Stetson Hatters,North Florida Ospreys,2026-10-16
 Cincinnati Bearcats,West Virginia Mountaineers,2026-10-16
 Saint Louis Billikens,Fordham Rams,2026-10-16
+VCU Rams,George Mason Patriots,2026-10-16
 Virginia Cavaliers,Virginia Tech Hokies,2026-10-16
 Creighton Bluejays,Villanova Wildcats,2026-10-16
 Providence Friars,Xavier Musketeers,2026-10-16
@@ -1311,6 +1297,7 @@ Buffalo Bulls,Central Michigan Chippewas,2026-10-31
 Valparaiso VALPARAISO,Bradley Braves,2026-10-31
 Drake Bulldogs,Murray State Racers,2026-10-31
 American University Eagles,Lafayette Leopards,2026-10-31
+Cal State Northridge Matadors,Long Beach State 49ers,2026-10-31
 Indiana Hoosiers,Michigan Wolverines,2026-10-31
 George Washington Revolutionaries,Rhode Island Rams,2026-10-31
 Seton Hall Pirates,Butler Bulldogs,2026-10-31
@@ -1323,7 +1310,6 @@ Cal Poly Mustangs,UC San Diego Tritons,2026-10-31
 UC Santa Barbara Gauchos,UC Irvine Anteaters,2026-10-31
 Rutgers Scarlet Knights,Northwestern Wildcats,2026-10-31
 Montana Grizzlies,Southern Utah Thunderbirds,2026-10-31
-Cal State Northridge Matadors,Long Beach State 49ers,2026-10-31
 Sacramento State Hornets,California Baptist Lancers,2026-10-31
 Hawai'i Rainbow Warriors,UC Davis Aggies,2026-10-31
 UTEP Miners,San José State Spartans,2026-10-31
@@ -2169,8 +2155,8 @@ San Diego Toreros,San Francisco Dons,2026-11-25
 TCU Horned Frogs,Utah Utes,2026-11-25
 Kansas State Wildcats,Arizona State Sun Devils,2026-11-25
 Kansas Jayhawks,Arizona Wildcats,2026-11-25
-Baylor Bears,Cincinnati Bearcats,2026-11-27
 North Carolina Tar Heels,Miami Hurricanes,2026-11-27
+Baylor Bears,Cincinnati Bearcats,2026-11-27
 Utah Utes,UCF Knights,2026-11-27
 Iowa State Cyclones,Colorado Buffaloes,2026-11-27
 Clemson Tigers,Wake Forest Demon Deacons,2026-11-27
