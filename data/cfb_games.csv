@@ -1,6 +1,4 @@
 away team,home team,game date (Pacific)
-Jacksonville State,Kennesaw State,2026-10-07
-New Mexico State,Florida International,2026-10-07
 Sam Houston,Liberty,2026-10-08
 Missouri State,Western Kentucky,2026-10-08
 South Florida,UTSA,2026-10-08
@@ -10,6 +8,7 @@ Iowa,Washington,2026-10-09
 Washington State,Utah State,2026-10-09
 Wyoming,San Jose State,2026-10-09
 Iowa State,BYU,2026-10-09
+Florida A&M,Alabama State,2026-10-09
 Columbia,Marist,2026-10-09
 Indiana,Nebraska,2026-10-10
 Texas A&M,Missouri,2026-10-10
@@ -54,9 +53,9 @@ Air Force,Northern Illinois,2026-10-10
 James Madison,Georgia Southern,2026-10-10
 Louisiana,Louisiana Tech,2026-10-10
 Minnesota,Purdue,2026-10-10
-Hawai'i,Arizona State,2026-10-10
 Kansas,Utah,2026-10-10
 Boise State,Fresno State,2026-10-10
+Hawai'i,Arizona State,2026-10-10
 New Hampshire,North Carolina A&T,2026-10-10
 Stonehill,Sacred Heart,2026-10-10
 Bryant,Brown,2026-10-10
@@ -64,6 +63,7 @@ Dartmouth,Yale,2026-10-10
 Robert Morris,Morgan State,2026-10-10
 Princeton,Wagner,2026-10-10
 Morehead State,Dayton,2026-10-10
+South Carolina State,Charleston Southern,2026-10-10
 Bucknell,Georgetown,2026-10-10
 Harvard,Cornell,2026-10-10
 Youngstown State,Indiana State,2026-10-10
@@ -89,13 +89,11 @@ UT Martin,Tennessee State,2026-10-10
 Furman,Tennessee Tech,2026-10-10
 Stony Brook,Towson,2026-10-10
 Utah Tech,Portland State,2026-10-10
-Florida A&M,Alabama State,2026-10-10
 Incarnate Word,Lamar,2026-10-10
 North Dakota,Northern Iowa,2026-10-10
 Montana,Northern Arizona,2026-10-10
 Jackson State,Grambling,2026-10-10
 Davidson,Presbyterian,2026-10-10
-South Carolina State,Charleston Southern,2026-10-10
 Cal Poly,Idaho State,2026-10-10
 West Georgia,Eastern Kentucky,2026-10-10
 Tarleton State,Austin Peay,2026-10-10
