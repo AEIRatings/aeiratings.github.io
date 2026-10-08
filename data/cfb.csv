@@ -91,13 +91,13 @@ Stony Brook,739.0097078356318,CAA,,False
 Towson,638.4994450820839,CAA,,False
 UAlbany,712.801386759931,CAA,,False
 Delaware,969.487072846131,CUSA,,False
-Florida International,998.782133600999,CUSA,,False
-Jacksonville State,1013.72383772463,CUSA,,False
-Kennesaw State,964.9274258721,CUSA,,False
+Florida International,1016.9148292513491,CUSA,,True
+Jacksonville State,1017.7498974572858,CUSA,,True
+Kennesaw State,960.9013661394442,CUSA,,True
 Liberty,1043.6845662974313,CUSA,,False
 Middle Tennessee,951.7561518440784,CUSA,,False
 Missouri State,953.4030917102756,CUSA,,False
-New Mexico State,974.100303983262,CUSA,,False
+New Mexico State,955.9676083329119,CUSA,,True
 Sam Houston,976.7968063978494,CUSA,,False
 Western Kentucky,920.5040933447432,CUSA,,False
 Notre Dame,1107.1680575221235,FBS Independent,,False
@@ -242,8 +242,8 @@ Louisiana Tech,990.1689709783104,Sun Belt,,False
 Marshall,972.3100549412002,Sun Belt,,False
 Old Dominion,935.5722379350104,Sun Belt,,False
 South Alabama,998.3435124955464,Sun Belt,,False
-Southern Miss,934.6293095667613,Sun Belt,,True
-Troy,999.0136707579943,Sun Belt,,True
+Southern Miss,934.6293095667612,Sun Belt,,False
+Troy,999.0136707579944,Sun Belt,,False
 UL Monroe,892.9550920326268,Sun Belt,,False
 Alabama A&M,716.8105564909264,SWAC,,False
 Alabama State,713.3797998654796,SWAC,,False
