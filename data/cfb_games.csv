@@ -1,14 +1,9 @@
 away team,home team,game date (Pacific)
-Sam Houston,Liberty,2026-10-08
-Missouri State,Western Kentucky,2026-10-08
-South Florida,UTSA,2026-10-08
-South Alabama,Arkansas State,2026-10-08
 Florida State,Louisville,2026-10-09
 Iowa,Washington,2026-10-09
 Washington State,Utah State,2026-10-09
 Wyoming,San Jose State,2026-10-09
 Iowa State,BYU,2026-10-09
-Florida A&M,Alabama State,2026-10-09
 Columbia,Marist,2026-10-09
 Indiana,Nebraska,2026-10-10
 Texas A&M,Missouri,2026-10-10
@@ -21,6 +16,7 @@ Sacramento State,Bowling Green,2026-10-10
 Ball State,Northwestern,2026-10-10
 South Carolina,Florida,2026-10-10
 Old Dominion,App State,2026-10-10
+Rice,East Carolina,2026-10-10
 Miami (OH),Massachusetts,2026-10-10
 Texas,Oklahoma,2026-10-10
 Stanford,Notre Dame,2026-10-10
@@ -37,7 +33,6 @@ Buffalo,Toledo,2026-10-10
 Central Michigan,Ohio,2026-10-10
 Kent State,Western Michigan,2026-10-10
 UConn,Temple,2026-10-10
-Rice,East Carolina,2026-10-10
 Maryland,Ohio State,2026-10-10
 Tennessee,Arkansas,2026-10-10
 San Diego State,Oregon State,2026-10-10
@@ -62,8 +57,10 @@ Bryant,Brown,2026-10-10
 Dartmouth,Yale,2026-10-10
 Robert Morris,Morgan State,2026-10-10
 Princeton,Wagner,2026-10-10
-Morehead State,Dayton,2026-10-10
 South Carolina State,Charleston Southern,2026-10-10
+Davidson,Presbyterian,2026-10-10
+Morehead State,Dayton,2026-10-10
+East Tennessee State,The Citadel,2026-10-10
 Bucknell,Georgetown,2026-10-10
 Harvard,Cornell,2026-10-10
 Youngstown State,Indiana State,2026-10-10
@@ -76,24 +73,22 @@ Wofford,Elon,2026-10-10
 Southern Illinois,South Dakota,2026-10-10
 Virginia,Norfolk State,2026-10-10
 Drake,Valparaiso,2026-10-10
-East Tennessee State,The Citadel,2026-10-10
 Southeast Missouri State,Lindenwood,2026-10-10
 Idaho,Weber State,2026-10-10
 Arkansas,Alcorn State,2026-10-10
 Western Carolina,Mercer,2026-10-10
 Mississippi Valley State,Texas Southern,2026-10-10
-Southern,Prairie View A&M,2026-10-10
 Richmond,Fordham,2026-10-10
 Eastern Illinois,Gardner-Webb,2026-10-10
 UT Martin,Tennessee State,2026-10-10
 Furman,Tennessee Tech,2026-10-10
+Southern,Prairie View A&M,2026-10-10
 Stony Brook,Towson,2026-10-10
 Utah Tech,Portland State,2026-10-10
 Incarnate Word,Lamar,2026-10-10
 North Dakota,Northern Iowa,2026-10-10
 Montana,Northern Arizona,2026-10-10
 Jackson State,Grambling,2026-10-10
-Davidson,Presbyterian,2026-10-10
 Cal Poly,Idaho State,2026-10-10
 West Georgia,Eastern Kentucky,2026-10-10
 Tarleton State,Austin Peay,2026-10-10
