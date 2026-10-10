@@ -1,10 +1,4 @@
 away team,home team,game date (Pacific)
-Florida State,Louisville,2026-10-09
-Iowa,Washington,2026-10-09
-Washington State,Utah State,2026-10-09
-Wyoming,San Jose State,2026-10-09
-Iowa State,BYU,2026-10-09
-Columbia,Marist,2026-10-09
 Indiana,Nebraska,2026-10-10
 Texas A&M,Missouri,2026-10-10
 UCF,Oklahoma State,2026-10-10
@@ -15,8 +9,8 @@ Tulane,Army,2026-10-10
 Sacramento State,Bowling Green,2026-10-10
 Ball State,Northwestern,2026-10-10
 South Carolina,Florida,2026-10-10
-Old Dominion,App State,2026-10-10
 Rice,East Carolina,2026-10-10
+Old Dominion,App State,2026-10-10
 Miami (OH),Massachusetts,2026-10-10
 Texas,Oklahoma,2026-10-10
 Stanford,Notre Dame,2026-10-10
@@ -47,8 +41,8 @@ Syracuse,Virginia,2026-10-10
 Air Force,Northern Illinois,2026-10-10
 James Madison,Georgia Southern,2026-10-10
 Louisiana,Louisiana Tech,2026-10-10
-Minnesota,Purdue,2026-10-10
 Kansas,Utah,2026-10-10
+Minnesota,Purdue,2026-10-10
 Boise State,Fresno State,2026-10-10
 Hawai'i,Arizona State,2026-10-10
 New Hampshire,North Carolina A&T,2026-10-10
@@ -68,6 +62,7 @@ Long Island University,Duquesne,2026-10-10
 Howard,Pennsylvania,2026-10-10
 William & Mary,North Carolina Central,2026-10-10
 San Diego,Butler,2026-10-10
+Bethune-Cookman,Alabama A&M,2026-10-10
 Samford,Chattanooga,2026-10-10
 Wofford,Elon,2026-10-10
 Southern Illinois,South Dakota,2026-10-10
@@ -82,9 +77,9 @@ Richmond,Fordham,2026-10-10
 Eastern Illinois,Gardner-Webb,2026-10-10
 UT Martin,Tennessee State,2026-10-10
 Furman,Tennessee Tech,2026-10-10
-Southern,Prairie View A&M,2026-10-10
 Stony Brook,Towson,2026-10-10
 Utah Tech,Portland State,2026-10-10
+Southern,Prairie View A&M,2026-10-10
 Incarnate Word,Lamar,2026-10-10
 North Dakota,Northern Iowa,2026-10-10
 Montana,Northern Arizona,2026-10-10
@@ -93,7 +88,6 @@ Cal Poly,Idaho State,2026-10-10
 West Georgia,Eastern Kentucky,2026-10-10
 Tarleton State,Austin Peay,2026-10-10
 Northern Colorado,Eastern Washington,2026-10-10
-Bethune-Cookman,Alabama A&M,2026-10-10
 Central Arkansas,Abilene Christian,2026-10-10
 SE Louisiana,UT Rio Grande Valley,2026-10-10
 Delaware,Middle Tennessee,2026-10-13
