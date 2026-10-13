@@ -103,7 +103,6 @@ Valparaiso,San Diego,2026-10-17
 Stephen F. Austin,Nicholls,2026-10-17
 South Dakota,Murray State,2026-10-17
 Long Island University,Wagner,2026-10-17
-Lamar,SE Louisiana,2026-10-17
 Alabama,West Florida,2026-10-17
 Northern Iowa,Youngstown State,2026-10-17
 Morgan State,Tennessee State,2026-10-17
@@ -112,6 +111,7 @@ Montana State,Eastern Washington,2026-10-17
 Portland State,Northern Arizona,2026-10-17
 Central Arkansas,Tarleton State,2026-10-17
 UT Rio Grande Valley,Incarnate Word,2026-10-17
+Lamar,SE Louisiana,2026-10-17
 Mercer,Samford,2026-10-17
 East Texas A&M,Houston Christian,2026-10-17
 Cal Poly,Northern Colorado,2026-10-17
@@ -130,49 +130,49 @@ Air Force,Wyoming,2026-10-23
 NC State,Stanford,2026-10-23
 North Carolina Central,Delaware State,2026-10-23
 Yale,Pennsylvania,2026-10-23
-Pittsburgh,Miami,2026-10-23
-Indiana,Michigan,2026-10-23
 BYU,UCF,2026-10-23
 Texas Tech,Cincinnati,2026-10-23
 Houston,Utah,2026-10-23
 Michigan State,UCLA,2026-10-23
-Tennessee,South Carolina,2026-10-23
-Vanderbilt,Kentucky,2026-10-23
-Oklahoma,Mississippi State,2026-10-23
 Iowa,Minnesota,2026-10-23
 Colorado,Oklahoma State,2026-10-23
-USC,Wisconsin,2026-10-23
-California,SMU,2026-10-23
-Rutgers,Northwestern,2026-10-23
 Baylor,Kansas,2026-10-23
 Iowa State,Arizona,2026-10-23
 Kansas State,Arizona State,2026-10-23
-West Virginia,TCU,2026-10-23
-Syracuse,North Carolina,2026-10-23
 Virginia Tech,Clemson,2026-10-23
 Oregon,Illinois,2026-10-23
-Rice,Florida Atlantic,2026-10-23
-UTSA,Tulane,2026-10-23
-Hawai'i,Northern Illinois,2026-10-23
-Akron,Kent State,2026-10-23
-Sacramento State,Ball State,2026-10-23
-Bowling Green,Buffalo,2026-10-23
-Western Michigan,Toledo,2026-10-23
-Miami (OH),Central Michigan,2026-10-23
-Louisiana,Southern Miss,2026-10-23
-Old Dominion,Louisiana Tech,2026-10-23
-UL Monroe,Troy,2026-10-23
+Pittsburgh,Miami,2026-10-24
+Indiana,Michigan,2026-10-24
 LSU,Auburn,2026-10-24
+California,SMU,2026-10-24
+Rutgers,Northwestern,2026-10-24
+West Virginia,TCU,2026-10-24
+Rice,Florida Atlantic,2026-10-24
+Western Michigan,Toledo,2026-10-24
+Akron,Kent State,2026-10-24
+Miami (OH),Central Michigan,2026-10-24
 Texas A&M,Alabama,2026-10-24
+Tennessee,South Carolina,2026-10-24
+Oklahoma,Mississippi State,2026-10-24
+Hawai'i,Northern Illinois,2026-10-24
 Boston College,Georgia Tech,2026-10-24
 North Texas,Navy,2026-10-24
+Sacramento State,Ball State,2026-10-24
+Bowling Green,Buffalo,2026-10-24
 Eastern Michigan,Ohio,2026-10-24
+UL Monroe,Troy,2026-10-24
 San Jose State,Nevada,2026-10-24
+Louisiana,Southern Miss,2026-10-24
+Old Dominion,Louisiana Tech,2026-10-24
 Boise State,Washington State,2026-10-24
 San Diego State,Colorado State,2026-10-24
 Georgia State,Arkansas State,2026-10-24
 Ole Miss,Texas,2026-10-24
+Vanderbilt,Kentucky,2026-10-24
+USC,Wisconsin,2026-10-24
+Syracuse,North Carolina,2026-10-24
 Utah State,Texas State,2026-10-24
+UTSA,Tulane,2026-10-24
 North Dakota State,New Mexico,2026-10-24
 Stonehill,Long Island University,2026-10-23
 UAlbany,Rhode Island,2026-10-24
