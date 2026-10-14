@@ -1,5 +1,5 @@
 Team,Elo,Division,Notes,RatingUpdated
-Buffalo Bills,1018.857698173586,AFC East,,True
+Buffalo Bills,1018.857698173586,AFC East,,False
 Miami Dolphins,928.2722328667747,AFC East,,False
 New England Patriots,1048.0067363651792,AFC East,,False
 New York Jets,980.2558387201344,AFC East,,False
@@ -28,6 +28,6 @@ Carolina Panthers,1019.8296433680464,NFC South,,False
 New Orleans Saints,967.0449837483346,NFC South,,False
 Tampa Bay Buccaneers,966.9008999270294,NFC South,,False
 Arizona Cardinals,933.2704332200776,NFC West,,False
-Los Angeles Rams,999.4753413600635,NFC West,,True
+Los Angeles Rams,999.4753413600636,NFC West,,False
 San Francisco 49ers,1079.358370419196,NFC West,,False
 Seattle Seahawks,1033.899295249167,NFC West,,False
