@@ -18,7 +18,7 @@ Virginia Tech,1041.6377395126744,ACC,,False
 Wake Forest,1078.508434422061,ACC,,False
 Army,1010.5478808807642,American,,False
 Charlotte,877.0691775722373,American,,False
-East Carolina,1008.5259998834416,American,,False
+East Carolina,984.9597319418564,American,,True
 Florida Atlantic,1041.1953685036185,American,,False
 Memphis,1060.0623537457925,American,,False
 Navy,989.8072084667604,American,,False
@@ -28,7 +28,7 @@ South Florida,1017.9153603417656,American,,False
 Temple,980.7994511256284,American,,False
 Tulane,982.8063105265718,American,,False
 Tulsa,977.6486508119848,American,,False
-UAB,980.6595819071204,American,,False
+UAB,1004.2258498487056,American,,True
 UTSA,1044.0376019111764,American,,False
 Illinois,993.7079582867884,Big 10,,False
 Indiana,1108.4159404549332,Big 10,,False
@@ -93,13 +93,13 @@ UAlbany,712.801386759931,CAA,,False
 Delaware,957.414909825435,CUSA,,False
 Florida International,1007.8314718635728,CUSA,,False
 Jacksonville State,1026.833254845062,CUSA,,False
-Kennesaw State,947.7296191937896,CUSA,,True
+Kennesaw State,947.7296191937896,CUSA,,False
 Liberty,1064.0169994785865,CUSA,,False
 Middle Tennessee,963.8283148647744,CUSA,,False
-Missouri State,937.8747088623522,CUSA,,True
+Missouri State,937.8747088623522,CUSA,,False
 New Mexico State,955.967608332912,CUSA,,False
-Sam Houston,933.9853380927088,CUSA,,True
-Western Kentucky,971.6832582623068,CUSA,,True
+Sam Houston,933.9853380927088,CUSA,,False
+Western Kentucky,971.6832582623068,CUSA,,False
 Notre Dame,1128.0236762744653,FBS Independent,,False
 UConn,1015.859786966919,FBS Independent,,False
 Chicago State,604.9604859801382,FCS Independent,,False
@@ -167,11 +167,11 @@ Tennessee State,631.2873570144241,OVC,,False
 UT Martin,685.2418296274461,OVC,,False
 Western Illinois,701.2056362758838,OVC,,False
 Boise State,1078.951348133401,PAC 12,,False
-Colorado State,966.0735049391828,PAC 12,,False
+Colorado State,940.011317176524,PAC 12,,True
 Fresno State,1046.2051925978974,PAC 12,,False
 Oregon State,1056.2004526599685,PAC 12,,False
 San Diego State,943.5961892315304,PAC 12,,False
-Texas State,990.1242213531602,PAC 12,,False
+Texas State,1016.1864091158191,PAC 12,,True
 Utah State,944.3292415666608,PAC 12,,False
 Washington State,946.386626573472,PAC 12,,False
 Bucknell,634.4042447184365,Patriot,,False
@@ -234,13 +234,13 @@ UT Rio Grande Valley,709.7943336994973,Southland,,False
 App State,985.251804140648,Sun Belt,,False
 Arkansas State,966.7949274050868,Sun Belt,,False
 Coastal Carolina,967.6639001769436,Sun Belt,,False
-Georgia Southern,974.0468980888542,Sun Belt,,False
+Georgia Southern,987.5558216706397,Sun Belt,,True
 Georgia State,1049.774357212396,Sun Belt,,False
 James Madison,1091.4972353847843,Sun Belt,,False
 Louisiana,1027.789410227325,Sun Belt,,False
 Louisiana Tech,994.0042397432684,Sun Belt,,False
 Marshall,953.2471248932324,Sun Belt,,False
-Old Dominion,958.9798282130148,Sun Belt,,False
+Old Dominion,945.4709046312292,Sun Belt,,True
 South Alabama,1010.6097839367358,Sun Belt,,False
 Southern Miss,934.6293095667612,Sun Belt,,False
 Troy,999.0136707579944,Sun Belt,,False
