@@ -11,7 +11,7 @@ Houston Texans,973.1803603059262,AFC South,,False
 Indianapolis Colts,995.9419627599827,AFC South,,False
 Jacksonville Jaguars,1055.8753524471483,AFC South,,False
 Tennessee Titans,921.261859543019,AFC South,,False
-Denver Broncos,997.1784756356378,AFC West,,False
+Denver Broncos,1010.6395830330551,AFC West,,True
 Kansas City Chiefs,1063.391308597615,AFC West,,False
 Las Vegas Raiders,996.42082788915,AFC West,,False
 Los Angeles Chargers,931.5037448954644,AFC West,,False
@@ -30,4 +30,4 @@ Tampa Bay Buccaneers,966.9008999270294,NFC South,,False
 Arizona Cardinals,933.2704332200776,NFC West,,False
 Los Angeles Rams,999.4753413600636,NFC West,,False
 San Francisco 49ers,1079.358370419196,NFC West,,False
-Seattle Seahawks,1033.899295249167,NFC West,,False
+Seattle Seahawks,1020.4381878517496,NFC West,,True
