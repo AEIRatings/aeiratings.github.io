@@ -1,33 +1,33 @@
 Team,Elo,Division,Notes,RatingUpdated
-Buffalo Bills,1026.9831330927102,AFC East,,True
+Buffalo Bills,1026.9831330927102,AFC East,,False
 Miami Dolphins,928.2722328667747,AFC East,,False
-New England Patriots,1056.1095452804516,AFC East,,True
-New York Jets,972.153029804862,AFC East,,True
-Baltimore Ravens,1029.9173268178724,AFC North,,True
+New England Patriots,1056.1095452804516,AFC East,,False
+New York Jets,972.153029804862,AFC East,,False
+Baltimore Ravens,1029.9173268178724,AFC North,,False
 Cincinnati Bengals,1006.1156206389423,AFC North,,False
-Cleveland Browns,1008.7249004131786,AFC North,,True
-Pittsburgh Steelers,1026.131938556643,AFC North,,True
-Houston Texans,992.3707834905796,AFC South,,True
-Indianapolis Colts,973.5514696235208,AFC South,,True
-Jacksonville Jaguars,1036.684929262495,AFC South,,True
-Tennessee Titans,943.6523526794809,AFC South,,True
+Cleveland Browns,1008.7249004131786,AFC North,,False
+Pittsburgh Steelers,1026.131938556643,AFC North,,False
+Houston Texans,992.3707834905796,AFC South,,False
+Indianapolis Colts,973.5514696235208,AFC South,,False
+Jacksonville Jaguars,1036.684929262495,AFC South,,False
+Tennessee Titans,943.6523526794808,AFC South,,False
 Denver Broncos,1010.6395830330551,AFC West,,False
-Kansas City Chiefs,1074.8793709480778,AFC West,,True
-Las Vegas Raiders,988.2953929700258,AFC West,,True
-Los Angeles Chargers,920.0156825450017,AFC West,,True
-Dallas Cowboys,975.0551806221915,NFC East,,True
-New York Giants,995.9841734152413,NFC East,,True
-Philadelphia Eagles,955.2688194395664,NFC East,,True
-Washington Commanders,945.9343116281332,NFC East,,False
-Chicago Bears,1034.9377479051361,NFC North,,True
+Kansas City Chiefs,1074.8793709480778,AFC West,,False
+Las Vegas Raiders,988.2953929700258,AFC West,,False
+Los Angeles Chargers,920.0156825450016,AFC West,,False
+Dallas Cowboys,975.0551806221916,NFC East,,False
+New York Giants,995.9841734152412,NFC East,,False
+Philadelphia Eagles,955.2688194395664,NFC East,,False
+Washington Commanders,940.4835763607941,NFC East,,True
+Chicago Bears,1034.937747905136,NFC North,,False
 Detroit Lions,1000.0447334292882,NFC North,,False
-Green Bay Packers,1030.3821193104725,NFC North,,True
+Green Bay Packers,1030.3821193104725,NFC North,,False
 Minnesota Vikings,1068.4251100359995,NFC North,,False
-Atlanta Falcons,988.628903730667,NFC South,,True
-Carolina Panthers,1032.598162162984,NFC South,,True
-New Orleans Saints,989.0995294559801,NFC South,,True
-Tampa Bay Buccaneers,956.601583989597,NFC South,,True
-Arizona Cardinals,949.7878736502312,NFC West,,True
-Los Angeles Rams,982.95790092991,NFC West,,True
-San Francisco 49ers,1079.358370419196,NFC West,,False
+Atlanta Falcons,988.628903730667,NFC South,,False
+Carolina Panthers,1032.598162162984,NFC South,,False
+New Orleans Saints,989.09952945598,NFC South,,False
+Tampa Bay Buccaneers,956.601583989597,NFC South,,False
+Arizona Cardinals,949.7878736502312,NFC West,,False
+Los Angeles Rams,982.95790092991,NFC West,,False
+San Francisco 49ers,1084.809105686535,NFC West,,True
 Seattle Seahawks,1020.4381878517496,NFC West,,False
