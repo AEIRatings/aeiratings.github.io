@@ -1,7 +1,4 @@
 away team,home team,game date (Pacific)
-Middle Tennessee,Florida International,2026-10-20
-Missouri State,Delaware,2026-10-20
-South Alabama,Marshall,2026-10-20
 New Mexico State,Sam Houston,2026-10-21
 James Madison,App State,2026-10-22
 Liberty,Kennesaw State,2026-10-22
@@ -89,12 +86,12 @@ Princeton,Harvard,2026-10-24
 Indiana State,Illinois State,2026-10-24
 Murray State,South Dakota State,2026-10-24
 Howard,Morgan State,2026-10-24
-Weber State,Montana State,2026-10-24
 West Florida,Eastern Kentucky,2026-10-24
 Southeast Missouri State,Eastern Illinois,2026-10-24
 Arkansas-Pine Bluff,Florida A&M,2026-10-24
 Southern,Texas Southern,2026-10-24
 Nicholls,Northwestern State,2026-10-24
+Weber State,Montana State,2026-10-24
 Georgetown,William & Mary,2026-10-24
 Lehigh,Villanova,2026-10-24
 Charleston Southern,Tennessee State,2026-10-24
@@ -120,7 +117,6 @@ Tulane,Charlotte,2026-10-30
 Baylor,UCF,2026-10-30
 Kent State,Sacramento State,2026-10-30
 Harvard,Dartmouth,2026-10-30
-Nevada,UCLA,2026-10-30
 Northwestern,Oregon,2026-10-30
 Purdue,Penn State,2026-10-30
 Notre Dame,Navy,2026-10-31
@@ -152,6 +148,7 @@ Southern Miss,UL Monroe,2026-10-31
 Utah,Cincinnati,2026-10-31
 Virginia,Wake Forest,2026-10-31
 New Mexico,San Jose State,2026-10-31
+Nevada,UCLA,2026-10-31
 South Carolina,Oklahoma,2026-10-31
 App State,Georgia Southern,2026-10-31
 Oklahoma State,Iowa State,2026-10-31
