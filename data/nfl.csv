@@ -18,7 +18,7 @@ Los Angeles Chargers,920.0156825450016,AFC West,,False
 Dallas Cowboys,975.0551806221916,NFC East,,False
 New York Giants,995.9841734152412,NFC East,,False
 Philadelphia Eagles,955.2688194395664,NFC East,,False
-Washington Commanders,940.4835763607941,NFC East,,True
+Washington Commanders,940.483576360794,NFC East,,False
 Chicago Bears,1034.937747905136,NFC North,,False
 Detroit Lions,1000.0447334292882,NFC North,,False
 Green Bay Packers,1030.3821193104725,NFC North,,False
@@ -29,5 +29,5 @@ New Orleans Saints,989.09952945598,NFC South,,False
 Tampa Bay Buccaneers,956.601583989597,NFC South,,False
 Arizona Cardinals,949.7878736502312,NFC West,,False
 Los Angeles Rams,982.95790092991,NFC West,,False
-San Francisco 49ers,1084.809105686535,NFC West,,True
+San Francisco 49ers,1084.809105686535,NFC West,,False
 Seattle Seahawks,1020.4381878517496,NFC West,,False
