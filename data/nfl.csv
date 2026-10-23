@@ -1,7 +1,7 @@
 Team,Elo,Division,Notes,RatingUpdated
 Buffalo Bills,1026.9831330927102,AFC East,,False
 Miami Dolphins,928.2722328667747,AFC East,,False
-New England Patriots,1056.1095452804516,AFC East,,False
+New England Patriots,1039.126170189718,AFC East,,True
 New York Jets,972.153029804862,AFC East,,False
 Baltimore Ravens,1029.9173268178724,AFC North,,False
 Cincinnati Bengals,1006.1156206389423,AFC North,,False
@@ -19,7 +19,7 @@ Dallas Cowboys,975.0551806221916,NFC East,,False
 New York Giants,995.9841734152412,NFC East,,False
 Philadelphia Eagles,955.2688194395664,NFC East,,False
 Washington Commanders,940.483576360794,NFC East,,False
-Chicago Bears,1034.937747905136,NFC North,,False
+Chicago Bears,1051.9211229958694,NFC North,,True
 Detroit Lions,1000.0447334292882,NFC North,,False
 Green Bay Packers,1030.3821193104725,NFC North,,False
 Minnesota Vikings,1068.4251100359995,NFC North,,False
