@@ -18,9 +18,9 @@ Virginia Tech,1052.4984009793734,ACC,,False
 Wake Forest,1098.501442825822,ACC,,False
 Army,1044.4347373462183,American,,False
 Charlotte,902.3022050593976,American,,False
-East Carolina,984.9597319418564,American,,False
+East Carolina,975.9706115242587,American,,True
 Florida Atlantic,1007.3085120381642,American,,False
-Memphis,1031.6252369713989,American,,False
+Memphis,1040.6143573889965,American,,True
 Navy,984.363281575695,American,,False
 North Texas,1030.5149647398216,American,,False
 Rice,918.629581764758,American,,False
@@ -93,12 +93,12 @@ UAlbany,739.9797535085713,CAA,,False
 Delaware,978.019183994369,CUSA,,False
 Florida International,990.7931921008595,CUSA,,False
 Jacksonville State,1026.833254845062,CUSA,,False
-Kennesaw State,947.7296191937896,CUSA,,False
-Liberty,1064.0169994785865,CUSA,,False
+Kennesaw State,931.2698400702445,CUSA,,True
+Liberty,1080.4767786021316,CUSA,,True
 Middle Tennessee,980.8665946274876,CUSA,,False
 Missouri State,917.2704346934182,CUSA,,False
-New Mexico State,967.3142436351912,CUSA,,True
-Sam Houston,922.6387027904296,CUSA,,True
+New Mexico State,967.3142436351912,CUSA,,False
+Sam Houston,922.6387027904296,CUSA,,False
 Western Kentucky,971.6832582623068,CUSA,,False
 Notre Dame,1111.941427569571,FBS Independent,,False
 UConn,1015.859786966919,FBS Independent,,False
@@ -231,12 +231,12 @@ Northwestern State,581.6860469094623,Southland,,False
 SE Louisiana,729.3961461645222,Southland,,False
 Stephen F. Austin,805.5603000224866,Southland,,False
 UT Rio Grande Valley,679.7091487919266,Southland,,False
-App State,993.8491575200752,Sun Belt,,False
+App State,1011.3267631125212,Sun Belt,,True
 Arkansas State,980.333891473272,Sun Belt,,False
 Coastal Carolina,959.0665467975164,Sun Belt,,False
 Georgia Southern,987.5558216706396,Sun Belt,,False
 Georgia State,1029.7881281344742,Sun Belt,,False
-James Madison,1111.483464462706,Sun Belt,,False
+James Madison,1094.00585887026,Sun Belt,,True
 Louisiana,1049.0162119174051,Sun Belt,,False
 Louisiana Tech,1010.1810479766935,Sun Belt,,False
 Marshall,973.6480239762237,Sun Belt,,False
