@@ -1,100 +1,4 @@
 away team,home team,game date (Pacific)
-Pittsburgh,Miami,2026-10-24
-Indiana,Michigan,2026-10-24
-Texas Tech,Cincinnati,2026-10-24
-LSU,Auburn,2026-10-24
-California,SMU,2026-10-24
-Rutgers,Northwestern,2026-10-24
-West Virginia,TCU,2026-10-24
-Rice,Florida Atlantic,2026-10-24
-Western Michigan,Toledo,2026-10-24
-Baylor,Kansas,2026-10-24
-Akron,Kent State,2026-10-24
-Miami (OH),Central Michigan,2026-10-24
-Oregon,Illinois,2026-10-24
-BYU,UCF,2026-10-24
-Michigan State,UCLA,2026-10-24
-Tennessee,South Carolina,2026-10-24
-Texas A&M,Alabama,2026-10-24
-Iowa,Minnesota,2026-10-24
-Oklahoma,Mississippi State,2026-10-24
-Boston College,Georgia Tech,2026-10-24
-North Texas,Navy,2026-10-24
-Hawai'i,Northern Illinois,2026-10-24
-Sacramento State,Ball State,2026-10-24
-Bowling Green,Buffalo,2026-10-24
-Kansas State,Arizona State,2026-10-24
-Eastern Michigan,Ohio,2026-10-24
-UL Monroe,Troy,2026-10-24
-San Jose State,Nevada,2026-10-24
-Louisiana,Southern Miss,2026-10-24
-Old Dominion,Louisiana Tech,2026-10-24
-Boise State,Washington State,2026-10-24
-San Diego State,Colorado State,2026-10-24
-Colorado,Oklahoma State,2026-10-24
-Virginia Tech,Clemson,2026-10-24
-Georgia State,Arkansas State,2026-10-24
-Ole Miss,Texas,2026-10-24
-Vanderbilt,Kentucky,2026-10-24
-USC,Wisconsin,2026-10-24
-Iowa State,Arizona,2026-10-24
-Syracuse,North Carolina,2026-10-24
-Utah State,Texas State,2026-10-24
-UTSA,Tulane,2026-10-24
-North Dakota State,New Mexico,2026-10-24
-Houston,Utah,2026-10-24
-UAlbany,Rhode Island,2026-10-24
-New Hampshire,Merrimack,2026-10-24
-Cornell,Brown,2026-10-24
-New Haven,Central Connecticut,2026-10-24
-Stonehill,Long Island University,2026-10-24
-Wagner,Duquesne,2026-10-24
-San Diego,Dayton,2026-10-24
-Campbell,Maine,2026-10-24
-Bucknell,Holy Cross,2026-10-24
-Lafayette,Fordham,2026-10-24
-Butler,Drake,2026-10-24
-Presbyterian,Valparaiso,2026-10-24
-Jackson State,Bethune-Cookman,2026-10-24
-Dartmouth,Columbia,2026-10-24
-Norfolk State,South Carolina State,2026-10-24
-East Tennessee State,VMI,2026-10-24
-Stony Brook,Bryant,2026-10-24
-Monmouth,Hampton,2026-10-24
-North Dakota,South Dakota,2026-10-24
-Northern Iowa,Southern Illinois,2026-10-24
-Mercyhurst,Robert Morris,2026-10-24
-Colgate,Richmond,2026-10-24
-Tarleton State,West Georgia,2026-10-24
-Stetson,Morehead State,2026-10-24
-Samford,Furman,2026-10-24
-Tennessee Tech,The Citadel,2026-10-24
-Chattanooga,Western Carolina,2026-10-24
-Chicago State,Lindenwood,2026-10-24
-Princeton,Harvard,2026-10-24
-Indiana State,Illinois State,2026-10-24
-Murray State,South Dakota State,2026-10-24
-Howard,Morgan State,2026-10-24
-Weber State,Montana State,2026-10-24
-West Florida,Eastern Kentucky,2026-10-24
-Southeast Missouri State,Eastern Illinois,2026-10-24
-Arkansas-Pine Bluff,Florida A&M,2026-10-24
-Southern,Texas Southern,2026-10-24
-Nicholls,Northwestern State,2026-10-24
-Georgetown,William & Mary,2026-10-24
-Lehigh,Villanova,2026-10-24
-Charleston Southern,Tennessee State,2026-10-24
-UT Martin,Western Illinois,2026-10-24
-Houston Christian,Lamar,2026-10-24
-Utah Tech,Cal Poly,2026-10-24
-Southern Utah,Idaho,2026-10-24
-UT Rio Grande Valley,Central Arkansas,2026-10-24
-McNeese,Incarnate Word,2026-10-24
-Portland State,Idaho State,2026-10-24
-SE Louisiana,Stephen F. Austin,2026-10-24
-Austin Peay,North Alabama,2026-10-24
-Northern Colorado,UC Davis,2026-10-24
-Prairie View A&M,East Texas A&M,2026-10-24
 Delaware,Western Kentucky,2026-10-27
 Sam Houston,Missouri State,2026-10-27
 Kennesaw State,Middle Tennessee,2026-10-28
@@ -106,8 +10,6 @@ Tulane,Charlotte,2026-10-30
 Baylor,UCF,2026-10-30
 Kent State,Sacramento State,2026-10-30
 Harvard,Dartmouth,2026-10-30
-Northwestern,Oregon,2026-10-30
-Purdue,Penn State,2026-10-30
 Notre Dame,Navy,2026-10-31
 Arizona,Texas Tech,2026-10-31
 Wisconsin,Iowa,2026-10-31
@@ -129,6 +31,7 @@ Stanford,Louisville,2026-10-31
 Arizona State,BYU,2026-10-31
 Florida,Georgia,2026-10-31
 Minnesota,Indiana,2026-10-31
+Northwestern,Oregon,2026-10-31
 Kansas,TCU,2026-10-31
 Colorado State,Utah State,2026-10-31
 UTEP,North Dakota State,2026-10-31
@@ -139,6 +42,7 @@ Virginia,Wake Forest,2026-10-31
 New Mexico,San Jose State,2026-10-31
 Nevada,UCLA,2026-10-31
 South Carolina,Oklahoma,2026-10-31
+Purdue,Penn State,2026-10-31
 App State,Georgia Southern,2026-10-31
 Oklahoma State,Iowa State,2026-10-31
 Clemson,Florida State,2026-10-31
