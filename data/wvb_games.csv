@@ -1,24 +1,4 @@
 away team,home team,game date (Pacific)
-Davidson Wildcats,VCU Rams,2026-10-27
-Dayton Flyers,Duquesne Dukes,2026-10-27
-Loyola Chicago Ramblers,Saint Louis Billikens,2026-10-27
-Manhattan Jaspers,Iona Gaels,2026-10-27
-Evansville Purple Aces,Indiana State Sycamores,2026-10-27
-Niagara Purple Eagles,Canisius Golden Griffins,2026-10-27
-Sacred Heart Pioneers,Fairfield Stags,2026-10-27
-Saint Peter's Peacocks,Rider Broncs,2026-10-27
-Kent State Golden Flashes,Ohio Bobcats,2026-10-27
-Tennessee Tech Golden Eagles,Chattanooga Mocs,2026-10-27
-East Tennessee State Buccaneers,UNC Greensboro Spartans,2026-10-27
-The Citadel Bulldogs,Furman Paladins,2026-10-27
-Samford Bulldogs,Mercer Bears,2026-10-27
-Wofford Terriers,Western Carolina Catamounts,2026-10-27
-Louisiana Tech Bulldogs,Arkansas-Pine Bluff Golden Lions,2026-10-27
-Wright State Raiders,Purdue Fort Wayne Mastodons,2026-10-27
-Quinnipiac Bobcats,Merrimack Warriors,2026-10-27
-Central Arkansas Bears,Little Rock Trojans,2026-10-27
-Siena Saints,Marist Red Foxes,2026-10-27
-Idaho State Bengals,Weber State Wildcats,2026-10-27
 Rhode Island Rams,Fordham Rams,2026-10-28
 Coppin State Eagles,UMBC Retrievers,2026-10-28
 Binghamton Bearcats,Colgate Raiders,2026-10-28
@@ -386,6 +366,7 @@ The Citadel Bulldogs,East Tennessee State Buccaneers,2026-11-05
 Coppin State Eagles,Maryland Eastern Shore Hawks,2026-11-05
 Duke Blue Devils,Pittsburgh Panthers,2026-11-05
 Baylor Bears,Kansas Jayhawks,2026-11-05
+UCLA Bruins,Illinois Fighting Illini,2026-11-05
 USC Trojans,Maryland Terrapins,2026-11-05
 Michigan Wolverines,Rutgers Scarlet Knights,2026-11-05
 Kennesaw State Owls,Jacksonville State Gamecocks,2026-11-05
@@ -401,7 +382,6 @@ East Texas A&M Lions,UT Rio Grande Valley Vaqueros,2026-11-05
 SE Louisiana Lions,LSU New Orleans Privateers,2026-11-05
 Northwestern State Demons,Texas A&M-Corpus Christi Islanders,2026-11-05
 Michigan State Spartans,Wisconsin Badgers,2026-11-05
-UCLA Bruins,Illinois Fighting Illini,2026-11-05
 South Dakota Coyotes,Kansas City Kangaroos,2026-11-05
 South Dakota State Jackrabbits,Oral Roberts Golden Eagles,2026-11-05
 New Mexico Lobos,Air Force Falcons,2026-11-05
@@ -701,10 +681,10 @@ Miami (OH) RedHawks,Ohio Bobcats,2026-11-08
 Southern Jaguars,Grambling Tigers,2026-11-08
 Northwestern Wildcats,Oregon Ducks,2026-11-08
 North Florida Ospreys,West Florida Argonauts,2026-11-10
-Indiana State Sycamores,Evansville Purple Aces,2026-11-10
 Gardner-Webb Runnin' Bulldogs,Elon Phoenix,2026-11-10
 IU Indianapolis Jaguars,Northern Kentucky Norse,2026-11-10
 Akron Zips,Buffalo Bulls,2026-11-10
+Indiana State Sycamores,Evansville Purple Aces,2026-11-10
 West Georgia Wolves,North Alabama Lions,2026-11-10
 Utah Tech Trailblazers,Southern Utah Thunderbirds,2026-11-10
 Jacksonville Dolphins,West Florida Argonauts,2026-11-11
@@ -1122,8 +1102,8 @@ Cal Poly Mustangs,California Baptist Lancers,2026-11-21
 UC Irvine Anteaters,Long Beach State 49ers,2026-11-21
 UC San Diego Tritons,Cal State Fullerton Titans,2026-11-21
 Pittsburgh Panthers,Virginia Tech Hokies,2026-11-22
-NC State Wolfpack,Louisville Cardinals,2026-11-22
 TBD TBD,TBD TBD,2026-11-22
+NC State Wolfpack,Louisville Cardinals,2026-11-22
 SMU Mustangs,Virginia Cavaliers,2026-11-22
 Florida State Seminoles,North Carolina Tar Heels,2026-11-22
 Miami Hurricanes,Duke Blue Devils,2026-11-22
@@ -1149,12 +1129,12 @@ Georgia Tech Yellow Jackets,SMU Mustangs,2026-11-25
 Boston College Eagles,Virginia Cavaliers,2026-11-25
 Baylor Bears,West Virginia Mountaineers,2026-11-25
 Portland Pilots,Pepperdine Waves,2026-11-25
+Louisville Cardinals,North Carolina Tar Heels,2026-11-25
 Notre Dame Fighting Irish,California Golden Bears,2026-11-25
 Seattle U Redhawks,Loyola Marymount Lions,2026-11-25
 Duke Blue Devils,Syracuse Orange,2026-11-25
 Denver Pioneers,Santa Clara Broncos,2026-11-25
 TBD TBD,TBD TBD,2026-11-25
-Louisville Cardinals,North Carolina Tar Heels,2026-11-25
 Houston Cougars,Iowa State Cyclones,2026-11-25
 San Diego Toreros,San Francisco Dons,2026-11-25
 Kansas State Wildcats,Arizona State Sun Devils,2026-11-25
