@@ -53,18 +53,18 @@ Tulsa Golden Hurricane,1000,American,False
 UAB Blazers,1000,American,False
 UTSA Roadrunners,1000,American,False
 Wichita State Shockers,1000,American,False
-Austin Peay Governors,1000,ASUN,False
+Austin Peay Governors,1000,UAC,False
 Bellarmine Knights,1000,ASUN,False
-Central Arkansas Bears,1000,ASUN,False
-Eastern Kentucky Colonels,1000,ASUN,False
+Central Arkansas Bears,1000,UAC,False
+Eastern Kentucky Colonels,1000,UAC,False
 Florida Gulf Coast Eagles,1000,ASUN,False
 Jacksonville Dolphins,1000,ASUN,False
 Lipscomb Bisons,1000,ASUN,False
-North Alabama Lions,1000,ASUN,False
+North Alabama Lions,1000,UAC,False
 North Florida Ospreys,1000,ASUN,False
 Queens University Royals,1000,ASUN,False
 Stetson Hatters,1000,ASUN,False
-West Georgia Wolves,1000,ASUN,False
+West Georgia Wolves,1000,UAC,False
 Illinois Fighting Illini,1000,Big 10,False
 Indiana Hoosiers,1000,Big 10,False
 Iowa Hawkeyes,1000,Big 10,False
@@ -118,7 +118,7 @@ Montana State Bobcats,1000,Big Sky,False
 Northern Arizona Lumberjacks,1000,Big Sky,False
 Northern Colorado Bears,1000,Big Sky,False
 Portland State Vikings,1000,Big Sky,False
-Sacramento State Hornets,1000,Big Sky,False
+Sacramento State Hornets,1000,Big West,False
 Weber State Wildcats,1000,Big Sky,False
 Charleston Southern Buccaneers,1000,Big South,False
 Gardner-Webb Runnin' Bulldogs,1000,Big South,False
@@ -133,9 +133,9 @@ Cal Poly Mustangs,1000,Big West,False
 Cal State Bakersfield Roadrunners,1000,Big West,False
 Cal State Fullerton Titans,1000,Big West,False
 Cal State Northridge Matadors,1000,Big West,False
-Hawai'i Rainbow Warriors,1000,Big West,False
+Hawai'i Rainbow Warriors,1000,Mountain West,False
 Long Beach State Beach,1000,Big West,False
-UC Davis Aggies,1000,Big West,False
+UC Davis Aggies,1000,Mountain West,False
 UC Irvine Anteaters,1000,Big West,False
 UC Riverside Highlanders,1000,Big West,False
 UC San Diego Tritons,1000,Big West,False
@@ -158,12 +158,12 @@ Florida International Panthers,1000,CUSA,False
 Jacksonville State Gamecocks,1000,CUSA,False
 Kennesaw State Owls,1000,CUSA,False
 Liberty Flames,1000,CUSA,False
-Louisiana Tech Bulldogs,1000,CUSA,False
+Louisiana Tech Bulldogs,1000,Sun Belt,False
 Missouri State Bears,1000,CUSA,False
 Middle Tennessee Blue Raiders,1000,CUSA,False
 New Mexico State Aggies,1000,CUSA,False
 Sam Houston Bearkats,1000,CUSA,False
-UTEP Miners,1000,CUSA,False
+UTEP Miners,1000,Mountain West,False
 Western Kentucky Hilltoppers,1000,CUSA,False
 Cleveland State Vikings,1000,Horizon,False
 Detroit Mercy Titans,1000,Horizon,False
@@ -205,7 +205,7 @@ Central Michigan Chippewas,1000,MAC,False
 Eastern Michigan Eagles,1000,MAC,False
 Kent State Golden Flashes,1000,MAC,False
 Miami (OH) RedHawks,1000,MAC,False
-Northern Illinois Huskies,1000,MAC,False
+Northern Illinois Huskies,1000,Horizon,False
 Ohio Bobcats,1000,MAC,False
 Toledo Rockets,1000,MAC,False
 Massachusetts Minutemen,1000,MAC,False
@@ -219,16 +219,16 @@ North Carolina Central Eagles,1000,MEAC,False
 Norfolk State Spartans,1000,MEAC,False
 South Carolina State Bulldogs,1000,MEAC,False
 Air Force Falcons,1000,Mountain West,False
-Boise State Broncos,1000,Mountain West,False
-Colorado State Rams,1000,Mountain West,False
-Fresno State Bulldogs,1000,Mountain West,False
+Boise State Broncos,1000,Pac 12,False
+Colorado State Rams,1000,Pac 12,False
+Fresno State Bulldogs,1000,Pac 12,False
 Grand Canyon Lopes,1000,Mountain West,False
 Nevada Wolf Pack,1000,Mountain West,False
 New Mexico Lobos,1000,Mountain West,False
-San Diego State Aztecs,1000,Mountain West,False
+San Diego State Aztecs,1000,Pac 12t,False
 San Jose State Spartans,1000,Mountain West,False
 UNLV Rebels,1000,Mountain West,False
-Utah State Aggies,1000,Mountain West,False
+Utah State Aggies,1000,Pac 12,False
 Wyoming Cowboys,1000,Mountain West,False
 Belmont Bruins,1000,MVC,False
 Bradley Braves,1000,MVC,False
@@ -248,18 +248,17 @@ Le Moyne Dolphins,1000,NEC,False
 Long Island University Sharks,1000,NEC,False
 Mercyhurst Lakers,1000,NEC,False
 New Haven Chargers,1000,NEC,False
-Saint Francis Red Flash,1000,NEC,False
 Stonehill Skyhawks,1000,NEC,False
 Wagner Seahawks,1000,NEC,False
 Eastern Illinois Panthers,1000,OVC,False
 Lindenwood Lions,1000,OVC,False
-Little Rock Trojans,1000,OVC,False
+Little Rock Trojans,1000,UAC,False
 Morehead State Eagles,1000,OVC,False
 Southeast Missouri State Redhawks,1000,OVC,False
 SIU Edwardsville Cougars,1000,OVC,False
 Southern Indiana Screaming Eagles,1000,OVC,False
 Tennessee State Tigers,1000,OVC,False
-Tennessee Tech Golden Eagles,1000,OVC,False
+Tennessee Tech Golden Eagles,1000,Southern,False
 UT Martin Skyhawks,1000,OVC,False
 Western Illinois Leathernecks,1000,OVC,False
 American University Eagles,1000,Patriot,False
@@ -310,7 +309,7 @@ SE Louisiana Lions,1000,Southland,False
 Stephen F. Austin Lumberjacks,1000,Southland,False
 Texas A&M-Corpus Christi Islanders,1000,Southland,False
 UT Rio Grande Valley Vaqueros,1000,Southland,False
-Denver Pioneers,1000,Summit,False
+Denver Pioneers,1000,WCC,False
 Kansas City Roos,1000,Summit,False
 North Dakota Fighting Hawks,1000,Summit,False
 North Dakota State Bison,1000,Summit,False
@@ -330,7 +329,7 @@ Marshall Thundering Herd,1000,Sun Belt,False
 Old Dominion Monarchs,1000,Sun Belt,False
 South Alabama Jaguars,1000,Sun Belt,False
 Southern Miss Golden Eagles,1000,Sun Belt,False
-Texas State Bobcats,1000,Sun Belt,False
+Texas State Bobcats,1000,Pac 12,False
 Troy Trojans,1000,Sun Belt,False
 UL Monroe Warhawks,1000,Sun Belt,False
 Alabama A&M Bulldogs,1000,SWAC,False
@@ -345,16 +344,16 @@ Mississippi Valley State Delta Devils,1000,SWAC,False
 Prairie View A&M Panthers,1000,SWAC,False
 Southern Jaguars,1000,SWAC,False
 Texas Southern Tigers,1000,SWAC,False
-Abilene Christian Wildcats,1000,WAC,False
-California Baptist Lancers,1000,WAC,False
-Southern Utah Thunderbirds,1000,WAC,False
-Tarleton State Texans,1000,WAC,False
-UT Arlington Mavericks,1000,WAC,False
-Utah Tech Trailblazers,1000,WAC,False
-Utah Valley Wolverines,1000,WAC,False
-Gonzaga Bulldogs,1000,WCC,False
+Abilene Christian Wildcats,1000,UAC,False
+California Baptist Lancers,1000,Big West,False
+Southern Utah Thunderbirds,1000,Big Sky,False
+Tarleton State Texans,1000,UAC,False
+UT Arlington Mavericks,1000,UAC,False
+Utah Tech Trailblazers,1000,Big Sky,False
+Utah Valley Wolverines,1000,Big West,False
+Gonzaga Bulldogs,1000,Pac 12,False
 Loyola Marymount Lions,1000,WCC,False
-Oregon State Beavers,1000,WCC,False
+Oregon State Beavers,1000,Pac 12,False
 Pacific Tigers,1000,WCC,False
 Pepperdine Waves,1000,WCC,False
 Portland Pilots,1000,WCC,False
@@ -363,4 +362,5 @@ San Francisco Dons,1000,WCC,False
 Santa Clara Broncos,1000,WCC,False
 Seattle U Redhawks,1000,WCC,False
 Saint Mary's Gaels,1000,WCC,False
-Washington State Cougars,1000,WCC,False
+Washington State Cougars,1000,Pac 12,False
+West Florida Argonauts,1000,ASUN,False
