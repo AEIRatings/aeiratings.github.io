@@ -1,12 +1,4 @@
 away team,home team,game date (Pacific)
-Toledo Rockets,Bowling Green Falcons,2026-11-03
-Ohio Bobcats,Kent State Golden Flashes,2026-11-03
-Western Michigan Broncos,Eastern Michigan Eagles,2026-11-03
-Georgia Tech Yellow Jackets,Florida State Seminoles,2026-11-03
-Illinois State Redbirds,Bradley Braves,2026-11-03
-Purdue Fort Wayne Mastodons,IU Indianapolis Jaguars,2026-11-03
-Eastern Kentucky Colonels,Austin Peay Governors,2026-11-03
-LSU New Orleans Privateers,SE Louisiana Lions,2026-11-03
 Arkansas-Pine Bluff Golden Lions,Grambling Tigers,2026-11-04
 Boston College Eagles,Syracuse Orange,2026-11-04
 Butler Bulldogs,Xavier Musketeers,2026-11-04
@@ -46,6 +38,7 @@ Michigan State Spartans,Wisconsin Badgers,2026-11-05
 South Dakota Coyotes,Kansas City Kangaroos,2026-11-05
 South Dakota State Jackrabbits,Oral Roberts Golden Eagles,2026-11-05
 New Mexico Lobos,Air Force Falcons,2026-11-05
+San José State Spartans,Grand Canyon Lopes,2026-11-05
 Gonzaga Bulldogs,Colorado State Rams,2026-11-05
 UC San Diego Tritons,Utah Valley Wolverines,2026-11-05
 Southern Utah Thunderbirds,Weber State Wildcats,2026-11-05
@@ -58,7 +51,6 @@ Utah Tech Trailblazers,Idaho State Bengals,2026-11-05
 Northern Arizona Lumberjacks,Montana Grizzlies,2026-11-05
 Portland State Vikings,Montana State Bobcats,2026-11-05
 California Baptist Lancers,Cal State Northridge Matadors,2026-11-05
-San José State Spartans,Grand Canyon Lopes,2026-11-05
 Fresno State Bulldogs,San Diego State Aztecs,2026-11-05
 Pepperdine Waves,Saint Mary's Gaels,2026-11-05
 Seattle U Redhawks,Santa Clara Broncos,2026-11-05
@@ -570,6 +562,7 @@ UT Rio Grande Valley Vaqueros,Houston Christian Huskies,2026-11-14
 Stephen F. Austin Lumberjacks,LSU New Orleans Privateers,2026-11-14
 McNeese Cowboys,Nicholls Colonels,2026-11-14
 Chattanooga Mocs,The Citadel Bulldogs,2026-11-14
+East Tennessee State Buccaneers,Western Carolina Catamounts,2026-11-14
 UNC Greensboro Spartans,Mercer Bears,2026-11-14
 Illinois State Redbirds,Belmont Bruins,2026-11-14
 Texas Tech Red Raiders,BYU Cougars,2026-11-14
@@ -596,7 +589,6 @@ Purdue Fort Wayne Mastodons,Wright State Raiders,2026-11-14
 Ball State Cardinals,Eastern Michigan Eagles,2026-11-14
 San José State Spartans,Nevada Wolf Pack,2026-11-14
 New Mexico Lobos,UNLV Rebels,2026-11-14
-East Tennessee State Buccaneers,Western Carolina Catamounts,2026-11-14
 Bellarmine Knights,Lipscomb Bisons,2026-11-14
 Montana Grizzlies,Eastern Washington Eagles,2026-11-14
 Pennsylvania Quakers,Brown Bears,2026-11-14
