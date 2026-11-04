@@ -19,7 +19,7 @@ Dallas Cowboys,975.826506701266,NFC East,,False
 New York Giants,1009.6521761012386,NFC East,,False
 Philadelphia Eagles,916.8265916519848,NFC East,,False
 Washington Commanders,960.4665784146297,NFC East,,False
-Chicago Bears,1073.1319291155128,NFC North,,True
+Chicago Bears,1073.1319291155128,NFC North,,False
 Detroit Lions,1029.8957631781568,NFC North,,False
 Green Bay Packers,1028.4914329293615,NFC North,,False
 Minnesota Vikings,1058.0002626147746,NFC North,,False
@@ -30,4 +30,4 @@ Tampa Bay Buccaneers,1019.9503560283139,NFC South,,False
 Arizona Cardinals,953.5279082254862,NFC West,,False
 Los Angeles Rams,1018.4824957914811,NFC West,,False
 San Francisco 49ers,1059.3597051776985,NFC West,,False
-Seattle Seahawks,1027.957669063124,NFC West,,True
+Seattle Seahawks,1027.957669063124,NFC West,,False
