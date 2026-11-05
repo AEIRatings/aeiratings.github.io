@@ -1,7 +1,4 @@
 away team,home team,game date (Pacific)
-Ball State,Massachusetts,2026-11-04
-Toledo,Sacramento State,2026-11-04
-Central Michigan,Eastern Michigan,2026-11-04
 UTSA,Florida Atlantic,2026-11-05
 James Madison,Southern Miss,2026-11-05
 South Carolina State,Howard,2026-11-05
@@ -384,6 +381,7 @@ TCU,Texas Tech,2026-11-26
 Florida Atlantic,East Carolina,2026-11-26
 Temple,Memphis,2026-11-26
 Tulane,South Florida,2026-11-26
+Tulsa,UTSA,2026-11-26
 Mississippi State,Ole Miss,2026-11-27
 Nebraska,Iowa,2026-11-27
 Buffalo,Akron,2026-11-27
@@ -394,7 +392,6 @@ North Dakota State,San Jose State,2026-11-27
 Texas,Texas A&M,2026-11-27
 Minnesota,Wisconsin,2026-11-27
 West Virginia,Utah,2026-11-27
-Tulsa,UTSA,2026-11-26
 Boston College,Miami,2026-11-27
 Georgia Tech,Georgia,2026-11-27
 Purdue,Indiana,2026-11-27
