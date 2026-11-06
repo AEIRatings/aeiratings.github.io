@@ -1,7 +1,4 @@
 away team,home team,game date (Pacific)
-UTSA,Florida Atlantic,2026-11-05
-James Madison,Southern Miss,2026-11-05
-South Carolina State,Howard,2026-11-05
 Virginia Tech,SMU,2026-11-06
 South Florida,East Carolina,2026-11-06
 Nebraska,Illinois,2026-11-06
@@ -259,6 +256,7 @@ Clemson,Duke,2026-11-20
 Bowling Green,Toledo,2026-11-20
 Oregon,Michigan State,2026-11-20
 UTEP,Air Force,2026-11-20
+New Mexico,Wyoming,2026-11-20
 Virginia Tech,Miami,2026-11-20
 Georgia,South Carolina,2026-11-20
 Utah,TCU,2026-11-20
@@ -315,7 +313,6 @@ Washington State,Texas State,2026-11-21
 UNLV,San Jose State,2026-11-21
 SMU,Notre Dame,2026-11-21
 Colorado State,Fresno State,2026-11-21
-New Mexico,Wyoming,2026-11-21
 San Diego State,Boise State,2026-11-21
 Utah State,Oregon State,2026-11-21
 UAlbany,North Carolina A&T,2026-11-21
@@ -389,6 +386,7 @@ Toledo,Ohio,2026-11-27
 App State,South Alabama,2026-11-27
 Florida,Florida State,2026-11-27
 North Dakota State,San Jose State,2026-11-27
+Air Force,New Mexico,2026-11-27
 Texas,Texas A&M,2026-11-27
 Minnesota,Wisconsin,2026-11-27
 West Virginia,Utah,2026-11-27
@@ -437,7 +435,6 @@ Sam Houston,Florida International,2026-11-28
 New Mexico State,Middle Tennessee,2026-11-28
 Troy,Arkansas State,2026-11-28
 Jacksonville State,Delaware,2026-11-28
-Air Force,New Mexico,2026-11-28
 Nevada,UNLV,2026-11-28
 Sacramento State,Hawai'i,2026-11-28
 Grambling,Southern,2026-11-28
