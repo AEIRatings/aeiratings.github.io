@@ -1,120 +1,10 @@
 away team,home team,game date (Pacific)
-BYU,Utah,2026-11-07
-Texas,Missouri,2026-11-07
-UCLA,Minnesota,2026-11-07
-Iowa State,Baylor,2026-11-07
-Clemson,Syracuse,2026-11-07
-Florida State,Boston College,2026-11-07
-North Carolina,UConn,2026-11-07
-Tulsa,Tulane,2026-11-07
-Duke,NC State,2026-11-07
-Maryland,Purdue,2026-11-07
-Arkansas,Auburn,2026-11-07
-Oklahoma State,Kansas State,2026-11-07
-Old Dominion,Coastal Carolina,2026-11-07
-Georgia State,App State,2026-11-07
-Texas A&M,South Carolina,2026-11-07
-UL Monroe,Arkansas State,2026-11-07
-Delaware,Kennesaw State,2026-11-07
-Alabama,LSU,2026-11-07
-Oregon,Ohio State,2026-11-07
-Merrimack,Wake Forest,2026-11-07
-Cincinnati,Houston,2026-11-07
-Penn State,Washington,2026-11-07
-Charlotte,UAB,2026-11-07
-Temple,Navy,2026-11-07
-Marshall,Georgia Southern,2026-11-07
-Western Kentucky,Middle Tennessee,2026-11-07
-UCF,Kansas,2026-11-07
-Rice,North Texas,2026-11-07
-Northern Illinois,San Jose State,2026-11-07
-Missouri State,Florida International,2026-11-07
-Louisiana Tech,Troy,2026-11-07
-Vanderbilt,Mississippi State,2026-11-07
-Rutgers,Wisconsin,2026-11-07
-South Alabama,Louisiana,2026-11-07
-Boise State,Colorado State,2026-11-07
-Kentucky,Tennessee,2026-11-07
-Sam Houston,Jacksonville State,2026-11-07
-Miami,Notre Dame,2026-11-07
-Georgia,Ole Miss,2026-11-07
-Iowa,Northwestern,2026-11-07
-Colorado,Arizona State,2026-11-07
-Louisville,Georgia Tech,2026-11-07
-Michigan State,Michigan,2026-11-07
-Air Force,Army,2026-11-07
-Oklahoma,Florida,2026-11-07
-Liberty,New Mexico State,2026-11-07
-West Virginia,Texas Tech,2026-11-07
-Fresno State,Utah State,2026-11-07
-Hawai'i,UTEP,2026-11-07
-Texas State,Oregon State,2026-11-07
-Wyoming,UNLV,2026-11-07
-North Carolina A&T,Monmouth,2026-11-07
-Towson,Sacred Heart,2026-11-07
-Brown,Yale,2026-11-07
-Dartmouth,Princeton,2026-11-07
-Long Island University,New Haven,2026-11-07
-Robert Morris,Duquesne,2026-11-07
-Wagner,Mercyhurst,2026-11-07
-North Carolina Central,Norfolk State,2026-11-07
-Colgate,Lehigh,2026-11-07
-Valparaiso,Dayton,2026-11-07
-Morehead State,Marist,2026-11-07
-Holy Cross,Georgetown,2026-11-07
-UAlbany,Bryant,2026-11-07
-Stony Brook,Campbell,2026-11-07
-Rhode Island,New Hampshire,2026-11-07
-Columbia,Harvard,2026-11-07
-Pennsylvania,Cornell,2026-11-07
-Central Connecticut,Stonehill,2026-11-07
-Morgan State,Delaware State,2026-11-07
-Fordham,Bucknell,2026-11-07
-Lafayette,William & Mary,2026-11-07
-Richmond,Villanova,2026-11-07
-Stetson,Davidson,2026-11-07
-San Diego,Drake,2026-11-07
-Mercer,Chattanooga,2026-11-07
-Samford,East Tennessee State,2026-11-07
-Wofford,Western Carolina,2026-11-07
-Lindenwood,Gardner-Webb,2026-11-07
-Hampton,Elon,2026-11-07
-Illinois State,North Dakota,2026-11-07
-Youngstown State,Murray State,2026-11-07
-UT Martin,Charleston Southern,2026-11-07
-UT Rio Grande Valley,Northwestern State,2026-11-07
-Furman,The Citadel,2026-11-07
-South Dakota State,Northern Iowa,2026-11-07
-VMI,Tennessee Tech,2026-11-07
-Portland State,Montana,2026-11-07
-Northern Colorado,Southern Utah,2026-11-07
-Western Illinois,Eastern Illinois,2026-11-07
-Alabama A&M,Prairie View A&M,2026-11-07
-Alabama State,Texas Southern,2026-11-07
-Florida A&M,Alcorn State,2026-11-07
-Arkansas-Pine Bluff,Grambling,2026-11-07
-Bethune-Cookman,Southern,2026-11-07
-Mississippi Valley State,Jackson State,2026-11-07
-Southeast Missouri State,Tennessee State,2026-11-07
-Eastern Kentucky,Austin Peay,2026-11-07
-Stephen F. Austin,Lamar,2026-11-07
-East Texas A&M,Nicholls,2026-11-07
-Northern Arizona,Cal Poly,2026-11-07
-Eastern Washington,Idaho,2026-11-07
-West Georgia,Central Arkansas,2026-11-07
-McNeese,Houston Christian,2026-11-07
-Southern Illinois,Indiana State,2026-11-07
-Montana State,Idaho State,2026-11-07
-Abilene Christian,Tarleton State,2026-11-07
-West Florida,North Alabama,2026-11-07
-Utah Tech,UC Davis,2026-11-07
-Incarnate Word,SE Louisiana,2026-11-07
 Western Michigan,Akron,2026-11-10
 Kent State,Bowling Green,2026-11-10
 Ohio,Miami (OH),2026-11-10
-Massachusetts,Toledo,2026-11-10
 Buffalo,Ball State,2026-11-11
 Sacramento State,Central Michigan,2026-11-11
+Massachusetts,Toledo,2026-11-11
 Memphis,South Florida,2026-11-12
 Louisiana,UL Monroe,2026-11-12
 Florida State,Pittsburgh,2026-11-13
@@ -126,16 +16,12 @@ Utah,Arizona,2026-11-13
 Florida,Kentucky,2026-11-13
 Texas,LSU,2026-11-13
 Baylor,BYU,2026-11-13
-Ole Miss,Oklahoma,2026-11-13
 Tennessee,Texas A&M,2026-11-13
 Texas Tech,Oklahoma State,2026-11-13
-Purdue,Iowa,2026-11-13
 Arizona State,UCF,2026-11-13
 Cincinnati,Iowa State,2026-11-13
 Kansas,West Virginia,2026-11-13
 Kansas State,TCU,2026-11-13
-Louisville,North Carolina,2026-11-13
-Stanford,Virginia Tech,2026-11-13
 Duke,Miami,2026-11-14
 Northwestern,Ohio State,2026-11-14
 Wake Forest,SMU,2026-11-14
@@ -163,13 +49,17 @@ Georgia Southern,Georgia State,2026-11-14
 Jacksonville State,Western Kentucky,2026-11-14
 Middle Tennessee,Liberty,2026-11-14
 Fresno State,Texas State,2026-11-14
+Ole Miss,Oklahoma,2026-11-13
 Washington,Michigan State,2026-11-14
 Southern Miss,Louisiana Tech,2026-11-14
 Oregon State,Boise State,2026-11-14
 App State,Marshall,2026-11-14
+Louisville,North Carolina,2026-11-13
 Minnesota,Penn State,2026-11-14
 San Jose State,Air Force,2026-11-14
 Troy,South Alabama,2026-11-14
+Purdue,Iowa,2026-11-14
+Stanford,Virginia Tech,2026-11-14
 UNLV,New Mexico,2026-11-14
 South Carolina,Arkansas,2026-11-14
 North Texas,UTSA,2026-11-14
@@ -242,7 +132,7 @@ Ball State,Ohio,2026-11-17
 Eastern Michigan,Western Michigan,2026-11-17
 Miami (OH),Kent State,2026-11-17
 Akron,Massachusetts,2026-11-17
-Central Michigan,Buffalo,2026-11-17
+Central Michigan,Buffalo,2026-11-18
 Rice,Temple,2026-11-19
 Northwestern State,Stephen F. Austin,2026-11-19
 SE Louisiana,Nicholls,2026-11-19
