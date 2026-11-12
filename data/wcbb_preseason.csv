@@ -1,0 +1,364 @@
+Team,Elo,Conference,RatingUpdated
+Davidson Wildcats,1000,A10,False
+Dayton Flyers,1000,A10,False
+Duquesne Dukes,1000,A10,False
+Fordham Rams,1000,A10,False
+George Mason Patriots,1000,A10,False
+George Washington Revolutionaries,1000,A10,False
+La Salle Explorers,1000,A10,False
+Loyola Chicago Ramblers,1000,A10,False
+Rhode Island Rams,1000,A10,False
+Richmond Spiders,1000,A10,False
+Saint Louis Billikens,1000,A10,False
+St. Bonaventure Bonnies,1000,A10,False
+Saint Joseph's Hawks,1000,A10,False
+VCU Rams,1000,A10,False
+Boston College Eagles,1000,ACC,False
+California Golden Bears,1000,ACC,False
+Clemson Tigers,1000,ACC,False
+Duke Blue Devils,1000,ACC,False
+Florida State Seminoles,1000,ACC,False
+Georgia Tech Yellow Jackets,1000,ACC,False
+Louisville Cardinals,1000,ACC,False
+Miami Hurricanes,1000,ACC,False
+NC State Wolfpack,1000,ACC,False
+North Carolina Tar Heels,1000,ACC,False
+Notre Dame Fighting Irish,1000,ACC,False
+Pittsburgh Panthers,1000,ACC,False
+SMU Mustangs,1000,ACC,False
+Stanford Cardinal,1000,ACC,False
+Syracuse Orange,1000,ACC,False
+Virginia Cavaliers,1000,ACC,False
+Virginia Tech Hokies,1000,ACC,False
+Wake Forest Demon Deacons,1000,ACC,False
+Binghamton Bearcats,1000,America East,False
+Bryant Bulldogs,1000,America East,False
+Maine Black Bears,1000,America East,False
+New Hampshire Wildcats,1000,America East,False
+NJIT Highlanders,1000,America East,False
+UAlbany Great Danes,1000,America East,False
+UMass Lowell River Hawks,1000,America East,False
+UMBC Retrievers,1000,America East,False
+Vermont Catamounts,1000,America East,False
+Charlotte 49ers,1000,American,False
+East Carolina Pirates,1000,American,False
+Florida Atlantic Owls,1000,American,False
+Memphis Tigers,1000,American,False
+North Texas Mean Green,1000,American,False
+Rice Owls,1000,American,False
+South Florida Bulls,1000,American,False
+Temple Owls,1000,American,False
+Tulane Green Wave,1000,American,False
+Tulsa Golden Hurricane,1000,American,False
+UAB Blazers,1000,American,False
+UTSA Roadrunners,1000,American,False
+Wichita State Shockers,1000,American,False
+Austin Peay Governors,1000,UAC,False
+Bellarmine Knights,1000,ASUN,False
+Central Arkansas Sugar Bears,1000,UAC,False
+Eastern Kentucky Colonels,1000,UAC,False
+Florida Gulf Coast Eagles,1000,ASUN,False
+Jacksonville Dolphins,1000,ASUN,False
+Lipscomb Bisons,1000,ASUN,False
+North Alabama Lions,1000,UAC,False
+North Florida Ospreys,1000,ASUN,False
+Queens University Royals,1000,ASUN,False
+Stetson Hatters,1000,ASUN,False
+West Georgia Wolves,1000,UAC,False
+Illinois Fighting Illini,1000,Big 10,False
+Indiana Hoosiers,1000,Big 10,False
+Iowa Hawkeyes,1000,Big 10,False
+Maryland Terrapins,1000,Big 10,False
+Michigan Wolverines,1000,Big 10,False
+Michigan State Spartans,1000,Big 10,False
+Minnesota Golden Gophers,1000,Big 10,False
+Nebraska Cornhuskers,1000,Big 10,False
+Northwestern Wildcats,1000,Big 10,False
+Ohio State Buckeyes,1000,Big 10,False
+Oregon Ducks,1000,Big 10,False
+Penn State Lady Lions,1000,Big 10,False
+Purdue Boilermakers,1000,Big 10,False
+Rutgers Scarlet Knights,1000,Big 10,False
+UCLA Bruins,1000,Big 10,False
+USC Trojans,1000,Big 10,False
+Washington Huskies,1000,Big 10,False
+Wisconsin Badgers,1000,Big 10,False
+Arizona Wildcats,1000,Big 12,False
+Arizona State Sun Devils,1000,Big 12,False
+Baylor Bears,1000,Big 12,False
+BYU Cougars,1000,Big 12,False
+Cincinnati Bearcats,1000,Big 12,False
+Colorado Buffaloes,1000,Big 12,False
+Houston Cougars,1000,Big 12,False
+Iowa State Cyclones,1000,Big 12,False
+Kansas Jayhawks,1000,Big 12,False
+Kansas State Wildcats,1000,Big 12,False
+Oklahoma State Cowgirls,1000,Big 12,False
+TCU Horned Frogs,1000,Big 12,False
+Texas Tech Lady Raiders,1000,Big 12,False
+UCF Knights,1000,Big 12,False
+Utah Utes,1000,Big 12,False
+West Virginia Mountaineers,1000,Big 12,False
+Butler Bulldogs,1000,Big East,False
+Creighton Bluejays,1000,Big East,False
+DePaul Blue Demons,1000,Big East,False
+Georgetown Hoyas,1000,Big East,False
+Marquette Golden Eagles,1000,Big East,False
+Providence Friars,1000,Big East,False
+Seton Hall Pirates,1000,Big East,False
+St. John's Red Storm,1000,Big East,False
+UConn Huskies,1000,Big East,False
+Villanova Wildcats,1000,Big East,False
+Xavier Musketeers,1000,Big East,False
+Eastern Washington Eagles,1000,Big Sky,False
+Idaho Vandals,1000,Big Sky,False
+Idaho State Bengals,1000,Big Sky,False
+Montana Lady Griz,1000,Big Sky,False
+Montana State Bobcats,1000,Big Sky,False
+Northern Arizona Lumberjacks,1000,Big Sky,False
+Northern Colorado Bears,1000,Big Sky,False
+Portland State Vikings,1000,Big Sky,False
+Sacramento State Hornets,1000,Big West,False
+Weber State Wildcats,1000,Big Sky,False
+Charleston Southern Buccaneers,1000,Big South,False
+Gardner-Webb Runnin' Bulldogs,1000,Big South,False
+High Point Panthers,1000,Big South,False
+Longwood Lancers,1000,Big South,False
+Presbyterian Blue Hose,1000,Big South,False
+Radford Highlanders,1000,Big South,False
+South Carolina Upstate Spartans,1000,Big South,False
+UNC Asheville Bulldogs,1000,Big South,False
+Winthrop Eagles,1000,Big South,False
+Cal Poly Mustangs,1000,Big West,False
+Cal State Bakersfield Roadrunners,1000,Big West,False
+Cal State Fullerton Titans,1000,Big West,False
+Cal State Northridge Matadors,1000,Big West,False
+Hawai'i Rainbow Wahine,1000,Mountain West,False
+Long Beach State Beach,1000,Big West,False
+UC Davis Aggies,1000,Mountain West,False
+UC Irvine Anteaters,1000,Big West,False
+UC Riverside Highlanders,1000,Big West,False
+UC San Diego Tritons,1000,Big West,False
+UC Santa Barbara Gauchos,1000,Big West,False
+Campbell Fighting Camels,1000,CAA,False
+Charleston Cougars,1000,CAA,False
+Drexel Dragons,1000,CAA,False
+Elon Phoenix,1000,CAA,False
+Hampton Lady Pirates,1000,CAA,False
+Hofstra Pride,1000,CAA,False
+Monmouth Hawks,1000,CAA,False
+North Carolina A&T Aggies,1000,CAA,False
+Northeastern Huskies,1000,CAA,False
+Stony Brook Seawolves,1000,CAA,False
+Towson Tigers,1000,CAA,False
+UNC Wilmington Seahawks,1000,CAA,False
+William & Mary Tribe,1000,CAA,False
+Delaware Blue Hens,1000,CUSA,False
+Florida International Panthers,1000,CUSA,False
+Jacksonville State Gamecocks,1000,CUSA,False
+Kennesaw State Owls,1000,CUSA,False
+Liberty Flames,1000,CUSA,False
+Louisiana Tech Lady Techsters,1000,Sun Belt,False
+Missouri State Bears,1000,CUSA,False
+Middle Tennessee Blue Raiders,1000,CUSA,False
+New Mexico State Aggies,1000,CUSA,False
+Sam Houston Bearkats,1000,CUSA,False
+UTEP Miners,1000,Mountain West,False
+Western Kentucky Lady Toppers,1000,CUSA,False
+Cleveland State Vikings,1000,Horizon,False
+Detroit Mercy Titans,1000,Horizon,False
+Green Bay Phoenix,1000,Horizon,False
+IU Indianapolis Jaguars,1000,Horizon,False
+Milwaukee Panthers,1000,Horizon,False
+Northern Kentucky Norse,1000,Horizon,False
+Oakland Golden Grizzlies,1000,Horizon,False
+Purdue Fort Wayne Mastodons,1000,Horizon,False
+Robert Morris Colonials,1000,Horizon,False
+Wright State Raiders,1000,Horizon,False
+Youngstown State Penguins,1000,Horizon,False
+Brown Bears,1000,Ivy League,False
+Columbia Lions,1000,Ivy League,False
+Cornell Big Red,1000,Ivy League,False
+Dartmouth Big Green,1000,Ivy League,False
+Harvard Crimson,1000,Ivy League,False
+Pennsylvania Quakers,1000,Ivy League,False
+Princeton Tigers,1000,Ivy League,False
+Yale Bulldogs,1000,Ivy League,False
+Canisius Golden Griffins,1000,MAAC,False
+Fairfield Stags,1000,MAAC,False
+Iona Gaels,1000,MAAC,False
+Manhattan Jaspers,1000,MAAC,False
+Marist Red Foxes,1000,MAAC,False
+Merrimack Warriors,1000,MAAC,False
+Mount St. Mary's Mountaineers,1000,MAAC,False
+Niagara Purple Eagles,1000,MAAC,False
+Quinnipiac Bobcats,1000,MAAC,False
+Rider Broncs,1000,MAAC,False
+Sacred Heart Pioneers,1000,MAAC,False
+Siena Saints,1000,MAAC,False
+Saint Peter's Peacocks,1000,MAAC,False
+Akron Zips,1000,MAC,False
+Ball State Cardinals,1000,MAC,False
+Bowling Green Falcons,1000,MAC,False
+Buffalo Bulls,1000,MAC,False
+Central Michigan Chippewas,1000,MAC,False
+Eastern Michigan Eagles,1000,MAC,False
+Kent State Golden Flashes,1000,MAC,False
+Miami (OH) RedHawks,1000,MAC,False
+Northern Illinois Huskies,1000,Horizon,False
+Ohio Bobcats,1000,MAC,False
+Toledo Rockets,1000,MAC,False
+Massachusetts Minutemen,1000,MAC,False
+Western Michigan Broncos,1000,MAC,False
+Coppin State Eagles,1000,MEAC,False
+Delaware State Hornets,1000,MEAC,False
+Howard Bison,1000,MEAC,False
+Maryland Eastern Shore Hawks,1000,MEAC,False
+Morgan State Lady Bears,1000,MEAC,False
+North Carolina Central Eagles,1000,MEAC,False
+Norfolk State Spartans,1000,MEAC,False
+South Carolina State Lady Bulldogs,1000,MEAC,False
+Air Force Falcons,1000,Mountain West,False
+Boise State Broncos,1000,Pac 12,False
+Colorado State Rams,1000,Pac 12,False
+Fresno State Bulldogs,1000,Pac 12,False
+Grand Canyon Lopes,1000,Mountain West,False
+Nevada Wolf Pack,1000,Mountain West,False
+New Mexico Lobos,1000,Mountain West,False
+San Diego State Aztecs,1000,Pac 12,False
+San Jose State Spartans,1000,Mountain West,False
+UNLV Lady Rebels,1000,Mountain West,False
+Utah State Aggies,1000,Pac 12,False
+Wyoming Cowgirls,1000,Mountain West,False
+Belmont Bruins,1000,MVC,False
+Bradley Braves,1000,MVC,False
+Drake Bulldogs,1000,MVC,False
+Evansville Purple Aces,1000,MVC,False
+Illinois State Redbirds,1000,MVC,False
+Indiana State Sycamores,1000,MVC,False
+Murray State Racers,1000,MVC,False
+Northern Iowa Panthers,1000,MVC,False
+Southern Illinois Salukis,1000,MVC,False
+UIC Flames,1000,MVC,False
+Valparaiso Beacons,1000,MVC,False
+Central Connecticut Blue Devils,1000,NEC,False
+Chicago State Cougars,1000,NEC,False
+Fairleigh Dickinson Knights,1000,NEC,False
+Le Moyne Dolphins,1000,NEC,False
+Long Island University Sharks,1000,NEC,False
+Mercyhurst Lakers,1000,NEC,False
+New Haven Chargers,1000,NEC,False
+Stonehill Skyhawks,1000,NEC,False
+Wagner Seahawks,1000,NEC,False
+Eastern Illinois Panthers,1000,OVC,False
+Lindenwood Lions,1000,OVC,False
+Little Rock Trojans,1000,UAC,False
+Morehead State Eagles,1000,OVC,False
+Southeast Missouri State Redhawks,1000,OVC,False
+SIU Edwardsville Cougars,1000,OVC,False
+Southern Indiana Screaming Eagles,1000,OVC,False
+Tennessee State Lady Tigers,1000,OVC,False
+Tennessee Tech Golden Eagles,1000,Southern,False
+UT Martin Skyhawks,1000,OVC,False
+Western Illinois Leathernecks,1000,OVC,False
+American University Eagles,1000,Patriot,False
+Army Black Knights,1000,Patriot,False
+Boston University Terriers,1000,Patriot,False
+Bucknell Bison,1000,Patriot,False
+Colgate Raiders,1000,Patriot,False
+Holy Cross Crusaders,1000,Patriot,False
+Lafayette Leopards,1000,Patriot,False
+Lehigh Mountain Hawks,1000,Patriot,False
+Loyola Maryland Greyhounds,1000,Patriot,False
+Navy Midshipmen,1000,Patriot,False
+Alabama Crimson Tide,1000,SEC,False
+Arkansas Razorbacks,1000,SEC,False
+Auburn Tigers,1000,SEC,False
+Florida Gators,1000,SEC,False
+Georgia Lady Bulldogs,1000,SEC,False
+Kentucky Wildcats,1000,SEC,False
+LSU Tigers,1000,SEC,False
+Mississippi State Bulldogs,1000,SEC,False
+Missouri Tigers,1000,SEC,False
+Oklahoma Sooners,1000,SEC,False
+Ole Miss Rebels,1000,SEC,False
+South Carolina Gamecocks,1000,SEC,False
+Tennessee Lady Volunteers,1000,SEC,False
+Texas Longhorns,1000,SEC,False
+Texas A&M Aggies,1000,SEC,False
+Vanderbilt Commodores,1000,SEC,False
+Chattanooga Mocs,1000,Southern,False
+East Tennessee State Bucs,1000,Southern,False
+Furman Paladins,1000,Southern,False
+Mercer Bears,1000,Southern,False
+Samford Bulldogs,1000,Southern,False
+UNC Greensboro Spartans,1000,Southern,False
+Western Carolina Catamounts,1000,Southern,False
+Wofford Terriers,1000,Southern,False
+East Texas A&M Lions,1000,Southland,False
+Houston Christian Huskies,1000,Southland,False
+Incarnate Word Cardinals,1000,Southland,False
+Lamar Cardinals,1000,Southland,False
+McNeese Cowgirls,1000,Southland,False
+New Orleans Privateers,1000,Southland,False
+Nicholls Colonels,1000,Southland,False
+Northwestern State Lady Demons,1000,Southland,False
+SE Louisiana Lady Lions,1000,Southland,False
+Stephen F. Austin Ladyjacks,1000,Southland,False
+Texas A&M-Corpus Christi Islanders,1000,Southland,False
+UT Rio Grande Valley Vaqueros,1000,Southland,False
+Denver Pioneers,1000,WCC,False
+Kansas City Roos,1000,Summit,False
+North Dakota Fighting Hawks,1000,Summit,False
+North Dakota State Bison,1000,Summit,False
+Omaha Mavericks,1000,Summit,False
+Oral Roberts Golden Eagles,1000,Summit,False
+South Dakota Coyotes,1000,Summit,False
+South Dakota State Jackrabbits,1000,Summit,False
+St. Thomas-Minnesota Tommies,1000,Summit,False
+App State Mountaineers,1000,Sun Belt,False
+Arkansas State Red Wolves,1000,Sun Belt,False
+Coastal Carolina Chanticleers,1000,Sun Belt,False
+Georgia Southern Eagles,1000,Sun Belt,False
+Georgia State Panthers,1000,Sun Belt,False
+James Madison Dukes,1000,Sun Belt,False
+Louisiana Ragin' Cajuns,1000,Sun Belt,False
+Marshall Thundering Herd,1000,Sun Belt,False
+Old Dominion Monarchs,1000,Sun Belt,False
+South Alabama Jaguars,1000,Sun Belt,False
+Southern Miss Lady Eagles,1000,Sun Belt,False
+Texas State Bobcats,1000,Pac 12,False
+Troy Trojans,1000,Sun Belt,False
+UL Monroe Warhawks,1000,Sun Belt,False
+Alabama A&M Bulldogs,1000,SWAC,False
+Alabama State Lady Hornets,1000,SWAC,False
+Alcorn State Lady Braves,1000,SWAC,False
+Arkansas-Pine Bluff Golden Lions,1000,SWAC,False
+Bethune-Cookman Wildcats,1000,SWAC,False
+Florida A&M Rattlers,1000,SWAC,False
+Grambling Lady Tigers,1000,SWAC,False
+Jackson State Lady Tigers,1000,SWAC,False
+Mississippi Valley State Devilettes,1000,SWAC,False
+Prairie View A&M Lady Panthers,1000,SWAC,False
+Southern Jaguars,1000,SWAC,False
+Texas Southern Tigers,1000,SWAC,False
+Abilene Christian Wildcats,1000,UAC,False
+California Baptist Lancers,1000,Big West,False
+Southern Utah Thunderbirds,1000,Big Sky,False
+Tarleton State Texans,1000,UAC,False
+UT Arlington Mavericks,1000,UAC,False
+Utah Tech Trailblazers,1000,Big Sky,False
+Utah Valley Wolverines,1000,Big West,False
+Gonzaga Bulldogs,1000,Pac 12,False
+Loyola Marymount Lions,1000,WCC,False
+Oregon State Beavers,1000,Pac 12,False
+Pacific Tigers,1000,WCC,False
+Pepperdine Waves,1000,WCC,False
+Portland Pilots,1000,WCC,False
+San Diego Toreros,1000,WCC,False
+San Francisco Dons,1000,WCC,False
+Santa Clara Broncos,1000,WCC,False
+Seattle U Redhawks,1000,WCC,False
+Saint Mary's Gaels,1000,WCC,False
+Washington State Cougars,1000,Pac 12,False
+West Florida Argonauts,1000,ASUN,False

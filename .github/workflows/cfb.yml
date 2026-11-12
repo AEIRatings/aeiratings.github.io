@@ -89,4 +89,3 @@ jobs:
           # FIX: Only commit data/cfb.csv, resolving the 'pathspec did not match' error
           file_pattern: data/cfb.csv
           commit_author: 'GitHub Actions Bot <action@github.com>'
-          skip_dirty_check: true
