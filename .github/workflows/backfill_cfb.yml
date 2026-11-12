@@ -47,4 +47,3 @@ jobs:
           commit_message: "🤖 Backfill cfb ELO ratings: replayed ${{ inputs.start_date }} through ${{ inputs.end_date }}"
           file_pattern: data/cfb.csv
           commit_author: 'GitHub Actions Bot <action@github.com>'
-          skip_dirty_check: true
