@@ -1,7 +1,4 @@
 away team,home team,game date (Pacific)
-Buffalo,Ball State,2026-11-11
-Sacramento State,Central Michigan,2026-11-11
-Massachusetts,Toledo,2026-11-11
 Memphis,South Florida,2026-11-12
 Louisiana,UL Monroe,2026-11-12
 Florida State,Pittsburgh,2026-11-13
@@ -270,8 +267,6 @@ Air Force,New Mexico,2026-11-27
 Texas,Texas A&M,2026-11-27
 Minnesota,Wisconsin,2026-11-27
 West Virginia,Utah,2026-11-27
-Florida Atlantic,East Carolina,2026-11-27
-Tulane,South Florida,2026-11-27
 Georgia Tech,Georgia,2026-11-27
 Auburn,Alabama,2026-11-27
 USC,UCLA,2026-11-27
@@ -299,6 +294,8 @@ Illinois,Northwestern,2026-11-27
 Penn State,Maryland,2026-11-27
 Michigan State,Rutgers,2026-11-27
 UConn,Wyoming,2026-11-27
+Florida Atlantic,East Carolina,2026-11-27
+Tulane,South Florida,2026-11-27
 Army,Rice,2026-11-27
 Navy,Charlotte,2026-11-27
 UAB,North Texas,2026-11-27
