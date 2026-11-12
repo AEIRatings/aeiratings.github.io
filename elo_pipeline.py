@@ -1,6 +1,5 @@
 """
-Shared score-fetching and Elo-updating steps for men's (mcbb) and women's
-(wcbb) college basketball.
+Shared score-fetching and Elo-updating steps for mcbb, wcbb, nba and nhl.
 
 The daily job no longer assumes it ran yesterday. data/<league>_last_update.txt
 records the last date whose games are already in the ratings, and each run
@@ -13,7 +12,7 @@ from datetime import datetime, timedelta
 
 import pandas as pd
 
-from cbb_common import load_name_lookup, fetch_final_games, LEAGUES
+from espn_common import load_name_lookup, fetch_final_games, LEAGUES
 
 DATE_FMT = '%Y-%m-%d'
 
@@ -73,7 +72,7 @@ def fetch_scores(league, end_date=None):
             break
         for event_id, away, home, a_score, h_score in games:
             rows.append([day.strftime(DATE_FMT), event_id, away, home, a_score, h_score])
-        print(f"{day:%Y-%m-%d}: {len(games)} Division I game(s)")
+        print(f"{day:%Y-%m-%d}: {len(games)} game(s)")
         through = day
         day += timedelta(days=1)
 

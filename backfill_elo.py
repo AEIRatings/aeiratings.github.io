@@ -1,16 +1,16 @@
 """
-Rebuilds data/<league>.csv for mcbb or wcbb by replaying every game from
+Rebuilds data/<league>.csv for mcbb, wcbb, nba or nhl by replaying every game from
 --start through --end (inclusive) on top of the preseason ratings in
 data/<league>_preseason.csv, using the same code as the daily job.
 
-    python backfill_cbb.py --league mcbb --start 2026-11-01 --end 2026-11-11
+    python backfill_elo.py --league mcbb --start 2026-11-01 --end 2026-11-11
 """
 import argparse
 import shutil
 from datetime import datetime, timedelta
 
-from cbb_common import LEAGUES
-from cbb_elo import DATE_FMT, fetch_scores, state_file, update_ratings
+from espn_common import LEAGUES
+from elo_pipeline import DATE_FMT, fetch_scores, state_file, update_ratings
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)

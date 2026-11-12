@@ -1,7 +1,7 @@
-name: Backfill mcbb/wcbb ELO Ratings
+name: Backfill ELO Ratings (mcbb, wcbb, nba, nhl)
 
 # Manual-only: rebuilds data/<league>.csv from data/<league>_preseason.csv by
-# replaying every game from start_date through end_date with backfill_cbb.py.
+# replaying every game from start_date through end_date with backfill_elo.py.
 on:
   workflow_dispatch:
     inputs:
@@ -9,11 +9,10 @@ on:
         description: 'League to rebuild'
         required: true
         type: choice
-        options: [mcbb, wcbb]
+        options: [mcbb, wcbb, nba, nhl]
       start_date:
         description: 'First date to replay (YYYY-MM-DD, inclusive)'
         required: true
-        default: '2026-11-01'
       end_date:
         description: 'Last date to replay (YYYY-MM-DD, inclusive; blank = yesterday)'
         required: false
@@ -43,7 +42,7 @@ jobs:
       - name: Run Backfill Script
         run: |
           if [ -n "${{ inputs.end_date }}" ]; then END="--end ${{ inputs.end_date }}"; fi
-          python backfill_cbb.py --league "${{ inputs.league }}" --start "${{ inputs.start_date }}" $END
+          python backfill_elo.py --league "${{ inputs.league }}" --start "${{ inputs.start_date }}" $END
 
       - name: Commit and Push Changes
         uses: stefanzweifel/git-auto-commit-action@v5

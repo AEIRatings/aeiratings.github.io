@@ -1,9 +1,10 @@
 """
-Shared ESPN fetching and team-name matching for men's (mcbb) and women's
-(wcbb) college basketball.
+Shared ESPN fetching and team-name matching for the leagues that use the
+catch-up Elo pipeline: men's (mcbb) and women's (wcbb) college basketball,
+the NBA and the NHL.
 
-Used by getMCBBscores.py / getWCBBscores.py (completed games),
-getMCBBscoresn.py / getWCBBscoresn.py (upcoming games) and backfill_cbb.py.
+Used by get<LEAGUE>scores.py (completed games), getMCBBscoresn.py /
+getWCBBscoresn.py (upcoming games) and backfill_elo.py.
 """
 import csv
 import unicodedata
@@ -12,16 +13,34 @@ from zoneinfo import ZoneInfo
 
 import requests
 
+# espn_path is the sport/league part of the ESPN scoreboard URL. groups=50
+# limits college scoreboards to Division I games.
 LEAGUES = {
     'mcbb': {
         'ratings_file': 'data/mcbb.csv',
-        'espn_path': 'mens-college-basketball',
+        'espn_path': 'basketball/mens-college-basketball',
+        'query': 'groups=50&',
     },
     'wcbb': {
         'ratings_file': 'data/wcbb.csv',
-        'espn_path': 'womens-college-basketball',
+        'espn_path': 'basketball/womens-college-basketball',
+        'query': 'groups=50&',
+    },
+    'nba': {
+        'ratings_file': 'data/nba.csv',
+        'espn_path': 'basketball/nba',
+        'query': '',
+    },
+    'nhl': {
+        'ratings_file': 'data/nhl.csv',
+        'espn_path': 'hockey/nhl',
+        'query': '',
     },
 }
+
+# ESPN season types: 1 preseason, 2 regular season, 3 postseason. Preseason
+# and exhibition games never count toward the ratings.
+PRESEASON = 1
 
 # ESPN display names that differ from the names in data/<league>.csv.
 # Keys are ESPN names, values are our canonical names (which the logos use).
@@ -37,6 +56,10 @@ ESPN_ALIASES = {
         'Massachusetts Minutewomen': 'Massachusetts Minutemen',
         'Missouri State Lady Bears': 'Missouri State Bears',
     },
+    'nba': {
+        'LA Clippers': 'Los Angeles Clippers',
+    },
+    'nhl': {},
 }
 
 # Last day of the season we look ahead to for upcoming games (covers the
@@ -45,9 +68,9 @@ SEASON_END = datetime(2027, 4, 10)
 
 
 def scoreboard_url(league, date):
-    base = f"http://site.api.espn.com/apis/site/v2/sports/basketball/{LEAGUES[league]['espn_path']}/scoreboard"
-    # groups=50 is all of Division I; limit raises ESPN's default page size.
-    return f"{base}?groups=50&limit=1000&dates={date.strftime('%Y%m%d')}"
+    base = f"http://site.api.espn.com/apis/site/v2/sports/{LEAGUES[league]['espn_path']}/scoreboard"
+    # limit raises ESPN's default page size.
+    return f"{base}?{LEAGUES[league]['query']}limit=1000&dates={date.strftime('%Y%m%d')}"
 
 
 def strip_accents(text):
@@ -134,7 +157,8 @@ def _teams(event, lookup):
 
 def fetch_final_games(league, date, lookup, seen_ids=None):
     """
-    Completed games on one date between two Division I teams, as
+    Completed regular-season or postseason games on one date between two
+    teams in our ratings file (Division I only for college), as
     [(event_id, away, home, away_score, home_score), ...].
     Returns None if ESPN could not be reached, so callers can stop instead of
     silently skipping a day.
@@ -146,6 +170,8 @@ def fetch_final_games(league, date, lookup, seen_ids=None):
     for event in events:
         event_id = event.get('id')
         if seen_ids is not None and event_id in seen_ids:
+            continue
+        if (event.get('season') or {}).get('type') == PRESEASON:
             continue
         state, away, home, a_score, h_score = _teams(event, lookup)
         if state != 'post' or not away or not home or a_score is None or h_score is None:

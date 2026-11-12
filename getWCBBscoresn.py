@@ -5,7 +5,7 @@ season to data/wcbb_games.csv, for the predictions page.
 import csv
 from datetime import datetime
 
-from cbb_common import SEASON_END, fetch_upcoming_games, load_name_lookup
+from espn_common import SEASON_END, fetch_upcoming_games, load_name_lookup
 
 CSV_FILENAME = 'data/wcbb_games.csv'
 
