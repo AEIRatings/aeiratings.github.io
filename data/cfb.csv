@@ -20,11 +20,11 @@ Army,1013.4831831869411,American,,False
 Charlotte,883.2034114634264,American,,False
 East Carolina,1002.4702263595445,American,,False
 Florida Atlantic,1036.8557517028353,American,,False
-Memphis,1069.8806849444895,American,,False
+Memphis,1083.7779692372392,American,,True
 Navy,969.8059321616196,American,,False
 North Texas,1068.739427915342,American,,False
 Rice,900.9843622960461,American,,False
-South Florida,1038.903226987116,American,,False
+South Florida,1025.0059426943665,American,,True
 Temple,932.8455280565138,American,,False
 Tulane,962.4529510932927,American,,False
 Tulsa,1027.7690413642688,American,,False
@@ -113,17 +113,17 @@ Pennsylvania,696.1405151215267,Ivy League,,False
 Princeton,754.7340373458198,Ivy League,,False
 Yale,705.7162273250478,Ivy League,,False
 Akron,859.8821542219081,MAC,,False
-Ball State,918.9836118872898,MAC,,True
+Ball State,918.9836118872898,MAC,,False
 Bowling Green,927.101638372989,MAC,,False
-Buffalo,1035.3908453821098,MAC,,True
-Central Michigan,1003.5237510477418,MAC,,True
+Buffalo,1035.3908453821098,MAC,,False
+Central Michigan,1003.5237510477418,MAC,,False
 Eastern Michigan,941.4962119625434,MAC,,False
 Kent State,894.6811422751344,MAC,,False
-Massachusetts,952.904959559237,MAC,,True
+Massachusetts,952.904959559237,MAC,,False
 Miami (OH),1023.0677038537466,MAC,,False
 Ohio,1019.5845166850866,MAC,,False
-Sacramento State,876.6862705235201,MAC,,True
-Toledo,1064.1577418000163,MAC,,True
+Sacramento State,876.6862705235201,MAC,,False
+Toledo,1064.1577418000163,MAC,,False
 Western Michigan,1046.5792920172407,MAC,,False
 Delaware State,669.9576795376317,MEAC,,False
 Howard,647.2604880291667,MEAC,,False
@@ -237,14 +237,14 @@ Coastal Carolina,956.1966931011885,Sun Belt,,False
 Georgia Southern,1037.6658625003597,Sun Belt,,False
 Georgia State,1007.0165097474109,Sun Belt,,False
 James Madison,1088.9975185194799,Sun Belt,,False
-Louisiana,1031.058043688063,Sun Belt,,False
+Louisiana,1044.9214752839182,Sun Belt,,True
 Louisiana Tech,1062.0339732981404,Sun Belt,,False
 Marshall,963.083967634583,Sun Belt,,False
 Old Dominion,940.9703184587014,Sun Belt,,False
 South Alabama,972.4436831579046,Sun Belt,,False
 Southern Miss,939.1687663701055,Sun Belt,,False
 Troy,957.5180552297657,Sun Belt,,False
-UL Monroe,904.9140424766287,Sun Belt,,False
+UL Monroe,891.0506108807734,Sun Belt,,True
 Alabama A&M,739.4897341112502,SWAC,,False
 Alabama State,717.2888594234607,SWAC,,False
 Alcorn State,696.8419673731318,SWAC,,False
