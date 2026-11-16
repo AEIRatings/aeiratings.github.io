@@ -1,5 +1,4 @@
 away team,home team,game date (Pacific)
-Ole Miss,Oklahoma,2026-11-15
 Eastern Michigan,Western Michigan,2026-11-17
 Ball State,Ohio,2026-11-17
 Miami (OH),Kent State,2026-11-17
@@ -14,21 +13,18 @@ Bowling Green,Toledo,2026-11-20
 Oregon,Michigan State,2026-11-20
 UTEP,Air Force,2026-11-20
 New Mexico,Wyoming,2026-11-20
-Virginia Tech,Miami,2026-11-20
-Wake Forest,Georgia Tech,2026-11-20
-Pittsburgh,Louisville,2026-11-20
-North Texas,Tulane,2026-11-20
 BYU,Kansas,2026-11-21
+Wake Forest,Georgia Tech,2026-11-21
 Wofford,Ole Miss,2026-11-21
 Ohio State,Nebraska,2026-11-21
 Vanderbilt,Florida,2026-11-21
-Texas A&M,Oklahoma,2026-11-21
 Colorado,Cincinnati,2026-11-21
 Syracuse,Boston College,2026-11-21
 Northwestern,Minnesota,2026-11-21
 Wisconsin,Purdue,2026-11-21
 East Carolina,Army,2026-11-21
 Memphis,Navy,2026-11-21
+North Texas,Tulane,2026-11-21
 North Carolina,Virginia,2026-11-21
 Houston,West Virginia,2026-11-21
 Tennessee Tech,Mississippi State,2026-11-21
@@ -52,18 +48,21 @@ Samford,Auburn,2026-11-21
 NC State,Florida State,2026-11-21
 Rutgers,Penn State,2026-11-21
 Old Dominion,UConn,2026-11-21
+Texas A&M,Oklahoma,2026-11-21
 Northern Illinois,North Dakota State,2026-11-21
 Georgia Southern,Troy,2026-11-21
 Georgia State,Marshall,2026-11-21
 South Alabama,Southern Miss,2026-11-21
 Washington State,Texas State,2026-11-21
 Maryland,USC,2026-11-21
+Virginia Tech,Miami,2026-11-21
 Arizona,Kansas State,2026-11-21
 UNLV,San Jose State,2026-11-21
 Arkansas State,Louisiana Tech,2026-11-21
 Georgia,South Carolina,2026-11-21
 SMU,Notre Dame,2026-11-21
 Kentucky,Missouri,2026-11-21
+Pittsburgh,Louisville,2026-11-21
 Stanford,California,2026-11-21
 Colorado State,Fresno State,2026-11-21
 UTSA,UAB,2026-11-21
@@ -148,8 +147,6 @@ West Virginia,Utah,2026-11-27
 Georgia Tech,Georgia,2026-11-27
 Auburn,Alabama,2026-11-27
 USC,UCLA,2026-11-27
-Notre Dame,Syracuse,2026-11-27
-Boston College,Miami,2026-11-27
 Tennessee,Vanderbilt,2026-11-27
 Purdue,Indiana,2026-11-27
 Cincinnati,BYU,2026-11-27
@@ -160,16 +157,11 @@ Washington,Oregon,2026-11-27
 South Carolina,Clemson,2026-11-27
 LSU,Arkansas,2026-11-27
 Oklahoma,Missouri,2026-11-27
-Arizona State,Arizona,2026-11-27
 Kansas,Oklahoma State,2026-11-27
 UCF,Colorado,2026-11-27
 Kansas State,Iowa State,2026-11-27
-NC State,North Carolina,2026-11-27
-Pittsburgh,California,2026-11-27
 SMU,Stanford,2026-11-27
-Virginia,Virginia Tech,2026-11-27
 Illinois,Northwestern,2026-11-27
-Penn State,Maryland,2026-11-27
 Michigan State,Rutgers,2026-11-27
 UConn,Wyoming,2026-11-27
 Florida Atlantic,East Carolina,2026-11-27
@@ -178,20 +170,27 @@ Army,Rice,2026-11-27
 Navy,Charlotte,2026-11-27
 UAB,North Texas,2026-11-27
 UTEP,Northern Illinois,2026-11-27
-Coastal Carolina,James Madison,2026-11-27
 Louisiana Tech,Georgia Southern,2026-11-27
 Louisiana,Georgia State,2026-11-27
 Marshall,UL Monroe,2026-11-27
 Southern Miss,Old Dominion,2026-11-27
+Notre Dame,Syracuse,2026-11-28
+Boston College,Miami,2026-11-28
 Michigan,Ohio State,2026-11-28
+NC State,North Carolina,2026-11-28
 Central Michigan,Ball State,2026-11-28
 Massachusetts,Bowling Green,2026-11-28
 Kennesaw State,Western Kentucky,2026-11-28
+Coastal Carolina,James Madison,2026-11-28
 Liberty,Missouri State,2026-11-28
 Sam Houston,Florida International,2026-11-28
 New Mexico State,Middle Tennessee,2026-11-28
+Virginia,Virginia Tech,2026-11-28
 Troy,Arkansas State,2026-11-28
+Penn State,Maryland,2026-11-28
 Jacksonville State,Delaware,2026-11-28
+Pittsburgh,California,2026-11-28
+Arizona State,Arizona,2026-11-28
 Nevada,UNLV,2026-11-28
 Sacramento State,Hawai'i,2026-11-28
 Grambling,Southern,2026-11-28
