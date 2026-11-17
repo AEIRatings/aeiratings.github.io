@@ -1,6 +1,4 @@
 away team,home team,game date (Pacific)
-Cincinnati Bearcats,Iowa State Cyclones,2026-11-16
-Northern Colorado Bears,Montana Grizzlies,2026-11-16
 Michigan Wolverines,Michigan State Spartans,2026-11-17
 Colgate Raiders,Navy Midshipmen,2026-11-17
 Iona Gaels,Siena Saints,2026-11-17
@@ -71,7 +69,7 @@ San Diego State Aztecs,Utah State Aggies,2026-11-19
 Santa Clara Broncos,Saint Mary's Gaels,2026-11-19
 Portland Pilots,San Diego Toreros,2026-11-19
 TBD TBD,TBD TBD,2026-11-19
-TBD TBD,TBD TBD,2026-11-20
+North Carolina Central Eagles,Delaware State Hornets,2026-11-20
 TBD TBD,Wofford Terriers,2026-11-20
 East Texas A&M Lions,SE Louisiana Lions,2026-11-20
 Florida State Seminoles,Duke Blue Devils,2026-11-20
@@ -82,6 +80,7 @@ Jackson State Tigers,Bethune-Cookman Wildcats,2026-11-20
 Florida International Panthers,Western Kentucky Hilltoppers,2026-11-20
 Samford Bulldogs,Mercer Bears,2026-11-20
 George Mason Patriots,George Washington Revolutionaries,2026-11-20
+Maryland Eastern Shore Hawks,Coppin State Eagles,2026-11-20
 Central Connecticut Blue Devils,Long Island University Sharks,2026-11-20
 McNeese Cowboys,UT Rio Grande Valley Vaqueros,2026-11-20
 South Florida Bulls,Florida Atlantic Owls,2026-11-20
@@ -99,6 +98,7 @@ Western Michigan Broncos,Ball State Cardinals,2026-11-20
 TBD TBD,UNC Greensboro Spartans,2026-11-20
 TBD TBD,Eastern Kentucky Colonels,2026-11-20
 Duquesne Dukes,Loyola Chicago Ramblers,2026-11-20
+South Carolina State Bulldogs,Howard Bison,2026-11-20
 South Carolina Gamecocks,LSU Tigers,2026-11-20
 Texas A&M-Corpus Christi Islanders,Stephen F. Austin Lumberjacks,2026-11-20
 TBD TBD,Marist Red Foxes,2026-11-20
@@ -130,6 +130,7 @@ Iowa State Cyclones,Baylor Bears,2026-11-20
 Eastern Washington Eagles,Weber State Wildcats,2026-11-20
 Portland State Vikings,Utah Tech Trailblazers,2026-11-20
 Sam Houston Bearkats,Liberty Flames,2026-11-20
+Norfolk State Spartans,Morgan State Bears,2026-11-20
 Lamar Cardinals,Incarnate Word Cardinals,2026-11-20
 Louisiana Ragin' Cajuns,App State Mountaineers,2026-11-20
 TBD TBD,Fairfield Stags,2026-11-20
@@ -146,19 +147,20 @@ Syracuse Orange,Stanford Cardinal,2026-11-20
 Boston College Eagles,California Golden Bears,2026-11-20
 Utah Valley Wolverines,Cal State Northridge Matadors,2026-11-20
 UC San Diego Tritons,Long Beach State 49ers,2026-11-20
+TBD TBD,TBD TBD,2026-11-20
 TBD TBD,Mississippi State Bulldogs,2026-11-21
 TBD TBD,TBD TBD,2026-11-21
 Xavier Musketeers,Creighton Bluejays,2026-11-21
 TBD TBD,Dayton Flyers,2026-11-21
 TBD TBD,Tennessee Volunteers,2026-11-21
 Cincinnati Bearcats,BYU Cougars,2026-11-21
+Loyola Marymount Lions,Pepperdine Waves,2026-11-21
 Portland Pilots,Denver Pioneers,2026-11-21
 Seattle U Redhawks,San Diego Toreros,2026-11-21
 TBD TBD,High Point Panthers,2026-11-21
 TBD TBD,Wright State Raiders,2026-11-21
 DePaul Blue Demons,Marquette Golden Eagles,2026-11-21
 TBD TBD,Saint Louis Billikens,2026-11-21
-Loyola Marymount Lions,Pepperdine Waves,2026-11-21
 TBD TBD,Toledo Rockets,2026-11-21
 TBD TBD,Texas A&M Aggies,2026-11-21
 Arizona Wildcats,Utah Utes,2026-11-21
@@ -177,8 +179,8 @@ TBD TBD,Missouri Tigers,2026-11-21
 UC Irvine Anteaters,Long Beach State 49ers,2026-11-21
 Pittsburgh Panthers,Virginia Tech Hokies,2026-11-22
 TBD TBD,Florida Gators,2026-11-22
-NC State Wolfpack,Louisville Cardinals,2026-11-22
 SMU Mustangs,Virginia Cavaliers,2026-11-22
+NC State Wolfpack,Louisville Cardinals,2026-11-22
 Florida State Seminoles,North Carolina Tar Heels,2026-11-22
 Miami Hurricanes,Duke Blue Devils,2026-11-22
 Wake Forest Demon Deacons,Notre Dame Fighting Irish,2026-11-22
@@ -222,8 +224,8 @@ Kansas Jayhawks,Arizona Wildcats,2026-11-25
 San Diego Toreros,San Francisco Dons,2026-11-25
 Kansas State Wildcats,Arizona State Sun Devils,2026-11-25
 TCU Horned Frogs,Utah Utes,2026-11-25
-North Carolina Tar Heels,Miami Hurricanes,2026-11-27
 Baylor Bears,Cincinnati Bearcats,2026-11-27
+North Carolina Tar Heels,Miami Hurricanes,2026-11-27
 Utah Utes,UCF Knights,2026-11-27
 Clemson Tigers,Wake Forest Demon Deacons,2026-11-27
 Iowa State Cyclones,Colorado Buffaloes,2026-11-27
