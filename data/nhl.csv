@@ -1,7 +1,7 @@
 Team,Elo,Division,Notes,RatingUpdated
-Florida Panthers,1012.2122871883228,E Atlantic,,True
+Florida Panthers,1012.2122871883228,E Atlantic,,False
 Boston Bruins,1010.7597079029487,E Atlantic,,False
-Montreal Canadiens,1010.0002045850429,E Atlantic,,False
+Montreal Canadiens,1003.8413999714023,E Atlantic,,True
 Toronto Maple Leafs,966.0627889352594,E Atlantic,,False
 Detroit Red Wings,1005.661366119142,E Atlantic,,False
 Ottawa Senators,1009.7091622524914,E Atlantic,,False
@@ -10,24 +10,24 @@ Buffalo Sabres,980.7441046749984,E Atlantic,,False
 Carolina Hurricanes,1059.814532898618,E Metropolitan,,False
 Washington Capitals,988.8021469040218,E Metropolitan,,False
 Pittsburgh Penguins,981.4130823874107,E Metropolitan,,False
-New York Rangers,1011.6168954678368,E Metropolitan,,False
+New York Rangers,1017.7757000814773,E Metropolitan,,True
 Columbus Blue Jackets,970.036177092638,E Metropolitan,,False
 New Jersey Devils,1039.0408054213513,E Metropolitan,,False
-Philadelphia Flyers,986.2840906046462,E Metropolitan,,True
+Philadelphia Flyers,986.2840906046462,E Metropolitan,,False
 New York Islanders,1011.4011981535497,E Metropolitan,,False
 Colorado Avalanche,1029.09911432423,W Central,,False
-Dallas Stars,997.8547766354551,W Central,,True
+Dallas Stars,997.8547766354551,W Central,,False
 Winnipeg Jets,1020.0875235639662,W Central,,False
-Nashville Predators,1029.087175990573,W Central,,True
+Nashville Predators,1029.087175990573,W Central,,False
 Minnesota Wild,1048.3301164813727,W Central,,False
 St. Louis Blues,992.4491050440811,W Central,,False
-Utah Mammoth,974.0924111628245,W Central,,False
+Utah Mammoth,961.7601394953456,W Central,,True
 Chicago Blackhawks,945.6566974271312,W Central,,False
 Seattle Kraken,971.7294434148348,W Pacific,,False
-Vegas Golden Knights,1001.3087820087438,W Pacific,,True
-Edmonton Oilers,1032.02331063234,W Pacific,,True
-Vancouver Canucks,953.0098631528124,W Pacific,,True
-Anaheim Ducks,1005.7376682050759,W Pacific,,True
-San Jose Sharks,985.2217517566163,W Pacific,,True
+Vegas Golden Knights,1001.3087820087438,W Pacific,,False
+Edmonton Oilers,1032.02331063234,W Pacific,,False
+Vancouver Canucks,965.3421348202913,W Pacific,,True
+Anaheim Ducks,1005.7376682050759,W Pacific,,False
+San Jose Sharks,985.2217517566163,W Pacific,,False
 Los Angeles Kings,962.9966944513042,W Pacific,,False
-Calgary Flames,978.0019278672081,W Pacific,,True
+Calgary Flames,978.0019278672081,W Pacific,,False
