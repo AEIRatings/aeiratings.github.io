@@ -3,7 +3,7 @@ Buffalo Bills,1085.6646265744616,AFC East,,False
 Miami Dolphins,923.5349674652167,AFC East,,False
 New England Patriots,997.9247788885814,AFC East,,False
 New York Jets,915.4315346260671,AFC East,,False
-Baltimore Ravens,944.3064754104377,AFC North,,True
+Baltimore Ravens,944.3064754104377,AFC North,,False
 Cincinnati Bengals,1080.2959253457134,AFC North,,False
 Cleveland Browns,1002.8136724092552,AFC North,,False
 Pittsburgh Steelers,1033.9309320607617,AFC North,,False
@@ -14,7 +14,7 @@ Tennessee Titans,918.8117637797806,AFC South,,False
 Denver Broncos,1047.166767791511,AFC West,,False
 Kansas City Chiefs,1064.4861063575156,AFC West,,False
 Las Vegas Raiders,952.1110776038009,AFC West,,False
-Los Angeles Chargers,908.4916993363773,AFC West,,True
+Los Angeles Chargers,908.4916993363773,AFC West,,False
 Dallas Cowboys,977.1333587694202,NFC East,,False
 New York Giants,1000.4907450597974,NFC East,,False
 Philadelphia Eagles,907.6737944115056,NFC East,,False
