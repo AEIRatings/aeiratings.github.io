@@ -1,7 +1,4 @@
 away team,home team,game date (Pacific)
-Eastern Michigan,Western Michigan,2026-11-17
-Ball State,Ohio,2026-11-17
-Miami (OH),Kent State,2026-11-17
 Akron,Massachusetts,2026-11-18
 Central Michigan,Buffalo,2026-11-18
 Rice,Temple,2026-11-19
@@ -15,9 +12,9 @@ UTEP,Air Force,2026-11-20
 New Mexico,Wyoming,2026-11-20
 BYU,Kansas,2026-11-21
 Wake Forest,Georgia Tech,2026-11-21
-Wofford,Ole Miss,2026-11-21
 Ohio State,Nebraska,2026-11-21
 Vanderbilt,Florida,2026-11-21
+Wofford,Ole Miss,2026-11-21
 Colorado,Cincinnati,2026-11-21
 Syracuse,Boston College,2026-11-21
 Northwestern,Minnesota,2026-11-21
@@ -41,8 +38,8 @@ Delaware,New Mexico State,2026-11-21
 Florida International,Kennesaw State,2026-11-21
 UCLA,Michigan,2026-11-21
 Arkansas,Texas,2026-11-21
-LSU,Tennessee,2026-11-21
 Indiana,Washington,2026-11-21
+LSU,Tennessee,2026-11-21
 Texas Tech,Baylor,2026-11-21
 Samford,Auburn,2026-11-21
 NC State,Florida State,2026-11-21
@@ -97,6 +94,7 @@ Charleston Southern,Eastern Illinois,2026-11-21
 Morehead State,Butler,2026-11-21
 Marist,Davidson,2026-11-21
 Dayton,Presbyterian,2026-11-21
+Alabama A&M,Mississippi Valley State,2026-11-21
 The Citadel,Western Carolina,2026-11-21
 Delaware State,South Carolina State,2026-11-21
 Tennessee State,Gardner-Webb,2026-11-21
@@ -104,24 +102,23 @@ Northern Iowa,Murray State,2026-11-21
 Southern Illinois,North Dakota,2026-11-21
 Morgan State,North Carolina Central,2026-11-21
 Eastern Kentucky,Abilene Christian,2026-11-21
-Montana,Montana State,2026-11-21
 UT Martin,Southeast Missouri State,2026-11-21
 West Florida,West Georgia,2026-11-21
 Chicago State,Southern Utah,2026-11-21
+Montana,Montana State,2026-11-21
 Indiana State,South Dakota State,2026-11-21
 Utah Tech,Weber State,2026-11-21
 Western Illinois,Lindenwood,2026-11-21
-Alabama A&M,Mississippi Valley State,2026-11-21
 East Tennessee State,Mercer,2026-11-21
 Prairie View A&M,Alabama State,2026-11-21
 Jackson State,Alcorn State,2026-11-21
+Arkansas-Pine Bluff,Texas Southern,2026-11-21
 Yale,Harvard,2026-11-21
 Florida A&M,Bethune-Cookman,2026-11-21
 Cal Poly,UC Davis,2026-11-21
 Portland State,Eastern Washington,2026-11-21
 Northern Colorado,Northern Arizona,2026-11-21
 Tarleton State,North Alabama,2026-11-21
-Arkansas-Pine Bluff,Texas Southern,2026-11-21
 Incarnate Word,East Texas A&M,2026-11-21
 Austin Peay,Central Arkansas,2026-11-21
 UT Rio Grande Valley,Houston Christian,2026-11-21
@@ -146,11 +143,11 @@ Minnesota,Wisconsin,2026-11-27
 West Virginia,Utah,2026-11-27
 Georgia Tech,Georgia,2026-11-27
 Auburn,Alabama,2026-11-27
-Tennessee,Vanderbilt,2026-11-27
 Purdue,Indiana,2026-11-27
-Louisville,Kentucky,2026-11-27
+Tennessee,Vanderbilt,2026-11-27
 Duke,Wake Forest,2026-11-27
 Washington,Oregon,2026-11-27
+Louisville,Kentucky,2026-11-27
 South Carolina,Clemson,2026-11-27
 LSU,Arkansas,2026-11-27
 SMU,Stanford,2026-11-27
