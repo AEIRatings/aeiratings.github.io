@@ -1,21 +1,4 @@
 away team,home team,game date (Pacific)
-Wyoming Cowboys,New Mexico Lobos,2026-11-18
-Eastern Illinois Panthers,Southeast Missouri State Redhawks,2026-11-18
-Southern Indiana Screaming Eagles,SIU Edwardsville Cougars,2026-11-18
-Clemson Tigers,Georgia Tech Yellow Jackets,2026-11-18
-UNLV Rebels,San José State Spartans,2026-11-18
-Lindenwood Lions,Western Illinois Leathernecks,2026-11-18
-UT Martin Skyhawks,Tennessee State Tigers,2026-11-18
-Illinois State Redbirds,Drake Bulldogs,2026-11-18
-Idaho Vandals,Weber State Wildcats,2026-11-18
-Northern Arizona Lumberjacks,Utah Tech Trailblazers,2026-11-18
-Nevada Wolf Pack,Air Force Falcons,2026-11-18
-Hawai'i Rainbow Warriors,UTEP Miners,2026-11-18
-Portland State Vikings,Southern Utah Thunderbirds,2026-11-18
-Eastern Washington Eagles,Idaho State Bengals,2026-11-18
-Northern Colorado Bears,Montana State Bobcats,2026-11-18
-Grand Canyon Lopes,UC Davis Aggies,2026-11-18
-Utah Valley Wolverines,Cal State Bakersfield Roadrunners,2026-11-19
 James Madison Dukes,South Alabama Jaguars,2026-11-19
 Towson Tigers,UNC Wilmington Seahawks,2026-11-19
 Oakland Golden Grizzlies,Purdue Fort Wayne Mastodons,2026-11-19
@@ -33,6 +16,7 @@ UIC Flames,Bradley Braves,2026-11-19
 UT Arlington Mavericks,Abilene Christian Wildcats,2026-11-19
 The Citadel Bulldogs,Furman Paladins,2026-11-19
 Seattle U Redhawks,Denver Pioneers,2026-11-19
+Boise State Broncos,Oregon State Beavers,2026-11-19
 Nevada Wolf Pack,Air Force Falcons,2026-11-19
 Hawai'i Rainbow Warriors,UTEP Miners,2026-11-19
 New Hampshire Wildcats,Bryant Bulldogs,2026-11-19
@@ -41,7 +25,6 @@ Wyoming Cowboys,New Mexico Lobos,2026-11-19
 Cincinnati Bearcats,Utah Utes,2026-11-19
 San Francisco Dons,Pacific Tigers,2026-11-19
 Gonzaga Bulldogs,Washington State Cougars,2026-11-19
-Boise State Broncos,Oregon State Beavers,2026-11-19
 Grand Canyon Lopes,UC Davis Aggies,2026-11-19
 Texas State Bobcats,Fresno State Bulldogs,2026-11-19
 San Diego State Aztecs,Utah State Aggies,2026-11-19
@@ -158,10 +141,11 @@ Cal Poly Mustangs,California Baptist Lancers,2026-11-21
 Sacramento State Hornets,Cal State Northridge Matadors,2026-11-21
 UC Santa Barbara Gauchos,UC Riverside Highlanders,2026-11-21
 TBD TBD,Bowling Green Falcons,2026-11-21
-TBD TBD,Northern Iowa Panthers,2026-11-21
+Drake Bulldogs,Northern Iowa Panthers,2026-11-21
 TBD TBD,Missouri Tigers,2026-11-21
 TBD TBD,Minnesota Golden Gophers,2026-11-21
 UC Irvine Anteaters,Long Beach State 49ers,2026-11-21
+UT Martin Skyhawks,Eastern Illinois Panthers,2026-11-22
 TBD TBD,Nebraska Cornhuskers,2026-11-22
 Pittsburgh Panthers,Virginia Tech Hokies,2026-11-22
 TBD TBD,Florida Gators,2026-11-22
@@ -175,6 +159,7 @@ West Virginia Mountaineers,Kansas State Wildcats,2026-11-22
 TBD TBD,TBD TBD,2026-11-22
 TBD TBD,Oregon Ducks,2026-11-22
 Houston Cougars,Texas Tech Red Raiders,2026-11-22
+SIU Edwardsville Cougars,Southeast Missouri State Redhawks,2026-11-22
 TBD TBD,Texas Longhorns,2026-11-22
 Arizona State Sun Devils,Baylor Bears,2026-11-22
 Iowa State Cyclones,TCU Horned Frogs,2026-11-22
@@ -182,10 +167,12 @@ Boston College Eagles,Stanford Cardinal,2026-11-22
 Syracuse Orange,California Golden Bears,2026-11-22
 North Dakota State Bison,Omaha Mavericks,2026-11-22
 TBD TBD,Kentucky Wildcats,2026-11-22
+Morehead State Eagles,Southern Indiana Screaming Eagles,2026-11-22
 TBD TBD,Penn State Nittany Lions,2026-11-22
 Kansas City Kangaroos,St. Thomas Tommies,2026-11-22
 TBD TBD,Vanderbilt Commodores,2026-11-22
 TBD TBD,Wisconsin Badgers,2026-11-22
+Western Illinois Leathernecks,Lindenwood Lions,2026-11-22
 TBD TBD,TBD TBD,2026-11-23
 TBD TBD,South Dakota Coyotes,2026-11-23
 TBD TBD,South Dakota State Jackrabbits,2026-11-23
