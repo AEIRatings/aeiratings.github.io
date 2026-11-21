@@ -1,8 +1,8 @@
 Team,Elo,Conference,Notes,RatingUpdated
 Boston College,955.7859762811732,ACC,,False
 California,914.3301778084308,ACC,,False
-Clemson,1012.1137023785435,ACC,,False
-Duke,1081.3110918540137,ACC,,False
+Clemson,1038.330533436651,ACC,,True
+Duke,1055.0942607959064,ACC,,True
 Florida State,1023.2827578244768,ACC,,False
 Georgia Tech,954.7785456886012,ACC,,False
 Louisville,1086.195841950582,ACC,,False
@@ -23,9 +23,9 @@ Florida Atlantic,1012.7805651637926,American,,False
 Memphis,1083.7779692372392,American,,False
 Navy,969.8059321616196,American,,False
 North Texas,1040.2951575565332,American,,False
-Rice,911.0108980997568,American,,True
+Rice,911.0108980997568,American,,False
 South Florida,1025.0059426943665,American,,False
-Temple,897.5218396789197,American,,True
+Temple,897.5218396789197,American,,False
 Tulane,968.8685094043865,American,,False
 Tulsa,1051.8442279033115,American,,False
 UAB,1015.5828748460494,American,,False
@@ -35,12 +35,12 @@ Indiana,1128.0639622264068,Big 10,,False
 Iowa,1111.593481425763,Big 10,,False
 Maryland,975.4790360247937,Big 10,,False
 Michigan,988.4373168488921,Big 10,,False
-Michigan State,972.1187700638328,Big 10,,False
+Michigan State,953.3075800497828,Big 10,,True
 Minnesota,989.1691410072037,Big 10,,False
 Nebraska,1045.364382434183,Big 10,,False
 Northwestern,1043.9743378985945,Big 10,,False
 Ohio State,1084.8480297888063,Big 10,,False
-Oregon,1095.4247109343407,Big 10,,False
+Oregon,1114.2359009483907,Big 10,,True
 Penn State,1062.1964037364667,Big 10,,False
 Purdue,950.6320979346855,Big 10,,False
 Rutgers,914.5750074996605,Big 10,,False
@@ -55,13 +55,13 @@ BYU,1099.3689128010342,Big 12,,False
 Cincinnati,985.3607954241743,Big 12,,False
 Colorado,972.9746300758499,Big 12,,False
 Houston,1053.4990900752066,Big 12,,False
-Iowa State,1025.2234103858182,Big 12,,False
+Iowa State,991.7003768323395,Big 12,,True
 Kansas,1010.9413008921083,Big 12,,False
 Kansas State,962.6069337762265,Big 12,,False
 Oklahoma State,1062.184394980666,Big 12,,False
 TCU,1038.8648349472503,Big 12,,False
 Texas Tech,1115.9785383446906,Big 12,,False
-UCF,993.6060973486882,Big 12,,False
+UCF,1027.1291309021667,Big 12,,True
 Utah,1139.6660863878687,Big 12,,False
 West Virginia,988.0402814413229,Big 12,,False
 Cal Poly,603.2207344830153,Big Sky,,False
@@ -114,7 +114,7 @@ Princeton,721.7877305042958,Ivy League,,False
 Yale,738.6625341665718,Ivy League,,False
 Akron,875.2456092133492,MAC,,False
 Ball State,911.7190237706126,MAC,,False
-Bowling Green,927.101638372989,MAC,,False
+Bowling Green,914.4914849035521,MAC,,True
 Buffalo,1052.8389374779076,MAC,,False
 Central Michigan,986.0756589519439,MAC,,False
 Eastern Michigan,934.4676124533588,MAC,,False
@@ -123,7 +123,7 @@ Massachusetts,937.5415045677959,MAC,,False
 Miami (OH),1035.3656397953034,MAC,,False
 Ohio,1026.8491048017638,MAC,,False
 Sacramento State,876.6862705235201,MAC,,False
-Toledo,1064.1577418000163,MAC,,False
+Toledo,1076.7678952694532,MAC,,True
 Western Michigan,1053.6078915264252,MAC,,False
 Delaware State,654.0527536041627,MEAC,,False
 Howard,663.1654139626357,MEAC,,False
@@ -131,16 +131,16 @@ Morgan State,657.3101990504032,MEAC,,False
 Norfolk State,642.6137077530693,MEAC,,False
 North Carolina Central,682.8144273625396,MEAC,,False
 South Carolina State,776.4365215559784,MEAC,,False
-Air Force,1064.9149452928912,Mountain West,,False
+Air Force,1083.8495840583382,Mountain West,,True
 Hawai'i,945.0766091945648,Mountain West,,False
 Nevada,973.75122734429,Mountain West,,False
-New Mexico,1089.284398874895,Mountain West,,False
+New Mexico,1099.610295838427,Mountain West,,True
 North Dakota State,1086.245672620202,Mountain West,,False
 Northern Illinois,822.8357180572473,Mountain West,,False
 San Jose State,955.6760672831871,Mountain West,,False
 UNLV,1028.3756786832894,Mountain West,,False
-UTEP,855.8811465204267,Mountain West,,False
-Wyoming,1046.0909343666347,Mountain West,,False
+UTEP,836.9465077549796,Mountain West,,True
+Wyoming,1035.7650374031027,Mountain West,,True
 Illinois State,768.1372433599352,MVC,,False
 Indiana State,583.1172880753143,MVC,,False
 Murray State,597.689571509848,MVC,,False
@@ -226,10 +226,10 @@ Houston Christian,657.1316639692909,Southland,,False
 Incarnate Word,781.7037922042808,Southland,,False
 Lamar,828.2213133640712,Southland,,False
 McNeese,664.077086405875,Southland,,False
-Nicholls,585.7727370179884,Southland,,True
-Northwestern State,495.9177336952064,Southland,,True
-SE Louisiana,709.6150574945906,Southland,,True
-Stephen F. Austin,856.4670180437263,Southland,,True
+Nicholls,585.7727370179884,Southland,,False
+Northwestern State,495.9177336952064,Southland,,False
+SE Louisiana,709.6150574945906,Southland,,False
+Stephen F. Austin,856.4670180437263,Southland,,False
 UT Rio Grande Valley,667.9821006309838,Southland,,False
 App State,977.2631660372246,Sun Belt,,False
 Arkansas State,962.4526988720321,Sun Belt,,False
