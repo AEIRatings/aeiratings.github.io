@@ -1,22 +1,4 @@
 away team,home team,game date (Pacific)
-Iowa State,UCF,2026-11-20
-Clemson,Duke,2026-11-20
-Bowling Green,Toledo,2026-11-20
-Oregon,Michigan State,2026-11-20
-UTEP,Air Force,2026-11-20
-New Mexico,Wyoming,2026-11-20
-BYU,Kansas,2026-11-21
-Wake Forest,Georgia Tech,2026-11-21
-Ohio State,Nebraska,2026-11-21
-Vanderbilt,Florida,2026-11-21
-Wofford,Ole Miss,2026-11-21
-Colorado,Cincinnati,2026-11-21
-Syracuse,Boston College,2026-11-21
-Northwestern,Minnesota,2026-11-21
-Wisconsin,Purdue,2026-11-21
-East Carolina,Army,2026-11-21
-Memphis,Navy,2026-11-21
-North Texas,Tulane,2026-11-21
 North Carolina,Virginia,2026-11-21
 Houston,West Virginia,2026-11-21
 Tennessee Tech,Mississippi State,2026-11-21
@@ -63,22 +45,6 @@ San Diego State,Boise State,2026-11-21
 Oklahoma State,Arizona State,2026-11-21
 Utah State,Oregon State,2026-11-21
 Hawai'i,Nevada,2026-11-21
-UAlbany,North Carolina A&T,2026-11-21
-Hampton,Stony Brook,2026-11-21
-Monmouth,Campbell,2026-11-21
-Sacred Heart,Merrimack,2026-11-21
-Cornell,Columbia,2026-11-21
-Duquesne,Central Connecticut,2026-11-21
-Long Island University,Robert Morris,2026-11-21
-Wagner,Stonehill,2026-11-21
-Howard,Norfolk State,2026-11-21
-Fordham,Holy Cross,2026-11-21
-William & Mary,Richmond,2026-11-21
-Furman,VMI,2026-11-21
-Pennsylvania,Princeton,2026-11-21
-New Haven,Mercyhurst,2026-11-21
-Lehigh,Lafayette,2026-11-21
-Rhode Island,Bryant,2026-11-21
 Elon,Towson,2026-11-21
 New Hampshire,Maine,2026-11-21
 Brown,Dartmouth,2026-11-21
@@ -91,6 +57,7 @@ Marist,Davidson,2026-11-21
 Dayton,Presbyterian,2026-11-21
 Alabama A&M,Mississippi Valley State,2026-11-21
 The Citadel,Western Carolina,2026-11-21
+Rhode Island,Bryant,2026-11-21
 Delaware State,South Carolina State,2026-11-21
 Tennessee State,Gardner-Webb,2026-11-21
 Northern Iowa,Murray State,2026-11-21
@@ -100,7 +67,6 @@ Eastern Kentucky,Abilene Christian,2026-11-21
 Montana,Montana State,2026-11-21
 UT Martin,Southeast Missouri State,2026-11-21
 West Florida,West Georgia,2026-11-21
-Chicago State,Southern Utah,2026-11-21
 Indiana State,South Dakota State,2026-11-21
 Utah Tech,Weber State,2026-11-21
 Western Illinois,Lindenwood,2026-11-21
@@ -115,6 +81,7 @@ Portland State,Eastern Washington,2026-11-21
 Northern Colorado,Northern Arizona,2026-11-21
 Tarleton State,North Alabama,2026-11-21
 Incarnate Word,East Texas A&M,2026-11-21
+Chicago State,Southern Utah,2026-11-21
 Austin Peay,Central Arkansas,2026-11-21
 UT Rio Grande Valley,Houston Christian,2026-11-21
 Idaho,Idaho State,2026-11-21
