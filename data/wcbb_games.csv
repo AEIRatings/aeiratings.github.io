@@ -1,41 +1,4 @@
 away team,home team,game date (Pacific)
-Gonzaga Bulldogs,California Golden Bears,2026-11-23
-App State Mountaineers,Norfolk State Spartans,2026-11-23
-Morgan State Lady Bears,VCU Rams,2026-11-23
-Canisius Golden Griffins,Duquesne Dukes,2026-11-23
-Wofford Terriers,Wake Forest Demon Deacons,2026-11-23
-Radford Highlanders,Furman Paladins,2026-11-23
-Oakland Golden Grizzlies,Northwestern Wildcats,2026-11-23
-Green Bay Phoenix,Northern Iowa Panthers,2026-11-23
-Saint Peter's Peacocks,Fairleigh Dickinson Knights,2026-11-23
-Marquette Golden Eagles,Milwaukee Panthers,2026-11-23
-Binghamton Bearcats,Marist Red Foxes,2026-11-23
-Tennessee Tech Golden Eagles,Lipscomb Bisons,2026-11-23
-SMU Mustangs,Saint Mary's Gaels,2026-11-23
-Rider Broncs,Seton Hall Pirates,2026-11-23
-Xavier Musketeers,Dayton Flyers,2026-11-23
-Jackson State Lady Tigers,North Alabama Lions,2026-11-23
-George Washington Revolutionaries,UAB Blazers,2026-11-23
-Belmont Bruins,LSU Tigers,2026-11-23
-Prairie View A&M Lady Panthers,Houston Cougars,2026-11-23
-Northern Arizona Lumberjacks,USC Trojans,2026-11-23
-Bucknell Bison,Le Moyne Dolphins,2026-11-24
-William & Mary Tribe,Coppin State Eagles,2026-11-24
-American University Eagles,Yale Bulldogs,2026-11-24
-La Salle Explorers,Villanova Wildcats,2026-11-24
-St. Bonaventure Bonnies,Georgia State Panthers,2026-11-24
-UT Martin Skyhawks,Alcorn State Lady Braves,2026-11-24
-Central Michigan Chippewas,St. Thomas-Minnesota Tommies,2026-11-24
-Davidson Wildcats,Notre Dame Fighting Irish,2026-11-24
-Wright State Raiders,Bethune-Cookman Wildcats,2026-11-24
-Fresno State Bulldogs,Florida Gulf Coast Eagles,2026-11-24
-George Mason Patriots,Longwood Lancers,2026-11-24
-Sacred Heart Pioneers,New Haven Chargers,2026-11-24
-Siena Saints,Colgate Raiders,2026-11-24
-Virginia Tech Hokies,Michigan State Spartans,2026-11-24
-Western Michigan Broncos,Lindenwood Lions,2026-11-24
-Pepperdine Waves,Sam Houston Bearkats,2026-11-24
-Florida Gators,West Virginia Mountaineers,2026-11-24
 Oklahoma Sooners,Montana State Bobcats,2026-11-24
 James Madison Dukes,Winthrop Eagles,2026-11-24
 UCLA Bruins,St. John's Red Storm,2026-11-24
@@ -213,6 +176,7 @@ VCU Rams,Ohio State Buckeyes,2026-11-28
 Western Kentucky Lady Toppers,Morehead State Eagles,2026-11-28
 Alabama A&M Bulldogs,North Carolina Central Eagles,2026-11-28
 McNeese Cowgirls,North Dakota State Bison,2026-11-28
+Evansville Purple Aces,Austin Peay Governors,2026-11-28
 George Mason Patriots,Providence Friars,2026-11-28
 Charleston Southern Buccaneers,South Carolina State Lady Bulldogs,2026-11-28
 Merrimack Warriors,Northeastern Huskies,2026-11-28
@@ -241,7 +205,6 @@ UC Santa Barbara Gauchos,Portland State Vikings,2026-11-28
 Northern Kentucky Norse,Murray State Racers,2026-11-28
 Detroit Mercy Titans,Drake Bulldogs,2026-11-28
 St. Thomas-Minnesota Tommies,California Baptist Lancers,2026-11-28
-Evansville Purple Aces,Austin Peay Governors,2026-11-28
 South Dakota State Jackrabbits,Kentucky Wildcats,2026-11-28
 Texas A&M Aggies,Charlotte 49ers,2026-11-28
 Fresno State Bulldogs,UT Arlington Mavericks,2026-11-28
@@ -487,7 +450,6 @@ Morgan State Lady Bears,South Florida Bulls,2026-12-04
 Stephen F. Austin Ladyjacks,Omaha Mavericks,2026-12-04
 Boise State Broncos,San Francisco Dons,2026-12-04
 Yale Bulldogs,Gonzaga Bulldogs,2026-12-04
-Michigan Wolverines,Oklahoma Sooners,2026-12-04
 Iona Gaels,Dartmouth Big Green,2026-12-05
 Ohio State Buckeyes,Rutgers Scarlet Knights,2026-12-05
 Incarnate Word Cardinals,SE Louisiana Lady Lions,2026-12-05
@@ -496,6 +458,7 @@ Massachusetts Minutemen,Binghamton Bearcats,2026-12-05
 UNLV Lady Rebels,Boston University Terriers,2026-12-05
 Radford Highlanders,Ohio Bobcats,2026-12-05
 George Washington Revolutionaries,Brown Bears,2026-12-05
+Michigan Wolverines,Oklahoma Sooners,2026-12-05
 San Jose State Spartans,Utah State Aggies,2026-12-05
 North Alabama Lions,UT Martin Skyhawks,2026-12-05
 Samford Bulldogs,South Carolina Upstate Spartans,2026-12-05
@@ -556,7 +519,6 @@ Florida State Seminoles,Notre Dame Fighting Irish,2026-12-06
 Hofstra Pride,Texas A&M Aggies,2026-12-06
 Yale Bulldogs,Akron Zips,2026-12-06
 Duquesne Dukes,Buffalo Bulls,2026-12-06
-Texas Longhorns,TCU Horned Frogs,2026-12-06
 St. John's Red Storm,Xavier Musketeers,2026-12-06
 Valparaiso Beacons,Central Michigan Chippewas,2026-12-06
 Indiana State Sycamores,Miami (OH) RedHawks,2026-12-06
@@ -621,6 +583,7 @@ Eastern Kentucky Colonels,Louisville Cardinals,2026-12-06
 Penn State Lady Lions,Michigan State Spartans,2026-12-06
 Denver Pioneers,Utah Utes,2026-12-06
 Gonzaga Bulldogs,Arizona State Sun Devils,2026-12-06
+Texas Longhorns,TCU Horned Frogs,2026-12-06
 Boise State Broncos,Pepperdine Waves,2026-12-06
 UCLA Bruins,Oregon Ducks,2026-12-06
 Sam Houston Bearkats,Mississippi State Bulldogs,2026-12-06
