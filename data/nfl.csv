@@ -4,7 +4,7 @@ Miami Dolphins,912.492524381983,AFC East,,False
 New England Patriots,997.9247788885814,AFC East,,False
 New York Jets,925.3753926759119,AFC East,,False
 Baltimore Ravens,941.8398502982644,AFC North,,False
-Cincinnati Bengals,1066.2703551347754,AFC North,,True
+Cincinnati Bengals,1066.2703551347754,AFC North,,False
 Cleveland Browns,1002.8136724092552,AFC North,,False
 Pittsburgh Steelers,1016.4354823969775,AFC North,,False
 Houston Texans,1004.2794131818775,AFC South,,False
@@ -18,7 +18,7 @@ Los Angeles Chargers,898.5478412865325,AFC West,,False
 Dallas Cowboys,994.0789662538906,NFC East,,False
 New York Giants,1020.1830589366836,NFC East,,False
 Philadelphia Eagles,925.1692440752898,NFC East,,False
-Washington Commanders,982.9588525695617,NFC East,,True
+Washington Commanders,982.9588525695617,NFC East,,False
 Chicago Bears,1084.5612404010294,NFC North,,False
 Detroit Lions,1072.5911069109102,NFC North,,False
 Green Bay Packers,1026.8125459939681,NFC North,,False
