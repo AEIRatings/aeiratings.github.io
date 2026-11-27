@@ -1,50 +1,16 @@
 away team,home team,game date (Pacific)
-Colorado State Rams,Grambling Lady Tigers,2026-11-26
-Fairfield Stags,North Dakota State Bison,2026-11-26
-Kansas Jayhawks,Washington State Cougars,2026-11-26
-Air Force Falcons,Texas Tech Lady Raiders,2026-11-26
-Minnesota Golden Gophers,Missouri State Bears,2026-11-26
-Xavier Musketeers,Santa Clara Broncos,2026-11-26
-Cincinnati Bearcats,Miami (OH) RedHawks,2026-11-26
-Auburn Tigers,Syracuse Orange,2026-11-27
-Vermont Catamounts,George Mason Patriots,2026-11-27
-Stetson Hatters,Boise State Broncos,2026-11-27
-Marquette Golden Eagles,Illinois Fighting Illini,2026-11-27
-Bowling Green Falcons,Texas A&M Aggies,2026-11-27
-North Dakota Fighting Hawks,Florida International Panthers,2026-11-27
-Indiana Hoosiers,Mississippi State Bulldogs,2026-11-27
-North Carolina A&T Aggies,Abilene Christian Wildcats,2026-11-27
-Colorado Buffaloes,Oregon Ducks,2026-11-27
-Akron Zips,Louisville Cardinals,2026-11-27
-Morehead State Eagles,Buffalo Bulls,2026-11-27
-UMBC Retrievers,Iona Gaels,2026-11-27
-DePaul Blue Demons,Northwestern Wildcats,2026-11-27
-Charleston Cougars,Boston College Eagles,2026-11-27
-Missouri Tigers,Tulane Green Wave,2026-11-27
-Binghamton Bearcats,Providence Friars,2026-11-27
-UT Rio Grande Valley Vaqueros,UIC Flames,2026-11-27
-Delaware State Hornets,Bucknell Bison,2026-11-27
-UT Arlington Mavericks,West Florida Argonauts,2026-11-27
-Central Michigan Chippewas,Tulsa Golden Hurricane,2026-11-27
-USC Trojans,Saint Joseph's Hawks,2026-11-27
-TCU Horned Frogs,Georgia Tech Yellow Jackets,2026-11-27
-Oklahoma State Cowgirls,Washington Huskies,2026-11-27
-Northern Illinois Huskies,Manhattan Jaspers,2026-11-27
-South Dakota Coyotes,North Florida Ospreys,2026-11-27
-Maryland Eastern Shore Hawks,Georgia Lady Bulldogs,2026-11-27
 Western Kentucky Lady Toppers,Florida Atlantic Owls,2026-11-27
-Gardner-Webb Runnin' Bulldogs,East Carolina Pirates,2026-11-27
-Richmond Spiders,St. John's Red Storm,2026-11-27
+St. John's Red Storm,Richmond Spiders,2026-11-27
 Southern Miss Lady Eagles,Drexel Dragons,2026-11-27
 Fairfield Stags,BYU Cougars,2026-11-27
-Georgetown Hoyas,Clemson Tigers,2026-11-27
 Delaware Blue Hens,California Golden Bears,2026-11-27
 Howard Bison,UTSA Roadrunners,2026-11-27
 Idaho Vandals,California Baptist Lancers,2026-11-27
+Colorado State Rams,Little Rock Trojans,2026-11-27
 Saint Louis Billikens,Drake Bulldogs,2026-11-27
 Bradley Braves,Texas State Bobcats,2026-11-27
 Louisiana Ragin' Cajuns,Northwestern State Lady Demons,2026-11-27
-Loyola Marymount Lions,Oral Roberts Golden Eagles,2026-11-27
+Oral Roberts Golden Eagles,Loyola Marymount Lions,2026-11-27
 Southern Illinois Salukis,Purdue Fort Wayne Mastodons,2026-11-27
 Charlotte 49ers,UCF Knights,2026-11-27
 Creighton Bluejays,Houston Cougars,2026-11-27
@@ -58,6 +24,7 @@ San Diego State Aztecs,Hawai'i Rainbow Wahine,2026-11-27
 Jacksonville State Gamecocks,UC Irvine Anteaters,2026-11-27
 Florida State Seminoles,Dayton Flyers,2026-11-27
 Penn State Lady Lions,Baylor Bears,2026-11-27
+Gardner-Webb Runnin' Bulldogs,East Carolina Pirates,2026-11-27
 Butler Bulldogs,UNLV Lady Rebels,2026-11-27
 Cal State Northridge Matadors,St. Thomas-Minnesota Tommies,2026-11-27
 UL Monroe Warhawks,Fresno State Bulldogs,2026-11-27
@@ -74,9 +41,9 @@ Wofford Terriers,North Texas Mean Green,2026-11-27
 Utah State Aggies,Wyoming Cowgirls,2026-11-27
 Columbia Lions,Stanford Cardinal,2026-11-27
 Coppin State Eagles,VCU Rams,2026-11-27
-New Mexico State Aggies,Nevada Wolf Pack,2026-11-27
 South Florida Bulls,Seton Hall Pirates,2026-11-27
 Cincinnati Bearcats,Minnesota Golden Gophers,2026-11-27
+New Mexico State Aggies,Nevada Wolf Pack,2026-11-27
 TCU Horned Frogs,Mississippi State Bulldogs,2026-11-28
 Bowling Green Falcons,Tulsa Golden Hurricane,2026-11-28
 South Dakota Coyotes,Abilene Christian Wildcats,2026-11-28
@@ -89,6 +56,7 @@ McNeese Cowgirls,North Dakota State Bison,2026-11-28
 Evansville Purple Aces,Austin Peay Governors,2026-11-28
 George Mason Patriots,Providence Friars,2026-11-28
 Charleston Southern Buccaneers,South Carolina State Lady Bulldogs,2026-11-28
+Xavier Musketeers,Air Force Falcons,2026-11-28
 UC San Diego Tritons,Northern Arizona Lumberjacks,2026-11-28
 Merrimack Warriors,Northeastern Huskies,2026-11-28
 Longwood Lancers,William & Mary Tribe,2026-11-28
@@ -112,6 +80,7 @@ Dayton Flyers,St. John's Red Storm,2026-11-28
 Wichita State Shockers,South Alabama Jaguars,2026-11-28
 BYU Cougars,Boston College Eagles,2026-11-28
 UC Santa Barbara Gauchos,Portland State Vikings,2026-11-28
+Texas Tech Lady Raiders,Santa Clara Broncos,2026-11-28
 Northern Kentucky Norse,Murray State Racers,2026-11-28
 Detroit Mercy Titans,Drake Bulldogs,2026-11-28
 St. Thomas-Minnesota Tommies,California Baptist Lancers,2026-11-28
