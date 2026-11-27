@@ -1,5 +1,5 @@
 Team,Elo,Division,Notes,RatingUpdated
-Buffalo Bills,1096.7070696576952,AFC East,,False
+Buffalo Bills,1102.2470215758717,AFC East,,True
 Miami Dolphins,912.492524381983,AFC East,,False
 New England Patriots,997.9247788885814,AFC East,,False
 New York Jets,925.3753926759119,AFC East,,False
@@ -12,22 +12,22 @@ Indianapolis Colts,923.0304877138065,AFC South,,False
 Jacksonville Jaguars,1066.331306366137,AFC South,,False
 Tennessee Titans,901.8661562953101,AFC South,,False
 Denver Broncos,1058.9086188185747,AFC West,,False
-Kansas City Chiefs,1079.8150521184386,AFC West,,False
+Kansas City Chiefs,1074.2751002002622,AFC West,,True
 Las Vegas Raiders,940.3692265767371,AFC West,,False
 Los Angeles Chargers,898.5478412865325,AFC West,,False
-Dallas Cowboys,994.0789662538906,NFC East,,False
+Dallas Cowboys,979.450985216377,NFC East,,True
 New York Giants,1020.1830589366836,NFC East,,False
-Philadelphia Eagles,925.1692440752898,NFC East,,False
+Philadelphia Eagles,939.7972251128034,NFC East,,True
 Washington Commanders,982.9588525695617,NFC East,,False
-Chicago Bears,1084.5612404010294,NFC North,,False
-Detroit Lions,1072.5911069109102,NFC North,,False
-Green Bay Packers,1011.7352205470526,NFC North,,True
+Chicago Bears,1094.5811962549928,NFC North,,True
+Detroit Lions,1062.5711510569467,NFC North,,True
+Green Bay Packers,1011.7352205470526,NFC North,,False
 Minnesota Vikings,1040.255750336287,NFC North,,False
 Atlanta Falcons,957.1443939149071,NFC South,,False
 Carolina Panthers,991.0464268642111,NFC South,,False
 New Orleans Saints,960.1204611318776,NFC South,,False
 Tampa Bay Buccaneers,1004.7412339941161,NFC South,,False
 Arizona Cardinals,907.5323531348989,NFC West,,False
-Los Angeles Rams,1061.4703816978308,NFC West,,True
+Los Angeles Rams,1061.4703816978308,NFC West,,False
 San Francisco 49ers,1103.2956308933665,NFC West,,False
 Seattle Seahawks,1050.1084501372432,NFC West,,False
